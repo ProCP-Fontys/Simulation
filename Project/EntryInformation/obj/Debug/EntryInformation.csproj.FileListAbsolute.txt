@@ -1,0 +1,45 @@
+c:\users\mervi\onedrive\documents\visual studio 2015\Projects\EntryInformation\EntryInformation\bin\Debug\EntryInformation.exe.config
+c:\users\mervi\onedrive\documents\visual studio 2015\Projects\EntryInformation\EntryInformation\bin\Debug\EntryInformation.exe
+c:\users\mervi\onedrive\documents\visual studio 2015\Projects\EntryInformation\EntryInformation\bin\Debug\EntryInformation.pdb
+c:\users\mervi\onedrive\documents\visual studio 2015\Projects\EntryInformation\EntryInformation\obj\Debug\EntryInformation.csprojResolveAssemblyReference.cache
+c:\users\mervi\onedrive\documents\visual studio 2015\Projects\EntryInformation\EntryInformation\obj\Debug\EntryInformation.Form1.resources
+c:\users\mervi\onedrive\documents\visual studio 2015\Projects\EntryInformation\EntryInformation\obj\Debug\EntryInformation.Properties.Resources.resources
+c:\users\mervi\onedrive\documents\visual studio 2015\Projects\EntryInformation\EntryInformation\obj\Debug\EntryInformation.csproj.GenerateResource.Cache
+c:\users\mervi\onedrive\documents\visual studio 2015\Projects\EntryInformation\EntryInformation\obj\Debug\EntryInformation.exe
+c:\users\mervi\onedrive\documents\visual studio 2015\Projects\EntryInformation\EntryInformation\obj\Debug\EntryInformation.pdb
+C:\Users\mervi_000\Documents\Visual Studio 2015\Projects\EntryInformation\EntryInformation\bin\Debug\EntryInformation.exe.config
+C:\Users\mervi_000\Documents\Visual Studio 2015\Projects\EntryInformation\EntryInformation\obj\Debug\EntryInformation.exe
+C:\Users\mervi_000\Documents\Visual Studio 2015\Projects\EntryInformation\EntryInformation\obj\Debug\EntryInformation.pdb
+D:\University\Fontys\lessons\ProCp\EntryInformation\EntryInformation\bin\Debug\EntryInformation.exe.config
+D:\University\Fontys\lessons\ProCp\EntryInformation\EntryInformation\obj\Debug\EntryInformation.exe
+D:\University\Fontys\lessons\ProCp\EntryInformation\EntryInformation\obj\Debug\EntryInformation.pdb
+D:\University\Fontys\lessons\ProCp\EntryInformation\EntryInformation\bin\Debug\EntryInformation.exe
+D:\University\Fontys\lessons\ProCp\EntryInformation\EntryInformation\bin\Debug\EntryInformation.pdb
+D:\University\Fontys\lessons\ProCp\EntryInformation\EntryInformation\bin\Debug\mscorlib.dll
+D:\University\Fontys\lessons\ProCp\EntryInformation\EntryInformation\bin\Debug\normidna.nlp
+D:\University\Fontys\lessons\ProCp\EntryInformation\EntryInformation\bin\Debug\normnfc.nlp
+D:\University\Fontys\lessons\ProCp\EntryInformation\EntryInformation\bin\Debug\normnfd.nlp
+D:\University\Fontys\lessons\ProCp\EntryInformation\EntryInformation\bin\Debug\normnfkc.nlp
+D:\University\Fontys\lessons\ProCp\EntryInformation\EntryInformation\bin\Debug\normnfkd.nlp
+D:\University\Fontys\lessons\ProCp\EntryInformation\EntryInformation\obj\Debug\EntryInformation.csprojResolveAssemblyReference.cache
+D:\University\Fontys\lessons\ProCp\EntryInformation\EntryInformation\obj\Debug\EntryInformation.Form1.resources
+D:\University\Fontys\lessons\ProCp\EntryInformation\EntryInformation\obj\Debug\EntryInformation.Properties.Resources.resources
+D:\University\Fontys\lessons\ProCp\EntryInformation\EntryInformation\obj\Debug\EntryInformation.Simulation.resources
+D:\University\Fontys\lessons\ProCp\EntryInformation\EntryInformation\obj\Debug\EntryInformation.csproj.GenerateResource.Cache
+D:\University\Fontys\lessons\ProCp\GitHub\TrafficSimulationC\Project\EntryInformation\bin\Debug\EntryInformation.exe.config
+D:\University\Fontys\lessons\ProCp\GitHub\TrafficSimulationC\Project\EntryInformation\obj\Debug\EntryInformation.exe
+D:\University\Fontys\lessons\ProCp\GitHub\TrafficSimulationC\Project\EntryInformation\obj\Debug\EntryInformation.pdb
+D:\University\Fontys\lessons\ProCp\GitHub\TrafficSimulationC\Project\EntryInformation\bin\Debug\EntryInformation.exe
+D:\University\Fontys\lessons\ProCp\GitHub\TrafficSimulationC\Project\EntryInformation\bin\Debug\EntryInformation.pdb
+D:\University\Fontys\lessons\ProCp\GitHub\TrafficSimulationC\Project\EntryInformation\bin\Debug\mscorlib.dll
+D:\University\Fontys\lessons\ProCp\GitHub\TrafficSimulationC\Project\EntryInformation\bin\Debug\normidna.nlp
+D:\University\Fontys\lessons\ProCp\GitHub\TrafficSimulationC\Project\EntryInformation\bin\Debug\normnfc.nlp
+D:\University\Fontys\lessons\ProCp\GitHub\TrafficSimulationC\Project\EntryInformation\bin\Debug\normnfd.nlp
+D:\University\Fontys\lessons\ProCp\GitHub\TrafficSimulationC\Project\EntryInformation\bin\Debug\normnfkc.nlp
+D:\University\Fontys\lessons\ProCp\GitHub\TrafficSimulationC\Project\EntryInformation\bin\Debug\normnfkd.nlp
+D:\University\Fontys\lessons\ProCp\GitHub\TrafficSimulationC\Project\EntryInformation\obj\Debug\EntryInformation.csprojResolveAssemblyReference.cache
+D:\University\Fontys\lessons\ProCp\GitHub\TrafficSimulationC\Project\EntryInformation\obj\Debug\EntryInformation.Properties.Resources.resources
+D:\University\Fontys\lessons\ProCp\GitHub\TrafficSimulationC\Project\EntryInformation\obj\Debug\EntryInformation.Simulation.resources
+D:\University\Fontys\lessons\ProCp\GitHub\TrafficSimulationC\Project\EntryInformation\obj\Debug\EntryInformation.csproj.GenerateResource.Cache
+D:\University\Fontys\lessons\ProCp\GitHub\TrafficSimulationC\Project\EntryInformation\obj\Debug\EntryInformation.First.resources
+D:\University\Fontys\lessons\ProCp\GitHub\TrafficSimulationC\Project\EntryInformation\obj\Debug\EntryInformation.TestSimulation.resources

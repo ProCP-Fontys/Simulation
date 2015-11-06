@@ -1,0 +1,5 @@
+D:\University\Fontys\lessons\ProCp\Components\TrafficControlApplication\bin\Debug\$safeprojectname$.exe.config
+D:\University\Fontys\lessons\ProCp\Components\TrafficControlApplication\obj\Debug\TrafficControlApplication.csprojResolveAssemblyReference.cache
+D:\University\Fontys\lessons\ProCp\Components\TrafficControlApplication\obj\Debug\safeprojectname.ControlForm1.resources
+D:\University\Fontys\lessons\ProCp\Components\TrafficControlApplication\obj\Debug\$safeprojectname$.Properties.Resources.resources
+D:\University\Fontys\lessons\ProCp\Components\TrafficControlApplication\obj\Debug\TrafficControlApplication.csproj.GenerateResource.Cache

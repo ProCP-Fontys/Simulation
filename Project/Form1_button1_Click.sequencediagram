@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" dslVersion="1.0.0.0" Id="8724477a-9e57-4d6b-8ee6-242d14e4447c" name="Form1_button1_Click" mode="DotNet" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+  <packagedElements>
+    <packageHasNamedElement>
+      <interaction Id="d40c49ab-a0e5-4dac-a6fd-d062b61e54ba" name="Form1_button1_Click" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
+        <fragments>
+          <behaviorExecutionSpecification Id="03876cb9-345a-485b-aa52-d75766ba92b5" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="a8d00870-11e2-4c84-88a6-4afddc9cd379" LastKnownName="this : Form1" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="1fae1773-fa2a-42f2-9d95-8bc2ed391502" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="0e0a2f55-6ff4-4669-b1a1-4a35af56ec64" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="fcd139d5-42fd-4d83-9d9c-41344570baaa" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="0e0a2f55-6ff4-4669-b1a1-4a35af56ec64" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="fe973429-7b46-4e7e-b682-6a9e07b97ee1" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="a8d00870-11e2-4c84-88a6-4afddc9cd379" LastKnownName="this : Form1" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <lostFoundTarget Id="4dc14a77-2643-4a02-8b12-6be27726940e" name="LostFoundTarget" />
+          <messageOccurrenceSpecification Id="fcd139d5-42fd-4d83-9d9c-41344570baaa" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="a8d00870-11e2-4c84-88a6-4afddc9cd379" LastKnownName="this : Form1" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="1fae1773-fa2a-42f2-9d95-8bc2ed391502" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="4caac2bb-aa92-4b88-bc96-017b96d02ec7" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="a8d00870-11e2-4c84-88a6-4afddc9cd379" LastKnownName="this : Form1" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline Id="a8d00870-11e2-4c84-88a6-4afddc9cd379" name="this : Form1" isActor="false" lifelineDisplayName="this : Form1" referencedInstance="(Assembly=$(b6e3b640-0205-4509-a0fc-235f158a8198.OutputPathUri) Namespace=Simulation Type=Form1 ObjectInstance=&quot;Object instance 3&quot;)" referencedType="Simulation‎.Form1">
+            <referencesInternal>
+              <reference Id="4dbf26b4-2861-43c5-8b93-9b98a0822d41" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=Simulation)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(b6e3b640-0205-4509-a0fc-235f158a8198.OutputPathUri)&amp;quot; Namespace=Simulation Type=Form1)&quot;)" tag="DGQL" />
+              <reference Id="c44718e2-ff5f-4e24-ab10-dcc2d4008117" handle="(Assembly=&quot;$(b6e3b640-0205-4509-a0fc-235f158a8198.OutputPathUri)&quot; Namespace=Simulation Type=Form1)" tag="DGML" />
+            </referencesInternal>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="0e0a2f55-6ff4-4669-b1a1-4a35af56ec64" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="1fae1773-fa2a-42f2-9d95-8bc2ed391502" LastKnownName="ExecutionOccurrenceSpecification" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message Id="5fefa494-e584-433a-8ff5-1190f4cf61b6" name="button1_Click" messageKind="Found" messageSort="AsynchCall" createSelfMessage="false">
+            <referencesInternal>
+              <reference Id="8729e431-363c-41e9-b1a9-35cb441612eb" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=Simulation)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(b6e3b640-0205-4509-a0fc-235f158a8198.OutputPathUri)&amp;quot; Namespace=Simulation Type=Form1)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(b6e3b640-0205-4509-a0fc-235f158a8198.OutputPathUri)&amp;quot; Namespace=Simulation Type=Form1 Member=(Name=button1_Click OverloadingParameters=[(Assembly=&amp;quot;$(FxUri)/mscorlib.dll&amp;quot; Namespace=System Type=Object),(Assembly=&amp;quot;$(FxUri)/mscorlib.dll&amp;quot; Namespace=System Type=EventArgs)]))&quot;)" tag="DGQL" />
+              <reference Id="80e9f010-f8da-4640-b94f-d91906acfb08" handle="(Assembly=&quot;$(b6e3b640-0205-4509-a0fc-235f158a8198.OutputPathUri)&quot; Namespace=Simulation Type=Form1 Member=(Name=button1_Click OverloadingParameters=[(Assembly=&quot;$(FxUri)/mscorlib.dll&quot; Namespace=System Type=Object),(Assembly=&quot;$(FxUri)/mscorlib.dll&quot; Namespace=System Type=EventArgs)]))" tag="DGML" />
+            </referencesInternal>
+            <sendEvent>
+              <lostFoundTargetMoniker Id="4dc14a77-2643-4a02-8b12-6be27726940e" LastKnownName="LostFoundTarget" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="fcd139d5-42fd-4d83-9d9c-41344570baaa" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="fe973429-7b46-4e7e-b682-6a9e07b97ee1" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="4caac2bb-aa92-4b88-bc96-017b96d02ec7" name="ExecutionEvent" />
+    </packageHasNamedElement>
+  </packagedElements>
+</SequenceDesignerModel>

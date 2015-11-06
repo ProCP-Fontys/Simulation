@@ -1,0 +1,32 @@
+<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>TrafficControlApplication</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>TrafficControlApplication</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="TrafficControlApplication.csproj" File="TrafficControlApplication.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="ControlForm1.cs">ControlForm1.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ControlForm1.Designer.cs">ControlForm1.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ControlForm1.resx">ControlForm1.resx</ProjectItem>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.resx">Resources.resx</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.Designer.cs">Resources.Designer.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.settings">Settings.settings</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.Designer.cs">Settings.Designer.cs</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="false" TargetFileName="TrafficComponentsLibrary.dll">TrafficComponentsLibrary.dll</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="TrafficControlApplicatie.cs">TrafficControlApplicatie.cs</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>
