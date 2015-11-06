@@ -17,11 +17,6 @@ public class Cars
 		set;
 	}
 
-	public virtual {
-		get;
-		set;
-	}
-
 	public virtual DateTime EndTime
 	{
 		get;
