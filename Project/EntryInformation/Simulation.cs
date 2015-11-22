@@ -12,9 +12,34 @@ namespace EntryInformation
 {
     public partial class Simulation : Form
     {
+        List<Point> pointsOfGridCells;
+        //List<Point> pointsOfGridCellsOccupied;
+        int nrOfGridCellsOccupied = 0;
+
         public Simulation()
         {
             InitializeComponent();
+
+            pointsOfGridCells = new List<Point>();
+            
+
+            //first row
+            pointsOfGridCells.Add(new Point(0, 0));
+            pointsOfGridCells.Add(new Point(200, 0));
+            pointsOfGridCells.Add(new Point(400, 0));
+            pointsOfGridCells.Add(new Point(600, 0));
+
+            //second row
+            pointsOfGridCells.Add(new Point(0, 200));
+            pointsOfGridCells.Add(new Point(200, 200));
+            pointsOfGridCells.Add(new Point(400, 200));
+            pointsOfGridCells.Add(new Point(600, 200));
+
+            //third row
+            pointsOfGridCells.Add(new Point(0, 400));
+            pointsOfGridCells.Add(new Point(200, 400));
+            pointsOfGridCells.Add(new Point(400, 400));
+            pointsOfGridCells.Add(new Point(600, 400));
         }
 
         public void calculatePanelSize(int nrOfRows, int nrOfColumns)
@@ -89,6 +114,115 @@ namespace EntryInformation
            // {
              //   this.ParentForm.WindowState = FormWindowState.Maximized;
             //}
+        }
+
+        private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
+        {
+            pictureBox2.DoDragDrop(pictureBox2.Image, DragDropEffects.Copy);
+        }
+
+        private void gridPanel_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
+
+        private Point determinePicboxLocation(Point droppedCoordinates)
+        {
+            if (nrOfGridCellsOccupied != 12)//if all cells are occupied
+            {
+                Point locationToBeDropped = new Point(-1, -1);
+
+                List<Point> pointsOfGridCellsUpdated = new List<Point>();
+
+                foreach (var item in pointsOfGridCells)//check if below you there are empty spots and check if is in cell
+                {
+                    if (droppedCoordinates.X >= item.X && droppedCoordinates.X <= (item.X + 200))
+                    {
+                        locationToBeDropped.X = item.X;
+                        pointsOfGridCellsUpdated.Add(item);
+                    }
+
+                }
+                foreach (var item in pointsOfGridCellsUpdated)
+                {
+                    if (droppedCoordinates.Y >= item.Y && droppedCoordinates.Y <= (item.Y + 200))
+                    {
+                        locationToBeDropped.Y = item.Y;
+                        //pointsOfGridCellsOccupied.Add(item);
+                        nrOfGridCellsOccupied++;
+                        pointsOfGridCells.Remove(item);
+                        break;
+                    }
+                }
+
+                if (locationToBeDropped.Y != -1)
+                    return locationToBeDropped;
+
+                
+
+                foreach (var item in pointsOfGridCellsUpdated)//check if there is an empty spot just below
+                {
+                    if ((droppedCoordinates.Y + 200) >= (item.Y) && (droppedCoordinates.Y + 200) <= (item.Y + 200))
+                    {
+                        nrOfGridCellsOccupied++;
+                        pointsOfGridCells.Remove(item);
+                        return item;
+                    }
+                }
+
+                pointsOfGridCellsUpdated = new List<Point>();
+
+                foreach (var item in pointsOfGridCells)//check if to your right there are empty spots
+                {
+                    if (droppedCoordinates.Y >= item.Y && droppedCoordinates.Y <= (item.Y + 200))
+                    {
+                        locationToBeDropped.Y = item.Y;
+                        //pointsOfGridCellsOccupied.Add(item);
+                        pointsOfGridCellsUpdated.Add(item);
+                    }
+                }
+
+                foreach (var item in pointsOfGridCellsUpdated)//check if there is an empty spot just to your right
+                {
+                    if ((droppedCoordinates.X + 200) >= (item.X) && (droppedCoordinates.X + 200) <= (item.X + 200))
+                    {
+                        nrOfGridCellsOccupied++;
+                        pointsOfGridCells.Remove(item);
+                        return item;
+                    }
+                }
+            }
+            return new Point(-1, -1);
+            //still have to check empty spots and your left and up//make a method to check the empty spots near a gridCell and then choose one of them
+        }
+
+        private void gridPanel_DragDrop(object sender, DragEventArgs e)
+        {
+            Point locationToBeDropped = determinePicboxLocation(this.gridPanel.PointToClient(new Point(e.X, e.Y)));
+            if (locationToBeDropped.X != -1)
+            {
+                PictureBox picbox = new PictureBox();
+                picbox.Size = new Size(200, 200);
+                picbox.BorderStyle = BorderStyle.FixedSingle;
+                picbox.Location = new Point(locationToBeDropped.X, locationToBeDropped.Y);
+
+                Bitmap image = (Bitmap)e.Data.GetData(DataFormats.Bitmap);
+                picbox.Image = image;
+                picbox.SizeMode = PictureBoxSizeMode.StretchImage;
+                gridPanel.Controls.Add(picbox);
+                //this.mainForm = mainForm;
+                //return true;
+            }
+        }
+
+        private void gridPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            label14.Text = "X = " + e.X + " and Y = " + e.Y;
+        }
+
+        private void Simulation_MouseMove(object sender, MouseEventArgs e)
+        {
+            label6.Text = "X = " + e.X + " and Y = " + e.Y;
         }
     }
 }
