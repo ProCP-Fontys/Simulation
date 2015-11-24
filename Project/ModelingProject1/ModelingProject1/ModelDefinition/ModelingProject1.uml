@@ -250,7 +250,7 @@
             isAbstract="false">
             <classMoniker
               Id="fec602a6-559a-4fd0-954e-eedd94993209"
-              LastKnownName="Cars"
+              LastKnownName="Car"
               LastKnownLocation="ModelingProject1.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -664,6 +664,24 @@
                 LastKnownLocation="ModelingProject1.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="870e94c9-bfd9-4fdc-845c-289638282e66"
+            name="Form"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="ffd12bfc-19a7-4af5-b14f-aa655333fd38"
+                LastKnownName="SimulationForm"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -790,7 +808,7 @@
     <packageHasNamedElement>
       <class
         Id="190cc4c9-5fcc-47a0-9d68-dbfe76e94d94"
-        name="Crossing"
+        name="Abstract Crossing"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -1181,9 +1199,9 @@
               </stereotypeInstance>
             </appliedStereotypesInternal>
             <type_NamedElement>
-              <classMoniker
-                Id="98de5996-e3a6-4b63-8258-d9ee97333451"
-                LastKnownName="Neighbours"
+              <undefinedTypeMoniker
+                Id="85fe8528-c36b-4063-9027-30231cc53cd2"
+                LastKnownName="List&lt;Crossing&gt;"
                 LastKnownLocation="ModelingProject1.uml" />
             </type_NamedElement>
           </property>
@@ -1523,7 +1541,7 @@
             <type_NamedElement>
               <classMoniker
                 Id="190cc4c9-5fcc-47a0-9d68-dbfe76e94d94"
-                LastKnownName="Crossing"
+                LastKnownName="Abstract Crossing"
                 LastKnownLocation="ModelingProject1.uml" />
             </type_NamedElement>
           </property>
@@ -1598,7 +1616,7 @@
             <type_NamedElement>
               <classMoniker
                 Id="190cc4c9-5fcc-47a0-9d68-dbfe76e94d94"
-                LastKnownName="Crossing"
+                LastKnownName="Abstract Crossing"
                 LastKnownLocation="ModelingProject1.uml" />
             </type_NamedElement>
           </property>
@@ -1748,7 +1766,7 @@
             <type_NamedElement>
               <classMoniker
                 Id="190cc4c9-5fcc-47a0-9d68-dbfe76e94d94"
-                LastKnownName="Crossing"
+                LastKnownName="Abstract Crossing"
                 LastKnownLocation="ModelingProject1.uml" />
             </type_NamedElement>
           </property>
@@ -2472,7 +2490,7 @@
             isAbstract="false">
             <classMoniker
               Id="190cc4c9-5fcc-47a0-9d68-dbfe76e94d94"
-              LastKnownName="Crossing"
+              LastKnownName="Abstract Crossing"
               LastKnownLocation="ModelingProject1.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -2730,81 +2748,6 @@
             </type_NamedElement>
           </property>
           <property
-            Id="ae6f2b2b-e466-4cb0-bb1e-82af390a5557"
-            name="Form"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="a7850f47-0222-4175-a548-81814a3b26bd"
-                name="property"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="25d83d3e-482e-4a63-be37-d77b6c20d7f1">
-                    <propertyInstance
-                      Id="76eb8484-92f6-4b9d-ab2d-3e4062278906"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="c3426e1e-3217-46df-9897-7dcc2aedc5d8">
-                    <propertyInstance
-                      Id="b0344175-c9c8-4c50-955b-addb0d94d56e"
-                      name="Get"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="e53f56ab-0fec-4291-8910-325573f9717c">
-                    <propertyInstance
-                      Id="7af87d4c-5f7a-4efb-b14d-b4800058abba"
-                      name="HasBody"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="118a224e-deb3-42ea-9d2c-807df27b6b0a">
-                    <propertyInstance
-                      Id="950783b2-244c-4b19-b5ed-9265a1af889f"
-                      name="IsUnsafe"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="317ec6ba-4055-46a8-8764-f3b1d506ea1c">
-                    <propertyInstance
-                      Id="b72d8fd6-2239-44e5-9cee-50032350ff1d"
-                      name="Inheritance"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="90f85acd-82db-4aeb-8576-4c3cc7fef0b0">
-                    <propertyInstance
-                      Id="282df2bf-3471-4549-9b5d-262d7aa78aed"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="36f76740-0380-4522-9d31-cf9a098a9aa9">
-                    <propertyInstance
-                      Id="fe6d629b-0dff-4473-a19d-8ee84fb6c4b1"
-                      name="Set"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <type_NamedElement>
-              <classMoniker
-                Id="ffd12bfc-19a7-4af5-b14f-aa655333fd38"
-                LastKnownName="SimulationForm"
-                LastKnownLocation="ModelingProject1.uml" />
-            </type_NamedElement>
-          </property>
-          <property
             Id="8d79c684-7a54-4ba1-afda-ebed65a6abf0"
             name="Size"
             isLeaf="false"
@@ -2879,6 +2822,17 @@
                 LastKnownLocation="ModelingProject1.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="1de0d8cb-baa6-4151-8352-ae2c1c96eebd"
+            name="Point position"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -3808,6 +3762,15 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <suppliersInternal>
+          <dependency
+            Id="3410f77f-7d5f-4fe3-aaac-81b7cfe96bca">
+            <enumerationMoniker
+              Id="9b68d17f-f919-4a82-8f30-c1b7d7968dae"
+              LastKnownName="LightState"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
         <ownedAttributesInternal>
           <property
             Id="b70d81f2-1227-4792-8ba6-c747ce84dec0"
@@ -3953,9 +3916,9 @@
               </stereotypeInstance>
             </appliedStereotypesInternal>
             <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="7d6e9e82-20cc-43a7-8311-2800cc08650a"
-                LastKnownName="Bool"
+              <enumerationMoniker
+                Id="9b68d17f-f919-4a82-8f30-c1b7d7968dae"
+                LastKnownName="LightState"
                 LastKnownLocation="ModelingProject1.uml" />
             </type_NamedElement>
           </property>
@@ -4160,7 +4123,7 @@
     <packageHasNamedElement>
       <class
         Id="fec602a6-559a-4fd0-954e-eedd94993209"
-        name="Cars"
+        name="Car"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -4659,156 +4622,6 @@
             </type_NamedElement>
           </property>
           <property
-            Id="14dd0fa7-6334-4258-a779-b8db9c267f5f"
-            name="X"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="21d1cad7-1278-409f-9842-f761b6fa24a9"
-                name="property"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="06ce0e57-84f3-4cc2-b163-114bf7310ec0">
-                    <propertyInstance
-                      Id="ac4b3868-4f2a-4726-9e9a-8cb955900c7b"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="1a7d67ce-8dcf-41dd-b71c-9b5232955408">
-                    <propertyInstance
-                      Id="642be353-dac2-4e70-8aff-5600b7120170"
-                      name="Get"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="66f9fa9c-e328-44d8-82ed-c3336429ebb5">
-                    <propertyInstance
-                      Id="54d16b72-a84d-4549-8405-7886fa7fa96a"
-                      name="HasBody"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="ab6b36f6-86b2-4e21-acef-211a82a3f669">
-                    <propertyInstance
-                      Id="9af9bb03-8cf7-4b02-80fb-d6795c8470b8"
-                      name="IsUnsafe"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="83b704bd-c994-419e-9ba7-2b8e7c51671e">
-                    <propertyInstance
-                      Id="9ac3e0df-2004-4882-9343-33bac293b195"
-                      name="Inheritance"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="343e7b70-71d2-4f75-83d3-8d82c07f39e8">
-                    <propertyInstance
-                      Id="3fdb6f3c-3353-407a-b30c-d82d9e123737"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="e02cfa57-5e23-48ea-98d6-a7a4274a2e01">
-                    <propertyInstance
-                      Id="fd478a9e-77d4-454c-8a75-de1e6bd20ff1"
-                      name="Set"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="c2dd13dd-9c81-4161-9996-4da2e43de9cd"
-                LastKnownName="int"
-                LastKnownLocation="ModelingProject1.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="d5a74f7b-e07e-4dce-86eb-95bb85a1d019"
-            name="Y"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="b808109e-f164-4696-91e4-c9da844ec4b5"
-                name="property"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="7a8d41c1-3397-4e68-b85e-8e473ea167b3">
-                    <propertyInstance
-                      Id="e97bc064-0c45-44ae-af5a-1ab6cf58ce94"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="79bc2248-0bc3-466d-9e41-515825579274">
-                    <propertyInstance
-                      Id="e359c7da-10ca-4dfc-a30a-eb1cdfa98402"
-                      name="Get"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="07e601e4-3bec-4105-9bd1-7932b0b97a70">
-                    <propertyInstance
-                      Id="270f4f3a-355a-470f-bb5d-8e3fd647f3c2"
-                      name="HasBody"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="f5d7482b-507a-4759-9a13-2425e341b410">
-                    <propertyInstance
-                      Id="2ec0e128-80d8-453b-974e-e51b1d36acfa"
-                      name="IsUnsafe"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="eecefabd-78bc-425a-a466-d391463dd883">
-                    <propertyInstance
-                      Id="6d4f4c2c-e75e-4985-858e-bc74b250ab9d"
-                      name="Inheritance"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="52cac207-5050-4c77-9d01-e532b86ec68a">
-                    <propertyInstance
-                      Id="565e9fdd-cf85-444b-8238-9aa46a58c5e5"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="743b092a-caf1-4079-bf43-41724cf1de6f">
-                    <propertyInstance
-                      Id="8451f834-3922-4114-89eb-dbdb2930933f"
-                      name="Set"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="c2dd13dd-9c81-4161-9996-4da2e43de9cd"
-                LastKnownName="int"
-                LastKnownLocation="ModelingProject1.uml" />
-            </type_NamedElement>
-          </property>
-          <property
             Id="7c62b006-732a-41ed-a993-e16110e46ae8"
             name="CrossingID"
             isLeaf="false"
@@ -4876,6 +4689,42 @@
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="c2dd13dd-9c81-4161-9996-4da2e43de9cd"
+                LastKnownName="int"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="ba7c5bb3-8535-482f-ac82-d6661bb443c1"
+            name="Point"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="567e4fd0-8282-427f-8a5d-94f67baca145"
+                LastKnownName="position"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="456f1b68-e55f-4bb2-bee3-6297eb90f975"
+            name="FeederID"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
             <type_NamedElement>
               <undefinedTypeMoniker
                 Id="c2dd13dd-9c81-4161-9996-4da2e43de9cd"
@@ -5125,7 +4974,7 @@
             isAbstract="false">
             <classMoniker
               Id="fec602a6-559a-4fd0-954e-eedd94993209"
-              LastKnownName="Cars"
+              LastKnownName="Car"
               LastKnownLocation="ModelingProject1.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -6148,6 +5997,12 @@
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="c2dd13dd-9c81-4161-9996-4da2e43de9cd"
+                LastKnownName="int"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
           </property>
           <property
             Id="7795bd13-0550-407f-b40d-11b9bbf4650c"
@@ -6217,6 +6072,12 @@
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
+            <type_NamedElement>
+              <enumerationMoniker
+                Id="9b68d17f-f919-4a82-8f30-c1b7d7968dae"
+                LastKnownName="LightState"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
           </property>
           <property
             Id="c8407bdf-2014-4f6f-a5e2-52c3b680d60e"
@@ -6536,6 +6397,32 @@
       <undefinedType
         Id="b61833c6-5f6a-4b68-9846-576247888d88"
         name="List &lt;Cars&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="85fe8528-c36b-4063-9027-30231cc53cd2"
+        name="List&lt;Crossing&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="9b68d17f-f919-4a82-8f30-c1b7d7968dae"
+        name="LightState"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="0de4ac84-9145-458c-871d-ec697c8a9db8"
+            name="Green" />
+          <enumerationLiteral
+            Id="5ecf5471-c7f7-46fb-abf1-8f80f8feab34"
+            name="Red" />
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="567e4fd0-8282-427f-8a5d-94f67baca145"
+        name="position" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
