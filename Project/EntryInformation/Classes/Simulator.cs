@@ -26,94 +26,87 @@ public class Simulator
 
     public void calculatePanelSize(int nrOfRows, int nrOfColumns, Panel gridPanel, GroupBox gridGroupBox)
     {
-        
+
         int height = nrOfRows * 200;
         int width = nrOfColumns * 200;
 
         gridPanel.Size = new Size(width, height);
-        gridGroupBox.Size = new Size(width + 10, height + 30);
+        gridGroupBox.Size = new Size(width + 15, height + 30);
     }
 
-	public void DrawGrid(ComboBox comboBox1, ComboBox comboBox2, Panel gridPanel, GroupBox gridGroupBox)
+    public void DrawGrid(ComboBox comboBoxRows, ComboBox comboBoxColumns, Panel gridPanel, GroupBox gridGroupBox)
     {
-        calculatePanelSize(Convert.ToInt16(comboBox1.SelectedItem), Convert.ToInt16(comboBox2.SelectedItem),gridPanel, gridGroupBox);
+        int nrOfRows = Convert.ToInt16(comboBoxRows.SelectedItem);
+        int nrOfColumns = Convert.ToInt16(comboBoxColumns.SelectedItem);
+
+        calculatePanelSize(nrOfRows, nrOfColumns, gridPanel, gridGroupBox);
         System.Drawing.Pen myPen;
         myPen = new System.Drawing.Pen(System.Drawing.Color.Black);
         System.Drawing.Graphics formGraphics = gridPanel.CreateGraphics();
 
-        int i2 = 200;
-
-        //drawing rows
-        for (int i = 0; i < Convert.ToInt16(comboBox1.SelectedItem) ; i++)
+        //drawing cells rows
+        foreach (var item in grid.ReturnGridCells(nrOfRows, nrOfColumns))
         {
-            formGraphics.DrawLine(myPen, 0, i2, gridPanel.Width, i2);
-            i2 += 200;
+            formGraphics.DrawLine(myPen, item.ReturnLocation().X, item.ReturnLocation().Y, (item.ReturnLocation().X + 200), item.ReturnLocation().Y);//top line from the left to right
+            formGraphics.DrawLine(myPen, item.ReturnLocation().X, item.ReturnLocation().Y, item.ReturnLocation().X, (item.ReturnLocation().Y + 200));//left line from top to bottom
+            formGraphics.DrawLine(myPen, item.ReturnLocation().X, (item.ReturnLocation().Y + 199), (item.ReturnLocation().X + 200), item.ReturnLocation().Y + 199);//bottom line from the left to right
+            formGraphics.DrawLine(myPen, (item.ReturnLocation().X + 199), item.ReturnLocation().Y, (item.ReturnLocation().X + 199), (item.ReturnLocation().Y + 200));//right line from top to bottom
         }
+        //if (Convert.ToInt16(comboBoxRows.SelectedItem) == 3 || Convert.ToInt16(comboBoxColumns.SelectedItem) == 4)
+        //{
+        //    formGraphics.DrawLine(myPen, 0, 600, 800, 600);
+        //    formGraphics.DrawLine(myPen, 800, 0, 800, 800);
+        //}
 
-        i2 = 200;
-        //drawing columns
-        for (int i = 0; i < Convert.ToInt16(comboBox2.SelectedItem) ; i++)
-        {
-            formGraphics.DrawLine(myPen, i2, 0, i2, gridPanel.Height);
-            i2 += 200;
-        }
-
-        //formGraphics.DrawLine(myPen, 0, 125, 660, 125);
-        //formGraphics.DrawLine(myPen, 0, 250, 660, 250);
-        //formGraphics.DrawLine(myPen, 0, 375, 660, 375);
-
-        //formGraphics.DrawLine(myPen, 220, 0, 220, 520);
-        //formGraphics.DrawLine(myPen, 440, 0, 440, 520);
-        ////formGraphics.DrawLine(myPen, 0, 375, 660, 375);
         myPen.Dispose();
         formGraphics.Dispose();
     }
 
-	public List<Crossing> crossings
-	{
-		get;
-		set;
-	}
+    public List<Crossing> crossings
+    {
+        get;
+        set;
+    }
 
-	public  DateTime Time
-	{
-		get;
-		set;
-	}
+    public DateTime Time
+    {
+        get;
+        set;
+    }
 
-	public virtual List <Cars> CarsList
-	{
-		get;
-		set;
-	}
+    public virtual List<Cars> CarsList
+    {
+        get;
+        set;
+    }
 
-	public virtual Grid Grid
-	{
-		get;
-		set;
-	}
+    public virtual Grid Grid
+    {
+        get;
+        set;
+    }
 
-	public virtual Form Form
-	{
-		get;
-		set;
-	}
+    public virtual Form Form
+    {
+        get;
+        set;
+    }
 
-	public virtual IEnumerable<Cars> Cars
-	{
-		get;
-		set;
-	}
+    public virtual IEnumerable<Cars> Cars
+    {
+        get;
+        set;
+    }
 
-	public virtual void Run()
-	{
-		throw new System.NotImplementedException();
-	}
+    public virtual void Run()
+    {
+        throw new System.NotImplementedException();
+    }
 
-	public virtual void Save()
-	{
-		throw new System.NotImplementedException();
-	}
+    public virtual void Save()
+    {
+        throw new System.NotImplementedException();
+    }
 
 }
 

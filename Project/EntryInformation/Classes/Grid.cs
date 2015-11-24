@@ -22,32 +22,95 @@ public class Grid
 
     public void CreateGridCells()
     {
-        for (int i = 0; i < 3; i+=200)
+        for (int i = 0; i < 600; i += 200)
         {
-            for (int i2 = 0; i2 < 4; i2+=200)
+            for (int i2 = 0; i2 < 800; i2 += 200)
             {
-                gridCells.Add(new GridCell(new Point(i, i2)));
+                gridCells.Add(new GridCell(new Point(i2, i)));
             }
         }
     }
 
-	public int GridRows
-	{
-		get;
-		set;
-	}
+    public List<GridCell> ReturnGridCells(int nrOfRows, int nrOfColumns)
+    {
+        List<GridCell> listToBeReturned = new List<GridCell>();
 
-	public int GridColumns
-	{
-		get;
-		set;
-	}
+        listToBeReturned.Add(gridCells[0]);
 
-	public virtual List <GridCell> GridCells
-	{
-		get;
-		set;
-	}
+        if (nrOfRows == 1)
+        {
+            for (int i = 1; i < nrOfColumns; i++)
+            {
+                listToBeReturned.Add(gridCells[i]);
+            }
+        }
+        else if (nrOfRows == 2 && nrOfColumns == 4)
+        {
+            for (int i = 1; i < (nrOfColumns * nrOfRows); i++)
+            {
+                listToBeReturned.Add(gridCells[i]);
+            }
+        }
+        else if (nrOfRows == 2 && nrOfColumns == 1)
+        {
+            listToBeReturned.Add(gridCells[4]);
+        }
+        else if (nrOfRows == 2 && nrOfColumns == 2)
+        {
+            listToBeReturned.Add(gridCells[1]);
+            listToBeReturned.Add(gridCells[4]);
+            listToBeReturned.Add(gridCells[5]);
+        }
+        else if (nrOfRows == 2 && nrOfColumns == 3)
+        {
+            listToBeReturned.Add(gridCells[1]);
+            listToBeReturned.Add(gridCells[2]);
+            listToBeReturned.Add(gridCells[4]);
+            listToBeReturned.Add(gridCells[5]);
+            listToBeReturned.Add(gridCells[6]);
+        }
+        else if (nrOfRows == 3 && nrOfColumns == 1)
+        {
+            listToBeReturned.Add(gridCells[4]);
+            listToBeReturned.Add(gridCells[5]);
+            listToBeReturned.Add(gridCells[8]);
+        }
+        else if (nrOfRows == 3 && nrOfColumns == 2)
+        {
+            listToBeReturned.Add(gridCells[1]);
+            listToBeReturned.Add(gridCells[4]);
+            listToBeReturned.Add(gridCells[5]);
+            listToBeReturned.Add(gridCells[8]);
+            listToBeReturned.Add(gridCells[9]);
+        }
+        else if (nrOfRows == 3 && nrOfColumns == 3)
+        {
+            for (int i = 1; i < 11; i++)
+            {
+                listToBeReturned.Add(gridCells[i]);
+            }
+            listToBeReturned.RemoveAt(3);
+            listToBeReturned.RemoveAt(6);
+        }
+        else if (nrOfRows == 3 && nrOfColumns == 4)
+        {
+            return gridCells;
+        }
+
+        return listToBeReturned;
+    }
+
+    public int GridRows
+    {
+        get;
+        set;
+    }
+
+    public int GridColumns
+    {
+        get;
+        set;
+    }
 
     //public IEnumerable<GridCell> GridCell
     //{
@@ -55,20 +118,20 @@ public class Grid
     //    set;
     //}
 
-	public void DrawGrid()
-	{
-		throw new System.NotImplementedException();
-	}
+    public void DrawGrid()
+    {
+        throw new System.NotImplementedException();
+    }
 
-	public void CheckGridFull()
-	{
-		throw new System.NotImplementedException();
-	}
+    public void CheckGridFull()
+    {
+        throw new System.NotImplementedException();
+    }
 
-	public void DeleteCrossing(object CellNumber)
-	{
-		throw new System.NotImplementedException();
-	}
+    public void DeleteCrossing(object CellNumber)
+    {
+        throw new System.NotImplementedException();
+    }
 
 }
 

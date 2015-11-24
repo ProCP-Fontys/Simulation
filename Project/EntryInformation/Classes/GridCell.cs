@@ -19,45 +19,50 @@ public class GridCell
     {
         this.location = location;
     }
-	public Point TopLeft
-	{
-		get;
-		set;
-	}
 
-	public int CellNumber
-	{
-		get;
-		set;
-	}
+    public Point ReturnLocation()
+    {
+        return location;
+    }
+    public Point TopLeft
+    {
+        get;
+        set;
+    }
 
-	public int CrossingID
-	{
-		get;
-		set;
-	}
+    public int CellNumber
+    {
+        get;
+        set;
+    }
 
-	public int Size
-	{
-		get;
-		set;
-	}
+    public int CrossingID
+    {
+        get;
+        set;
+    }
 
-	public Crossing Crossing
-	{
-		get;
-		set;
-	}
+    public int Size
+    {
+        get;
+        set;
+    }
 
-	public void IsInCell()
-	{
-		
-	}
+    public Crossing Crossing
+    {
+        get;
+        set;
+    }
 
-	public void DrawCrossing()
-	{
-		
-	}
+    public void IsInCell()
+    {
+
+    }
+
+    public void DrawCrossing()
+    {
+
+    }
 
 }
 
