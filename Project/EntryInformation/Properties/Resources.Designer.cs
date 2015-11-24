@@ -103,6 +103,16 @@ namespace EntryInformation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CrossingA {
+            get {
+                object obj = ResourceManager.GetObject("CrossingA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap First {
             get {
                 object obj = ResourceManager.GetObject("First", resourceCulture);
