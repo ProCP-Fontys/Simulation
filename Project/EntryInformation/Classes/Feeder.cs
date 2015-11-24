@@ -8,58 +8,59 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
-
-public class Simulator
+public class Feeder
 {
-	public string StreetName
+	public virtual int FeederID
 	{
 		get;
 		set;
 	}
 
-	public  List <Crossing>
+	public virtual int RightPercentage
 	{
 		get;
 		set;
 	}
 
-	public  DateTime Time
+	public virtual int LeftPercentage
 	{
 		get;
 		set;
 	}
 
-	public virtual List <Cars> CarsList
+	public virtual int StraightPercentage
 	{
 		get;
 		set;
 	}
 
-	public virtual Grid Grid
+	public virtual int CarsLimit
 	{
 		get;
 		set;
 	}
 
-	public virtual Form Form
+	public virtual int CarsOnBoard
 	{
 		get;
 		set;
 	}
 
-	public virtual IEnumerable<Cars> Cars
+	public virtual TrafficLight TrafficLight
 	{
 		get;
 		set;
 	}
 
-	public virtual void Run()
+	public virtual List<Point> StopPoins
 	{
-		throw new System.NotImplementedException();
+		get;
+		set;
 	}
 
-	public virtual void Save()
+	public virtual void AddDetailes()
 	{
 		throw new System.NotImplementedException();
 	}

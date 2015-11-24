@@ -74,12 +74,12 @@
             this.label11 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnCreateGrid = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.gridGroupBox.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -517,15 +517,15 @@
             this.comboBox2.TabIndex = 2;
             this.comboBox2.Text = "2";
             // 
-            // button1
+            // BtnCreateGrid
             // 
-            this.button1.Location = new System.Drawing.Point(117, 69);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 26);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Create";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BtnCreateGrid.Location = new System.Drawing.Point(117, 69);
+            this.BtnCreateGrid.Name = "BtnCreateGrid";
+            this.BtnCreateGrid.Size = new System.Drawing.Size(75, 26);
+            this.BtnCreateGrid.TabIndex = 4;
+            this.BtnCreateGrid.Text = "Create";
+            this.BtnCreateGrid.UseVisualStyleBackColor = true;
+            this.BtnCreateGrid.Click += new System.EventHandler(this.BtnCreateGrid_Click);
             // 
             // groupBox2
             // 
@@ -555,22 +555,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tool Box";
             // 
-            // groupBox5
+            // label14
             // 
-            this.groupBox5.AutoSize = true;
-            this.groupBox5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupBox5.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox5.Controls.Add(this.button1);
-            this.groupBox5.Controls.Add(this.comboBox2);
-            this.groupBox5.Controls.Add(this.comboBox1);
-            this.groupBox5.Controls.Add(this.label11);
-            this.groupBox5.Controls.Add(this.label12);
-            this.groupBox5.Location = new System.Drawing.Point(23, 66);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(199, 116);
-            this.groupBox5.TabIndex = 19;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Creat Grid";
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(9, 148);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(48, 18);
+            this.label14.TabIndex = 22;
+            this.label14.Text = "label14";
             // 
             // label6
             // 
@@ -581,14 +573,22 @@
             this.label6.TabIndex = 21;
             this.label6.Text = "label6";
             // 
-            // label14
+            // groupBox5
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(9, 148);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(48, 18);
-            this.label14.TabIndex = 22;
-            this.label14.Text = "label14";
+            this.groupBox5.AutoSize = true;
+            this.groupBox5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox5.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox5.Controls.Add(this.BtnCreateGrid);
+            this.groupBox5.Controls.Add(this.comboBox2);
+            this.groupBox5.Controls.Add(this.comboBox1);
+            this.groupBox5.Controls.Add(this.label11);
+            this.groupBox5.Controls.Add(this.label12);
+            this.groupBox5.Location = new System.Drawing.Point(23, 66);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(199, 116);
+            this.groupBox5.TabIndex = 19;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Creat Grid";
             // 
             // Simulation
             // 
@@ -683,7 +683,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnCreateGrid;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox5;

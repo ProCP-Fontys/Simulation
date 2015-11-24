@@ -8,16 +8,36 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
 public class Grid
 {
-	public virtual int GridRows
+    private List<GridCell> gridCells;
+
+    public Grid()
+    {
+        gridCells = new List<GridCell>();
+        CreateGridCells();
+    }
+
+    public void CreateGridCells()
+    {
+        for (int i = 0; i < 3; i+=200)
+        {
+            for (int i2 = 0; i2 < 4; i2+=200)
+            {
+                gridCells.Add(new GridCell(new Point(i, i2)));
+            }
+        }
+    }
+
+	public int GridRows
 	{
 		get;
 		set;
 	}
 
-	public virtual int GridColumns
+	public int GridColumns
 	{
 		get;
 		set;
@@ -29,29 +49,23 @@ public class Grid
 		set;
 	}
 
-	public virtual Form Form
-	{
-		get;
-		set;
-	}
+    //public IEnumerable<GridCell> GridCell
+    //{
+    //    get;
+    //    set;
+    //}
 
-	public virtual IEnumerable<GridCell> GridCell
-	{
-		get;
-		set;
-	}
-
-	public virtual void DrawGrid()
+	public void DrawGrid()
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void CheckGridFull()
+	public void CheckGridFull()
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void DeleteCrossing(object CellNumber)
+	public void DeleteCrossing(object CellNumber)
 	{
 		throw new System.NotImplementedException();
 	}

@@ -9,32 +9,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class TrafficLight
+public class Result
 {
-	public virtual int GreenLight
+	public virtual List <Cars> Cars
 	{
 		get;
 		set;
 	}
 
-	public virtual Bool State
+	public virtual double AvgTimeExpend
 	{
 		get;
 		set;
 	}
 
-	public virtual int Time
+	public virtual double MinTimeExpend
 	{
 		get;
 		set;
 	}
 
-	public virtual void SetState()
+	public virtual double MaxTimeExpend
+	{
+		get;
+		set;
+	}
+
+	public Cars cars
+	{
+		get;
+		set;
+	}
+
+	public virtual void CalculateMaxTime()
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void GetState()
+	public virtual void CalculateMinTime()
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void CalculateAvgTime()
 	{
 		throw new System.NotImplementedException();
 	}

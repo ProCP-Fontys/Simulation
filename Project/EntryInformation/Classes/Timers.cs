@@ -9,50 +9,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class GridCell
+public class Timers
 {
-	public virtual Point TopLeft
-	{
-		get;
-		set;
-	}
-
-	public virtual int CellNumber
-	{
-		get;
-		set;
-	}
-
 	public virtual int CrossingID
 	{
 		get;
 		set;
 	}
 
-	public virtual Form Form
-	{
-		get;
-		set;
-	}
-
-	public virtual int Size
-	{
-		get;
-		set;
-	}
-
-	public virtual Crossing Crossing
-	{
-		get;
-		set;
-	}
-
-	public virtual void IsInCell()
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void DrawCrossing()
+	public void Operation1()
 	{
 		throw new System.NotImplementedException();
 	}

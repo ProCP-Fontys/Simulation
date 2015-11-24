@@ -17,11 +17,11 @@ namespace EntryInformation
         List<Point> occupiedCells;
         int nrOfGridCellsOccupied = 0;
         private Point cellOccupied;
-
+        private Simulator simulator;
         public Simulation()
         {
             InitializeComponent();
-
+            simulator = new Simulator(this);
             pointsOfGridCells = new List<Point>();
             randomCellsToChoose = new List<Point>();
             occupiedCells = new List<Point>();
@@ -59,10 +59,6 @@ namespace EntryInformation
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            GridCreation();
-        }
 
         public void GridCreation()
         {
@@ -254,6 +250,11 @@ namespace EntryInformation
         private void Simulation_MouseMove(object sender, MouseEventArgs e)
         {
             label6.Text = "X = " + e.X + " and Y = " + e.Y;
+        }
+
+        private void BtnCreateGrid_Click(object sender, EventArgs e)
+        {
+            simulator.DrawGrid(comboBox1, comboBox2, gridPanel, gridGroupBox);
         }
     }
 }

@@ -8,52 +8,55 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
+using System.Drawing;
 
-public class Result
+public class GridCell
 {
-	public virtual List <Cars> Cars
+    private Point location;
+
+    public GridCell(Point location)
+    {
+        this.location = location;
+    }
+	public Point TopLeft
 	{
 		get;
 		set;
 	}
 
-	public virtual double AvgTimeExpend
+	public int CellNumber
 	{
 		get;
 		set;
 	}
 
-	public virtual double MinTimeExpend
+	public int CrossingID
 	{
 		get;
 		set;
 	}
 
-	public virtual double MaxTimeExpend
+	public int Size
 	{
 		get;
 		set;
 	}
 
-	public virtual Cars Cars
+	public Crossing Crossing
 	{
 		get;
 		set;
 	}
 
-	public virtual void CalculateMaxTime()
+	public void IsInCell()
 	{
-		throw new System.NotImplementedException();
+		
 	}
 
-	public virtual void CalculateMinTime()
+	public void DrawCrossing()
 	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void CalculateAvgTime()
-	{
-		throw new System.NotImplementedException();
+		
 	}
 
 }

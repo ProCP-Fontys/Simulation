@@ -32,6 +32,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,18 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Cars.cs" />
-    <Compile Include="Classes\Crossing.cs" />
-    <Compile Include="Classes\CrossingA.cs" />
-    <Compile Include="Classes\CrossingB.cs" />
-    <Compile Include="Classes\Feeder.cs" />
-    <Compile Include="Classes\Grid.cs" />
-    <Compile Include="Classes\GridCell.cs" />
-    <Compile Include="Classes\Neighbours.cs" />
-    <Compile Include="Classes\Result.cs" />
-    <Compile Include="Classes\Simulator.cs" />
-    <Compile Include="Classes\Timers.cs" />
-    <Compile Include="Classes\TrafficLight.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

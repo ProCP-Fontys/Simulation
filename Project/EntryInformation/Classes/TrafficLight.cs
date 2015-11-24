@@ -9,57 +9,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Feeder
+public class TrafficLight
 {
-	public virtual int FeederID
+	public virtual int GreenLight
 	{
 		get;
 		set;
 	}
 
-	public virtual int RightPercentage
+	public virtual bool State
 	{
 		get;
 		set;
 	}
 
-	public virtual int LeftPercentage
+	public virtual int Time
 	{
 		get;
 		set;
 	}
 
-	public virtual int StraightPercentage
+	public virtual void SetState()
 	{
-		get;
-		set;
+		throw new System.NotImplementedException();
 	}
 
-	public virtual int CarsLimit
-	{
-		get;
-		set;
-	}
-
-	public virtual int CarsOnBoard
-	{
-		get;
-		set;
-	}
-
-	public virtual TrafficLight TrafficLight
-	{
-		get;
-		set;
-	}
-
-	public virtual List<Point> StopPoins
-	{
-		get;
-		set;
-	}
-
-	public virtual void AddDetailes()
+	public virtual void GetState()
 	{
 		throw new System.NotImplementedException();
 	}
