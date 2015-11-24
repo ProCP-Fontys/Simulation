@@ -13,15 +13,18 @@ namespace EntryInformation
     public partial class Simulation : Form
     {
         List<Point> pointsOfGridCells;
-        //List<Point> pointsOfGridCellsOccupied;
+        List<Point> randomCellsToChoose;
+        List<Point> occupiedCells;
         int nrOfGridCellsOccupied = 0;
+        private Point cellOccupied;
 
         public Simulation()
         {
             InitializeComponent();
 
             pointsOfGridCells = new List<Point>();
-            
+            randomCellsToChoose = new List<Point>();
+            occupiedCells = new List<Point>();
 
             //first row
             pointsOfGridCells.Add(new Point(0, 0));
@@ -148,8 +151,8 @@ namespace EntryInformation
                     if (droppedCoordinates.Y >= item.Y && droppedCoordinates.Y <= (item.Y + 200))
                     {
                         locationToBeDropped.Y = item.Y;
-                        //pointsOfGridCellsOccupied.Add(item);
                         nrOfGridCellsOccupied++;
+                        occupiedCells.Add(item);
                         pointsOfGridCells.Remove(item);
                         break;
                     }
@@ -158,39 +161,67 @@ namespace EntryInformation
                 if (locationToBeDropped.Y != -1)
                     return locationToBeDropped;
 
-                
-
-                foreach (var item in pointsOfGridCellsUpdated)//check if there is an empty spot just below
-                {
-                    if ((droppedCoordinates.Y + 200) >= (item.Y) && (droppedCoordinates.Y + 200) <= (item.Y + 200))
-                    {
-                        nrOfGridCellsOccupied++;
-                        pointsOfGridCells.Remove(item);
-                        return item;
-                    }
-                }
-
                 pointsOfGridCellsUpdated = new List<Point>();
 
-                foreach (var item in pointsOfGridCells)//check if to your right there are empty spots
+                foreach (var item in occupiedCells)//check if below you there are empty spots and check if is in cell
+                {
+                    if (droppedCoordinates.X >= item.X && droppedCoordinates.X <= (item.X + 200))
+                    {
+                        locationToBeDropped.X = item.X;
+                        pointsOfGridCellsUpdated.Add(item);
+                    }
+
+                }
+                foreach (var item in pointsOfGridCellsUpdated)
                 {
                     if (droppedCoordinates.Y >= item.Y && droppedCoordinates.Y <= (item.Y + 200))
                     {
                         locationToBeDropped.Y = item.Y;
-                        //pointsOfGridCellsOccupied.Add(item);
-                        pointsOfGridCellsUpdated.Add(item);
+                        cellOccupied = locationToBeDropped;
+                        break;
                     }
                 }
 
-                foreach (var item in pointsOfGridCellsUpdated)//check if there is an empty spot just to your right
+                foreach (var item in pointsOfGridCells)//check if there is an empty spot just below
                 {
-                    if ((droppedCoordinates.X + 200) >= (item.X) && (droppedCoordinates.X + 200) <= (item.X + 200))
+                    if ((cellOccupied.X + 200) == item.X && cellOccupied.Y == item.Y)
                     {
-                        nrOfGridCellsOccupied++;
-                        pointsOfGridCells.Remove(item);
-                        return item;
+                        randomCellsToChoose.Add(item);
+                    }
+                    else if ((cellOccupied.X - 200) == item.X && cellOccupied.Y == item.Y)
+                    {
+                        randomCellsToChoose.Add(item);
+                    }
+                    else if ((cellOccupied.Y + 200) == item.Y && cellOccupied.X == item.X)
+                    {
+                        randomCellsToChoose.Add(item);
+                    }
+                    else if ((cellOccupied.Y - 200) == item.Y && cellOccupied.X == item.X)
+                    {
+                        randomCellsToChoose.Add(item);
                     }
                 }
+
+                if (randomCellsToChoose.Count != 0)
+                {
+                    Random random = new Random();
+
+                    int randomChoice = random.Next(0, randomCellsToChoose.Count);
+                    while (randomCellsToChoose[randomChoice] == null)
+                    {
+                        randomChoice = random.Next(0, randomCellsToChoose.Count);
+                    }
+
+                    nrOfGridCellsOccupied++;
+                    pointsOfGridCells.Remove(randomCellsToChoose[randomChoice]);
+                    Point PointCellToReturn = randomCellsToChoose[randomChoice];
+                    randomCellsToChoose = new List<Point>();
+                    occupiedCells.Add(PointCellToReturn);
+                    return PointCellToReturn;
+                }
+                else
+                    MessageBox.Show("Space not available");
+                
             }
             return new Point(-1, -1);
             //still have to check empty spots and your left and up//make a method to check the empty spots near a gridCell and then choose one of them
