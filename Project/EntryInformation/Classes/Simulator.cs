@@ -41,7 +41,7 @@ public class Simulator
 
         calculatePanelSize(nrOfRows, nrOfColumns, gridPanel, gridGroupBox);
         System.Drawing.Pen myPen;
-        myPen = new System.Drawing.Pen(System.Drawing.Color.Black);
+        myPen = new System.Drawing.Pen(System.Drawing.Color.White);
         System.Drawing.Graphics formGraphics = gridPanel.CreateGraphics();
 
         //drawing cells rows
@@ -61,6 +61,11 @@ public class Simulator
         myPen.Dispose();
         formGraphics.Dispose();
     }
+    public void miki()
+    {
+        
+    }
+
 
     public List<Crossing> crossings
     {

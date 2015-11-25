@@ -12,6 +12,7 @@ namespace EntryInformation
 {
     public partial class Simulation : Form
     {
+        bool formationTab = false;
         List<Point> pointsOfGridCells;
         List<Point> randomCellsToChoose;
         List<Point> occupiedCells;
@@ -56,6 +57,20 @@ namespace EntryInformation
 
         private void frm_Resize(object sender, EventArgs e)
         {
+            
+            if (!formationTab)
+            {
+
+                groupBox4.Visible = true;
+                formationTab = !formationTab; ;
+            }
+            else
+            {
+                groupBox4.Visible = false;
+                Form.ActiveForm.Width -= 250;
+
+                formationTab = !formationTab; ;
+            }
 
         }
 
@@ -66,7 +81,7 @@ namespace EntryInformation
 
         private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
         {
-            pictureBox2.DoDragDrop(pictureBox2.Image, DragDropEffects.Copy);
+            pictureBox7.DoDragDrop(pictureBox7.Image, DragDropEffects.Copy);
         }
 
         private void gridPanel_DragEnter(object sender, DragEventArgs e)
@@ -209,6 +224,8 @@ namespace EntryInformation
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             pictureBox1.DoDragDrop(pictureBox1.Image, DragDropEffects.Copy);
+            
+            
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -235,6 +252,41 @@ namespace EntryInformation
             pointsOfGridCells.Add(new Point(200, 400));
             pointsOfGridCells.Add(new Point(400, 400));
             pointsOfGridCells.Add(new Point(600, 400));
+        }
+
+        private void Simulation_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!formationTab)
+            {
+
+                groupBox4.Visible = true;
+                formationTab = !formationTab; ;
+            }
+            else
+            {
+                groupBox4.Visible = false;
+                Form.ActiveForm.Width -= 250;
+
+                formationTab = !formationTab; ;
+            }
+
+        }
+
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            
+            
+
+        }
+
+        private void dkhb(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

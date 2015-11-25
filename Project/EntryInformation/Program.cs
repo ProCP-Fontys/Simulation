@@ -16,7 +16,7 @@ namespace EntryInformation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new First());
+            Application.Run(new Simulation());
         }
     }
 }
