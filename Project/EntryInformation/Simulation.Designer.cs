@@ -43,6 +43,8 @@
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.gridGroupBox = new System.Windows.Forms.GroupBox();
             this.gridPanel = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.ButtunTest = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.buttonStart = new System.Windows.Forms.Button();
@@ -79,20 +81,20 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.CA = new System.Windows.Forms.PictureBox();
-            this.CB = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.gridGroupBox.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CA)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -210,6 +212,38 @@
             this.gridPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.gridPanel_DragEnter);
             this.gridPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gridPanel_MouseMove);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.AutoSize = true;
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.Controls.Add(this.ButtunTest);
+            this.groupBox3.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(5, 567);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox3.Size = new System.Drawing.Size(202, 99);
+            this.groupBox3.TabIndex = 16;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Status";
+            // 
+            // ButtunTest
+            // 
+            this.ButtunTest.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.ButtunTest.FlatAppearance.BorderSize = 2;
+            this.ButtunTest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tomato;
+            this.ButtunTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtunTest.ForeColor = System.Drawing.Color.White;
+            this.ButtunTest.Location = new System.Drawing.Point(14, 32);
+            this.ButtunTest.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ButtunTest.Name = "ButtunTest";
+            this.ButtunTest.Size = new System.Drawing.Size(155, 35);
+            this.ButtunTest.TabIndex = 1;
+            this.ButtunTest.Text = "Test Form Expand";
+            this.ButtunTest.UseVisualStyleBackColor = true;
+            this.ButtunTest.Click += new System.EventHandler(this.button1_Click);
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -246,7 +280,7 @@
             this.buttonStart.TabIndex = 0;
             this.buttonStart.Text = "Start";
             this.buttonStart.UseVisualStyleBackColor = true;
-            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
+            this.buttonStart.Click += new System.EventHandler(this.frm_Resize);
             this.buttonStart.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
             // 
             // groupBox7
@@ -640,8 +674,8 @@
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.CA);
-            this.groupBox1.Controls.Add(this.CB);
+            this.groupBox1.Controls.Add(this.pictureBox7);
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(5, 185);
@@ -675,32 +709,31 @@
             this.label6.TabIndex = 21;
             this.label6.Text = "label6";
             // 
-            // CA
+            // pictureBox7
             // 
-            this.CA.Image = global::EntryInformation.Properties.Resources.CrossingB1;
-            this.CA.Location = new System.Drawing.Point(106, 33);
-            this.CA.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.CA.Name = "CA";
-            this.CA.Size = new System.Drawing.Size(86, 84);
-            this.CA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.CA.TabIndex = 2;
-            this.CA.TabStop = false;
-            this.CA.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
-            this.CA.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseDown);
+            this.pictureBox7.Image = global::EntryInformation.Properties.Resources.CrossingB1;
+            this.pictureBox7.Location = new System.Drawing.Point(106, 33);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(86, 84);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 2;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.frm_Resize);
+            this.pictureBox7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
+            this.pictureBox7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseDown);
             // 
-            // CB
+            // pictureBox1
             // 
-            this.CB.Image = global::EntryInformation.Properties.Resources.CrossingA3;
-            this.CB.Location = new System.Drawing.Point(6, 33);
-            this.CB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.CB.Name = "CB";
-            this.CB.Size = new System.Drawing.Size(93, 84);
-            this.CB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.CB.TabIndex = 1;
-            this.CB.TabStop = false;
-            this.CB.Click += new System.EventHandler(this.pictureBox1_Click);
-            this.CB.DragDrop += new System.Windows.Forms.DragEventHandler(this.CB_DragDrop);
-            this.CB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.Image = global::EntryInformation.Properties.Resources.CrossingA3;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 33);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(93, 84);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             // 
             // groupBox5
             // 
@@ -728,22 +761,6 @@
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.AutoSize = true;
-            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox3.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.Color.Red;
-            this.groupBox3.Location = new System.Drawing.Point(5, 567);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox3.Size = new System.Drawing.Size(202, 99);
-            this.groupBox3.TabIndex = 16;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Status";
             // 
             // Simulation
             // 
@@ -775,6 +792,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.gridGroupBox.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -784,8 +802,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CA)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
@@ -807,6 +825,7 @@
         private System.Windows.Forms.ToolStripMenuItem usersManualToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
         private System.Windows.Forms.GroupBox gridGroupBox;
+        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button buttonStart;
@@ -827,8 +846,8 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.PictureBox CB;
-        private System.Windows.Forms.PictureBox CA;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBoxRows;
@@ -839,6 +858,7 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button ButtunTest;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox8;
@@ -848,7 +868,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.GroupBox groupBox3;
 
     }
 }
