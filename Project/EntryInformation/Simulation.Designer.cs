@@ -100,7 +100,7 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.Red;
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.menuStrip1.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -154,6 +154,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(138, 28);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -200,7 +201,7 @@
             // gridPanel
             // 
             this.gridPanel.AllowDrop = true;
-            this.gridPanel.BackColor = System.Drawing.Color.Red;
+            this.gridPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.gridPanel.Location = new System.Drawing.Point(6, 21);
             this.gridPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridPanel.Name = "gridPanel";
@@ -222,7 +223,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox3.Size = new System.Drawing.Size(202, 104);
+            this.groupBox3.Size = new System.Drawing.Size(202, 99);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Status";
@@ -234,10 +235,10 @@
             this.ButtunTest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tomato;
             this.ButtunTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtunTest.ForeColor = System.Drawing.Color.White;
-            this.ButtunTest.Location = new System.Drawing.Point(37, 28);
+            this.ButtunTest.Location = new System.Drawing.Point(14, 32);
             this.ButtunTest.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ButtunTest.Name = "ButtunTest";
-            this.ButtunTest.Size = new System.Drawing.Size(106, 37);
+            this.ButtunTest.Size = new System.Drawing.Size(155, 35);
             this.ButtunTest.TabIndex = 1;
             this.ButtunTest.Text = "Test Form Expand";
             this.ButtunTest.UseVisualStyleBackColor = true;
@@ -259,19 +260,19 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(15, 44);
+            this.label10.Location = new System.Drawing.Point(-1, 49);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(114, 24);
+            this.label10.Size = new System.Drawing.Size(203, 24);
             this.label10.TabIndex = 1;
-            this.label10.Text = "Street ------";
+            this.label10.Text = "Street : Eindhoven, station";
             // 
             // buttonStart
             // 
-            this.buttonStart.FlatAppearance.BorderColor = System.Drawing.Color.YellowGreen;
+            this.buttonStart.FlatAppearance.BorderColor = System.Drawing.Color.OrangeRed;
             this.buttonStart.FlatAppearance.BorderSize = 5;
             this.buttonStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tomato;
             this.buttonStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonStart.ForeColor = System.Drawing.Color.YellowGreen;
+            this.buttonStart.ForeColor = System.Drawing.Color.Brown;
             this.buttonStart.Location = new System.Drawing.Point(37, 123);
             this.buttonStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonStart.Name = "buttonStart";
@@ -558,7 +559,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(108, 38);
             this.button3.TabIndex = 22;
-            this.button3.Text = "Cancel";
+            this.button3.Text = "Apply";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -580,10 +581,10 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(73, 46);
+            this.label12.Font = new System.Drawing.Font("Segoe Print", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(79, 46);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(17, 24);
+            this.label12.Size = new System.Drawing.Size(44, 61);
             this.label12.TabIndex = 3;
             this.label12.Text = "*";
             // 
@@ -600,7 +601,7 @@
             // 
             // comboBoxRows
             // 
-            this.comboBoxRows.BackColor = System.Drawing.Color.Red;
+            this.comboBoxRows.BackColor = System.Drawing.Color.Black;
             this.comboBoxRows.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxRows.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxRows.ForeColor = System.Drawing.Color.White;
@@ -618,7 +619,7 @@
             // 
             // comboBoxColumns
             // 
-            this.comboBoxColumns.BackColor = System.Drawing.Color.Red;
+            this.comboBoxColumns.BackColor = System.Drawing.Color.Black;
             this.comboBoxColumns.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxColumns.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxColumns.ForeColor = System.Drawing.Color.White;
@@ -710,7 +711,7 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = global::EntryInformation.Properties.Resources.CrossingA1;
+            this.pictureBox7.Image = global::EntryInformation.Properties.Resources.CrossingB1;
             this.pictureBox7.Location = new System.Drawing.Point(106, 33);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox7.Name = "pictureBox7";
@@ -724,7 +725,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::EntryInformation.Properties.Resources.CrossingA_2;
+            this.pictureBox1.Image = global::EntryInformation.Properties.Resources.CrossingA3;
             this.pictureBox1.Location = new System.Drawing.Point(6, 33);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
@@ -766,8 +767,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.Red;
-            this.ClientSize = new System.Drawing.Size(1032, 673);
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(1032, 694);
+            this.ControlBox = false;
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.gridGroupBox);
