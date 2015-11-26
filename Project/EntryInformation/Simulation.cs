@@ -12,6 +12,7 @@ namespace EntryInformation
 {
     public partial class Simulation : Form
     {
+        bool IsSimulationStarted = false;
         bool formationTab = false;
         List<Point> pointsOfGridCells;
         List<Point> randomCellsToChoose;
@@ -71,7 +72,15 @@ namespace EntryInformation
 
                 formationTab = !formationTab; ;
             }
+            //Deselect other crossings
+            foreach (Control pb in gridPanel.Controls)
+            {
+                if (pb is PictureBox)
+                {
+                    ((PictureBox)pb).BorderStyle = BorderStyle.None;
+                }
 
+            }
         }
 
         private void Simulation_Resize(object sender, EventArgs e)
@@ -81,7 +90,7 @@ namespace EntryInformation
 
         private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
         {
-            pictureBox7.DoDragDrop(pictureBox7.Image, DragDropEffects.Copy);
+            CA.DoDragDrop(CA.Image, DragDropEffects.Copy);
         }
 
         private void gridPanel_DragEnter(object sender, DragEventArgs e)
@@ -187,12 +196,22 @@ namespace EntryInformation
             
         }
 
+        private void FormExpand(object sender, EventArgs e)
+        {
+            
+            this.frm_Resize(sender,e);
+            
+            ((PictureBox)sender).BorderStyle = BorderStyle.Fixed3D;
+            
+        }
+
         private void gridPanel_DragDrop(object sender, DragEventArgs e)
         {
             Point locationToBeDropped = determinePicboxLocation(this.gridPanel.PointToClient(new Point(e.X, e.Y)));
             if (locationToBeDropped.X != -1)
             {
                 PictureBox picbox = new PictureBox();
+                picbox.Click += new EventHandler(FormExpand);
                 picbox.Size = new Size(200, 200);
                 picbox.BorderStyle = BorderStyle.None;
                 picbox.Location = new Point(locationToBeDropped.X, locationToBeDropped.Y);
@@ -218,12 +237,31 @@ namespace EntryInformation
 
         private void BtnCreateGrid_Click(object sender, EventArgs e)
         {
+           
+            //remove the picture box
+            ////Form.ControlCollection FC = new ControlCollection(this);
+            //foreach (Control item in gridGroupBox.Controls)
+            //{
+
+
+            //    item.Visible = false;
+                
+            //}
+            ////foreach (Control pb in gridPanel.Controls)
+            ////{
+            ////    gridPanel.Controls.Remove(pb);
+
+
+            ////}
+            
             simulator.DrawGrid(comboBoxRows, comboBoxColumns, gridPanel, gridGroupBox);
+            
+            Form.ActiveForm.Width = 235 + gridGroupBox.Width;
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            pictureBox1.DoDragDrop(pictureBox1.Image, DragDropEffects.Copy);
+            CB.DoDragDrop(CB.Image, DragDropEffects.Copy);
             
             
         }
@@ -292,6 +330,57 @@ namespace EntryInformation
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void buttonStart_Click(object sender, EventArgs e)
+        {
+            if (!IsSimulationStarted)
+            {
+                gridGroupBox.Enabled = true;
+                groupBox1.Visible = false;
+
+                groupBox2.Location = new Point(3, 36);
+                groupBox2.Height += 448;
+                buttonStart.Location = new Point(18, 580);
+                buttonStart.Text = "Stop";
+                //groupBox2.Location
+                groupBox3.Visible = false;
+                groupBox5.Visible = false;
+                IsSimulationStarted = !IsSimulationStarted;
+            }
+            else
+            {
+
+                groupBox1.Visible = true; ;
+                groupBox2.Height -= 448;
+                groupBox2.Location = new Point(7, 371);
+                
+                buttonStart.Location = new Point(37, 123);
+                //groupBox2.Location
+                groupBox3.Visible = true;
+                groupBox5.Visible = true;
+                IsSimulationStarted = !IsSimulationStarted;
+                this.Size = new Size(1050, 741);
+
+            }
+            groupBox4.Visible = false;
+            gridGroupBox.Enabled = false;
+            
+            
+            
+            
+
+            
+        }
+
+        private void CB_DragDrop(object sender, DragEventArgs e)
+        {
+            CB.DoDragDrop(CB.Image, DragDropEffects.Copy);
         }
     }
 }
