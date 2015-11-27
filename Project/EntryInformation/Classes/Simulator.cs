@@ -13,12 +13,14 @@ using EntryInformation;
 using System.Drawing;
 
 
-public class Simulator
+public class Simulator 
 {
     private Grid grid;
-    private Simulation simulation;
+    private Form simulation;
+    private List<Crossing> crossings = new List<Crossing>();
 
-    public Simulator(Simulation simulation)
+
+    public Simulator(Form simulation)
     {
         grid = new Grid();
         this.simulation = simulation;
@@ -26,11 +28,12 @@ public class Simulator
 
     public void calculatePanelSize(int nrOfRows, int nrOfColumns, Panel gridPanel, GroupBox gridGroupBox)
     {
-
+        
         int height = nrOfRows * 200;
         int width = nrOfColumns * 200;
-
-        gridPanel.Size = new Size(width, height);
+        ((Simulation)simulation).gridPanel.Size = new Size(width, height);
+        //simulation.gridPanel.Size = 
+        //gridPanel.Size = new Size(width, height);
         gridGroupBox.Size = new Size(width + 15, height + 30);
     }
 
@@ -61,22 +64,24 @@ public class Simulator
         myPen.Dispose();
         formGraphics.Dispose();
     }
-    public void miki()
+    public void addCrossing(Crossing c, GridCell gc, int nrofColomn, int nrofRows)
     {
-        
+        foreach (var item in this.grid.ReturnGridCells(nrofRows,nrofColomn))
+        {
+            if (gc == item)
+            {
+                item.AddCrossing(c);
+            }
+        }
     }
 
-
-    public List<Crossing> crossings
-    {
-        get;
-        set;
-    }
+    
 
     public DateTime Time
     {
-        get;
+     
         set;
+        get;
     }
 
     public virtual List<Cars> CarsList

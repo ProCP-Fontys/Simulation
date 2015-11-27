@@ -20,9 +20,11 @@ namespace EntryInformation
         int nrOfGridCellsOccupied = 0;
         private Point cellOccupied;
         private Simulator simulator;
+        public Panel gridPanel2;
         public Simulation()
         {
             InitializeComponent();
+            gridPanel2 = new Panel();
             simulator = new Simulator(this);
             pointsOfGridCells = new List<Point>();
             randomCellsToChoose = new List<Point>();
@@ -45,6 +47,7 @@ namespace EntryInformation
             pointsOfGridCells.Add(new Point(200, 400));
             pointsOfGridCells.Add(new Point(400, 400));
             pointsOfGridCells.Add(new Point(600, 400));
+            gridGroupBox.Enabled = false;
         }
 
         public void calculatePanelSize(int nrOfRows, int nrOfColumns)
@@ -198,7 +201,7 @@ namespace EntryInformation
 
         private void FormExpand(object sender, EventArgs e)
         {
-            
+            formationTab = false;
             this.frm_Resize(sender,e);
             
             ((PictureBox)sender).BorderStyle = BorderStyle.Fixed3D;
@@ -220,6 +223,8 @@ namespace EntryInformation
                 picbox.Image = image;
                 picbox.SizeMode = PictureBoxSizeMode.StretchImage;
                 gridPanel.Controls.Add(picbox);
+                Crossing c = new Crossing();
+                //simulator.addCrossing(c);
                 //this.mainForm = mainForm;
                 //return true;
             }
@@ -247,13 +252,53 @@ namespace EntryInformation
             //    item.Visible = false;
                 
             //}
-            ////foreach (Control pb in gridPanel.Controls)
-            ////{
-            ////    gridPanel.Controls.Remove(pb);
+            //gridPanel = new Panel();
+            //this.calculatePanelSize(Convert.ToInt16(this.comboBoxRows.SelectedItem),Convert.ToInt16(this.comboBoxColumns.SelectedItem));
+            ////repeateeeeeeeeeed
+            //
+            //nrOfGridCellsOccupied=0;
+            //occupiedCells=new List<Point>();
 
+            //pointsOfGridCells = new List<Point>();
+            //pointsOfGridCells.Add(new Point(0, 0));
+            //pointsOfGridCells.Add(new Point(200, 0));
+            //pointsOfGridCells.Add(new Point(400, 0));
+            //pointsOfGridCells.Add(new Point(600, 0));
 
-            ////}
-            
+            ////second row
+            //pointsOfGridCells.Add(new Point(0, 200));
+            //pointsOfGridCells.Add(new Point(200, 200));
+            //pointsOfGridCells.Add(new Point(400, 200));
+            //pointsOfGridCells.Add(new Point(600, 200));
+
+            ////third row
+            //pointsOfGridCells.Add(new Point(0, 400));
+            //pointsOfGridCells.Add(new Point(200, 400));
+            //pointsOfGridCells.Add(new Point(400, 400));
+            //pointsOfGridCells.Add(new Point(600, 400));
+            pointsOfGridCells = new List<Point>();
+            randomCellsToChoose = new List<Point>();
+            occupiedCells = new List<Point>();
+
+            //first row
+            pointsOfGridCells.Add(new Point(0, 0));
+            pointsOfGridCells.Add(new Point(200, 0));
+            pointsOfGridCells.Add(new Point(400, 0));
+            pointsOfGridCells.Add(new Point(600, 0));
+
+            //second row
+            pointsOfGridCells.Add(new Point(0, 200));
+            pointsOfGridCells.Add(new Point(200, 200));
+            pointsOfGridCells.Add(new Point(400, 200));
+            pointsOfGridCells.Add(new Point(600, 200));
+
+            //third row
+            pointsOfGridCells.Add(new Point(0, 400));
+            pointsOfGridCells.Add(new Point(200, 400));
+            pointsOfGridCells.Add(new Point(400, 400));
+            pointsOfGridCells.Add(new Point(600, 400));
+            gridPanel.Controls.Clear();
+            gridGroupBox.Enabled = true;
             simulator.DrawGrid(comboBoxRows, comboBoxColumns, gridPanel, gridGroupBox);
             
             Form.ActiveForm.Width = 235 + gridGroupBox.Width;
@@ -268,11 +313,12 @@ namespace EntryInformation
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
+            
             gridPanel.Controls.Clear();
             pointsOfGridCells = new List<Point>();
             randomCellsToChoose = new List<Point>();
             occupiedCells = new List<Point>();
-
+            simulator.Grid.ReturnGridCells(3,4);
             //first row
             pointsOfGridCells.Add(new Point(0, 0));
             pointsOfGridCells.Add(new Point(200, 0));
@@ -339,9 +385,10 @@ namespace EntryInformation
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
+
             if (!IsSimulationStarted)
             {
-                gridGroupBox.Enabled = true;
+                gridGroupBox.Enabled = false;
                 groupBox1.Visible = false;
 
                 groupBox2.Location = new Point(3, 36);
@@ -349,6 +396,7 @@ namespace EntryInformation
                 buttonStart.Location = new Point(18, 580);
                 buttonStart.Text = "Stop";
                 //groupBox2.Location
+                groupBox4.Visible = false;
                 groupBox3.Visible = false;
                 groupBox5.Visible = false;
                 IsSimulationStarted = !IsSimulationStarted;
@@ -359,17 +407,17 @@ namespace EntryInformation
                 groupBox1.Visible = true; ;
                 groupBox2.Height -= 448;
                 groupBox2.Location = new Point(7, 371);
-                
+                buttonStart.Text = "Start";
                 buttonStart.Location = new Point(37, 123);
                 //groupBox2.Location
                 groupBox3.Visible = true;
                 groupBox5.Visible = true;
                 IsSimulationStarted = !IsSimulationStarted;
                 this.Size = new Size(1050, 741);
-
+                groupBox4.Visible = false;
+                gridGroupBox.Enabled = true;
             }
-            groupBox4.Visible = false;
-            gridGroupBox.Enabled = false;
+            
             
             
             

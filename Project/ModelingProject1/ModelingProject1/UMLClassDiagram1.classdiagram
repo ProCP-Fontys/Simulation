@@ -589,16 +589,6 @@
           </stereotypeInstance>
         </appliedStereotypesInternal>
         <elementDefinition Id="190cc4c9-5fcc-47a0-9d68-dbfe76e94d94" />
-        <generalsInternal>
-          <generalization Id="46a3e861-416f-479f-9451-a48d59fc8265" isSubstitutable="false">
-            <classMoniker Id="a608288f-3538-448f-b90f-d402ac6f3dd5" LastKnownName="CrossingA" />
-            <elementDefinition Id="8aa2a1f3-4672-4be5-82fe-03291fa9484d" />
-          </generalization>
-          <generalization Id="a35d8336-3feb-43ef-85ab-243399269bd9" isSubstitutable="false">
-            <classMoniker Id="9a54f4cc-722d-439d-af65-aae07d9f2b0d" LastKnownName="CrossingB" />
-            <elementDefinition Id="53ced77c-de2e-4e46-bb0c-4a1c6b8c654d" />
-          </generalization>
-        </generalsInternal>
         <targetEnds>
           <association Id="4c2006f4-f5d1-48fe-95f0-4eaa0d6b56e8" isDerived="false" sourceEndRoleName="Crossing" targetEndRoleName="Neighbours" isLeaf="false" isAbstract="false">
             <classMoniker Id="8a61057e-ef53-4e33-8d78-b3ce7e584bf7" LastKnownName="Neighbours" />
@@ -4253,6 +4243,12 @@
           </stereotypeInstance>
         </appliedStereotypesInternal>
         <elementDefinition Id="1953e436-6cfc-4993-bcf1-3cdb1d7a1ba3" />
+        <suppliersInternal>
+          <dependency Id="f37be116-2e83-4678-af96-ae85f441e683">
+            <classMoniker Id="56e9ae66-389f-4289-9a00-efa64514857d" LastKnownName="Abstract Crossing" />
+            <elementDefinition Id="ac2cf8fb-7ec5-4396-8c04-5c97f6f349d3" />
+          </dependency>
+        </suppliersInternal>
         <ownedAttributesInternal>
           <property Id="c28708bf-93a8-4784-a38f-36053eb8d4d5" name="SensorTime" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <appliedStereotypesInternal>
@@ -4553,6 +4549,12 @@
           </stereotypeInstance>
         </appliedStereotypesInternal>
         <elementDefinition Id="36c9af3c-1c87-4116-9fb2-7f9d7fafd44a" />
+        <suppliersInternal>
+          <dependency Id="2c73768e-96bf-4617-9f9d-4055f76e1fb7">
+            <classMoniker Id="56e9ae66-389f-4289-9a00-efa64514857d" LastKnownName="Abstract Crossing" />
+            <elementDefinition Id="1094a838-c0a5-4e77-85f4-aa7dfc680330" />
+          </dependency>
+        </suppliersInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <packageHasNamedElement>

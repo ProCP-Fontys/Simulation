@@ -855,24 +855,6 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
-        <generalsInternal>
-          <generalization
-            Id="8aa2a1f3-4672-4be5-82fe-03291fa9484d"
-            isSubstitutable="false">
-            <classMoniker
-              Id="1953e436-6cfc-4993-bcf1-3cdb1d7a1ba3"
-              LastKnownName="CrossingA"
-              LastKnownLocation="ModelingProject1.uml" />
-          </generalization>
-          <generalization
-            Id="53ced77c-de2e-4e46-bb0c-4a1c6b8c654d"
-            isSubstitutable="false">
-            <classMoniker
-              Id="36c9af3c-1c87-4116-9fb2-7f9d7fafd44a"
-              LastKnownName="CrossingB"
-              LastKnownLocation="ModelingProject1.uml" />
-          </generalization>
-        </generalsInternal>
         <targetEnds>
           <association
             Id="1210b099-6735-46f1-8907-a2ea6c996816"
@@ -5928,6 +5910,15 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <suppliersInternal>
+          <dependency
+            Id="ac2cf8fb-7ec5-4396-8c04-5c97f6f349d3">
+            <classMoniker
+              Id="190cc4c9-5fcc-47a0-9d68-dbfe76e94d94"
+              LastKnownName="Abstract Crossing"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
         <ownedAttributesInternal>
           <property
             Id="bcf83e52-6644-46e6-8b52-ef76c56b47df"
@@ -6321,6 +6312,15 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <suppliersInternal>
+          <dependency
+            Id="1094a838-c0a5-4e77-85f4-aa7dfc680330">
+            <classMoniker
+              Id="190cc4c9-5fcc-47a0-9d68-dbfe76e94d94"
+              LastKnownName="Abstract Crossing"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
