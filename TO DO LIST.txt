@@ -1,4 +1,2 @@
--Class Description
--Sequence Diagram for Simulator and Grid
--GUI Design
--Design Document V1.0.0
+Gui design ---> Mikaeil
+-classes implementation
