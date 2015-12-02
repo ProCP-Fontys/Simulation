@@ -13,6 +13,8 @@ using System.Drawing;
 public class Grid
 {
     private List<GridCell> gridCells;
+    public int nrOfRows { get; set; }
+    public int nrOfColumns { get; set; }
 
     public Grid()
     {
@@ -20,18 +22,33 @@ public class Grid
         CreateGridCells();
     }
 
+    public int GridCellsOccupied()
+    {
+        int occupiedNmbr = 0;
+
+        foreach (var item in gridCells)
+        {
+            if (item.Crossing != null)
+                occupiedNmbr++;
+        }
+
+        return occupiedNmbr;
+    }
+
     public void CreateGridCells()
     {
+        int gridNmr = 0;
         for (int i = 0; i < 600; i += 200)
         {
             for (int i2 = 0; i2 < 800; i2 += 200)
             {
-                gridCells.Add(new GridCell(new Point(i2, i)));
+                gridCells.Add(new GridCell(new Point(i2, i), gridNmr));
+                gridNmr++;
             }
         }
     }
 
-    public List<GridCell> ReturnGridCells(int nrOfRows, int nrOfColumns)
+    public List<GridCell> ReturnGridCells()
     {
         List<GridCell> listToBeReturned = new List<GridCell>();
 

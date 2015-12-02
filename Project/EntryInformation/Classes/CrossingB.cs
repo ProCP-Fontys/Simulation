@@ -9,7 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class CrossingB
+public class CrossingB : Crossing
 {
+    public CrossingB(int crossingID) : base(crossingID) { }
 }
 

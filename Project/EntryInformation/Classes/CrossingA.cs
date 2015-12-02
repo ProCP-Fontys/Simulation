@@ -9,8 +9,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class CrossingA
+public class CrossingA : Crossing
 {
+
+    public CrossingA(int crossingID) : base(crossingID) { }
+
 	public virtual object SensorTime
 	{
 		get;

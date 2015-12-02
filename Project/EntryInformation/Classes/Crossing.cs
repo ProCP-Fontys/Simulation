@@ -9,13 +9,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Crossing 
+public abstract class Crossing 
 {
-	public virtual int CrossingID
-	{
-		get;
-		set;
-	}
+    public int CrossingID { get; set; }
+    public List<Feeder> Feeders { get; set; }
+    public Neighbours neighbors { get; set; }
+
+    public Crossing(int crossingID)
+    {
+        this.CrossingID = crossingID;
+        Feeders = new List<Feeder>();
+        neighbors = new Neighbours();
+    }
 
 	public virtual List <Feeder> FeederList
 	{

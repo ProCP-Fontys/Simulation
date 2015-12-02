@@ -79,8 +79,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.CA = new System.Windows.Forms.PictureBox();
             this.CB = new System.Windows.Forms.PictureBox();
+            this.CA = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -91,8 +91,8 @@
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CA)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,7 +107,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 4, 0, 4);
-            this.menuStrip1.Size = new System.Drawing.Size(1032, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(1032, 31);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -121,37 +121,37 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.Tomato;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(45, 28);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(40, 23);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
             this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveASToolStripMenuItem
             // 
             this.saveASToolStripMenuItem.Name = "saveASToolStripMenuItem";
-            this.saveASToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
+            this.saveASToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
             this.saveASToolStripMenuItem.Text = "Save AS";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -159,7 +159,7 @@
             // 
             this.editToolStripMenuItem.ForeColor = System.Drawing.Color.Tomato;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(52, 28);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // helpToolStripMenuItem
@@ -169,19 +169,19 @@
             this.helpToolStripMenuItem1});
             this.helpToolStripMenuItem.ForeColor = System.Drawing.Color.Tomato;
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 28);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(46, 23);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // usersManualToolStripMenuItem
             // 
             this.usersManualToolStripMenuItem.Name = "usersManualToolStripMenuItem";
-            this.usersManualToolStripMenuItem.Size = new System.Drawing.Size(177, 28);
+            this.usersManualToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
             this.usersManualToolStripMenuItem.Text = "User\'s Manual";
             // 
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(177, 28);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(155, 24);
             this.helpToolStripMenuItem1.Text = "Help!";
             // 
             // gridGroupBox
@@ -219,7 +219,7 @@
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(5, 73);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(178, 24);
+            this.label13.Size = new System.Drawing.Size(139, 19);
             this.label13.TabIndex = 2;
             this.label13.Text = "Time  08:00 O\' Clock.  ";
             // 
@@ -230,7 +230,7 @@
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(-1, 49);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(203, 24);
+            this.label10.Size = new System.Drawing.Size(157, 19);
             this.label10.TabIndex = 1;
             this.label10.Text = "Street : Eindhoven, station";
             // 
@@ -249,7 +249,6 @@
             this.buttonStart.Text = "Start";
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
-            this.buttonStart.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
             // 
             // groupBox7
             // 
@@ -277,7 +276,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(3, 37);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 24);
+            this.label7.Size = new System.Drawing.Size(39, 19);
             this.label7.TabIndex = 6;
             this.label7.Text = "%Left";
             // 
@@ -287,7 +286,7 @@
             this.textBox2.Location = new System.Drawing.Point(14, 63);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(42, 31);
+            this.textBox2.Size = new System.Drawing.Size(42, 26);
             this.textBox2.TabIndex = 13;
             // 
             // textBox3
@@ -296,7 +295,7 @@
             this.textBox3.Location = new System.Drawing.Point(90, 63);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(42, 31);
+            this.textBox3.Size = new System.Drawing.Size(42, 26);
             this.textBox3.TabIndex = 14;
             // 
             // textBox4
@@ -305,7 +304,7 @@
             this.textBox4.Location = new System.Drawing.Point(168, 63);
             this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(42, 31);
+            this.textBox4.Size = new System.Drawing.Size(42, 26);
             this.textBox4.TabIndex = 15;
             // 
             // label8
@@ -315,7 +314,7 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(62, 37);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 24);
+            this.label8.Size = new System.Drawing.Size(59, 19);
             this.label8.TabIndex = 7;
             this.label8.Text = "%Straght";
             // 
@@ -326,7 +325,7 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(154, 37);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 24);
+            this.label9.Size = new System.Drawing.Size(46, 19);
             this.label9.TabIndex = 8;
             this.label9.Text = "%Right";
             // 
@@ -361,7 +360,7 @@
             this.textBox9.Location = new System.Drawing.Point(138, 54);
             this.textBox9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(79, 31);
+            this.textBox9.Size = new System.Drawing.Size(79, 26);
             this.textBox9.TabIndex = 23;
             // 
             // label2
@@ -371,7 +370,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(1, 57);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 24);
+            this.label2.Size = new System.Drawing.Size(43, 19);
             this.label2.TabIndex = 22;
             this.label2.Text = "Lane2";
             // 
@@ -381,7 +380,7 @@
             this.textBox8.Location = new System.Drawing.Point(138, 22);
             this.textBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(79, 31);
+            this.textBox8.Size = new System.Drawing.Size(79, 26);
             this.textBox8.TabIndex = 21;
             // 
             // label15
@@ -391,7 +390,7 @@
             this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.Location = new System.Drawing.Point(1, 25);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(53, 24);
+            this.label15.Size = new System.Drawing.Size(43, 19);
             this.label15.TabIndex = 20;
             this.label15.Text = "Lane1";
             // 
@@ -401,7 +400,7 @@
             this.textBox7.Location = new System.Drawing.Point(138, 117);
             this.textBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(79, 31);
+            this.textBox7.Size = new System.Drawing.Size(79, 26);
             this.textBox7.TabIndex = 19;
             // 
             // label1
@@ -411,7 +410,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(2, 120);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 24);
+            this.label1.Size = new System.Drawing.Size(43, 19);
             this.label1.TabIndex = 18;
             this.label1.Text = "Lane4";
             // 
@@ -421,7 +420,7 @@
             this.textBox1.Location = new System.Drawing.Point(138, 85);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(79, 31);
+            this.textBox1.Size = new System.Drawing.Size(79, 26);
             this.textBox1.TabIndex = 11;
             // 
             // textBox6
@@ -430,7 +429,7 @@
             this.textBox6.Location = new System.Drawing.Point(155, 199);
             this.textBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(65, 31);
+            this.textBox6.Size = new System.Drawing.Size(65, 26);
             this.textBox6.TabIndex = 17;
             // 
             // label3
@@ -440,7 +439,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(2, 88);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 24);
+            this.label3.Size = new System.Drawing.Size(43, 19);
             this.label3.TabIndex = 2;
             this.label3.Text = "Lane3";
             // 
@@ -451,7 +450,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(4, 167);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(138, 24);
+            this.label4.Size = new System.Drawing.Size(110, 19);
             this.label4.TabIndex = 3;
             this.label4.Text = "Pedestraians Time";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -463,7 +462,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(3, 202);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(134, 24);
+            this.label5.Size = new System.Drawing.Size(106, 19);
             this.label5.TabIndex = 4;
             this.label5.Text = "Green Light Time";
             // 
@@ -473,7 +472,7 @@
             this.textBox5.Location = new System.Drawing.Point(152, 164);
             this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(65, 31);
+            this.textBox5.Size = new System.Drawing.Size(65, 26);
             this.textBox5.TabIndex = 16;
             // 
             // buttonCancel
@@ -508,7 +507,7 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Size = new System.Drawing.Size(238, 547);
+            this.groupBox4.Size = new System.Drawing.Size(238, 542);
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Crossing Control";
@@ -552,7 +551,7 @@
             this.label12.Font = new System.Drawing.Font("Segoe Print", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(79, 46);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 61);
+            this.label12.Size = new System.Drawing.Size(34, 47);
             this.label12.TabIndex = 3;
             this.label12.Text = "*";
             // 
@@ -563,7 +562,7 @@
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(16, 29);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(185, 24);
+            this.label11.Size = new System.Drawing.Size(137, 19);
             this.label11.TabIndex = 0;
             this.label11.Text = "Row * Column            ";
             // 
@@ -581,7 +580,7 @@
             this.comboBoxRows.Location = new System.Drawing.Point(26, 56);
             this.comboBoxRows.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxRows.Name = "comboBoxRows";
-            this.comboBoxRows.Size = new System.Drawing.Size(55, 31);
+            this.comboBoxRows.Size = new System.Drawing.Size(55, 27);
             this.comboBoxRows.TabIndex = 1;
             this.comboBoxRows.Text = "3";
             // 
@@ -600,7 +599,7 @@
             this.comboBoxColumns.Location = new System.Drawing.Point(116, 56);
             this.comboBoxColumns.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxColumns.Name = "comboBoxColumns";
-            this.comboBoxColumns.Size = new System.Drawing.Size(55, 31);
+            this.comboBoxColumns.Size = new System.Drawing.Size(55, 27);
             this.comboBoxColumns.TabIndex = 2;
             this.comboBoxColumns.Text = "4";
             // 
@@ -642,8 +641,8 @@
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.CA);
             this.groupBox1.Controls.Add(this.CB);
+            this.groupBox1.Controls.Add(this.CA);
             this.groupBox1.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(5, 185);
@@ -662,7 +661,7 @@
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(10, 149);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(61, 24);
+            this.label14.Size = new System.Drawing.Size(49, 19);
             this.label14.TabIndex = 22;
             this.label14.Text = "label14";
             // 
@@ -673,36 +672,33 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(6, 121);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 24);
+            this.label6.Size = new System.Drawing.Size(41, 19);
             this.label6.TabIndex = 21;
             this.label6.Text = "label6";
             // 
-            // CA
-            // 
-            this.CA.Image = global::EntryInformation.Properties.Resources.CrossingB1;
-            this.CA.Location = new System.Drawing.Point(106, 33);
-            this.CA.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.CA.Name = "CA";
-            this.CA.Size = new System.Drawing.Size(86, 84);
-            this.CA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.CA.TabIndex = 2;
-            this.CA.TabStop = false;
-            this.CA.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
-            this.CA.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseDown);
-            // 
             // CB
             // 
-            this.CB.Image = global::EntryInformation.Properties.Resources.CrossingA3;
-            this.CB.Location = new System.Drawing.Point(6, 33);
+            this.CB.Image = global::EntryInformation.Properties.Resources.CrossingB1;
+            this.CB.Location = new System.Drawing.Point(106, 33);
             this.CB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CB.Name = "CB";
-            this.CB.Size = new System.Drawing.Size(93, 84);
+            this.CB.Size = new System.Drawing.Size(86, 84);
             this.CB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.CB.TabIndex = 1;
+            this.CB.TabIndex = 2;
             this.CB.TabStop = false;
-            this.CB.Click += new System.EventHandler(this.pictureBox1_Click);
-            this.CB.DragDrop += new System.Windows.Forms.DragEventHandler(this.CB_DragDrop);
-            this.CB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.CB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CB_MouseDown);
+            // 
+            // CA
+            // 
+            this.CA.Image = global::EntryInformation.Properties.Resources.CrossingA3;
+            this.CA.Location = new System.Drawing.Point(6, 33);
+            this.CA.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CA.Name = "CA";
+            this.CA.Size = new System.Drawing.Size(93, 84);
+            this.CA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.CA.TabIndex = 1;
+            this.CA.TabStop = false;
+            this.CA.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CA_MouseDown);
             // 
             // groupBox5
             // 
@@ -720,7 +716,7 @@
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox5.Size = new System.Drawing.Size(207, 158);
+            this.groupBox5.Size = new System.Drawing.Size(177, 153);
             this.groupBox5.TabIndex = 19;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Creat Grid";
@@ -749,7 +745,7 @@
             // 
             // Simulation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
@@ -773,9 +769,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Simulation";
-            this.Load += new System.EventHandler(this.Simulation_Load);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Simulation_MouseMove);
-            this.Resize += new System.EventHandler(this.Simulation_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.gridGroupBox.ResumeLayout(false);
@@ -788,8 +782,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CA)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
@@ -810,7 +804,7 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usersManualToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
-        private System.Windows.Forms.GroupBox gridGroupBox;
+        public System.Windows.Forms.GroupBox gridGroupBox;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button buttonStart;
@@ -831,12 +825,12 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.PictureBox CB;
-        private System.Windows.Forms.PictureBox CA;
+        public System.Windows.Forms.PictureBox CA;
+        public System.Windows.Forms.PictureBox CB;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBoxRows;
-        private System.Windows.Forms.ComboBox comboBoxColumns;
+        public System.Windows.Forms.ComboBox comboBoxRows;
+        public System.Windows.Forms.ComboBox comboBoxColumns;
         private System.Windows.Forms.Button BtnCreateGrid;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;

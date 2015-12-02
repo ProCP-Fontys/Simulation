@@ -13,12 +13,14 @@ using System.Drawing;
 
 public class GridCell
 {
+    public int Number { get; set; }
     private Point location;
-    private Crossing Crossing;
+    public Crossing Crossing { get; set; }
 
-    public GridCell(Point location)
+    public GridCell(Point location, int number)
     {
         this.location = location;
+        this.Number = number;
     }
     public void AddCrossing(Crossing c)
     {
@@ -30,12 +32,6 @@ public class GridCell
         return location;
     }
     public Point TopLeft
-    {
-        get;
-        set;
-    }
-
-    public int CellNumber
     {
         get;
         set;

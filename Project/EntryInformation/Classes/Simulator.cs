@@ -16,62 +16,168 @@ using System.Drawing;
 public class Simulator 
 {
     private Grid grid;
-    private Form simulation;
-    private List<Crossing> crossings = new List<Crossing>();
+    private Simulation simulation;
 
-
-    public Simulator(Form simulation)
+    public Simulator(Simulation simulation)
     {
-        grid = new Grid();
         this.simulation = simulation;
+        simulation.gridGroupBox.Enabled = false;
     }
 
-    public void calculatePanelSize(int nrOfRows, int nrOfColumns, Panel gridPanel, GroupBox gridGroupBox)
+    public void calculatePanelSize(int nrOfRows, int nrOfColumns)
     {
-        
         int height = nrOfRows * 200;
         int width = nrOfColumns * 200;
-        ((Simulation)simulation).gridPanel.Size = new Size(width, height);
-        //simulation.gridPanel.Size = 
-        //gridPanel.Size = new Size(width, height);
-        gridGroupBox.Size = new Size(width + 15, height + 30);
+        simulation.gridPanel.Size = new Size(width, height);
+        simulation.gridGroupBox.Size = new Size(width + 15, height + 30);
     }
 
-    public void DrawGrid(ComboBox comboBoxRows, ComboBox comboBoxColumns, Panel gridPanel, GroupBox gridGroupBox)
+    public void DrawGrid()
     {
-        int nrOfRows = Convert.ToInt16(comboBoxRows.SelectedItem);
-        int nrOfColumns = Convert.ToInt16(comboBoxColumns.SelectedItem);
 
-        calculatePanelSize(nrOfRows, nrOfColumns, gridPanel, gridGroupBox);
-        System.Drawing.Pen myPen;
-        myPen = new System.Drawing.Pen(System.Drawing.Color.White);
-        System.Drawing.Graphics formGraphics = gridPanel.CreateGraphics();
+        grid = new Grid();
+        simulation.gridPanel.Controls.Clear();
+        simulation.gridGroupBox.Enabled = true;
+        grid.nrOfRows = Convert.ToInt16(simulation.comboBoxRows.SelectedItem);
+        grid.nrOfColumns = Convert.ToInt16(simulation.comboBoxColumns.SelectedItem);
+
+        calculatePanelSize(grid.nrOfRows, grid.nrOfColumns);
+        Pen myPen;
+        myPen = new Pen(Color.White);
+        Graphics formGraphics = simulation.gridPanel.CreateGraphics();
 
         //drawing cells rows
-        foreach (var item in grid.ReturnGridCells(nrOfRows, nrOfColumns))
+        foreach (var item in grid.ReturnGridCells())
         {
             formGraphics.DrawLine(myPen, item.ReturnLocation().X, item.ReturnLocation().Y, (item.ReturnLocation().X + 200), item.ReturnLocation().Y);//top line from the left to right
             formGraphics.DrawLine(myPen, item.ReturnLocation().X, item.ReturnLocation().Y, item.ReturnLocation().X, (item.ReturnLocation().Y + 200));//left line from top to bottom
             formGraphics.DrawLine(myPen, item.ReturnLocation().X, (item.ReturnLocation().Y + 199), (item.ReturnLocation().X + 200), item.ReturnLocation().Y + 199);//bottom line from the left to right
             formGraphics.DrawLine(myPen, (item.ReturnLocation().X + 199), item.ReturnLocation().Y, (item.ReturnLocation().X + 199), (item.ReturnLocation().Y + 200));//right line from top to bottom
         }
-        //if (Convert.ToInt16(comboBoxRows.SelectedItem) == 3 || Convert.ToInt16(comboBoxColumns.SelectedItem) == 4)
-        //{
-        //    formGraphics.DrawLine(myPen, 0, 600, 800, 600);
-        //    formGraphics.DrawLine(myPen, 800, 0, 800, 800);
-        //}
 
         myPen.Dispose();
         formGraphics.Dispose();
     }
-    public void addCrossing(Crossing c, GridCell gc, int nrofColomn, int nrofRows)
+
+    private GridCell determinePicboxLocation(Point droppedCoordinates)
     {
-        foreach (var item in this.grid.ReturnGridCells(nrofRows,nrofColomn))
+        List<GridCell> gridCells = grid.ReturnGridCells();
+
+        if (grid.GridCellsOccupied() != 12)//if all cells are occupied
         {
-            if (gc == item)
+            GridCell GridCellToBeDropped = null;
+
+            List<GridCell> pointsOfGridCellsUpdated = new List<GridCell>();//possible X coordinate cells candidates //change name to gridcellsUpdated
+
+            foreach (var item in gridCells)
             {
-                item.AddCrossing(c);
+                if ((droppedCoordinates.X >= item.ReturnLocation().X && droppedCoordinates.X <= (item.ReturnLocation().X + 200)) && item.Crossing == null)
+                {
+                    pointsOfGridCellsUpdated.Add(item);
+                }
+
             }
+            foreach (var item in pointsOfGridCellsUpdated)
+            {
+                if (droppedCoordinates.Y >= item.ReturnLocation().Y && droppedCoordinates.Y <= (item.ReturnLocation().Y + 200))
+                {
+                    GridCellToBeDropped = item;
+                    break;
+                }
+            }
+
+            if (GridCellToBeDropped != null)
+                return GridCellToBeDropped;
+
+            pointsOfGridCellsUpdated = new List<GridCell>();
+            GridCell cellOccupied = null;//which cell user dropped crossing is occupied
+            List<GridCell> randomCellsToChoose = new List<GridCell>();//Possible cells to choose from
+
+            foreach (var item in gridCells)//check if below you there are empty spots and check if is in cell
+            {
+                if ((droppedCoordinates.X >= item.ReturnLocation().X && droppedCoordinates.X <= (item.ReturnLocation().X + 200)) && item.Crossing != null)
+                {
+                    pointsOfGridCellsUpdated.Add(item);
+                }
+
+            }
+
+            foreach (var item in pointsOfGridCellsUpdated)
+            {
+                if (droppedCoordinates.Y >= item.ReturnLocation().Y && droppedCoordinates.Y <= (item.ReturnLocation().Y + 200))
+                {
+                    cellOccupied = item;
+                    break;
+                }
+            }
+
+            foreach (var item in gridCells)//check if there is are emtpy spots
+            {
+                if (((cellOccupied.ReturnLocation().X + 200) == item.ReturnLocation().X && cellOccupied.ReturnLocation().Y == item.ReturnLocation().Y) && item.Crossing == null)
+                {
+                    randomCellsToChoose.Add(item);
+                }
+                else if (((cellOccupied.ReturnLocation().X - 200) == item.ReturnLocation().X && cellOccupied.ReturnLocation().Y == item.ReturnLocation().Y) && item.Crossing == null)
+                {
+                    randomCellsToChoose.Add(item);
+                }
+                else if (((cellOccupied.ReturnLocation().Y + 200) == item.ReturnLocation().Y && cellOccupied.ReturnLocation().X == item.ReturnLocation().X) && item.Crossing == null)
+                {
+                    randomCellsToChoose.Add(item);
+                }
+                else if (((cellOccupied.ReturnLocation().Y - 200) == item.ReturnLocation().Y && cellOccupied.ReturnLocation().X == item.ReturnLocation().X) && item.Crossing == null)
+                {
+                    randomCellsToChoose.Add(item);
+                }
+            }
+
+            if (randomCellsToChoose.Count != 0)
+            {
+                Random random = new Random();
+
+                int randomChoice = random.Next(0, randomCellsToChoose.Count);
+                while (randomCellsToChoose[randomChoice] == null)
+                {
+                    randomChoice = random.Next(0, randomCellsToChoose.Count);
+                }
+                return randomCellsToChoose[randomChoice];
+            }
+        }
+
+        return null;
+    }
+
+    public bool AddCrossingInCell(DragEventArgs e)
+    {
+        GridCell OnGridCellDropped = determinePicboxLocation(simulation.gridPanel.PointToClient(new Point(e.X, e.Y)));
+        if (OnGridCellDropped != null)
+        {
+            PictureBox picbox = new PictureBox();
+            picbox.Click += new EventHandler(simulation.FormExpand);
+            picbox.Size = new Size(200, 200);
+            picbox.BorderStyle = BorderStyle.None;
+            picbox.Location = new Point(OnGridCellDropped.ReturnLocation().X, OnGridCellDropped.ReturnLocation().Y);
+
+            Bitmap image = (Bitmap)e.Data.GetData(DataFormats.Bitmap);
+            picbox.Image = image;
+            picbox.SizeMode = PictureBoxSizeMode.StretchImage;
+            simulation.gridPanel.Controls.Add(picbox);
+            LinkCrossingAndGridCell(OnGridCellDropped, image);
+            return true;
+        }
+        else
+            return false;
+    }
+
+    private void LinkCrossingAndGridCell(GridCell gridCell, Image image)
+    {
+        if (image.Tag.ToString() == "CrossingB")
+        {
+            gridCell.AddCrossing(new CrossingB(gridCell.Number));
+        }
+        else
+        {
+            gridCell.AddCrossing(new CrossingA(gridCell.Number));
         }
     }
 
