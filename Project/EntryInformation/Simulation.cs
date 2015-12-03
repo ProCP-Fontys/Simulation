@@ -27,19 +27,21 @@ namespace EntryInformation
             InitializeComponent();
             simulator = new Simulator(this);
             aTimer.Elapsed += new ElapsedEventHandler(PaintCarMoving);
-            aTimer.Interval = 100;
+            aTimer.Interval = 50;
 
             StopPointsGoingOut = new List<Point>();
 
-            for (int i = 5; i > 0; i--)
+            for (int i = 4; i > -1; i--)
             {
-                this.StopPointsGoingOut.Add(new Point(Convert.ToInt16(i + "0"), 112));
+                this.StopPointsGoingOut.Add(new Point(Convert.ToInt16(i + "7"), 112));
             }
 
             for (int i = 0; i < 10; i++)
             {
-                totalCars[i] = new Car(new Point(-1, 112));
+                totalCars[i] = new Car(new Point(-3, 112));
             }
+
+
 
             //cars.Add(new Car(new Point(9, 112)));
             //cars.Add(new Car(new Point(-1, 112)));
@@ -81,28 +83,40 @@ namespace EntryInformation
                     {
                         if (i == 0)//if car is at stoplight
                         {
+                            greenLight = false;
                             if (greenLight)//stopLight is green
                             {
-                                greenLight = false;
+                                //greenLight = false;
+                                formGraphics.FillEllipse(Brushes.Blue, CarsGoingOut[i].X, CarsGoingOut[i].Y, 5, 5);
                                 CarsGoingOut[i].X++;
+                            }
+                            else
+                            {
+                                //greenLight = true;
+                                formGraphics.FillEllipse(Brushes.Blue, CarsGoingOut[i].X, CarsGoingOut[i].Y, 5, 5);
+                                //CarsGoingOut[i].X++;
                             }
                         }
                         else
                         {
                             if (CarsGoingOut[i - 1] == null)
                             {
-                                CarsGoingOut[i].X++;
-                                CarsGoingOut[i-1] = CarsGoingOut[i];
-                                CarsGoingOut[i] = null;
+                                //CarsGoingOut[i].X++;
                                 formGraphics.FillEllipse(Brushes.Blue, CarsGoingOut[i].X, CarsGoingOut[i].Y, 5, 5);
+                                CarsGoingOut[i - 1] = CarsGoingOut[i];
+                                CarsGoingOut[i] = null;
                                 //insinsi
+                            }
+                            else
+                            {
+                                formGraphics.FillEllipse(Brushes.Blue, CarsGoingOut[i].X, CarsGoingOut[i].Y, 5, 5);
                             }
                         }
                     }
                     else
                     {
-                        CarsGoingOut[i].X++;
                         formGraphics.FillEllipse(Brushes.Blue, CarsGoingOut[i].X, CarsGoingOut[i].Y, 5, 5);
+                        CarsGoingOut[i].X++;
                     }
                 }
                 
