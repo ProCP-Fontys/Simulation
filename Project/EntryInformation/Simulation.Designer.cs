@@ -107,7 +107,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 4, 0, 4);
-            this.menuStrip1.Size = new System.Drawing.Size(1032, 31);
+            this.menuStrip1.Size = new System.Drawing.Size(1028, 31);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -210,6 +210,7 @@
             this.gridPanel.TabIndex = 0;
             this.gridPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.gridPanel_DragDrop);
             this.gridPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.gridPanel_DragEnter);
+            this.gridPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.gridPanel_Paint);
             this.gridPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gridPanel_MouseMove);
             // 
             // label13
@@ -236,6 +237,7 @@
             // 
             // buttonStart
             // 
+            this.buttonStart.Enabled = false;
             this.buttonStart.FlatAppearance.BorderColor = System.Drawing.Color.OrangeRed;
             this.buttonStart.FlatAppearance.BorderSize = 5;
             this.buttonStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tomato;
@@ -749,7 +751,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1032, 694);
+            this.ClientSize = new System.Drawing.Size(1028, 694);
             this.ControlBox = false;
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox5);
@@ -836,7 +838,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox8;

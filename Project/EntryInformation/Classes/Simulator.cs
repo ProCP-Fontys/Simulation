@@ -67,17 +67,17 @@ public class Simulator
         {
             GridCell GridCellToBeDropped = null;
 
-            List<GridCell> pointsOfGridCellsUpdated = new List<GridCell>();//possible X coordinate cells candidates //change name to gridcellsUpdated
+            List<GridCell> gridCellsUpdated = new List<GridCell>();//possible X coordinate cells candidates //change name to gridcellsUpdated
 
             foreach (var item in gridCells)
             {
                 if ((droppedCoordinates.X >= item.ReturnLocation().X && droppedCoordinates.X <= (item.ReturnLocation().X + 200)) && item.Crossing == null)
                 {
-                    pointsOfGridCellsUpdated.Add(item);
+                    gridCellsUpdated.Add(item);
                 }
 
             }
-            foreach (var item in pointsOfGridCellsUpdated)
+            foreach (var item in gridCellsUpdated)
             {
                 if (droppedCoordinates.Y >= item.ReturnLocation().Y && droppedCoordinates.Y <= (item.ReturnLocation().Y + 200))
                 {
@@ -89,7 +89,7 @@ public class Simulator
             if (GridCellToBeDropped != null)
                 return GridCellToBeDropped;
 
-            pointsOfGridCellsUpdated = new List<GridCell>();
+            gridCellsUpdated = new List<GridCell>();
             GridCell cellOccupied = null;//which cell user dropped crossing is occupied
             List<GridCell> randomCellsToChoose = new List<GridCell>();//Possible cells to choose from
 
@@ -97,12 +97,12 @@ public class Simulator
             {
                 if ((droppedCoordinates.X >= item.ReturnLocation().X && droppedCoordinates.X <= (item.ReturnLocation().X + 200)) && item.Crossing != null)
                 {
-                    pointsOfGridCellsUpdated.Add(item);
+                    gridCellsUpdated.Add(item);
                 }
 
             }
 
-            foreach (var item in pointsOfGridCellsUpdated)
+            foreach (var item in gridCellsUpdated)
             {
                 if (droppedCoordinates.Y >= item.ReturnLocation().Y && droppedCoordinates.Y <= (item.ReturnLocation().Y + 200))
                 {
@@ -147,6 +147,39 @@ public class Simulator
         return null;
     }
 
+    public void LinkCrossingsWithNeighbors()
+    {
+        if (grid.CheckGridFull())
+        {
+            List<GridCell> gridCells = grid.ReturnGridCells();
+            foreach (var item in gridCells)//check if there is are emtpy spots
+            {
+                foreach (var item2 in gridCells)
+                {
+                    if (((item.ReturnLocation().X + 200) == item2.ReturnLocation().X && item.ReturnLocation().Y == item2.ReturnLocation().Y))
+                    {
+                        item.Crossing.neighbors.Right = item2.Crossing;
+                    }
+                    else if (((item.ReturnLocation().X - 200) == item2.ReturnLocation().X && item.ReturnLocation().Y == item2.ReturnLocation().Y))
+                    {
+                        item.Crossing.neighbors.Left = item2.Crossing;
+                    }
+                    else if (((item.ReturnLocation().Y + 200) == item2.ReturnLocation().Y && item.ReturnLocation().X == item2.ReturnLocation().X))
+                    {
+                        item.Crossing.neighbors.Bottom = item2.Crossing;
+                    }
+                    else if (((item.ReturnLocation().Y - 200) == item2.ReturnLocation().Y && item.ReturnLocation().X == item2.ReturnLocation().X))
+                    {
+                        item.Crossing.neighbors.Top = item2.Crossing;
+                    }
+                }
+            }
+        }
+        else
+            throw new Exception("Grid is not full");
+    }
+
+
     public bool AddCrossingInCell(DragEventArgs e)
     {
         GridCell OnGridCellDropped = determinePicboxLocation(simulation.gridPanel.PointToClient(new Point(e.X, e.Y)));
@@ -154,8 +187,10 @@ public class Simulator
         {
             PictureBox picbox = new PictureBox();
             picbox.Click += new EventHandler(simulation.FormExpand);
+            picbox.MouseMove += picbox_MouseMove;
             picbox.Size = new Size(200, 200);
             picbox.BorderStyle = BorderStyle.None;
+            picbox.Name = Convert.ToString("Crossing" + OnGridCellDropped.Number);
             picbox.Location = new Point(OnGridCellDropped.ReturnLocation().X, OnGridCellDropped.ReturnLocation().Y);
 
             Bitmap image = (Bitmap)e.Data.GetData(DataFormats.Bitmap);
@@ -167,6 +202,11 @@ public class Simulator
         }
         else
             return false;
+    }
+
+    private void picbox_MouseMove(object sender, MouseEventArgs e)
+    {
+        simulation.label6.Text = "X = " + e.X + " and Y = " + e.Y;
     }
 
     private void LinkCrossingAndGridCell(GridCell gridCell, Image image)
@@ -190,7 +230,7 @@ public class Simulator
         get;
     }
 
-    public virtual List<Cars> CarsList
+    public virtual List<Car> CarsList
     {
         get;
         set;
@@ -208,7 +248,7 @@ public class Simulator
         set;
     }
 
-    public virtual IEnumerable<Cars> Cars
+    public virtual IEnumerable<Car> Cars
     {
         get;
         set;

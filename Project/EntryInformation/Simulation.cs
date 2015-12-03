@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Timers;
 
 namespace EntryInformation
 {
@@ -16,11 +17,41 @@ namespace EntryInformation
         bool formationTab = false;
         
         private Simulator simulator;
+        System.Timers.Timer aTimer = new System.Timers.Timer();
+        List<Car> cars = new List<Car>();
 
         public Simulation()
         {
             InitializeComponent();
             simulator = new Simulator(this);
+            aTimer.Elapsed += new ElapsedEventHandler(PaintCarMoving);
+            aTimer.Interval = 100;
+            cars.Add(new Car(new Point(9, 112)));
+            cars.Add(new Car(new Point(-1, 112)));
+        }
+
+        private void PaintCarMoving(object sender, ElapsedEventArgs e)
+        {
+
+            cars[0].X++;
+            cars[1].X++;
+            PictureBox toDrawOn = (PictureBox)this.Controls.Find("Crossing0", true)[0];
+
+            if (toDrawOn.InvokeRequired)
+            {
+                // after we've done all the processing, 
+                toDrawOn.Invoke(new MethodInvoker(delegate
+                {
+                    toDrawOn.Refresh();
+                }));
+            }
+
+            //toDrawOn.Refresh();
+
+            Graphics formGraphics = toDrawOn.CreateGraphics();
+
+            formGraphics.FillEllipse(Brushes.Blue, cars[0].X, cars[0].Y, 5, 5);
+            formGraphics.FillEllipse(Brushes.Blue, cars[1].X, cars[1].Y, 5, 5);
         }
 
         private void frm_Resize(object sender, EventArgs e)
@@ -77,7 +108,7 @@ namespace EntryInformation
 
         private void Simulation_MouseMove(object sender, MouseEventArgs e)
         {
-            label6.Text = "X = " + e.X + " and Y = " + e.Y;
+            //label6.Text = "X = " + e.X + " and Y = " + e.Y;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -106,42 +137,54 @@ namespace EntryInformation
         private void buttonStart_Click(object sender, EventArgs e)
         {
 
-            if (!IsSimulationStarted)
+            try
             {
-                gridGroupBox.Enabled = false;
-                groupBox1.Visible = false;
+                simulator.LinkCrossingsWithNeighbors();
 
-                groupBox2.Location = new Point(3, 36);
-                groupBox2.Height += 448;
-                buttonStart.Location = new Point(18, 580);
-                buttonStart.Text = "Stop";
-                //groupBox2.Location
-                groupBox4.Visible = false;
-                groupBox3.Visible = false;
-                groupBox5.Visible = false;
-                IsSimulationStarted = !IsSimulationStarted;
+                aTimer.Start();
+
+                //if (!IsSimulationStarted)
+                //{
+                //    gridGroupBox.Enabled = false;
+                //    groupBox1.Visible = false;
+
+                //    groupBox2.Location = new Point(3, 36);
+                //    groupBox2.Height += 448;
+                //    buttonStart.Location = new Point(18, 580);
+                //    buttonStart.Text = "Stop";
+                //    //groupBox2.Location
+                //    groupBox4.Visible = false;
+                //    groupBox3.Visible = false;
+                //    groupBox5.Visible = false;
+                //    IsSimulationStarted = !IsSimulationStarted;
+                //}
+                //else
+                //{
+
+                //    groupBox1.Visible = true; ;
+                //    groupBox2.Height -= 448;
+                //    groupBox2.Location = new Point(7, 371);
+                //    buttonStart.Text = "Start";
+                //    buttonStart.Location = new Point(37, 123);
+                //    //groupBox2.Location
+                //    groupBox3.Visible = true;
+                //    groupBox5.Visible = true;
+                //    IsSimulationStarted = !IsSimulationStarted;
+                //    this.Size = new Size(1050, 741);
+                //    groupBox4.Visible = false;
+                //    gridGroupBox.Enabled = true;
+                //}
             }
-            else
+            catch (Exception ex)
             {
-
-                groupBox1.Visible = true; ;
-                groupBox2.Height -= 448;
-                groupBox2.Location = new Point(7, 371);
-                buttonStart.Text = "Start";
-                buttonStart.Location = new Point(37, 123);
-                //groupBox2.Location
-                groupBox3.Visible = true;
-                groupBox5.Visible = true;
-                IsSimulationStarted = !IsSimulationStarted;
-                this.Size = new Size(1050, 741);
-                groupBox4.Visible = false;
-                gridGroupBox.Enabled = true;
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void BtnCreateGrid_Click(object sender, EventArgs e)
         {
             simulator.DrawGrid();
+            buttonStart.Enabled = true;
         }
 
         private void CB_MouseDown(object sender, MouseEventArgs e)
@@ -156,6 +199,18 @@ namespace EntryInformation
             Image imageInBox = CA.Image;
             imageInBox.Tag = "CrossingA";
             CA.DoDragDrop(imageInBox, DragDropEffects.Copy);
+        }
+
+        private void gridPanel_Paint(object sender, PaintEventArgs e)
+        {
+            //' Draw a 200 by 150 pixel green rectangle.
+            e.Graphics.DrawRectangle(Pens.Green, 10, 10, 200, 150);
+            //' Draw a blue square
+            e.Graphics.DrawRectangle(Pens.Blue, 30, 30, 150, 150);
+            //' Draw a 150 pixel diameter red circle.
+            e.Graphics.DrawEllipse(Pens.Red, 0, 0, 300, 300);
+            //' Draw a 250 by 125 pixel yellow oval.
+            e.Graphics.DrawEllipse(Pens.Yellow, 20, 20, 250, 125);
         }
     }
 }

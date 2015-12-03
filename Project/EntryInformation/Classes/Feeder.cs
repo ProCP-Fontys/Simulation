@@ -12,53 +12,100 @@ using System.Drawing;
 
 public class Feeder
 {
-	public virtual int FeederID
+    public int FeederID { get; set; }
+    public int MyProperty { get; set; }
+    public Car[] CarsGoingOut { get; set; }
+    public Car[] CarsComingIn { get; set; }
+    public Car[] TotalCars; //Total amount of cars specified at the beginning
+
+	public int RightPercentage
 	{
 		get;
 		set;
 	}
 
-	public virtual int RightPercentage
+	public int LeftPercentage
 	{
 		get;
 		set;
 	}
 
-	public virtual int LeftPercentage
+	public int StraightPercentage
 	{
 		get;
 		set;
 	}
 
-	public virtual int StraightPercentage
+	public TrafficLight TrafficLight
 	{
 		get;
 		set;
 	}
 
-	public virtual int CarsLimit
+	public List<Point> StopPointsComingIn//for every feeder as soon crossing is dropped
 	{
 		get;
 		set;
 	}
 
-	public virtual int CarsOnBoard
-	{
-		get;
-		set;
-	}
+    public List<Point> StopPointsGoingOut//for every feeder as soon crossing is dropped
+    {
+        get;
+        set;
+    }
 
-	public virtual TrafficLight TrafficLight
-	{
-		get;
-		set;
-	}
+    public Feeder(int feederID)
+    {
+        this.FeederID = feederID;
+        CarsComingIn = new Car[5];
+        CarsGoingOut = new Car[5];
+        StopPointsComingIn = new List<Point>();
+        StopPointsGoingOut = new List<Point>();
 
-	public virtual List<Point> StopPoins
-	{
-		get;
-		set;
-	}
+        switch (this.FeederID)
+        {
+            case 1:
+                for (int i = 5; i > 0; i--)
+                {
+                    this.StopPointsGoingOut.Add(new Point(Convert.ToInt16(i + "0"), 115));
+                }
+                for (int i = 1; i < 6; i++)
+                {
+                    this.StopPointsComingIn.Add(new Point(Convert.ToInt16(i + "0"), 85));
+                }
+                break;
+            case 2:
+                for (int i = 5; i > 0; i--)
+                {
+                    this.StopPointsGoingOut.Add(new Point(85, Convert.ToInt16(i + "0")));
+                }
+                for (int i = 1; i < 6; i++)
+                {
+                    this.StopPointsComingIn.Add(new Point(115, Convert.ToInt16(i + "0")));
+                }
+                break;
+            case 3:
+                for (int i = 149; i < 200; i += 10)
+                {
+                    this.StopPointsGoingOut.Add(new Point(i, 85));
+                }
+                for (int i = 199; i > 148; i -= 10)
+                {
+                    this.StopPointsComingIn.Add(new Point(i, 115));
+                }
+                break;
+            case 4:
+                for (int i = 149; i < 200; i += 10)
+                {
+                    this.StopPointsGoingOut.Add(new Point(115, i));
+                }
+                for (int i = 199; i > 148; i -= 10)
+                {
+                    this.StopPointsComingIn.Add(new Point(85, i));
+                }
+                break;
+        }
+    }
 
 	public virtual void AddDetailes()
 	{

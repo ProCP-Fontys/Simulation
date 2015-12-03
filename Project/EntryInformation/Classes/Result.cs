@@ -11,7 +11,7 @@ using System.Text;
 
 public class Result
 {
-	public virtual List <Cars> Cars
+	public virtual List <Car> Cars
 	{
 		get;
 		set;
@@ -35,7 +35,7 @@ public class Result
 		set;
 	}
 
-	public Cars cars
+	public Car cars
 	{
 		get;
 		set;

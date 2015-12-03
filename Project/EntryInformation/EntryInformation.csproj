@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Cars.cs" />
+    <Compile Include="Classes\Car.cs" />
     <Compile Include="Classes\Crossing.cs" />
     <Compile Include="Classes\CrossingA.cs" />
     <Compile Include="Classes\CrossingB.cs" />

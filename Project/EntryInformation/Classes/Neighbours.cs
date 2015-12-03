@@ -11,31 +11,31 @@ using System.Text;
 
 public class Neighbours
 {
-	public virtual Crossing Left
+	public Crossing Left
 	{
 		get;
 		set;
 	}
 
-	public virtual Crossing Right
+	public Crossing Right
 	{
 		get;
 		set;
 	}
 
-	public virtual Crossing Top
+	public Crossing Top
 	{
 		get;
 		set;
 	}
 
-	public virtual Crossing Bottom
+	public Crossing Bottom
 	{
 		get;
 		set;
 	}
 
-	public virtual void MoveBetweenCrossing()
+	public void MoveBetweenCrossing()
 	{
 		throw new System.NotImplementedException();
 	}

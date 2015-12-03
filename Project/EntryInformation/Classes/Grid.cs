@@ -140,9 +140,18 @@ public class Grid
         throw new System.NotImplementedException();
     }
 
-    public void CheckGridFull()
+    public bool CheckGridFull()
     {
-        throw new System.NotImplementedException();
+        int count = 0;
+        foreach (var item in this.ReturnGridCells())
+        {
+            if (item.Crossing != null)
+                count++;
+        }
+
+        if (nrOfColumns * nrOfRows == count)
+            return true;
+        return false;
     }
 
     public void DeleteCrossing(object CellNumber)

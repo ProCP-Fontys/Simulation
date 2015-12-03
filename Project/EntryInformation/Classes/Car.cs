@@ -8,14 +8,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
-public class Cars
+public class Car
 {
 	public virtual int RedLightTime
 	{
 		get;
 		set;
 	}
+
+    public Car(Point location)
+    {
+        this.X = location.X;
+        this.Y = location.Y;
+    }
 
 	public virtual DateTime EndTime
 	{
@@ -41,13 +48,13 @@ public class Cars
 		set;
 	}
 
-	public virtual int X
+	public int X
 	{
 		get;
 		set;
 	}
 
-	public virtual int Y
+	public int Y
 	{
 		get;
 		set;

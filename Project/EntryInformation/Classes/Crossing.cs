@@ -20,19 +20,12 @@ public abstract class Crossing
         this.CrossingID = crossingID;
         Feeders = new List<Feeder>();
         neighbors = new Neighbours();
+
+        for (int i = 1; i < 5; i++)
+        {
+            Feeders.Add(new Feeder(i));
+        }
     }
-
-	public virtual List <Feeder> FeederList
-	{
-		get;
-		set;
-	}
-
-	public virtual Neighbours Neighbours
-	{
-		get;
-		set;
-	}
 
 	public virtual int GridCellNumber
 	{
