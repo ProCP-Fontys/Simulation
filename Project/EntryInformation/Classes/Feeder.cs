@@ -67,7 +67,7 @@ public class Feeder
             case 1:
                 for (int i = 5; i > 0; i--)
                 {
-                    this.StopPointsGoingOut.Add(new Point(Convert.ToInt16(i + "0"), 115));
+                    this.StopPointsGoingOut.Add(new Point(Convert.ToInt16(i + "0"), 112));
                 }
                 for (int i = 1; i < 6; i++)
                 {
@@ -91,13 +91,13 @@ public class Feeder
                 }
                 for (int i = 199; i > 148; i -= 10)
                 {
-                    this.StopPointsComingIn.Add(new Point(i, 115));
+                    this.StopPointsComingIn.Add(new Point(i, 112));
                 }
                 break;
             case 4:
                 for (int i = 149; i < 200; i += 10)
                 {
-                    this.StopPointsGoingOut.Add(new Point(115, i));
+                    this.StopPointsGoingOut.Add(new Point(112, i));
                 }
                 for (int i = 199; i > 148; i -= 10)
                 {

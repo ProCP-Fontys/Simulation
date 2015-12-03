@@ -18,7 +18,9 @@ namespace EntryInformation
         
         private Simulator simulator;
         System.Timers.Timer aTimer = new System.Timers.Timer();
-        List<Car> cars = new List<Car>();
+        Car[] totalCars = new Car[10];
+        Car[] CarsGoingOut = new Car[5];
+        List<Point> StopPointsGoingOut;
 
         public Simulation()
         {
@@ -26,15 +28,39 @@ namespace EntryInformation
             simulator = new Simulator(this);
             aTimer.Elapsed += new ElapsedEventHandler(PaintCarMoving);
             aTimer.Interval = 100;
-            cars.Add(new Car(new Point(9, 112)));
-            cars.Add(new Car(new Point(-1, 112)));
-        }
 
+            StopPointsGoingOut = new List<Point>();
+
+            for (int i = 5; i > 0; i--)
+            {
+                this.StopPointsGoingOut.Add(new Point(Convert.ToInt16(i + "0"), 112));
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                totalCars[i] = new Car(new Point(-1, 112));
+            }
+
+            //cars.Add(new Car(new Point(9, 112)));
+            //cars.Add(new Car(new Point(-1, 112)));
+        }
+        bool greenLight = true;
         private void PaintCarMoving(object sender, ElapsedEventArgs e)
         {
-
-            cars[0].X++;
-            cars[1].X++;
+            aTimer.Stop();
+            
+            if(CarsGoingOut[4] == null)
+            {
+                for (int i = 0; i < totalCars.Length; i++)
+			    {
+                    if (totalCars[i] != null)
+                    {
+                        CarsGoingOut[4] = totalCars[i];
+                        totalCars[i] = null;
+                        break;
+                    }
+                }
+            }
             PictureBox toDrawOn = (PictureBox)this.Controls.Find("Crossing0", true)[0];
 
             if (toDrawOn.InvokeRequired)
@@ -45,13 +71,46 @@ namespace EntryInformation
                     toDrawOn.Refresh();
                 }));
             }
-
-            //toDrawOn.Refresh();
-
             Graphics formGraphics = toDrawOn.CreateGraphics();
 
-            formGraphics.FillEllipse(Brushes.Blue, cars[0].X, cars[0].Y, 5, 5);
-            formGraphics.FillEllipse(Brushes.Blue, cars[1].X, cars[1].Y, 5, 5);
+            for (int i = 0; i < CarsGoingOut.Length ; i++)
+			{
+                if (CarsGoingOut[i] != null)
+                {
+                    if (CarsGoingOut[i].X == StopPointsGoingOut[i].X)
+                    {
+                        if (i == 0)//if car is at stoplight
+                        {
+                            if (greenLight)//stopLight is green
+                            {
+                                greenLight = false;
+                                CarsGoingOut[i].X++;
+                            }
+                        }
+                        else
+                        {
+                            if (CarsGoingOut[i - 1] == null)
+                            {
+                                CarsGoingOut[i].X++;
+                                CarsGoingOut[i-1] = CarsGoingOut[i];
+                                CarsGoingOut[i] = null;
+                                formGraphics.FillEllipse(Brushes.Blue, CarsGoingOut[i].X, CarsGoingOut[i].Y, 5, 5);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        CarsGoingOut[i].X++;
+                        formGraphics.FillEllipse(Brushes.Blue, CarsGoingOut[i].X, CarsGoingOut[i].Y, 5, 5);
+                    }
+                }
+                
+                
+			} 
+
+            //toDrawOn.Refresh();
+            if(greenLight)
+                aTimer.Start();
         }
 
         private void frm_Resize(object sender, EventArgs e)
