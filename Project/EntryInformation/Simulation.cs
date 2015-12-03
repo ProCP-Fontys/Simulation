@@ -95,6 +95,7 @@ namespace EntryInformation
                                 CarsGoingOut[i-1] = CarsGoingOut[i];
                                 CarsGoingOut[i] = null;
                                 formGraphics.FillEllipse(Brushes.Blue, CarsGoingOut[i].X, CarsGoingOut[i].Y, 5, 5);
+                                //insinsi
                             }
                         }
                     }
