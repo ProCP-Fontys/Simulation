@@ -15,7 +15,7 @@ using System.Drawing;
 
 public class Simulator 
 {
-    private Grid grid;
+    public Grid grid;
     private Simulation simulation;
 
     public Simulator(Simulation simulation)

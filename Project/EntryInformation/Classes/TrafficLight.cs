@@ -20,7 +20,7 @@ public class TrafficLight
         this.feederID = feederID;
         this.GreenLight = greenLight;
         greenLightTimer = new System.Timers.Timer();
-        greenLightTimer.Interval = (this.GreenLight*1000);
+        greenLightTimer.Interval = (this.GreenLight*300);
         greenLightTimer.Elapsed += greenLightTimer_Elapsed;
         this.crossing = crossing;
     }

@@ -75,55 +75,104 @@ namespace EntryInformation
         private void PaintCarMoving(object sender, ElapsedEventArgs e)
         {
             MoveCarsTimer.Stop();
-            Feeder TrafficLightGreen = null;
-            int freeSpotLane1Index;
-            int freeSpotLane2Index;
-            int freeSpotLane3Index = -1;
-            int freeSpotLane4Index;
 
-            Feeder feederSpotLane1;
-            Feeder feederSpotLane2;
-            Feeder feederSpotLane3 = null;
-            Feeder feederSpotLane4;
+            Feeder TrafficLightGreenFeeder = null;
 
-            //calculate random direction now
+            int freeSpotLaneIndex = -1;
+            Feeder feederSpotLane = null;
+            Direction direction = Direction.None;
 
             foreach (var item in crossingTest.Feeders)
             {
                 if (item.TrafficLight.greenLightTimer.Enabled)
-                    TrafficLightGreen = item;
-                else
                 {
-                    switch (item.FeederID)
-                    {
-                        case 1:
-                            freeSpotLane1Index = Array.IndexOf(item.CarsComingIn, null);
-                            feederSpotLane1 = item;
-                            break;
-                        case 2:
-                            freeSpotLane2Index = Array.IndexOf(item.CarsComingIn, null);
-                            feederSpotLane2 = item;
-                            break;
-                        case 3:
-                            freeSpotLane3Index = Array.IndexOf(item.CarsComingIn, null);
-                            feederSpotLane3 = item;
-                            break;
-                        case 4:
-                            freeSpotLane4Index = Array.IndexOf(item.CarsComingIn, null);
-                            feederSpotLane4 = item;
-                            break;
-                    }
+                    TrafficLightGreenFeeder = item;
+                    direction = TrafficLightGreenFeeder.ReturnDirection();
+                    break;
                 }
             }
 
-            if (TrafficLightGreen.CarsGoingOut[4] == null)
+            switch (TrafficLightGreenFeeder.FeederID)
             {
-                for (int i = 0; i < TrafficLightGreen.TotalCars.Length; i++)
-                {
-                    if (TrafficLightGreen.TotalCars[i] != null)
+                case 1:
+                    switch(direction)
                     {
-                        TrafficLightGreen.CarsGoingOut[4] = TrafficLightGreen.TotalCars[i];
-                        TrafficLightGreen.TotalCars[i] = null;
+                        case Direction.Straight:
+                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[2].CarsComingIn, null);
+                            feederSpotLane = crossingTest.Feeders[2];
+                            break;
+                        case Direction.Left:
+                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[1].CarsComingIn, null);
+                            feederSpotLane = crossingTest.Feeders[1];
+                            break;
+                        case Direction.Right:
+                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[3].CarsComingIn, null);
+                            feederSpotLane = crossingTest.Feeders[3];
+                            break;
+                    }
+                    break;
+                case 2:
+                    switch (direction)
+                    {
+                        case Direction.Straight:
+                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[3].CarsComingIn, null);
+                            feederSpotLane = crossingTest.Feeders[3];
+                            break;
+                        case Direction.Left:
+                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[2].CarsComingIn, null);
+                            feederSpotLane = crossingTest.Feeders[2];
+                            break;
+                        case Direction.Right:
+                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[0].CarsComingIn, null);
+                            feederSpotLane = crossingTest.Feeders[0];
+                            break;
+                    }
+                    break;
+                case 3:
+                    switch (direction)
+                    {
+                        case Direction.Straight:
+                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[0].CarsComingIn, null);
+                            feederSpotLane = crossingTest.Feeders[0];
+                            break;
+                        case Direction.Left:
+                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[3].CarsComingIn, null);
+                            feederSpotLane = crossingTest.Feeders[3];
+                            break;
+                        case Direction.Right:
+                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[1].CarsComingIn, null);
+                            feederSpotLane = crossingTest.Feeders[1];
+                            break;
+                    }
+                    break;
+                case 4:
+                    switch (direction)
+                    {
+                        case Direction.Straight:
+                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[1].CarsComingIn, null);
+                            feederSpotLane = crossingTest.Feeders[1];
+                            break;
+                        case Direction.Left:
+                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[0].CarsComingIn, null);
+                            feederSpotLane = crossingTest.Feeders[0];
+                            break;
+                        case Direction.Right:
+                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[2].CarsComingIn, null);
+                            feederSpotLane = crossingTest.Feeders[2];
+                            break;
+                    }
+                    break;
+            }
+                
+
+            if (TrafficLightGreenFeeder.CarsGoingOut[4] == null)
+            {
+                for (int i = 0; i < TrafficLightGreenFeeder.TotalCars.Length; i++)
+                {
+                    if (TrafficLightGreenFeeder.TotalCars[i] != null)
+                    {
+                        TrafficLightGreenFeeder.CarsGoingOut[4] = TrafficLightGreenFeeder.TotalCars[i];
+                        TrafficLightGreenFeeder.TotalCars[i] = null;
                         break;
                     }
                 }
@@ -140,108 +189,441 @@ namespace EntryInformation
             }
             Graphics formGraphics = toDrawOn.CreateGraphics();
 
-            for (int i = 0; i < TrafficLightGreen.CarsGoingOut.Length; i++)
+            for (int i = 0; i < TrafficLightGreenFeeder.CarsGoingOut.Length; i++)
             {
-                if (TrafficLightGreen.CarsGoingOut[i] != null)
+                if (TrafficLightGreenFeeder.CarsGoingOut[i] != null)
                 {
-                    if (TrafficLightGreen.CarsGoingOut[i].X == TrafficLightGreen.StopPointsGoingOut[i].X)
+                    int pointToCheck = -1000;
+                    int pointToCompare = -1000;
+
+                    switch (TrafficLightGreenFeeder.FeederID)
+                    {
+                        case 1:
+                            pointToCheck = TrafficLightGreenFeeder.CarsGoingOut[i].X;
+                            pointToCompare = TrafficLightGreenFeeder.StopPointsGoingOut[i].X;
+                            break;
+                        case 2:
+                            pointToCheck = TrafficLightGreenFeeder.CarsGoingOut[i].Y;
+                            pointToCompare = TrafficLightGreenFeeder.StopPointsGoingOut[i].Y;
+                            break;
+                        case 3:
+                            pointToCheck = TrafficLightGreenFeeder.CarsGoingOut[i].X;
+                            pointToCompare = TrafficLightGreenFeeder.StopPointsGoingOut[i].X;
+                            break;
+                        case 4:
+                            pointToCheck = TrafficLightGreenFeeder.CarsGoingOut[i].Y;
+                            pointToCompare = TrafficLightGreenFeeder.StopPointsGoingOut[i].Y;
+                            break;
+                    }
+
+                    if (pointToCheck == pointToCompare)
                     {
                         if (i == 0)//if car is at stoplight
                         {
-                            Direction chosenDirection = TrafficLightGreen.ReturnDirection();
-                            while (chosenDirection != Direction.Straight)//this for now
+                            //Direction chosenDirection = TrafficLightGreenFeeder.ReturnDirection();
+                            //while (chosenDirection != Direction.Straight)//this for now
                             {
-                                chosenDirection = TrafficLightGreen.ReturnDirection();
+                            //    chosenDirection = TrafficLightGreenFeeder.ReturnDirection();
                             }
 
 
-                            if (freeSpotLane3Index != -1)
+                            if (freeSpotLaneIndex != -1)
                             {
-                                formGraphics.FillEllipse(Brushes.Blue, TrafficLightGreen.CarsGoingOut[i].X, TrafficLightGreen.CarsGoingOut[i].Y, 5, 5);
-                                feederSpotLane3.CarsComingIn[freeSpotLane3Index] = TrafficLightGreen.CarsGoingOut[i];
-                                TrafficLightGreen.CarsGoingOut[i] = null;
+                                TrafficLightGreenFeeder.CarsGoingOut[i].Direction = direction;
+                                formGraphics.FillEllipse(Brushes.Blue, TrafficLightGreenFeeder.CarsGoingOut[i].X, TrafficLightGreenFeeder.CarsGoingOut[i].Y, 5, 5);
+                                feederSpotLane.CarsComingIn[freeSpotLaneIndex] = TrafficLightGreenFeeder.CarsGoingOut[i];
+                                TrafficLightGreenFeeder.CarsGoingOut[i] = null;
                                 //CarsGoingOut[i].X++;
                             }
                             else
-                                formGraphics.FillEllipse(Brushes.Blue, TrafficLightGreen.CarsGoingOut[i].X, TrafficLightGreen.CarsGoingOut[i].Y, 5, 5);
+                                formGraphics.FillEllipse(Brushes.Blue, TrafficLightGreenFeeder.CarsGoingOut[i].X, TrafficLightGreenFeeder.CarsGoingOut[i].Y, 5, 5);
                         }
                         else
                         {
-                            if (TrafficLightGreen.CarsGoingOut[i - 1] == null)
+                            if (TrafficLightGreenFeeder.CarsGoingOut[i - 1] == null)
                             {
                                 //CarsGoingOut[i].X++;
-                                formGraphics.FillEllipse(Brushes.Blue, TrafficLightGreen.CarsGoingOut[i].X, TrafficLightGreen.CarsGoingOut[i].Y, 5, 5);
-                                TrafficLightGreen.CarsGoingOut[i - 1] = TrafficLightGreen.CarsGoingOut[i];
-                                TrafficLightGreen.CarsGoingOut[i] = null;
+                                formGraphics.FillEllipse(Brushes.Blue, TrafficLightGreenFeeder.CarsGoingOut[i].X, TrafficLightGreenFeeder.CarsGoingOut[i].Y, 5, 5);
+                                TrafficLightGreenFeeder.CarsGoingOut[i - 1] = TrafficLightGreenFeeder.CarsGoingOut[i];
+                                TrafficLightGreenFeeder.CarsGoingOut[i] = null;
                                 //insinsi
                             }
                             else
                             {
-                                formGraphics.FillEllipse(Brushes.Blue, TrafficLightGreen.CarsGoingOut[i].X, TrafficLightGreen.CarsGoingOut[i].Y, 5, 5);
+                                formGraphics.FillEllipse(Brushes.Blue, TrafficLightGreenFeeder.CarsGoingOut[i].X, TrafficLightGreenFeeder.CarsGoingOut[i].Y, 5, 5);
                             }
                         }
                     }
                     else
                     {
-                        formGraphics.FillEllipse(Brushes.Blue, TrafficLightGreen.CarsGoingOut[i].X, TrafficLightGreen.CarsGoingOut[i].Y, 5, 5);
-                        TrafficLightGreen.CarsGoingOut[i].X++;
+                        switch (TrafficLightGreenFeeder.FeederID)
+                        {
+                            case 1:
+                                formGraphics.FillEllipse(Brushes.Blue, TrafficLightGreenFeeder.CarsGoingOut[i].X, TrafficLightGreenFeeder.CarsGoingOut[i].Y, 5, 5);
+                                TrafficLightGreenFeeder.CarsGoingOut[i].X++;
+                                break;
+                            case 2:
+                                formGraphics.FillEllipse(Brushes.Blue, TrafficLightGreenFeeder.CarsGoingOut[i].X, TrafficLightGreenFeeder.CarsGoingOut[i].Y, 5, 5);
+                                TrafficLightGreenFeeder.CarsGoingOut[i].Y++;
+                                break;
+                            case 3:
+                                formGraphics.FillEllipse(Brushes.Blue, TrafficLightGreenFeeder.CarsGoingOut[i].X, TrafficLightGreenFeeder.CarsGoingOut[i].Y, 5, 5);
+                                TrafficLightGreenFeeder.CarsGoingOut[i].X--;
+                                break;
+                            case 4:
+                                formGraphics.FillEllipse(Brushes.Blue, TrafficLightGreenFeeder.CarsGoingOut[i].X, TrafficLightGreenFeeder.CarsGoingOut[i].Y, 5, 5);
+                                TrafficLightGreenFeeder.CarsGoingOut[i].Y--;;
+                                break;
+                        }
                     }
                 }
             }
 
-            for (int i = 0; i < crossingTest.Feeders[2].CarsComingIn.Length; i++)
+            //calculate if the neighbors crossing feeder has an open spot and if there is no neighbor then the car is going out of the simulation
+
+            //int freeSpotFoundIndex = -1;
+
+            //foreach (var item in crossingTest.neighbors.Right.Feeders[0].CarsGoingOut)
             {
-                if (crossingTest.Feeders[2].CarsComingIn[i] != null)
-                {
-                    if (crossingTest.Feeders[2].CarsComingIn[i].X == crossingTest.Feeders[2].StopPointsComingIn[i].X)
-                    {
-                        if (i == 0)//if car is at border of other crossing
-                        {
-                            if (false)
-                            {
-                                formGraphics.FillEllipse(Brushes.Blue, crossingTest.Feeders[2].CarsComingIn[i].X, crossingTest.Feeders[2].CarsComingIn[i].Y, 5, 5);
-                                crossingTest.Feeders[2].CarsComingIn[4] = crossingTest.Feeders[2].CarsComingIn[i];
-                                crossingTest.Feeders[2].CarsComingIn[i] = null;
-                                crossingTest.Feeders[2].CarsComingIn[i].X++;
-                            }
-                            else
-                                formGraphics.FillEllipse(Brushes.Blue, crossingTest.Feeders[2].CarsComingIn[i].X, crossingTest.Feeders[2].CarsComingIn[i].Y, 5, 5);
-                        }
-                        else
-                        {
-                            if (crossingTest.Feeders[2].CarsComingIn[i - 1] == null)
-                            {
-                                //CarsGoingOut[i].X++;
-                                formGraphics.FillEllipse(Brushes.Blue, crossingTest.Feeders[2].CarsComingIn[i].X, crossingTest.Feeders[2].CarsComingIn[i].Y, 5, 5);
-                                crossingTest.Feeders[2].CarsComingIn[i - 1] = crossingTest.Feeders[2].CarsComingIn[i];
-                                crossingTest.Feeders[2].CarsComingIn[i] = null;
-                                //insinsi
-                            }
-                            else
-                            {
-                                formGraphics.FillEllipse(Brushes.Blue, crossingTest.Feeders[2].CarsComingIn[i].X, crossingTest.Feeders[2].CarsComingIn[i].Y, 5, 5);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        formGraphics.FillEllipse(Brushes.Blue, crossingTest.Feeders[2].CarsComingIn[i].X, crossingTest.Feeders[2].CarsComingIn[i].Y, 5, 5);
-                        crossingTest.Feeders[2].CarsComingIn[i].X++;
-                    }
-                }
+                //freeSpotFoundIndex = Array.IndexOf(crossingTest.neighbors.Right.Feeders[0].CarsGoingOut, null);
             }
 
             foreach (var item in crossingTest.Feeders)
             {
-                if (item != TrafficLightGreen)
+                switch (item.FeederID)
                 {
-                    foreach (var item2 in item.CarsGoingOut)
-                    {
-                        if (item2 != null)
-                            formGraphics.FillEllipse(Brushes.Blue, item2.X, item2.Y, 5, 5);
-                    }
+                    case 1:
+                        for (int i = 0; i < item.CarsComingIn.Length; i++)
+                        {
+                            if (item.CarsComingIn[i] != null)
+                            {
+                                switch (item.CarsComingIn[i].Direction)
+                                {
+                                    case Direction.Left:
+                                        if (item.CarsComingIn[i].Y == 82)
+                                        {
+                                            formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            item.CarsComingIn[i].Direction = Direction.Straight;
+                                            item.CarsComingIn[i].X--;
+                                        }
+                                        else
+                                        {
+                                            formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            item.CarsComingIn[i].Y--;
+                                        }
+                                        break;
+                                    case Direction.Straight:
+                                        if (item.CarsComingIn[i].X == item.StopPointsComingIn[i].X)
+                                        {
+                                            if (i == 0)//is at border
+                                            {
+                                                if (false)
+                                                {
+
+                                                }
+                                                else
+                                                {
+                                                    formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (item.CarsComingIn[i - 1] == null)
+                                                {
+                                                    formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                    item.CarsComingIn[i - 1] = item.CarsComingIn[i];
+                                                    item.CarsComingIn[i] = null;
+                                                }
+                                                else
+                                                    formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            item.CarsComingIn[i].X--;
+                                        }
+                                        break;
+                                    case Direction.Right:
+                                        if (item.CarsComingIn[i].X == 112)
+                                        {
+                                            formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            item.CarsComingIn[i].Direction = Direction.Straight;
+                                            item.CarsComingIn[i].X--;
+                                        }
+                                        else
+                                        {
+                                            formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            item.CarsComingIn[i].Y++;
+                                        }
+                                        break;
+                                }
+                            }
+                        }
+                        break;
+                    case 2:
+                        for (int i = 0; i < item.CarsComingIn.Length; i++)
+                        {
+                            if (item.CarsComingIn[i] != null)
+                            {
+                                switch (item.CarsComingIn[i].Direction)
+                                {
+                                    case Direction.Left:
+                                        if (item.CarsComingIn[i].X == 112)
+                                        {
+                                            formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            item.CarsComingIn[i].Direction = Direction.Straight;
+                                            item.CarsComingIn[i].Y--;
+                                        }
+                                        else
+                                        {
+                                            formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            item.CarsComingIn[i].X++;
+                                        }
+                                        break;
+                                    case Direction.Straight:
+                                        if (item.CarsComingIn[i].Y == item.StopPointsComingIn[i].Y)
+                                        {
+                                            if (i == 0)//is at border
+                                            {
+                                                if (false)
+                                                {
+
+                                                }
+                                                else
+                                                {
+                                                    formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (item.CarsComingIn[i - 1] == null)
+                                                {
+                                                    formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                    item.CarsComingIn[i - 1] = item.CarsComingIn[i];
+                                                    item.CarsComingIn[i] = null;
+                                                }
+                                                else
+                                                    formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            item.CarsComingIn[i].Y--;
+                                        }
+                                        break;
+                                    case Direction.Right:
+                                        if (item.CarsComingIn[i].X == 112)
+                                        {
+                                            formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            item.CarsComingIn[i].Direction = Direction.Straight;
+                                            item.CarsComingIn[i].Y--;
+                                        }
+                                        else
+                                        {
+                                            formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            item.CarsComingIn[i].X--;
+                                        }
+                                        break;
+                                }
+                            }
+                        }
+                        break;
+                    case 3:
+                        for (int i = 0; i < item.CarsComingIn.Length; i++)
+                        {
+                            if (item.CarsComingIn[i] != null)
+                            {
+                                switch (item.CarsComingIn[i].Direction)
+                                {
+                                    case Direction.Left:
+                                        if (item.CarsComingIn[i].Y == 112)
+                                        {
+                                            formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            item.CarsComingIn[i].Direction = Direction.Straight;
+                                            item.CarsComingIn[i].X++;
+                                        }
+                                        else
+                                        {
+                                            formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            item.CarsComingIn[i].Y++;
+                                        }
+                                        break;
+                                    case Direction.Straight:
+                                        if (item.CarsComingIn[i].X == item.StopPointsComingIn[i].X)
+                                        {
+                                            if (i == 0)//is at border
+                                            {
+                                                if (false)
+                                                {
+
+                                                }
+                                                else
+                                                {
+                                                    formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (item.CarsComingIn[i - 1] == null)
+                                                {
+                                                    formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                    item.CarsComingIn[i - 1] = item.CarsComingIn[i];
+                                                    item.CarsComingIn[i] = null;
+                                                }
+                                                else
+                                                    formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            item.CarsComingIn[i].X++;
+                                        }
+                                        break;
+                                    case Direction.Right:
+                                        if (item.CarsComingIn[i].Y == 112)
+                                        {
+                                            formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            item.CarsComingIn[i].Direction = Direction.Straight;
+                                            item.CarsComingIn[i].X++;
+                                        }
+                                        else
+                                        {
+                                            formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            item.CarsComingIn[i].Y--;
+                                        }
+                                        break;
+                                }
+                            }
+                        }
+                        break;
+                    case 4:
+                        for (int i = 0; i < item.CarsComingIn.Length; i++)
+                        {
+                            if (item.CarsComingIn[i] != null)
+                            {
+                                switch (item.CarsComingIn[i].Direction)
+                                {
+                                    case Direction.Left:
+                                        if (item.CarsComingIn[i].X == 82)
+                                        {
+                                            formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            item.CarsComingIn[i].Direction = Direction.Straight;
+                                            item.CarsComingIn[i].Y++;
+                                        }
+                                        else
+                                        {
+                                            formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            item.CarsComingIn[i].X--;
+                                        }
+                                        break;
+                                    case Direction.Straight:
+                                        if (item.CarsComingIn[i].Y == item.StopPointsComingIn[i].Y)
+                                        {
+                                            if (i == 0)//is at border
+                                            {
+                                                if (false)
+                                                {
+
+                                                }
+                                                else
+                                                {
+                                                    formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (item.CarsComingIn[i - 1] == null)
+                                                {
+                                                    formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                    item.CarsComingIn[i - 1] = item.CarsComingIn[i];
+                                                    item.CarsComingIn[i] = null;
+                                                }
+                                                else
+                                                    formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            item.CarsComingIn[i].Y++;
+                                        }
+                                        break;
+                                    case Direction.Right:
+                                        if (item.CarsComingIn[i].X == 82)
+                                        {
+                                            formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            item.CarsComingIn[i].Direction = Direction.Straight;
+                                            item.CarsComingIn[i].Y++;
+                                        }
+                                        else
+                                        {
+                                            formGraphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                            item.CarsComingIn[i].X++;
+                                        }
+                                        break;
+                                }
+                            }
+                        }
+                        break;
                 }
             }
+            
+
+
+            //for (int i = 0; i < crossingTest.Feeders[2].CarsComingIn.Length; i++)
+            //{
+            //    if (crossingTest.Feeders[2].CarsComingIn[i] != null)
+            //    {
+            //        if (crossingTest.Feeders[2].CarsComingIn[i].X == crossingTest.Feeders[2].StopPointsComingIn[i].X)
+            //        {
+            //            if (i == 0)//if car is at border of other crossing
+            //            {
+            //                if (false)//crossingTest.neighbors.Right.Feeders[0].CarsGoingOut[4] == null
+            //                {
+            //                    //crossingTest.neighbors.Right.Feeders[0].CarsGoingOut[4] = crossingTest.Feeders[2].CarsComingIn[i];
+            //                    //crossingTest.Feeders[2].CarsComingIn[i] = null;
+            //                }
+            //                else
+            //                    formGraphics.FillEllipse(Brushes.Blue, crossingTest.Feeders[2].CarsComingIn[i].X, crossingTest.Feeders[2].CarsComingIn[i].Y, 5, 5);
+            //            }
+            //            else
+            //            {
+            //                if (crossingTest.Feeders[2].CarsComingIn[i - 1] == null)
+            //                {
+            //                    //CarsGoingOut[i].X++;
+            //                    formGraphics.FillEllipse(Brushes.Blue, crossingTest.Feeders[2].CarsComingIn[i].X, crossingTest.Feeders[2].CarsComingIn[i].Y, 5, 5);
+            //                    crossingTest.Feeders[2].CarsComingIn[i - 1] = crossingTest.Feeders[2].CarsComingIn[i];
+            //                    crossingTest.Feeders[2].CarsComingIn[i] = null;
+            //                    //insinsi
+            //                }
+            //                else
+            //                {
+            //                    formGraphics.FillEllipse(Brushes.Blue, crossingTest.Feeders[2].CarsComingIn[i].X, crossingTest.Feeders[2].CarsComingIn[i].Y, 5, 5);
+            //                }
+            //            }
+            //        }
+            //        else
+            //        {
+            //            formGraphics.FillEllipse(Brushes.Blue, crossingTest.Feeders[2].CarsComingIn[i].X, crossingTest.Feeders[2].CarsComingIn[i].Y, 5, 5);
+            //            crossingTest.Feeders[2].CarsComingIn[i].X++;
+            //        }
+            //    }
+            //}
+
+            //foreach (var item in crossingTest.Feeders)
+            //{
+            //    if (item != TrafficLightGreenFeeder)
+            //    {
+            //        foreach (var item2 in item.CarsGoingOut)
+            //        {
+            //            if (item2 != null)
+            //                formGraphics.FillEllipse(Brushes.Blue, item2.X, item2.Y, 5, 5);
+            //        }
+            //    }
+            //}
 
             MoveCarsTimer.Start();
         }
@@ -332,6 +714,12 @@ namespace EntryInformation
             try
             {
                 simulator.LinkCrossingsWithNeighbors();
+
+                //GridCell gridCell = null;
+
+                //gridCell = simulator.grid.ReturnGridCells().Find(x => x.CrossingID == 0);
+
+                //crossingTest = gridCell.Crossing;
 
                 crossingTest.Feeders[0].TrafficLight.greenLightTimer.Start();
 
