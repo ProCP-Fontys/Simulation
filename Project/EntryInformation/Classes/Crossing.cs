@@ -23,7 +23,7 @@ public abstract class Crossing
 
         for (int i = 1; i < 5; i++)
         {
-            Feeders.Add(new Feeder(i));
+            Feeders.Add(new Feeder(i, this));
         }
     }
 

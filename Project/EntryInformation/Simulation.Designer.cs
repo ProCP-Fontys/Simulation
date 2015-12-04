@@ -107,7 +107,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 4, 0, 4);
-            this.menuStrip1.Size = new System.Drawing.Size(1028, 31);
+            this.menuStrip1.Size = new System.Drawing.Size(1324, 31);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -210,7 +210,6 @@
             this.gridPanel.TabIndex = 0;
             this.gridPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.gridPanel_DragDrop);
             this.gridPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.gridPanel_DragEnter);
-            this.gridPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.gridPanel_Paint);
             this.gridPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gridPanel_MouseMove);
             // 
             // label13
@@ -584,7 +583,7 @@
             this.comboBoxRows.Name = "comboBoxRows";
             this.comboBoxRows.Size = new System.Drawing.Size(55, 27);
             this.comboBoxRows.TabIndex = 1;
-            this.comboBoxRows.Text = "3";
+            this.comboBoxRows.Text = "1";
             // 
             // comboBoxColumns
             // 
@@ -603,7 +602,7 @@
             this.comboBoxColumns.Name = "comboBoxColumns";
             this.comboBoxColumns.Size = new System.Drawing.Size(55, 27);
             this.comboBoxColumns.TabIndex = 2;
-            this.comboBoxColumns.Text = "4";
+            this.comboBoxColumns.Text = "1";
             // 
             // BtnCreateGrid
             // 
@@ -751,7 +750,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1028, 694);
+            this.ClientSize = new System.Drawing.Size(1324, 694);
             this.ControlBox = false;
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox5);
@@ -770,7 +769,7 @@
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Simulation";
+            this.Text = "-";
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Simulation_MouseMove);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

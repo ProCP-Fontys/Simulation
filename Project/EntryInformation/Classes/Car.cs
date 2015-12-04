@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using EntryInformation.Classes;
 
 public class Car
 {
@@ -22,6 +23,7 @@ public class Car
     {
         this.X = location.X;
         this.Y = location.Y;
+        this.Direction = Direction.Straight;
     }
 
 	public virtual DateTime EndTime
@@ -36,7 +38,7 @@ public class Car
 		set;
 	}
 
-	public virtual string Direction
+	public Direction Direction
 	{
 		get;
 		set;

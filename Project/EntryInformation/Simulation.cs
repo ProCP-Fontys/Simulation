@@ -8,62 +8,127 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Timers;
+using EntryInformation.Classes;
 
 namespace EntryInformation
 {
     public partial class Simulation : Form
     {
-        bool IsSimulationStarted = false;
+        //bool IsSimulationStarted = false;
         bool formationTab = false;
-        
+
+        Crossing crossingTest;
+
         private Simulator simulator;
-        System.Timers.Timer aTimer = new System.Timers.Timer();
-        Car[] totalCars = new Car[10];
-        Car[] CarsGoingOut = new Car[5];
-        List<Point> StopPointsGoingOut;
+        System.Timers.Timer MoveCarsTimer = new System.Timers.Timer();
+        //System.Timers.Timer trafficLightTimer = new System.Timers.Timer();
+        //Car[] totalCars = new Car[10];
+        //Car[] CarsGoingOut = new Car[5];
+        //Car[] CarsComingIn = new Car[5];
+        //List<Point> StopPointsGoingOut;
+        //List<Point> StopPointsComingIn;
+        //Neighbours neighbours = new Neighbours();
 
         public Simulation()
         {
             InitializeComponent();
             simulator = new Simulator(this);
-            aTimer.Elapsed += new ElapsedEventHandler(PaintCarMoving);
-            aTimer.Interval = 50;
 
-            StopPointsGoingOut = new List<Point>();
+            crossingTest = new CrossingB(0);
 
-            for (int i = 4; i > -1; i--)
-            {
-                this.StopPointsGoingOut.Add(new Point(Convert.ToInt16(i + "7"), 112));
-            }
+            MoveCarsTimer.Elapsed += new ElapsedEventHandler(PaintCarMoving);
+            MoveCarsTimer.Interval = 100;
 
-            for (int i = 0; i < 10; i++)
-            {
-                totalCars[i] = new Car(new Point(-3, 112));
-            }
+            //StopPointsGoingOut = new List<Point>();
+            //StopPointsComingIn = new List<Point>();
+
+            //for (int i = 4; i > -1; i--)
+            //{
+            //    this.StopPointsGoingOut.Add(new Point(Convert.ToInt16(i + "7"), 112));
+            //}
+
+            //for (int i = 186; i > 145; i -= 10)
+            //{
+            //    this.StopPointsComingIn.Add(new Point(i, 112));
+            //}
+
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    totalCars[i] = new Car(new Point(-3, 112));
+            //}
 
 
 
             //cars.Add(new Car(new Point(9, 112)));
             //cars.Add(new Car(new Point(-1, 112)));
         }
-        bool greenLight = true;
+
+        /// <summary>this explanation only for one crossing
+        /// first check which trafficLight is green so which lane is allowed to move cars
+        /// then check the other 3 lanes their incomingCars lane free spots and check if there is one available
+        /// then calculate if there is cars coming in the outgoingCarsLane which has greenlight right now and if there is handle it by putting the incoming cars from totalcars array into the outgoingcarslane of the current greenlight lane
+        /// As soon as one car in this lane reaches the stoplight stop point it calculate the random direction based on the percentage and based on this direction it will be assign to the first available spot if there is one and the 0 index of arrayOutgoingcars is gonna be null
+        /// when moving the cars check the direction also so u know how to move( straight or something else)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PaintCarMoving(object sender, ElapsedEventArgs e)
         {
-            aTimer.Stop();
-            
-            if(CarsGoingOut[4] == null)
+            MoveCarsTimer.Stop();
+            Feeder TrafficLightGreen = null;
+            int freeSpotLane1Index;
+            int freeSpotLane2Index;
+            int freeSpotLane3Index = -1;
+            int freeSpotLane4Index;
+
+            Feeder feederSpotLane1;
+            Feeder feederSpotLane2;
+            Feeder feederSpotLane3 = null;
+            Feeder feederSpotLane4;
+
+            //calculate random direction now
+
+            foreach (var item in crossingTest.Feeders)
             {
-                for (int i = 0; i < totalCars.Length; i++)
-			    {
-                    if (totalCars[i] != null)
+                if (item.TrafficLight.greenLightTimer.Enabled)
+                    TrafficLightGreen = item;
+                else
+                {
+                    switch (item.FeederID)
                     {
-                        CarsGoingOut[4] = totalCars[i];
-                        totalCars[i] = null;
+                        case 1:
+                            freeSpotLane1Index = Array.IndexOf(item.CarsComingIn, null);
+                            feederSpotLane1 = item;
+                            break;
+                        case 2:
+                            freeSpotLane2Index = Array.IndexOf(item.CarsComingIn, null);
+                            feederSpotLane2 = item;
+                            break;
+                        case 3:
+                            freeSpotLane3Index = Array.IndexOf(item.CarsComingIn, null);
+                            feederSpotLane3 = item;
+                            break;
+                        case 4:
+                            freeSpotLane4Index = Array.IndexOf(item.CarsComingIn, null);
+                            feederSpotLane4 = item;
+                            break;
+                    }
+                }
+            }
+
+            if (TrafficLightGreen.CarsGoingOut[4] == null)
+            {
+                for (int i = 0; i < TrafficLightGreen.TotalCars.Length; i++)
+                {
+                    if (TrafficLightGreen.TotalCars[i] != null)
+                    {
+                        TrafficLightGreen.CarsGoingOut[4] = TrafficLightGreen.TotalCars[i];
+                        TrafficLightGreen.TotalCars[i] = null;
                         break;
                     }
                 }
             }
-            PictureBox toDrawOn = (PictureBox)this.Controls.Find("Crossing0", true)[0];
+            PictureBox toDrawOn = (PictureBox)this.Controls.Find("Crossing" + crossingTest.CrossingID, true)[0];
 
             if (toDrawOn.InvokeRequired)
             {
@@ -75,57 +140,110 @@ namespace EntryInformation
             }
             Graphics formGraphics = toDrawOn.CreateGraphics();
 
-            for (int i = 0; i < CarsGoingOut.Length ; i++)
-			{
-                if (CarsGoingOut[i] != null)
+            for (int i = 0; i < TrafficLightGreen.CarsGoingOut.Length; i++)
+            {
+                if (TrafficLightGreen.CarsGoingOut[i] != null)
                 {
-                    if (CarsGoingOut[i].X == StopPointsGoingOut[i].X)
+                    if (TrafficLightGreen.CarsGoingOut[i].X == TrafficLightGreen.StopPointsGoingOut[i].X)
                     {
                         if (i == 0)//if car is at stoplight
                         {
-                            greenLight = false;
-                            if (greenLight)//stopLight is green
+                            Direction chosenDirection = TrafficLightGreen.ReturnDirection();
+                            while (chosenDirection != Direction.Straight)//this for now
                             {
-                                //greenLight = false;
-                                formGraphics.FillEllipse(Brushes.Blue, CarsGoingOut[i].X, CarsGoingOut[i].Y, 5, 5);
-                                CarsGoingOut[i].X++;
+                                chosenDirection = TrafficLightGreen.ReturnDirection();
                             }
-                            else
+
+
+                            if (freeSpotLane3Index != -1)
                             {
-                                //greenLight = true;
-                                formGraphics.FillEllipse(Brushes.Blue, CarsGoingOut[i].X, CarsGoingOut[i].Y, 5, 5);
+                                formGraphics.FillEllipse(Brushes.Blue, TrafficLightGreen.CarsGoingOut[i].X, TrafficLightGreen.CarsGoingOut[i].Y, 5, 5);
+                                feederSpotLane3.CarsComingIn[freeSpotLane3Index] = TrafficLightGreen.CarsGoingOut[i];
+                                TrafficLightGreen.CarsGoingOut[i] = null;
                                 //CarsGoingOut[i].X++;
                             }
+                            else
+                                formGraphics.FillEllipse(Brushes.Blue, TrafficLightGreen.CarsGoingOut[i].X, TrafficLightGreen.CarsGoingOut[i].Y, 5, 5);
                         }
                         else
                         {
-                            if (CarsGoingOut[i - 1] == null)
+                            if (TrafficLightGreen.CarsGoingOut[i - 1] == null)
                             {
                                 //CarsGoingOut[i].X++;
-                                formGraphics.FillEllipse(Brushes.Blue, CarsGoingOut[i].X, CarsGoingOut[i].Y, 5, 5);
-                                CarsGoingOut[i - 1] = CarsGoingOut[i];
-                                CarsGoingOut[i] = null;
+                                formGraphics.FillEllipse(Brushes.Blue, TrafficLightGreen.CarsGoingOut[i].X, TrafficLightGreen.CarsGoingOut[i].Y, 5, 5);
+                                TrafficLightGreen.CarsGoingOut[i - 1] = TrafficLightGreen.CarsGoingOut[i];
+                                TrafficLightGreen.CarsGoingOut[i] = null;
                                 //insinsi
                             }
                             else
                             {
-                                formGraphics.FillEllipse(Brushes.Blue, CarsGoingOut[i].X, CarsGoingOut[i].Y, 5, 5);
+                                formGraphics.FillEllipse(Brushes.Blue, TrafficLightGreen.CarsGoingOut[i].X, TrafficLightGreen.CarsGoingOut[i].Y, 5, 5);
                             }
                         }
                     }
                     else
                     {
-                        formGraphics.FillEllipse(Brushes.Blue, CarsGoingOut[i].X, CarsGoingOut[i].Y, 5, 5);
-                        CarsGoingOut[i].X++;
+                        formGraphics.FillEllipse(Brushes.Blue, TrafficLightGreen.CarsGoingOut[i].X, TrafficLightGreen.CarsGoingOut[i].Y, 5, 5);
+                        TrafficLightGreen.CarsGoingOut[i].X++;
                     }
                 }
-                
-                
-			} 
+            }
 
-            //toDrawOn.Refresh();
-            if(greenLight)
-                aTimer.Start();
+            for (int i = 0; i < crossingTest.Feeders[2].CarsComingIn.Length; i++)
+            {
+                if (crossingTest.Feeders[2].CarsComingIn[i] != null)
+                {
+                    if (crossingTest.Feeders[2].CarsComingIn[i].X == crossingTest.Feeders[2].StopPointsComingIn[i].X)
+                    {
+                        if (i == 0)//if car is at border of other crossing
+                        {
+                            if (false)
+                            {
+                                formGraphics.FillEllipse(Brushes.Blue, crossingTest.Feeders[2].CarsComingIn[i].X, crossingTest.Feeders[2].CarsComingIn[i].Y, 5, 5);
+                                crossingTest.Feeders[2].CarsComingIn[4] = crossingTest.Feeders[2].CarsComingIn[i];
+                                crossingTest.Feeders[2].CarsComingIn[i] = null;
+                                crossingTest.Feeders[2].CarsComingIn[i].X++;
+                            }
+                            else
+                                formGraphics.FillEllipse(Brushes.Blue, crossingTest.Feeders[2].CarsComingIn[i].X, crossingTest.Feeders[2].CarsComingIn[i].Y, 5, 5);
+                        }
+                        else
+                        {
+                            if (crossingTest.Feeders[2].CarsComingIn[i - 1] == null)
+                            {
+                                //CarsGoingOut[i].X++;
+                                formGraphics.FillEllipse(Brushes.Blue, crossingTest.Feeders[2].CarsComingIn[i].X, crossingTest.Feeders[2].CarsComingIn[i].Y, 5, 5);
+                                crossingTest.Feeders[2].CarsComingIn[i - 1] = crossingTest.Feeders[2].CarsComingIn[i];
+                                crossingTest.Feeders[2].CarsComingIn[i] = null;
+                                //insinsi
+                            }
+                            else
+                            {
+                                formGraphics.FillEllipse(Brushes.Blue, crossingTest.Feeders[2].CarsComingIn[i].X, crossingTest.Feeders[2].CarsComingIn[i].Y, 5, 5);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        formGraphics.FillEllipse(Brushes.Blue, crossingTest.Feeders[2].CarsComingIn[i].X, crossingTest.Feeders[2].CarsComingIn[i].Y, 5, 5);
+                        crossingTest.Feeders[2].CarsComingIn[i].X++;
+                    }
+                }
+            }
+
+            foreach (var item in crossingTest.Feeders)
+            {
+                if (item != TrafficLightGreen)
+                {
+                    foreach (var item2 in item.CarsGoingOut)
+                    {
+                        if (item2 != null)
+                            formGraphics.FillEllipse(Brushes.Blue, item2.X, item2.Y, 5, 5);
+                    }
+                }
+            }
+
+            MoveCarsTimer.Start();
         }
 
         private void frm_Resize(object sender, EventArgs e)
@@ -215,7 +333,9 @@ namespace EntryInformation
             {
                 simulator.LinkCrossingsWithNeighbors();
 
-                aTimer.Start();
+                crossingTest.Feeders[0].TrafficLight.greenLightTimer.Start();
+
+                MoveCarsTimer.Start();
 
                 //if (!IsSimulationStarted)
                 //{
@@ -273,18 +393,6 @@ namespace EntryInformation
             Image imageInBox = CA.Image;
             imageInBox.Tag = "CrossingA";
             CA.DoDragDrop(imageInBox, DragDropEffects.Copy);
-        }
-
-        private void gridPanel_Paint(object sender, PaintEventArgs e)
-        {
-            //' Draw a 200 by 150 pixel green rectangle.
-            e.Graphics.DrawRectangle(Pens.Green, 10, 10, 200, 150);
-            //' Draw a blue square
-            e.Graphics.DrawRectangle(Pens.Blue, 30, 30, 150, 150);
-            //' Draw a 150 pixel diameter red circle.
-            e.Graphics.DrawEllipse(Pens.Red, 0, 0, 300, 300);
-            //' Draw a 250 by 125 pixel yellow oval.
-            e.Graphics.DrawEllipse(Pens.Yellow, 20, 20, 250, 125);
         }
     }
 }

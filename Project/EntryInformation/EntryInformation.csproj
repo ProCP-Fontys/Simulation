@@ -50,6 +50,7 @@
     <Compile Include="Classes\Crossing.cs" />
     <Compile Include="Classes\CrossingA.cs" />
     <Compile Include="Classes\CrossingB.cs" />
+    <Compile Include="Classes\Direction.cs" />
     <Compile Include="Classes\Feeder.cs" />
     <Compile Include="Classes\Grid.cs" />
     <Compile Include="Classes\GridCell.cs" />
