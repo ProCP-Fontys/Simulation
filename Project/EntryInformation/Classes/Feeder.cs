@@ -25,22 +25,17 @@ public class Feeder
     {
         int randomNmr = random.Next(1, 101);
 
-        foreach (var item in StraightPercentageList)
-        {
-            if (randomNmr == item)
-                return Direction.Straight;
-        }
-        foreach (var item in RightPercentageList)
-        {
-            if (randomNmr == item)
-                return Direction.Right;
-        }
-        foreach (var item in LeftPercentageList)
-        {
-            if (randomNmr == item)
-                return Direction.Left;
-        }
-        return Direction.None;
+        bool found = StraightPercentageList.Contains(randomNmr);
+
+        if (found)
+            return Direction.Straight;
+
+        found = RightPercentageList.Contains(randomNmr);
+
+        if (found)
+            return Direction.Right;
+
+        return Direction.Left;
     }
 
     public int RightPercentage
@@ -157,7 +152,7 @@ public class Feeder
                     this.StopPointsComingIn.Add(new Point(i, 82));
                 }
 
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     TotalCars[i] = new Car(new Point(-3, 112));
                 }
@@ -171,9 +166,9 @@ public class Feeder
                 {
                     this.StopPointsComingIn.Add(new Point(112, Convert.ToInt16(i)));
                 }
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 10; i++)
                 {
-                    TotalCars[i] = new Car(new Point(82, 0));
+                    TotalCars[i] = new Car(new Point(82, -3));
                 }
                 break;
             case 3:
@@ -185,7 +180,7 @@ public class Feeder
                 {
                     this.StopPointsComingIn.Add(new Point(i, 112));
                 }
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     TotalCars[i] = new Car(new Point(199, 82));
                 }
@@ -201,7 +196,7 @@ public class Feeder
                     this.StopPointsComingIn.Add(new Point(82, i));
                 }
 
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     TotalCars[i] = new Car(new Point(112, 199));
                 }
