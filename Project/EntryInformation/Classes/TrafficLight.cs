@@ -12,6 +12,7 @@ using System.Text;
 public class TrafficLight
 {
     public System.Timers.Timer greenLightTimer;
+    public System.Timers.Timer yellowLightTimer;
     int feederID;
     Crossing crossing;
 
@@ -20,15 +21,28 @@ public class TrafficLight
         this.feederID = feederID;
         this.GreenLight = greenLight;
         greenLightTimer = new System.Timers.Timer();
-        greenLightTimer.Interval = (this.GreenLight*10000);
+        yellowLightTimer = new System.Timers.Timer();
+        yellowLightTimer.Interval = (this.GreenLight * 100);
+        yellowLightTimer.Elapsed += yellowLightTimer_Elapsed;
+        greenLightTimer.Interval = (this.GreenLight*100);
         greenLightTimer.Elapsed += greenLightTimer_Elapsed;
         this.crossing = crossing;
+    }
+
+    void yellowLightTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+    {
+        yellowLightTimer.Stop();
+        crossing.Feeders[(feederID % 4)].TrafficLight.greenLightTimer.Start();
     }
 
     void greenLightTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
     {
         greenLightTimer.Stop();
-        crossing.Feeders[(feederID % 4)].TrafficLight.greenLightTimer.Start();
+        
+
+
+        yellowLightTimer.Start();
+
     }
 	public int GreenLight
 	{

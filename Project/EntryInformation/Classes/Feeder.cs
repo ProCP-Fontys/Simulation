@@ -151,10 +151,12 @@ public class Feeder
                 {
                     this.StopPointsComingIn.Add(new Point(i, 82));
                 }
-
-                for (int i = 0; i < 10; i++)
+                if (crossing.CrossingID == 0)
                 {
-                    TotalCars[i] = new Car(new Point(-3, 112));
+                    for (int i = 0; i < 20; i++)
+                    {
+                        TotalCars[i] = new Car(new Point(-3, 112));
+                    }
                 }
                 break;
             case 2:
