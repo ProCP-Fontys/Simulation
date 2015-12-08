@@ -102,9 +102,9 @@ public class Feeder
         CarsComingIn = new Car[5];
         CarsGoingOut = new Car[5];
 
-        LeftPercentage = 10;
-        StraightPercentage = 80;
-        RightPercentage = 10;
+        LeftPercentage = 30;
+        StraightPercentage = 40;
+        RightPercentage = 30;
 
         LeftPercentageList = new List<int>();
         RightPercentageList = new List<int>();
@@ -151,7 +151,7 @@ public class Feeder
                 {
                     this.StopPointsComingIn.Add(new Point(i, 82));
                 }
-                if (crossing.CrossingID == 0)
+                if (crossing.CrossingID == 0 || crossing.CrossingID == 4)
                 {
                     for (int i = 0; i < 20; i++)
                     {
@@ -168,9 +168,12 @@ public class Feeder
                 {
                     this.StopPointsComingIn.Add(new Point(112, Convert.ToInt16(i)));
                 }
-                for (int i = 0; i < 10; i++)
+                if (crossing.CrossingID == 0 || crossing.CrossingID == 1)
                 {
-                    TotalCars[i] = new Car(new Point(82, -3));
+                    for (int i = 0; i < 10; i++)
+                    {
+                        TotalCars[i] = new Car(new Point(82, -3));
+                    }
                 }
                 break;
             case 3:
@@ -182,9 +185,12 @@ public class Feeder
                 {
                     this.StopPointsComingIn.Add(new Point(i, 112));
                 }
-                for (int i = 0; i < 10; i++)
+                if (crossing.CrossingID == 1 || crossing.CrossingID == 5)
                 {
-                    TotalCars[i] = new Car(new Point(199, 82));
+                    for (int i = 0; i < 10; i++)
+                    {
+                        TotalCars[i] = new Car(new Point(199, 82));
+                    }
                 }
                 break;
             case 4:
@@ -197,10 +203,12 @@ public class Feeder
                 {
                     this.StopPointsComingIn.Add(new Point(82, i));
                 }
-
-                for (int i = 0; i < 10; i++)
+                if (crossing.CrossingID == 4 || crossing.CrossingID == 5)
                 {
-                    TotalCars[i] = new Car(new Point(112, 199));
+                    for (int i = 0; i < 10; i++)
+                    {
+                        TotalCars[i] = new Car(new Point(112, 199));
+                    }
                 }
                 break;
         }

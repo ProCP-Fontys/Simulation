@@ -15,57 +15,18 @@ namespace EntryInformation
 {
     public partial class Simulation : Form
     {
-        //bool IsSimulationStarted = false;
         bool formationTab = false;
-
-        //Crossing crossingTest;
-        //List<PictureBox> pictureBoxCrossing;
 
         private Simulator simulator;
         System.Timers.Timer MoveCarsTimer = new System.Timers.Timer();
-        //System.Timers.Timer trafficLightTimer = new System.Timers.Timer();
-        //Car[] totalCars = new Car[10];
-        //Car[] CarsGoingOut = new Car[5];
-        //Car[] CarsComingIn = new Car[5];
-        //List<Point> StopPointsGoingOut;
-        //List<Point> StopPointsComingIn;
-        //Neighbours neighbours = new Neighbours();
 
         public Simulation()
         {
             InitializeComponent();
             simulator = new Simulator(this);
 
-            //crossingTest = new CrossingB(0);
-
             MoveCarsTimer.Elapsed += new ElapsedEventHandler(PaintCarMoving);
-            MoveCarsTimer.Interval = 30;
-
-            //pictureBoxCrossing = new List<PictureBox>();
-            
-
-            //StopPointsGoingOut = new List<Point>();
-            //StopPointsComingIn = new List<Point>();
-
-            //for (int i = 4; i > -1; i--)
-            //{
-            //    this.StopPointsGoingOut.Add(new Point(Convert.ToInt16(i + "7"), 112));
-            //}
-
-            //for (int i = 186; i > 145; i -= 10)
-            //{
-            //    this.StopPointsComingIn.Add(new Point(i, 112));
-            //}
-
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    totalCars[i] = new Car(new Point(-3, 112));
-            //}
-
-
-
-            //cars.Add(new Car(new Point(9, 112)));
-            //cars.Add(new Car(new Point(-1, 112)));
+            MoveCarsTimer.Interval = 10;//change speed of the cars
         }
 
         /// <summary>this explanation only for one crossing
@@ -83,63 +44,7 @@ namespace EntryInformation
 
             simulator.InvalidateCrossings();
 
-            MoveCarsTimer.Start();
-            
-            
-            
-
-
-            //for (int i = 0; i < crossingTest.Feeders[2].CarsComingIn.Length; i++)
-            //{
-            //    if (crossingTest.Feeders[2].CarsComingIn[i] != null)
-            //    {
-            //        if (crossingTest.Feeders[2].CarsComingIn[i].X == crossingTest.Feeders[2].StopPointsComingIn[i].X)
-            //        {
-            //            if (i == 0)//if car is at border of other crossing
-            //            {
-            //                if (false)//crossingTest.neighbors.Right.Feeders[0].CarsGoingOut[4] == null
-            //                {
-            //                    //crossingTest.neighbors.Right.Feeders[0].CarsGoingOut[4] = crossingTest.Feeders[2].CarsComingIn[i];
-            //                    //crossingTest.Feeders[2].CarsComingIn[i] = null;
-            //                }
-            //                else
-            //                    formGraphics.FillEllipse(Brushes.Blue, crossingTest.Feeders[2].CarsComingIn[i].X, crossingTest.Feeders[2].CarsComingIn[i].Y, 5, 5);
-            //            }
-            //            else
-            //            {
-            //                if (crossingTest.Feeders[2].CarsComingIn[i - 1] == null)
-            //                {
-            //                    //CarsGoingOut[i].X++;
-            //                    formGraphics.FillEllipse(Brushes.Blue, crossingTest.Feeders[2].CarsComingIn[i].X, crossingTest.Feeders[2].CarsComingIn[i].Y, 5, 5);
-            //                    crossingTest.Feeders[2].CarsComingIn[i - 1] = crossingTest.Feeders[2].CarsComingIn[i];
-            //                    crossingTest.Feeders[2].CarsComingIn[i] = null;
-            //                    //insinsi
-            //                }
-            //                else
-            //                {
-            //                    formGraphics.FillEllipse(Brushes.Blue, crossingTest.Feeders[2].CarsComingIn[i].X, crossingTest.Feeders[2].CarsComingIn[i].Y, 5, 5);
-            //                }
-            //            }
-            //        }
-            //        else
-            //        {
-            //            formGraphics.FillEllipse(Brushes.Blue, crossingTest.Feeders[2].CarsComingIn[i].X, crossingTest.Feeders[2].CarsComingIn[i].Y, 5, 5);
-            //            crossingTest.Feeders[2].CarsComingIn[i].X++;
-            //        }
-            //    }
-            //}
-
-            //foreach (var item in crossingTest.Feeders)
-            //{
-            //    if (item != TrafficLightGreenFeeder)
-            //    {
-            //        foreach (var item2 in item.CarsGoingOut)
-            //        {
-            //            if (item2 != null)
-            //                formGraphics.FillEllipse(Brushes.Blue, item2.X, item2.Y, 5, 5);
-            //        }
-            //    }
-            //}
+            MoveCarsTimer.Start();  
         }
 
         private void frm_Resize(object sender, EventArgs e)
@@ -229,31 +134,11 @@ namespace EntryInformation
             {
                 if (buttonStart.Text == "Start")
                 {
-                    //crossingTest = new CrossingB(0);
                     simulator.LinkCrossingsWithNeighbors();
 
                     simulator.LinkPaintEventHandlerToCrossing();
 
                     simulator.StartTimerTrafficLight();
-                    //PictureBox toDrawOn = (PictureBox)this.Controls.Find("Crossing" + crossingTest.CrossingID, true)[0];
-                    //PictureBox toDrawOn2 = (PictureBox)this.Controls.Find("Crossing" + 1, true)[0];
-
-                    //toDrawOn.Paint += toDrawOn_Paint;
-                    //toDrawOn2.Paint += toDrawOn_Paint;
-
-                    //pictureBoxCrossing.Add(toDrawOn);
-                    //pictureBoxCrossing.Add(toDrawOn2);
-
-
-                    //formGraphics = toDrawOn.CreateGraphics();
-
-                    //GridCell gridCell = null;
-
-                    //gridCell = simulator.grid.ReturnGridCells().Find(x => x.CrossingID == 0);
-
-                    //crossingTest = gridCell.Crossing;
-
-                    //crossingTest.Feeders[3].TrafficLight.greenLightTimer.Start();
 
                     MoveCarsTimer.Start();
                     buttonStart.Text = "Stop";
@@ -263,38 +148,6 @@ namespace EntryInformation
                     MoveCarsTimer.Stop();
                     buttonStart.Text = "Start";
                 }
-
-                //if (!IsSimulationStarted)
-                //{
-                //    gridGroupBox.Enabled = false;
-                //    groupBox1.Visible = false;
-
-                //    groupBox2.Location = new Point(3, 36);
-                //    groupBox2.Height += 448;
-                //    buttonStart.Location = new Point(18, 580);
-                //    buttonStart.Text = "Stop";
-                //    //groupBox2.Location
-                //    groupBox4.Visible = false;
-                //    groupBox3.Visible = false;
-                //    groupBox5.Visible = false;
-                //    IsSimulationStarted = !IsSimulationStarted;
-                //}
-                //else
-                //{
-
-                //    groupBox1.Visible = true; ;
-                //    groupBox2.Height -= 448;
-                //    groupBox2.Location = new Point(7, 371);
-                //    buttonStart.Text = "Start";
-                //    buttonStart.Location = new Point(37, 123);
-                //    //groupBox2.Location
-                //    groupBox3.Visible = true;
-                //    groupBox5.Visible = true;
-                //    IsSimulationStarted = !IsSimulationStarted;
-                //    this.Size = new Size(1050, 741);
-                //    groupBox4.Visible = false;
-                //    gridGroupBox.Enabled = true;
-                //}
             }
             catch (Exception ex)
             {

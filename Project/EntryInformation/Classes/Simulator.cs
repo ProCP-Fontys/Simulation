@@ -233,7 +233,7 @@ public class Simulator
 
     void toDrawOn_Paint(object sender, PaintEventArgs e)
     {
-        Crossing crossingTest = (grid.ReturnGridCells().Find(x => x.Number == Convert.ToInt16(((PictureBox)sender).Name))).Crossing;
+        Crossing CurrentCrossing = (grid.ReturnGridCells().Find(x => x.Number == Convert.ToInt16(((PictureBox)sender).Name))).Crossing;
 
         Feeder TrafficLightGreenFeeder = null;
 
@@ -241,7 +241,7 @@ public class Simulator
         Feeder feederSpotLane = null;
         Direction direction = Direction.None;
 
-        foreach (var item in crossingTest.Feeders)
+        foreach (var item in CurrentCrossing.Feeders)
         {
             if (item.TrafficLight.greenLightTimer.Enabled)
             {
@@ -253,23 +253,22 @@ public class Simulator
 
         if (TrafficLightGreenFeeder != null)
         {
-
             switch (TrafficLightGreenFeeder.FeederID)
             {
                 case 1:
                     switch (direction)
                     {
                         case Direction.Straight:
-                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[2].CarsComingIn, null);
-                            feederSpotLane = crossingTest.Feeders[2];
+                            freeSpotLaneIndex = Array.IndexOf(CurrentCrossing.Feeders[2].CarsComingIn, null);
+                            feederSpotLane = CurrentCrossing.Feeders[2];
                             break;
                         case Direction.Left:
-                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[1].CarsComingIn, null);
-                            feederSpotLane = crossingTest.Feeders[1];
+                            freeSpotLaneIndex = Array.IndexOf(CurrentCrossing.Feeders[1].CarsComingIn, null);
+                            feederSpotLane = CurrentCrossing.Feeders[1];
                             break;
                         case Direction.Right:
-                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[3].CarsComingIn, null);
-                            feederSpotLane = crossingTest.Feeders[3];
+                            freeSpotLaneIndex = Array.IndexOf(CurrentCrossing.Feeders[3].CarsComingIn, null);
+                            feederSpotLane = CurrentCrossing.Feeders[3];
                             break;
                     }
                     break;
@@ -277,16 +276,16 @@ public class Simulator
                     switch (direction)
                     {
                         case Direction.Straight:
-                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[3].CarsComingIn, null);
-                            feederSpotLane = crossingTest.Feeders[3];
+                            freeSpotLaneIndex = Array.IndexOf(CurrentCrossing.Feeders[3].CarsComingIn, null);
+                            feederSpotLane = CurrentCrossing.Feeders[3];
                             break;
                         case Direction.Left:
-                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[2].CarsComingIn, null);
-                            feederSpotLane = crossingTest.Feeders[2];
+                            freeSpotLaneIndex = Array.IndexOf(CurrentCrossing.Feeders[2].CarsComingIn, null);
+                            feederSpotLane = CurrentCrossing.Feeders[2];
                             break;
                         case Direction.Right:
-                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[0].CarsComingIn, null);
-                            feederSpotLane = crossingTest.Feeders[0];
+                            freeSpotLaneIndex = Array.IndexOf(CurrentCrossing.Feeders[0].CarsComingIn, null);
+                            feederSpotLane = CurrentCrossing.Feeders[0];
                             break;
                     }
                     break;
@@ -294,16 +293,16 @@ public class Simulator
                     switch (direction)
                     {
                         case Direction.Straight:
-                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[0].CarsComingIn, null);
-                            feederSpotLane = crossingTest.Feeders[0];
+                            freeSpotLaneIndex = Array.IndexOf(CurrentCrossing.Feeders[0].CarsComingIn, null);
+                            feederSpotLane = CurrentCrossing.Feeders[0];
                             break;
                         case Direction.Left:
-                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[3].CarsComingIn, null);
-                            feederSpotLane = crossingTest.Feeders[3];
+                            freeSpotLaneIndex = Array.IndexOf(CurrentCrossing.Feeders[3].CarsComingIn, null);
+                            feederSpotLane = CurrentCrossing.Feeders[3];
                             break;
                         case Direction.Right:
-                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[1].CarsComingIn, null);
-                            feederSpotLane = crossingTest.Feeders[1];
+                            freeSpotLaneIndex = Array.IndexOf(CurrentCrossing.Feeders[1].CarsComingIn, null);
+                            feederSpotLane = CurrentCrossing.Feeders[1];
                             break;
                     }
                     break;
@@ -311,16 +310,16 @@ public class Simulator
                     switch (direction)
                     {
                         case Direction.Straight:
-                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[1].CarsComingIn, null);
-                            feederSpotLane = crossingTest.Feeders[1];
+                            freeSpotLaneIndex = Array.IndexOf(CurrentCrossing.Feeders[1].CarsComingIn, null);
+                            feederSpotLane = CurrentCrossing.Feeders[1];
                             break;
                         case Direction.Left:
-                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[0].CarsComingIn, null);
-                            feederSpotLane = crossingTest.Feeders[0];
+                            freeSpotLaneIndex = Array.IndexOf(CurrentCrossing.Feeders[0].CarsComingIn, null);
+                            feederSpotLane = CurrentCrossing.Feeders[0];
                             break;
                         case Direction.Right:
-                            freeSpotLaneIndex = Array.IndexOf(crossingTest.Feeders[2].CarsComingIn, null);
-                            feederSpotLane = crossingTest.Feeders[2];
+                            freeSpotLaneIndex = Array.IndexOf(CurrentCrossing.Feeders[2].CarsComingIn, null);
+                            feederSpotLane = CurrentCrossing.Feeders[2];
                             break;
                     }
                     break;
@@ -362,14 +361,29 @@ public class Simulator
                         case 2:
                             pointToCheck = TrafficLightGreenFeeder.CarsGoingOut[i].Y;
                             pointToCompare = TrafficLightGreenFeeder.StopPointsGoingOut[i].Y;
+                            if (pointToCheck == 197)
+                            {
+                                TrafficLightGreenFeeder.CarsGoingOut[i].Y = -3;
+                                pointToCheck = -3;
+                            }
                             break;
                         case 3:
                             pointToCheck = TrafficLightGreenFeeder.CarsGoingOut[i].X;
                             pointToCompare = TrafficLightGreenFeeder.StopPointsGoingOut[i].X;
+                            if (pointToCheck == -3)
+                            {
+                                TrafficLightGreenFeeder.CarsGoingOut[i].X = 196;
+                                pointToCheck = 196;
+                            }
                             break;
                         case 4:
                             pointToCheck = TrafficLightGreenFeeder.CarsGoingOut[i].Y;
                             pointToCompare = TrafficLightGreenFeeder.StopPointsGoingOut[i].Y;
+                            if (pointToCheck == -3)
+                            {
+                                TrafficLightGreenFeeder.CarsGoingOut[i].Y = 196;
+                                pointToCheck = 196;
+                            }
                             break;
                     }
 
@@ -377,13 +391,6 @@ public class Simulator
                     {
                         if (i == 0)//if car is at stoplight
                         {
-                            //Direction chosenDirection = TrafficLightGreenFeeder.ReturnDirection();
-                            //while (chosenDirection != Direction.Straight)//this for now
-                            {
-                                //    chosenDirection = TrafficLightGreenFeeder.ReturnDirection();
-                            }
-
-
                             if (freeSpotLaneIndex != -1)
                             {
                                 TrafficLightGreenFeeder.CarsGoingOut[i].Direction = direction;
@@ -433,7 +440,6 @@ public class Simulator
 
                                 TrafficLightGreenFeeder.CarsGoingOut[i - 1] = TrafficLightGreenFeeder.CarsGoingOut[i];
                                 TrafficLightGreenFeeder.CarsGoingOut[i] = null;
-                                //insinsi
                             }
                             else
                             {
@@ -466,16 +472,8 @@ public class Simulator
                 }
             }
         }
-        //calculate if the neighbors crossing feeder has an open spot and if there is no neighbor then the car is going out of the simulation
 
-        //int freeSpotFoundIndex = -1;
-
-        //foreach (var item in crossingTest.neighbors.Right.Feeders[0].CarsGoingOut)
-        {
-            //freeSpotFoundIndex = Array.IndexOf(crossingTest.neighbors.Right.Feeders[0].CarsGoingOut, null);
-        }
-
-        foreach (var item in crossingTest.Feeders)
+        foreach (var item in CurrentCrossing.Feeders)
         {
             switch (item.FeederID)
             {
@@ -500,17 +498,53 @@ public class Simulator
                                     }
                                     break;
                                 case Direction.Straight:
-                                    if (item.CarsComingIn[i].X == item.StopPointsComingIn[i].X)
+                                    if (item.CarsComingIn[i].X == item.StopPointsComingIn[i].X || (item.CarsComingIn[i].X == -2))//change the stopPoints of incoming lane 1 ID
                                     {
                                         if (i == 0)//is at border
                                         {
-                                            if (false)
+                                            if (CurrentCrossing.neighbors.Left != null)//
                                             {
-
+                                                if (CurrentCrossing.neighbors.Left.Feeders[2].CarsGoingOut[4] == null)
+                                                {
+                                                    if (item.CarsComingIn[i].X == -2)
+                                                    {
+                                                        e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                        item.CarsComingIn[i].X--;
+                                                        CurrentCrossing.neighbors.Left.Feeders[2].CarsGoingOut[4] = item.CarsComingIn[i];
+                                                        item.CarsComingIn[i] = item.CarsComingIn[i + 1];
+                                                        item.CarsComingIn[i + 1] = item.CarsComingIn[i + 2];
+                                                        item.CarsComingIn[i + 2] = item.CarsComingIn[i + 3];
+                                                        item.CarsComingIn[i + 3] = item.CarsComingIn[i + 4];
+                                                        item.CarsComingIn[i + 4] = null;
+                                                    }
+                                                    else
+                                                    {
+                                                        e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                        item.CarsComingIn[i].X--;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                }
                                             }
                                             else
                                             {
-                                                e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                if (item.CarsComingIn[i].X == -2)
+                                                {
+                                                    e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                    item.CarsComingIn[i].X--;
+                                                    item.CarsComingIn[i] = item.CarsComingIn[i + 1];
+                                                    item.CarsComingIn[i + 1] = item.CarsComingIn[i + 2];
+                                                    item.CarsComingIn[i + 2] = item.CarsComingIn[i + 3];
+                                                    item.CarsComingIn[i + 3] = item.CarsComingIn[i + 4];
+                                                    item.CarsComingIn[i + 4] = null;
+                                                }
+                                                else
+                                                {
+                                                    e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                    item.CarsComingIn[i].X--;
+                                                }
                                             }
                                         }
                                         else
@@ -569,17 +603,53 @@ public class Simulator
                                     }
                                     break;
                                 case Direction.Straight:
-                                    if (item.CarsComingIn[i].Y == item.StopPointsComingIn[i].Y)
+                                    if (item.CarsComingIn[i].Y == item.StopPointsComingIn[i].Y || (item.CarsComingIn[i].Y == -2))
                                     {
                                         if (i == 0)//is at border
                                         {
-                                            if (false)
+                                            if (CurrentCrossing.neighbors.Top != null)//
                                             {
-
+                                                if (CurrentCrossing.neighbors.Top.Feeders[3].CarsGoingOut[4] == null)
+                                                {
+                                                    if (item.CarsComingIn[i].Y == -2)
+                                                    {
+                                                        e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                        item.CarsComingIn[i].Y--;
+                                                        CurrentCrossing.neighbors.Top.Feeders[3].CarsGoingOut[4] = item.CarsComingIn[i];
+                                                        item.CarsComingIn[i] = item.CarsComingIn[i + 1];
+                                                        item.CarsComingIn[i + 1] = item.CarsComingIn[i + 2];
+                                                        item.CarsComingIn[i + 2] = item.CarsComingIn[i + 3];
+                                                        item.CarsComingIn[i + 3] = item.CarsComingIn[i + 4];
+                                                        item.CarsComingIn[i + 4] = null;
+                                                    }
+                                                    else
+                                                    {
+                                                        e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                        item.CarsComingIn[i].Y--;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                }
                                             }
                                             else
                                             {
-                                                e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                if (item.CarsComingIn[i].Y == -2)
+                                                {
+                                                    e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                    item.CarsComingIn[i].Y--;
+                                                    item.CarsComingIn[i] = item.CarsComingIn[i + 1];
+                                                    item.CarsComingIn[i + 1] = item.CarsComingIn[i + 2];
+                                                    item.CarsComingIn[i + 2] = item.CarsComingIn[i + 3];
+                                                    item.CarsComingIn[i + 3] = item.CarsComingIn[i + 4];
+                                                    item.CarsComingIn[i + 4] = null;
+                                                }
+                                                else
+                                                {
+                                                    e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                    item.CarsComingIn[i].Y--;
+                                                }
                                             }
                                         }
                                         else
@@ -638,19 +708,19 @@ public class Simulator
                                     }
                                     break;
                                 case Direction.Straight:
-                                    if (item.CarsComingIn[i].X == item.StopPointsComingIn[i].X || (item.CarsComingIn[i].X == 196 && i == 0) || (item.CarsComingIn[i].X == 199 && i == 0 && crossingTest.neighbors.Right == null))
+                                    if (item.CarsComingIn[i].X == item.StopPointsComingIn[i].X || (item.CarsComingIn[i].X == 196) || (item.CarsComingIn[i].X == 199))
                                     {
                                         if (i == 0)//is at border
                                         {
-                                            if (crossingTest.neighbors.Right != null)//
+                                            if (CurrentCrossing.neighbors.Right != null)//
                                             {
-                                                if (crossingTest.neighbors.Right.Feeders[0].CarsGoingOut[4] == null)
+                                                if (CurrentCrossing.neighbors.Right.Feeders[0].CarsGoingOut[4] == null)
                                                 {
                                                     if (item.CarsComingIn[i].X == 196)
                                                     {
                                                         e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
                                                         item.CarsComingIn[i].X++;
-                                                        crossingTest.neighbors.Right.Feeders[0].CarsGoingOut[4] = item.CarsComingIn[i];
+                                                        CurrentCrossing.neighbors.Right.Feeders[0].CarsGoingOut[4] = item.CarsComingIn[i];
                                                         item.CarsComingIn[i] = item.CarsComingIn[i+1];
                                                         item.CarsComingIn[i + 1] = item.CarsComingIn[i + 2];
                                                         item.CarsComingIn[i+2] = item.CarsComingIn[i + 3];
@@ -743,17 +813,53 @@ public class Simulator
                                     }
                                     break;
                                 case Direction.Straight:
-                                    if (item.CarsComingIn[i].Y == item.StopPointsComingIn[i].Y)
+                                    if (item.CarsComingIn[i].Y == item.StopPointsComingIn[i].Y || (item.CarsComingIn[i].Y == 196 && i == 0) || (item.CarsComingIn[i].Y == 199 && i == 0))
                                     {
                                         if (i == 0)//is at border
                                         {
-                                            if (false)
+                                            if (CurrentCrossing.neighbors.Bottom != null)//
                                             {
-
+                                                if (CurrentCrossing.neighbors.Bottom.Feeders[1].CarsGoingOut[4] == null)
+                                                {
+                                                    if (item.CarsComingIn[i].Y == 196)
+                                                    {
+                                                        e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                        item.CarsComingIn[i].Y++;
+                                                        CurrentCrossing.neighbors.Bottom.Feeders[1].CarsGoingOut[4] = item.CarsComingIn[i];
+                                                        item.CarsComingIn[i] = item.CarsComingIn[i + 1];
+                                                        item.CarsComingIn[i + 1] = item.CarsComingIn[i + 2];
+                                                        item.CarsComingIn[i + 2] = item.CarsComingIn[i + 3];
+                                                        item.CarsComingIn[i + 3] = item.CarsComingIn[i + 4];
+                                                        item.CarsComingIn[i + 4] = null;
+                                                    }
+                                                    else
+                                                    {
+                                                        e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                        item.CarsComingIn[i].Y++;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                }
                                             }
                                             else
                                             {
-                                                e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                if (item.CarsComingIn[i].Y == 199)
+                                                {
+                                                    e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                    item.CarsComingIn[i].Y++;
+                                                    item.CarsComingIn[i] = item.CarsComingIn[i + 1];
+                                                    item.CarsComingIn[i + 1] = item.CarsComingIn[i + 2];
+                                                    item.CarsComingIn[i + 2] = item.CarsComingIn[i + 3];
+                                                    item.CarsComingIn[i + 3] = item.CarsComingIn[i + 4];
+                                                    item.CarsComingIn[i + 4] = null;
+                                                }
+                                                else
+                                                {
+                                                    e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
+                                                    item.CarsComingIn[i].Y++;
+                                                }
                                             }
                                         }
                                         else
@@ -794,13 +900,14 @@ public class Simulator
             }
         }
 
-        foreach (var item in crossingTest.Feeders)
+        //this is for painting the cars waiting for the greenLight
+        foreach (var item in CurrentCrossing.Feeders)
         {
             if (item != TrafficLightGreenFeeder)
             {
                 if (item.CarsGoingOut[4] == null)
                 {
-                    for (int i = 0; i < item.TotalCars.Length; i++)
+                    for (int i = 0; i < item.TotalCars.Length; i++)//this is for putting cars into the lane from the totalcars lane
                     {
                         if (item.TotalCars[i] != null)
                         {
@@ -833,14 +940,29 @@ public class Simulator
                             case 2:
                                 pointToCheck = item.CarsGoingOut[i].Y;
                                 pointToCompare = item.StopPointsGoingOut[i].Y;
+                                if (pointToCheck == 197)
+                                {
+                                    item.CarsGoingOut[i].Y = -3;
+                                    pointToCheck = -3;
+                                }
                                 break;
                             case 3:
                                 pointToCheck = item.CarsGoingOut[i].X;
                                 pointToCompare = item.StopPointsGoingOut[i].X;
+                                if (pointToCheck == -3)
+                                {
+                                    item.CarsGoingOut[i].X = 196;
+                                    pointToCheck = 196;
+                                }
                                 break;
                             case 4:
                                 pointToCheck = item.CarsGoingOut[i].Y;
                                 pointToCompare = item.StopPointsGoingOut[i].Y;
+                                if (pointToCheck == -3)
+                                {
+                                    item.CarsGoingOut[i].Y = 196;
+                                    pointToCheck = 196;
+                                }
                                 break;
                         }
 
@@ -864,10 +986,10 @@ public class Simulator
                                             item.CarsGoingOut[i].Y++;
                                             break;
                                         case 3:
-                                            item.CarsGoingOut[i].X++;
+                                            item.CarsGoingOut[i].X--;
                                             break;
                                         case 4:
-                                            item.CarsGoingOut[i].Y++;
+                                            item.CarsGoingOut[i].Y--;
                                             break;
                                     }
                                     item.CarsGoingOut[i - 1] = item.CarsGoingOut[i];
@@ -898,7 +1020,7 @@ public class Simulator
                                     break;
                                 case 4:
                                     e.Graphics.FillEllipse(Brushes.Blue, item.CarsGoingOut[i].X, item.CarsGoingOut[i].Y, 5, 5);
-                                    item.CarsGoingOut[i].Y--; ;
+                                    item.CarsGoingOut[i].Y--;
                                     break;
                             }
                         }
