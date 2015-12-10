@@ -15,8 +15,6 @@ namespace EntryInformation
 {
     public partial class Simulation : Form
     {
-        bool formationTab = false;
-
         private Simulator simulator;
         System.Timers.Timer MoveCarsTimer = new System.Timers.Timer();
 
@@ -47,45 +45,11 @@ namespace EntryInformation
             MoveCarsTimer.Start();  
         }
 
-        private void frm_Resize(object sender, EventArgs e)
-        {
-            
-            if (!formationTab)
-            {
-
-                groupBox4.Visible = true;
-                formationTab = !formationTab; ;
-            }
-            else
-            {
-                groupBox4.Visible = false;
-                Form.ActiveForm.Width -= 250;
-
-                formationTab = !formationTab; ;
-            }
-            //Deselect other crossings
-            foreach (Control pb in gridPanel.Controls)
-            {
-                if (pb is PictureBox)
-                {
-                    ((PictureBox)pb).BorderStyle = BorderStyle.None;
-                }
-
-            }
-        }
+        
 
         private void gridPanel_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Copy;
-        }
-
-        public void FormExpand(object sender, EventArgs e)
-        {
-            formationTab = false;
-            this.frm_Resize(sender,e);
-            
-            ((PictureBox)sender).BorderStyle = BorderStyle.Fixed3D;
-            
         }
 
         private void gridPanel_DragDrop(object sender, DragEventArgs e)
@@ -104,23 +68,23 @@ namespace EntryInformation
             //label6.Text = "X = " + e.X + " and Y = " + e.Y;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (!formationTab)
-            {
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    if (!formationTab)
+        //    {
 
-                groupBox4.Visible = true;
-                formationTab = !formationTab; ;
-            }
-            else
-            {
-                groupBox4.Visible = false;
-                Form.ActiveForm.Width -= 250;
+        //        groupBox4.Visible = true;
+        //        formationTab = !formationTab; ;
+        //    }
+        //    else
+        //    {
+        //        groupBox4.Visible = false;
+        //        Form.ActiveForm.Width -= 250;
 
-                formationTab = !formationTab; ;
-            }
+        //        formationTab = !formationTab; ;
+        //    }
 
-        }
+        //}
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {

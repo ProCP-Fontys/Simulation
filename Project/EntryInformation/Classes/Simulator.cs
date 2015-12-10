@@ -19,6 +19,7 @@ public class Simulator
     private Grid grid;
     private Simulation simulation;
     private List<PictureBox> pictureBoxCrossing;
+    bool formationTab = false;
 
     public Simulator(Simulation simulation)
     {
@@ -37,10 +38,11 @@ public class Simulator
 
     public void DrawGrid()
     {
-
+        //remember to resize the form depending on rows and columns
         grid = new Grid();
         simulation.gridPanel.Controls.Clear();
         simulation.gridGroupBox.Enabled = true;
+
         grid.nrOfRows = Convert.ToInt16(simulation.comboBoxRows.SelectedItem);
         grid.nrOfColumns = Convert.ToInt16(simulation.comboBoxColumns.SelectedItem);
 
@@ -188,7 +190,7 @@ public class Simulator
         if (OnGridCellDropped != null)
         {
             PictureBox picbox = new PictureBox();
-            picbox.Click += new EventHandler(simulation.FormExpand);
+            picbox.Click += new EventHandler(FormExpand);
             picbox.MouseMove += picbox_MouseMove;
             picbox.Size = new Size(200, 200);
             picbox.BorderStyle = BorderStyle.None;
@@ -1028,6 +1030,83 @@ public class Simulator
                 }
             }
         }
+    }
+
+    public void frm_Resize(object sender, EventArgs e)
+    {
+
+        if (!formationTab)
+        {
+
+            simulation.groupBox4.Visible = true;
+            formationTab = !formationTab; ;
+        }
+        else
+        {
+            simulation.groupBox4.Visible = false;
+            Form.ActiveForm.Width -= 250;
+
+            formationTab = !formationTab; ;
+        }
+        //Deselect other crossings
+        foreach (Control pb in simulation.gridPanel.Controls)
+        {
+            if (pb is PictureBox)
+            {
+                ((PictureBox)pb).BorderStyle = BorderStyle.None;
+            }
+
+        }
+    }
+
+    private void DisableTextBoxLanes()
+    {
+        simulation.textBoxBottomlane.Enabled = false;
+        simulation.textBoxLeftlane.Enabled = false;
+        simulation.textBoxRightlane.Enabled = false;
+        simulation.textBoxToplane.Enabled = false;
+        simulation.textBoxBottomlane.BackColor = Color.DarkRed;
+        simulation.textBoxLeftlane.BackColor = Color.DarkRed;
+        simulation.textBoxRightlane.BackColor = Color.DarkRed;
+        simulation.textBoxToplane.BackColor = Color.DarkRed;
+    }
+
+    public void FormExpand(object sender, EventArgs e)
+    {
+        LinkCrossingsWithNeighbors();
+        DisableTextBoxLanes();
+        int gridCellID = Convert.ToInt16(((PictureBox)sender).Name);
+
+        GridCell gridCellNeeded = grid.ReturnGridCells().Find(x => x.Number == gridCellID);
+
+        Crossing crossing = gridCellNeeded.Crossing;
+
+        if (crossing.neighbors.Left == null)
+        {
+            simulation.textBoxLeftlane.Enabled = true;
+            simulation.textBoxLeftlane.BackColor = Color.Black;
+        }
+        if (crossing.neighbors.Top == null)
+        {
+            simulation.textBoxToplane.Enabled = true;
+            simulation.textBoxToplane.BackColor = Color.Black;
+        }
+        if (crossing.neighbors.Right == null)
+        {
+            simulation.textBoxRightlane.Enabled = true;
+            simulation.textBoxRightlane.BackColor = Color.Black;
+        }
+        if (crossing.neighbors.Bottom == null)
+        {
+            simulation.textBoxBottomlane.Enabled = true;
+            simulation.textBoxBottomlane.BackColor = Color.Black;
+        }
+
+        formationTab = false;
+        frm_Resize(sender, e);
+
+        ((PictureBox)sender).BorderStyle = BorderStyle.Fixed3D;
+
     }
 
     private void picbox_MouseMove(object sender, MouseEventArgs e)

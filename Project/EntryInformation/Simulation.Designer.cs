@@ -54,13 +54,13 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBoxToplane = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBoxLeftlane = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBoxBottomlane = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxRightlane = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -107,7 +107,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 4, 0, 4);
-            this.menuStrip1.Size = new System.Drawing.Size(1324, 31);
+            this.menuStrip1.Size = new System.Drawing.Size(1303, 31);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -332,13 +332,13 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.textBox9);
+            this.groupBox6.Controls.Add(this.textBoxToplane);
             this.groupBox6.Controls.Add(this.label2);
-            this.groupBox6.Controls.Add(this.textBox8);
+            this.groupBox6.Controls.Add(this.textBoxLeftlane);
             this.groupBox6.Controls.Add(this.label15);
-            this.groupBox6.Controls.Add(this.textBox7);
+            this.groupBox6.Controls.Add(this.textBoxBottomlane);
             this.groupBox6.Controls.Add(this.label1);
-            this.groupBox6.Controls.Add(this.textBox1);
+            this.groupBox6.Controls.Add(this.textBoxRightlane);
             this.groupBox6.Controls.Add(this.textBox6);
             this.groupBox6.Controls.Add(this.label3);
             this.groupBox6.Controls.Add(this.label4);
@@ -355,14 +355,17 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Crossing Information";
             // 
-            // textBox9
+            // textBoxToplane
             // 
-            this.textBox9.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(138, 54);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(79, 26);
-            this.textBox9.TabIndex = 23;
+            this.textBoxToplane.BackColor = System.Drawing.Color.Black;
+            this.textBoxToplane.Enabled = false;
+            this.textBoxToplane.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxToplane.ForeColor = System.Drawing.Color.White;
+            this.textBoxToplane.Location = new System.Drawing.Point(138, 54);
+            this.textBoxToplane.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxToplane.Name = "textBoxToplane";
+            this.textBoxToplane.Size = new System.Drawing.Size(79, 26);
+            this.textBoxToplane.TabIndex = 23;
             // 
             // label2
             // 
@@ -371,18 +374,21 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(1, 57);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 19);
+            this.label2.Size = new System.Drawing.Size(55, 19);
             this.label2.TabIndex = 22;
-            this.label2.Text = "Lane2";
+            this.label2.Text = "Top lane";
             // 
-            // textBox8
+            // textBoxLeftlane
             // 
-            this.textBox8.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(138, 22);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(79, 26);
-            this.textBox8.TabIndex = 21;
+            this.textBoxLeftlane.BackColor = System.Drawing.Color.Black;
+            this.textBoxLeftlane.Enabled = false;
+            this.textBoxLeftlane.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLeftlane.ForeColor = System.Drawing.Color.White;
+            this.textBoxLeftlane.Location = new System.Drawing.Point(138, 22);
+            this.textBoxLeftlane.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxLeftlane.Name = "textBoxLeftlane";
+            this.textBoxLeftlane.Size = new System.Drawing.Size(79, 26);
+            this.textBoxLeftlane.TabIndex = 21;
             // 
             // label15
             // 
@@ -391,18 +397,21 @@
             this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.Location = new System.Drawing.Point(1, 25);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(43, 19);
+            this.label15.Size = new System.Drawing.Size(57, 19);
             this.label15.TabIndex = 20;
-            this.label15.Text = "Lane1";
+            this.label15.Text = "Left lane";
             // 
-            // textBox7
+            // textBoxBottomlane
             // 
-            this.textBox7.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(138, 117);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(79, 26);
-            this.textBox7.TabIndex = 19;
+            this.textBoxBottomlane.BackColor = System.Drawing.Color.Black;
+            this.textBoxBottomlane.Enabled = false;
+            this.textBoxBottomlane.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxBottomlane.ForeColor = System.Drawing.Color.White;
+            this.textBoxBottomlane.Location = new System.Drawing.Point(138, 117);
+            this.textBoxBottomlane.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxBottomlane.Name = "textBoxBottomlane";
+            this.textBoxBottomlane.Size = new System.Drawing.Size(79, 26);
+            this.textBoxBottomlane.TabIndex = 19;
             // 
             // label1
             // 
@@ -411,18 +420,21 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(2, 120);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 19);
+            this.label1.Size = new System.Drawing.Size(76, 19);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Lane4";
+            this.label1.Text = "Bottom lane";
             // 
-            // textBox1
+            // textBoxRightlane
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(138, 85);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(79, 26);
-            this.textBox1.TabIndex = 11;
+            this.textBoxRightlane.BackColor = System.Drawing.Color.Black;
+            this.textBoxRightlane.Enabled = false;
+            this.textBoxRightlane.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRightlane.ForeColor = System.Drawing.Color.White;
+            this.textBoxRightlane.Location = new System.Drawing.Point(138, 85);
+            this.textBoxRightlane.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxRightlane.Name = "textBoxRightlane";
+            this.textBoxRightlane.Size = new System.Drawing.Size(79, 26);
+            this.textBoxRightlane.TabIndex = 11;
             // 
             // textBox6
             // 
@@ -440,9 +452,9 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(2, 88);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 19);
+            this.label3.Size = new System.Drawing.Size(64, 19);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Lane3";
+            this.label3.Text = "Right lane";
             // 
             // label4
             // 
@@ -750,7 +762,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1324, 694);
+            this.ClientSize = new System.Drawing.Size(1303, 694);
             this.ControlBox = false;
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox5);
@@ -818,14 +830,14 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox textBoxRightlane;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.GroupBox groupBox4;
+        public System.Windows.Forms.GroupBox groupBox4;
         public System.Windows.Forms.PictureBox CA;
         public System.Windows.Forms.PictureBox CB;
         private System.Windows.Forms.Label label12;
@@ -838,11 +850,11 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label14;
         public System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox9;
+        public System.Windows.Forms.TextBox textBoxToplane;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox8;
+        public System.Windows.Forms.TextBox textBoxLeftlane;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox7;
+        public System.Windows.Forms.TextBox textBoxBottomlane;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
