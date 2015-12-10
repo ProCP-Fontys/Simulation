@@ -1,2 +1,9 @@
 Gui design ---> Mikaeil
 -classes implementation
+-save as
+-open project
+-delete Crossing
+-desided------> at a time one green traffic light per crossing and traffic lights will be drawings on pictureboxes
+-form resize hase to be fixed
+-after start simulation deselect all the crossings and resize the form 
+- Help button
