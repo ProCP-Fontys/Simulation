@@ -34,12 +34,14 @@ public class Simulator
         int width = nrOfColumns * 200;
         simulation.gridPanel.Size = new Size(width, height);
         simulation.gridGroupBox.Size = new Size(width + 15, height + 30);
-        simulation.groupBox4.Location= new Point(simulation.gridGroupBox.Width + 250,simulation.groupBox4.Location.Y);
+        simulation.groupBox4.Location= new Point(simulation.gridGroupBox.Width + 235,simulation.groupBox4.Location.Y);
     }
 
     public void DrawGrid()
     {
+        
         //remember to resize the form depending on rows and columns
+        simulation.groupBox4.Visible = false;
         grid = new Grid();
         simulation.gridPanel.Controls.Clear();
         simulation.gridGroupBox.Enabled = true;
@@ -48,6 +50,7 @@ public class Simulator
         grid.nrOfColumns = Convert.ToInt16(simulation.comboBoxColumns.SelectedItem);
 
         calculatePanelSize(grid.nrOfRows, grid.nrOfColumns);
+        simulation.Width = simulation.gridGroupBox.Width + 230;
         Pen myPen;
         myPen = new Pen(Color.White);
         Graphics formGraphics = simulation.gridPanel.CreateGraphics();
@@ -60,9 +63,9 @@ public class Simulator
             formGraphics.DrawLine(myPen, item.ReturnLocation().X, (item.ReturnLocation().Y + 199), (item.ReturnLocation().X + 200), item.ReturnLocation().Y + 199);//bottom line from the left to right
             formGraphics.DrawLine(myPen, (item.ReturnLocation().X + 199), item.ReturnLocation().Y, (item.ReturnLocation().X + 199), (item.ReturnLocation().Y + 200));//right line from top to bottom
         }
-
         myPen.Dispose();
         formGraphics.Dispose();
+       
     }
 
     private GridCell determinePicboxLocation(Point droppedCoordinates)
@@ -1034,7 +1037,7 @@ public class Simulator
 
     public void frm_Resize(object sender, EventArgs e)
     {
-        simulation.Width = simulation.gridGroupBox.Width + 200;
+        
 
         if (!formationTab)
         {
