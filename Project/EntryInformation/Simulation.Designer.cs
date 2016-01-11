@@ -48,24 +48,14 @@
             this.buttonStart = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.textBoxToplane = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.textBoxLeftlane = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBoxBottomlane = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.textBoxRightlane = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -84,6 +74,12 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.gridGroupBox.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -107,7 +103,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 4, 0, 4);
-            this.menuStrip1.Size = new System.Drawing.Size(1303, 31);
+            this.menuStrip1.Size = new System.Drawing.Size(1301, 36);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -121,37 +117,37 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.Tomato;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(40, 23);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(45, 28);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(138, 28);
             this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(138, 28);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(138, 28);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveASToolStripMenuItem
             // 
             this.saveASToolStripMenuItem.Name = "saveASToolStripMenuItem";
-            this.saveASToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.saveASToolStripMenuItem.Size = new System.Drawing.Size(138, 28);
             this.saveASToolStripMenuItem.Text = "Save AS";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(138, 28);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -159,7 +155,7 @@
             // 
             this.editToolStripMenuItem.ForeColor = System.Drawing.Color.Tomato;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(52, 28);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // helpToolStripMenuItem
@@ -169,19 +165,19 @@
             this.helpToolStripMenuItem1});
             this.helpToolStripMenuItem.ForeColor = System.Drawing.Color.Tomato;
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(46, 23);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 28);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // usersManualToolStripMenuItem
             // 
             this.usersManualToolStripMenuItem.Name = "usersManualToolStripMenuItem";
-            this.usersManualToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+            this.usersManualToolStripMenuItem.Size = new System.Drawing.Size(177, 28);
             this.usersManualToolStripMenuItem.Text = "User\'s Manual";
             // 
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(155, 24);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(177, 28);
             this.helpToolStripMenuItem1.Text = "Help!";
             // 
             // gridGroupBox
@@ -219,7 +215,7 @@
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(5, 73);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(139, 19);
+            this.label13.Size = new System.Drawing.Size(178, 24);
             this.label13.TabIndex = 2;
             this.label13.Text = "Time  08:00 O\' Clock.  ";
             // 
@@ -230,7 +226,7 @@
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(-1, 49);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(157, 19);
+            this.label10.Size = new System.Drawing.Size(203, 24);
             this.label10.TabIndex = 1;
             this.label10.Text = "Street : Eindhoven, station";
             // 
@@ -254,18 +250,18 @@
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.label7);
-            this.groupBox7.Controls.Add(this.textBox2);
-            this.groupBox7.Controls.Add(this.textBox3);
-            this.groupBox7.Controls.Add(this.textBox4);
-            this.groupBox7.Controls.Add(this.label8);
             this.groupBox7.Controls.Add(this.label9);
+            this.groupBox7.Controls.Add(this.label8);
+            this.groupBox7.Controls.Add(this.textBox3);
+            this.groupBox7.Controls.Add(this.textBox18);
+            this.groupBox7.Controls.Add(this.textBox14);
             this.groupBox7.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.ForeColor = System.Drawing.Color.White;
-            this.groupBox7.Location = new System.Drawing.Point(6, 273);
+            this.groupBox7.Location = new System.Drawing.Point(10, 185);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox7.Size = new System.Drawing.Size(226, 121);
+            this.groupBox7.Size = new System.Drawing.Size(230, 106);
             this.groupBox7.TabIndex = 19;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Car Direction Flow\'s ";
@@ -275,47 +271,20 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(3, 37);
+            this.label7.Location = new System.Drawing.Point(13, 35);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 19);
+            this.label7.Size = new System.Drawing.Size(48, 24);
             this.label7.TabIndex = 6;
             this.label7.Text = "%Left";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(14, 63);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(42, 26);
-            this.textBox2.TabIndex = 13;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(90, 63);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(42, 26);
-            this.textBox3.TabIndex = 14;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(168, 63);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(42, 26);
-            this.textBox4.TabIndex = 15;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(62, 37);
+            this.label8.Location = new System.Drawing.Point(69, 36);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 19);
+            this.label8.Size = new System.Drawing.Size(75, 24);
             this.label8.TabIndex = 7;
             this.label8.Text = "%Straght";
             // 
@@ -324,33 +293,33 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(154, 37);
+            this.label9.Location = new System.Drawing.Point(152, 35);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 19);
+            this.label9.Size = new System.Drawing.Size(58, 24);
             this.label9.TabIndex = 8;
             this.label9.Text = "%Right";
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.textBoxToplane);
-            this.groupBox6.Controls.Add(this.label2);
-            this.groupBox6.Controls.Add(this.textBoxLeftlane);
-            this.groupBox6.Controls.Add(this.label15);
-            this.groupBox6.Controls.Add(this.textBoxBottomlane);
             this.groupBox6.Controls.Add(this.label1);
-            this.groupBox6.Controls.Add(this.textBoxRightlane);
-            this.groupBox6.Controls.Add(this.textBox6);
-            this.groupBox6.Controls.Add(this.label3);
-            this.groupBox6.Controls.Add(this.label4);
+            this.groupBox6.Controls.Add(this.comboBox1);
+            this.groupBox6.Controls.Add(this.button3);
+            this.groupBox6.Controls.Add(this.groupBox7);
+            this.groupBox6.Controls.Add(this.button2);
+            this.groupBox6.Controls.Add(this.buttonCancel);
+            this.groupBox6.Controls.Add(this.label16);
             this.groupBox6.Controls.Add(this.label5);
-            this.groupBox6.Controls.Add(this.textBox5);
+            this.groupBox6.Controls.Add(this.textBoxToplane);
+            this.groupBox6.Controls.Add(this.textBoxLeftlane);
+            this.groupBox6.Controls.Add(this.label4);
+            this.groupBox6.Controls.Add(this.textBoxRightlane);
             this.groupBox6.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.ForeColor = System.Drawing.Color.White;
             this.groupBox6.Location = new System.Drawing.Point(6, 38);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox6.Size = new System.Drawing.Size(226, 234);
+            this.groupBox6.Size = new System.Drawing.Size(253, 408);
             this.groupBox6.TabIndex = 18;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Crossing Information";
@@ -361,22 +330,11 @@
             this.textBoxToplane.Enabled = false;
             this.textBoxToplane.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxToplane.ForeColor = System.Drawing.Color.White;
-            this.textBoxToplane.Location = new System.Drawing.Point(138, 54);
+            this.textBoxToplane.Location = new System.Drawing.Point(150, 115);
             this.textBoxToplane.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxToplane.Name = "textBoxToplane";
-            this.textBoxToplane.Size = new System.Drawing.Size(79, 26);
+            this.textBoxToplane.Size = new System.Drawing.Size(79, 31);
             this.textBoxToplane.TabIndex = 23;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(1, 57);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 19);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Top lane";
             // 
             // textBoxLeftlane
             // 
@@ -384,45 +342,11 @@
             this.textBoxLeftlane.Enabled = false;
             this.textBoxLeftlane.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxLeftlane.ForeColor = System.Drawing.Color.White;
-            this.textBoxLeftlane.Location = new System.Drawing.Point(138, 22);
+            this.textBoxLeftlane.Location = new System.Drawing.Point(150, 83);
             this.textBoxLeftlane.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxLeftlane.Name = "textBoxLeftlane";
-            this.textBoxLeftlane.Size = new System.Drawing.Size(79, 26);
+            this.textBoxLeftlane.Size = new System.Drawing.Size(79, 31);
             this.textBoxLeftlane.TabIndex = 21;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(1, 25);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(57, 19);
-            this.label15.TabIndex = 20;
-            this.label15.Text = "Left lane";
-            // 
-            // textBoxBottomlane
-            // 
-            this.textBoxBottomlane.BackColor = System.Drawing.Color.Black;
-            this.textBoxBottomlane.Enabled = false;
-            this.textBoxBottomlane.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBottomlane.ForeColor = System.Drawing.Color.White;
-            this.textBoxBottomlane.Location = new System.Drawing.Point(138, 117);
-            this.textBoxBottomlane.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxBottomlane.Name = "textBoxBottomlane";
-            this.textBoxBottomlane.Size = new System.Drawing.Size(79, 26);
-            this.textBoxBottomlane.TabIndex = 19;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(2, 120);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 19);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Bottom lane";
             // 
             // textBoxRightlane
             // 
@@ -430,42 +354,22 @@
             this.textBoxRightlane.Enabled = false;
             this.textBoxRightlane.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxRightlane.ForeColor = System.Drawing.Color.White;
-            this.textBoxRightlane.Location = new System.Drawing.Point(138, 85);
+            this.textBoxRightlane.Location = new System.Drawing.Point(150, 146);
             this.textBoxRightlane.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxRightlane.Name = "textBoxRightlane";
-            this.textBoxRightlane.Size = new System.Drawing.Size(79, 26);
+            this.textBoxRightlane.Size = new System.Drawing.Size(79, 31);
             this.textBoxRightlane.TabIndex = 11;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(155, 199);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(65, 26);
-            this.textBox6.TabIndex = 17;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(2, 88);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 19);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Right lane";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(4, 167);
+            this.label4.Location = new System.Drawing.Point(14, 149);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 19);
+            this.label4.Size = new System.Drawing.Size(104, 24);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Pedestraians Time";
+            this.label4.Text = "Pedestraians ";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label5
@@ -473,20 +377,11 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(3, 202);
+            this.label5.Location = new System.Drawing.Point(10, 118);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 19);
+            this.label5.Size = new System.Drawing.Size(94, 24);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Green Light Time";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(152, 164);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(65, 26);
-            this.textBox5.TabIndex = 16;
+            this.label5.Text = "Green Light";
             // 
             // buttonCancel
             // 
@@ -496,7 +391,7 @@
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancel.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.ForeColor = System.Drawing.Color.White;
-            this.buttonCancel.Location = new System.Drawing.Point(8, 431);
+            this.buttonCancel.Location = new System.Drawing.Point(18, 299);
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(108, 38);
@@ -509,18 +404,14 @@
             this.groupBox4.AutoSize = true;
             this.groupBox4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox4.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox4.Controls.Add(this.button3);
-            this.groupBox4.Controls.Add(this.button2);
-            this.groupBox4.Controls.Add(this.buttonCancel);
             this.groupBox4.Controls.Add(this.groupBox6);
-            this.groupBox4.Controls.Add(this.groupBox7);
             this.groupBox4.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.White;
-            this.groupBox4.Location = new System.Drawing.Point(1030, 113);
+            this.groupBox4.Location = new System.Drawing.Point(1030, 125);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Size = new System.Drawing.Size(238, 542);
+            this.groupBox4.Size = new System.Drawing.Size(265, 478);
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Crossing Control";
@@ -534,7 +425,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(122, 431);
+            this.button3.Location = new System.Drawing.Point(132, 299);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(108, 38);
@@ -550,7 +441,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(20, 477);
+            this.button2.Location = new System.Drawing.Point(33, 344);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(196, 38);
@@ -564,7 +455,7 @@
             this.label12.Font = new System.Drawing.Font("Segoe Print", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(79, 46);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(34, 47);
+            this.label12.Size = new System.Drawing.Size(44, 61);
             this.label12.TabIndex = 3;
             this.label12.Text = "*";
             // 
@@ -575,7 +466,7 @@
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(16, 29);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(137, 19);
+            this.label11.Size = new System.Drawing.Size(185, 24);
             this.label11.TabIndex = 0;
             this.label11.Text = "Row * Column            ";
             // 
@@ -593,7 +484,7 @@
             this.comboBoxRows.Location = new System.Drawing.Point(26, 56);
             this.comboBoxRows.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxRows.Name = "comboBoxRows";
-            this.comboBoxRows.Size = new System.Drawing.Size(55, 27);
+            this.comboBoxRows.Size = new System.Drawing.Size(55, 31);
             this.comboBoxRows.TabIndex = 1;
             this.comboBoxRows.Text = "1";
             // 
@@ -612,7 +503,7 @@
             this.comboBoxColumns.Location = new System.Drawing.Point(116, 56);
             this.comboBoxColumns.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxColumns.Name = "comboBoxColumns";
-            this.comboBoxColumns.Size = new System.Drawing.Size(55, 27);
+            this.comboBoxColumns.Size = new System.Drawing.Size(55, 31);
             this.comboBoxColumns.TabIndex = 2;
             this.comboBoxColumns.Text = "1";
             // 
@@ -674,7 +565,7 @@
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(10, 149);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(49, 19);
+            this.label14.Size = new System.Drawing.Size(61, 24);
             this.label14.TabIndex = 22;
             this.label14.Text = "label14";
             // 
@@ -685,7 +576,7 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(6, 121);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 19);
+            this.label6.Size = new System.Drawing.Size(51, 24);
             this.label6.TabIndex = 21;
             this.label6.Text = "label6";
             // 
@@ -729,7 +620,7 @@
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox5.Size = new System.Drawing.Size(177, 153);
+            this.groupBox5.Size = new System.Drawing.Size(207, 158);
             this.groupBox5.TabIndex = 19;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Creat Grid";
@@ -756,18 +647,93 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Status";
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(14, 86);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(41, 24);
+            this.label16.TabIndex = 33;
+            this.label16.Text = "Cars";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.Black;
+            this.textBox3.Enabled = false;
+            this.textBox3.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.ForeColor = System.Drawing.Color.White;
+            this.textBox3.Location = new System.Drawing.Point(163, 61);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(42, 31);
+            this.textBox3.TabIndex = 44;
+            // 
+            // textBox14
+            // 
+            this.textBox14.BackColor = System.Drawing.Color.Black;
+            this.textBox14.Enabled = false;
+            this.textBox14.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox14.ForeColor = System.Drawing.Color.White;
+            this.textBox14.Location = new System.Drawing.Point(91, 64);
+            this.textBox14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(42, 31);
+            this.textBox14.TabIndex = 40;
+            // 
+            // textBox18
+            // 
+            this.textBox18.BackColor = System.Drawing.Color.Black;
+            this.textBox18.Enabled = false;
+            this.textBox18.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox18.ForeColor = System.Drawing.Color.White;
+            this.textBox18.Location = new System.Drawing.Point(19, 64);
+            this.textBox18.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(42, 31);
+            this.textBox18.TabIndex = 36;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.Color.Black;
+            this.comboBox1.ForeColor = System.Drawing.Color.White;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Left Lane",
+            "Top Lane",
+            "Right Lane",
+            "Bottom Lane"});
+            this.comboBox1.Location = new System.Drawing.Point(127, 36);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(102, 31);
+            this.comboBox1.TabIndex = 34;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(10, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 24);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Select Lane:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // Simulation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1303, 694);
+            this.ClientSize = new System.Drawing.Size(1301, 690);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.gridGroupBox);
-            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -824,18 +790,12 @@
         public System.Windows.Forms.Panel gridPanel;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox6;
         public System.Windows.Forms.TextBox textBoxRightlane;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button buttonCancel;
         public System.Windows.Forms.GroupBox groupBox4;
         public System.Windows.Forms.PictureBox CA;
@@ -851,15 +811,17 @@
         private System.Windows.Forms.Label label14;
         public System.Windows.Forms.Label label6;
         public System.Windows.Forms.TextBox textBoxToplane;
-        private System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox textBoxLeftlane;
-        private System.Windows.Forms.Label label15;
-        public System.Windows.Forms.TextBox textBoxBottomlane;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.GroupBox groupBox3;
+        public System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.TextBox textBox14;
+        public System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label1;
 
     }
 }
