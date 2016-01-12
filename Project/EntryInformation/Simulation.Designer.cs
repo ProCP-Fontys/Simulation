@@ -48,44 +48,23 @@
             this.buttonStart = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
-<<<<<<< HEAD
-=======
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
->>>>>>> parent of 744a2f5... middle Meeting Commit
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBoxRightPerc = new System.Windows.Forms.TextBox();
+            this.textBoxLeftPerc = new System.Windows.Forms.TextBox();
+            this.textBoxStraightPerc = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.comboBoxLane = new System.Windows.Forms.ComboBox();
+            this.buttonApply = new System.Windows.Forms.Button();
+            this.buttonApplyToAll = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBoxToplane = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxLeftlane = new System.Windows.Forms.TextBox();
-<<<<<<< HEAD
+            this.textBoxGreenLight = new System.Windows.Forms.TextBox();
+            this.textBoxAmountOfCars = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBoxRightlane = new System.Windows.Forms.TextBox();
-=======
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBoxBottomlane = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxRightlane = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.buttonCancel = new System.Windows.Forms.Button();
->>>>>>> parent of 744a2f5... middle Meeting Commit
+            this.textBoxPedestrians = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -100,7 +79,8 @@
             this.CA = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBoxStatus = new System.Windows.Forms.GroupBox();
+            this.listBoxErrors = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.gridGroupBox.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -111,6 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CA)).BeginInit();
             this.groupBox5.SuspendLayout();
+            this.groupBoxStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -124,15 +105,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 4, 0, 4);
-<<<<<<< HEAD
-<<<<<<< HEAD
-            this.menuStrip1.Size = new System.Drawing.Size(1248, 36);
-=======
-            this.menuStrip1.Size = new System.Drawing.Size(1303, 31);
->>>>>>> parent of 744a2f5... middle Meeting Commit
-=======
-            this.menuStrip1.Size = new System.Drawing.Size(1027, 36);
->>>>>>> parent of a1cbfad... TO Do List
+            this.menuStrip1.Size = new System.Drawing.Size(1248, 31);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -279,18 +252,18 @@
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.label7);
-            this.groupBox7.Controls.Add(this.textBox2);
-            this.groupBox7.Controls.Add(this.textBox3);
-            this.groupBox7.Controls.Add(this.textBox4);
-            this.groupBox7.Controls.Add(this.label8);
             this.groupBox7.Controls.Add(this.label9);
+            this.groupBox7.Controls.Add(this.label8);
+            this.groupBox7.Controls.Add(this.textBoxRightPerc);
+            this.groupBox7.Controls.Add(this.textBoxLeftPerc);
+            this.groupBox7.Controls.Add(this.textBoxStraightPerc);
             this.groupBox7.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.ForeColor = System.Drawing.Color.White;
-            this.groupBox7.Location = new System.Drawing.Point(6, 273);
+            this.groupBox7.Location = new System.Drawing.Point(10, 185);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox7.Size = new System.Drawing.Size(226, 121);
+            this.groupBox7.Size = new System.Drawing.Size(230, 106);
             this.groupBox7.TabIndex = 19;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Car Direction Flow\'s ";
@@ -300,13 +273,12 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(3, 37);
+            this.label7.Location = new System.Drawing.Point(13, 35);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(39, 19);
             this.label7.TabIndex = 6;
             this.label7.Text = "%Left";
             // 
-<<<<<<< HEAD
             // label9
             // 
             this.label9.AutoSize = true;
@@ -314,117 +286,78 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(152, 35);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 24);
+            this.label9.Size = new System.Drawing.Size(46, 19);
             this.label9.TabIndex = 8;
             this.label9.Text = "%Right";
-=======
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(14, 63);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(42, 26);
-            this.textBox2.TabIndex = 13;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(90, 63);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(42, 26);
-            this.textBox3.TabIndex = 14;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(168, 63);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(42, 26);
-            this.textBox4.TabIndex = 15;
->>>>>>> parent of 744a2f5... middle Meeting Commit
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(62, 37);
+            this.label8.Location = new System.Drawing.Point(69, 36);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 19);
             this.label8.TabIndex = 7;
             this.label8.Text = "%Straght";
             // 
-            // textBox3
+            // textBoxRightPerc
             // 
-<<<<<<< HEAD
-            this.textBox3.BackColor = System.Drawing.Color.Black;
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.White;
-            this.textBox3.Location = new System.Drawing.Point(163, 61);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(42, 31);
-            this.textBox3.TabIndex = 44;
+            this.textBoxRightPerc.BackColor = System.Drawing.Color.Black;
+            this.textBoxRightPerc.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRightPerc.ForeColor = System.Drawing.Color.White;
+            this.textBoxRightPerc.Location = new System.Drawing.Point(163, 61);
+            this.textBoxRightPerc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxRightPerc.Name = "textBoxRightPerc";
+            this.textBoxRightPerc.Size = new System.Drawing.Size(42, 26);
+            this.textBoxRightPerc.TabIndex = 44;
+            this.textBoxRightPerc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
             // 
-            // textBox18
+            // textBoxLeftPerc
             // 
-            this.textBox18.BackColor = System.Drawing.Color.Black;
-            this.textBox18.Enabled = false;
-            this.textBox18.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox18.ForeColor = System.Drawing.Color.White;
-            this.textBox18.Location = new System.Drawing.Point(19, 64);
-            this.textBox18.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(42, 31);
-            this.textBox18.TabIndex = 36;
+            this.textBoxLeftPerc.BackColor = System.Drawing.Color.Black;
+            this.textBoxLeftPerc.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLeftPerc.ForeColor = System.Drawing.Color.White;
+            this.textBoxLeftPerc.Location = new System.Drawing.Point(19, 64);
+            this.textBoxLeftPerc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxLeftPerc.Name = "textBoxLeftPerc";
+            this.textBoxLeftPerc.Size = new System.Drawing.Size(42, 26);
+            this.textBoxLeftPerc.TabIndex = 36;
+            this.textBoxLeftPerc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
             // 
-            // textBox14
+            // textBoxStraightPerc
             // 
-            this.textBox14.BackColor = System.Drawing.Color.Black;
-            this.textBox14.Enabled = false;
-            this.textBox14.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.ForeColor = System.Drawing.Color.White;
-            this.textBox14.Location = new System.Drawing.Point(91, 64);
-            this.textBox14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(42, 31);
-            this.textBox14.TabIndex = 40;
-=======
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(154, 37);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 19);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "%Right";
->>>>>>> parent of 744a2f5... middle Meeting Commit
+            this.textBoxStraightPerc.BackColor = System.Drawing.Color.Black;
+            this.textBoxStraightPerc.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxStraightPerc.ForeColor = System.Drawing.Color.White;
+            this.textBoxStraightPerc.Location = new System.Drawing.Point(91, 64);
+            this.textBoxStraightPerc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxStraightPerc.Name = "textBoxStraightPerc";
+            this.textBoxStraightPerc.Size = new System.Drawing.Size(42, 26);
+            this.textBoxStraightPerc.TabIndex = 40;
+            this.textBoxStraightPerc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.textBoxToplane);
-            this.groupBox6.Controls.Add(this.label2);
-            this.groupBox6.Controls.Add(this.textBoxLeftlane);
-            this.groupBox6.Controls.Add(this.label15);
-            this.groupBox6.Controls.Add(this.textBoxBottomlane);
             this.groupBox6.Controls.Add(this.label1);
-            this.groupBox6.Controls.Add(this.textBoxRightlane);
-            this.groupBox6.Controls.Add(this.textBox6);
-            this.groupBox6.Controls.Add(this.label3);
-            this.groupBox6.Controls.Add(this.label4);
+            this.groupBox6.Controls.Add(this.comboBoxLane);
+            this.groupBox6.Controls.Add(this.buttonApply);
+            this.groupBox6.Controls.Add(this.groupBox7);
+            this.groupBox6.Controls.Add(this.buttonApplyToAll);
+            this.groupBox6.Controls.Add(this.buttonCancel);
+            this.groupBox6.Controls.Add(this.label16);
             this.groupBox6.Controls.Add(this.label5);
-            this.groupBox6.Controls.Add(this.textBox5);
+            this.groupBox6.Controls.Add(this.textBoxGreenLight);
+            this.groupBox6.Controls.Add(this.textBoxAmountOfCars);
+            this.groupBox6.Controls.Add(this.label4);
+            this.groupBox6.Controls.Add(this.textBoxPedestrians);
             this.groupBox6.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.ForeColor = System.Drawing.Color.White;
             this.groupBox6.Location = new System.Drawing.Point(6, 38);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox6.Size = new System.Drawing.Size(226, 234);
+            this.groupBox6.Size = new System.Drawing.Size(253, 408);
             this.groupBox6.TabIndex = 18;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Crossing Information";
@@ -436,57 +369,60 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(10, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 24);
+            this.label1.Size = new System.Drawing.Size(75, 19);
             this.label1.TabIndex = 35;
             this.label1.Text = "Select Lane:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // comboBox1
+            // comboBoxLane
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.Black;
-            this.comboBox1.ForeColor = System.Drawing.Color.White;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxLane.BackColor = System.Drawing.Color.Black;
+            this.comboBoxLane.ForeColor = System.Drawing.Color.White;
+            this.comboBoxLane.FormattingEnabled = true;
+            this.comboBoxLane.Items.AddRange(new object[] {
+            "Choose a lane",
             "Left Lane",
             "Top Lane",
             "Right Lane",
             "Bottom Lane"});
-            this.comboBox1.Location = new System.Drawing.Point(127, 36);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(102, 31);
-            this.comboBox1.TabIndex = 34;
+            this.comboBoxLane.Location = new System.Drawing.Point(127, 36);
+            this.comboBoxLane.Name = "comboBoxLane";
+            this.comboBoxLane.Size = new System.Drawing.Size(102, 27);
+            this.comboBoxLane.TabIndex = 34;
+            this.comboBoxLane.SelectedIndexChanged += new System.EventHandler(this.comboBoxLane_SelectedIndexChanged);
             // 
-            // button3
+            // buttonApply
             // 
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.BorderSize = 2;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tomato;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(132, 299);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(108, 38);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "Apply";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonApply.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonApply.FlatAppearance.BorderSize = 2;
+            this.buttonApply.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tomato;
+            this.buttonApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonApply.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonApply.ForeColor = System.Drawing.Color.White;
+            this.buttonApply.Location = new System.Drawing.Point(132, 299);
+            this.buttonApply.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonApply.Name = "buttonApply";
+            this.buttonApply.Size = new System.Drawing.Size(108, 38);
+            this.buttonApply.TabIndex = 22;
+            this.buttonApply.Text = "Apply";
+            this.buttonApply.UseVisualStyleBackColor = true;
+            this.buttonApply.Click += new System.EventHandler(this.buttonApply_Click);
             // 
-            // button2
+            // buttonApplyToAll
             // 
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderSize = 2;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tomato;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(33, 344);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(196, 38);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "Apply All";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonApplyToAll.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonApplyToAll.FlatAppearance.BorderSize = 2;
+            this.buttonApplyToAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tomato;
+            this.buttonApplyToAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonApplyToAll.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonApplyToAll.ForeColor = System.Drawing.Color.White;
+            this.buttonApplyToAll.Location = new System.Drawing.Point(33, 344);
+            this.buttonApplyToAll.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonApplyToAll.Name = "buttonApplyToAll";
+            this.buttonApplyToAll.Size = new System.Drawing.Size(196, 38);
+            this.buttonApplyToAll.TabIndex = 21;
+            this.buttonApplyToAll.Text = "Apply To All";
+            this.buttonApplyToAll.UseVisualStyleBackColor = true;
             // 
             // buttonCancel
             // 
@@ -511,7 +447,7 @@
             this.label16.ForeColor = System.Drawing.Color.White;
             this.label16.Location = new System.Drawing.Point(14, 86);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(41, 24);
+            this.label16.Size = new System.Drawing.Size(34, 19);
             this.label16.TabIndex = 33;
             this.label16.Text = "Cars";
             this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -523,233 +459,78 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(10, 118);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 24);
+            this.label5.Size = new System.Drawing.Size(75, 19);
             this.label5.TabIndex = 4;
             this.label5.Text = "Green Light";
             // 
-            // textBoxToplane
+            // textBoxGreenLight
             // 
-            this.textBoxToplane.BackColor = System.Drawing.Color.Black;
-            this.textBoxToplane.Enabled = false;
-            this.textBoxToplane.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxToplane.ForeColor = System.Drawing.Color.White;
-            this.textBoxToplane.Location = new System.Drawing.Point(138, 54);
-            this.textBoxToplane.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxToplane.Name = "textBoxToplane";
-            this.textBoxToplane.Size = new System.Drawing.Size(79, 26);
-            this.textBoxToplane.TabIndex = 23;
+            this.textBoxGreenLight.BackColor = System.Drawing.Color.Black;
+            this.textBoxGreenLight.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxGreenLight.ForeColor = System.Drawing.Color.White;
+            this.textBoxGreenLight.Location = new System.Drawing.Point(150, 115);
+            this.textBoxGreenLight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxGreenLight.Name = "textBoxGreenLight";
+            this.textBoxGreenLight.Size = new System.Drawing.Size(79, 26);
+            this.textBoxGreenLight.TabIndex = 23;
+            this.textBoxGreenLight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
             // 
-            // label2
+            // textBoxAmountOfCars
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(1, 57);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 19);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Top lane";
+            this.textBoxAmountOfCars.BackColor = System.Drawing.Color.DarkRed;
+            this.textBoxAmountOfCars.Enabled = false;
+            this.textBoxAmountOfCars.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAmountOfCars.ForeColor = System.Drawing.Color.White;
+            this.textBoxAmountOfCars.Location = new System.Drawing.Point(150, 83);
+            this.textBoxAmountOfCars.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxAmountOfCars.Name = "textBoxAmountOfCars";
+            this.textBoxAmountOfCars.Size = new System.Drawing.Size(79, 26);
+            this.textBoxAmountOfCars.TabIndex = 21;
+            this.textBoxAmountOfCars.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
             // 
-            // textBoxLeftlane
-            // 
-            this.textBoxLeftlane.BackColor = System.Drawing.Color.Black;
-            this.textBoxLeftlane.Enabled = false;
-            this.textBoxLeftlane.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLeftlane.ForeColor = System.Drawing.Color.White;
-            this.textBoxLeftlane.Location = new System.Drawing.Point(138, 22);
-            this.textBoxLeftlane.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxLeftlane.Name = "textBoxLeftlane";
-            this.textBoxLeftlane.Size = new System.Drawing.Size(79, 26);
-            this.textBoxLeftlane.TabIndex = 21;
-            // 
-<<<<<<< HEAD
-=======
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(1, 25);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(57, 19);
-            this.label15.TabIndex = 20;
-            this.label15.Text = "Left lane";
-            // 
-            // textBoxBottomlane
-            // 
-            this.textBoxBottomlane.BackColor = System.Drawing.Color.Black;
-            this.textBoxBottomlane.Enabled = false;
-            this.textBoxBottomlane.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBottomlane.ForeColor = System.Drawing.Color.White;
-            this.textBoxBottomlane.Location = new System.Drawing.Point(138, 117);
-            this.textBoxBottomlane.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxBottomlane.Name = "textBoxBottomlane";
-            this.textBoxBottomlane.Size = new System.Drawing.Size(79, 26);
-            this.textBoxBottomlane.TabIndex = 19;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(2, 120);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 19);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Bottom lane";
-            // 
-            // textBoxRightlane
-            // 
-            this.textBoxRightlane.BackColor = System.Drawing.Color.Black;
-            this.textBoxRightlane.Enabled = false;
-            this.textBoxRightlane.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRightlane.ForeColor = System.Drawing.Color.White;
-            this.textBoxRightlane.Location = new System.Drawing.Point(138, 85);
-            this.textBoxRightlane.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxRightlane.Name = "textBoxRightlane";
-            this.textBoxRightlane.Size = new System.Drawing.Size(79, 26);
-            this.textBoxRightlane.TabIndex = 11;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(155, 199);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(65, 26);
-            this.textBox6.TabIndex = 17;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(2, 88);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 19);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Right lane";
-            // 
->>>>>>> parent of 744a2f5... middle Meeting Commit
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(4, 167);
+            this.label4.Location = new System.Drawing.Point(14, 149);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 19);
+            this.label4.Size = new System.Drawing.Size(83, 19);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Pedestraians Time";
+            this.label4.Text = "Pedestraians ";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-<<<<<<< HEAD
-            // textBoxRightlane
+            // textBoxPedestrians
             // 
-            this.textBoxRightlane.BackColor = System.Drawing.Color.Black;
-            this.textBoxRightlane.Enabled = false;
-            this.textBoxRightlane.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRightlane.ForeColor = System.Drawing.Color.White;
-            this.textBoxRightlane.Location = new System.Drawing.Point(150, 146);
-            this.textBoxRightlane.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxRightlane.Name = "textBoxRightlane";
-            this.textBoxRightlane.Size = new System.Drawing.Size(79, 31);
-            this.textBoxRightlane.TabIndex = 11;
-=======
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(3, 202);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 19);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Green Light Time";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(152, 164);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(65, 26);
-            this.textBox5.TabIndex = 16;
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.buttonCancel.FlatAppearance.BorderSize = 2;
-            this.buttonCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tomato;
-            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancel.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.ForeColor = System.Drawing.Color.White;
-            this.buttonCancel.Location = new System.Drawing.Point(8, 431);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(108, 38);
-            this.buttonCancel.TabIndex = 20;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
->>>>>>> parent of 744a2f5... middle Meeting Commit
+            this.textBoxPedestrians.BackColor = System.Drawing.Color.Black;
+            this.textBoxPedestrians.Enabled = false;
+            this.textBoxPedestrians.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPedestrians.ForeColor = System.Drawing.Color.White;
+            this.textBoxPedestrians.Location = new System.Drawing.Point(150, 146);
+            this.textBoxPedestrians.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxPedestrians.Name = "textBoxPedestrians";
+            this.textBoxPedestrians.Size = new System.Drawing.Size(79, 26);
+            this.textBoxPedestrians.TabIndex = 11;
+            this.textBoxPedestrians.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
             // 
             // groupBox4
             // 
             this.groupBox4.AutoSize = true;
             this.groupBox4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox4.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox4.Controls.Add(this.button3);
-            this.groupBox4.Controls.Add(this.button2);
-            this.groupBox4.Controls.Add(this.buttonCancel);
             this.groupBox4.Controls.Add(this.groupBox6);
-            this.groupBox4.Controls.Add(this.groupBox7);
             this.groupBox4.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.White;
-            this.groupBox4.Location = new System.Drawing.Point(1030, 113);
+            this.groupBox4.Location = new System.Drawing.Point(1030, 125);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Size = new System.Drawing.Size(238, 542);
+            this.groupBox4.Size = new System.Drawing.Size(265, 473);
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Crossing Control";
             this.groupBox4.Visible = false;
             // 
-<<<<<<< HEAD
-=======
-            // button3
-            // 
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.BorderSize = 2;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tomato;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(122, 431);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(108, 38);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "Apply";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderSize = 2;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tomato;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(20, 477);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(196, 38);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "Apply All";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
->>>>>>> parent of 744a2f5... middle Meeting Commit
             // label12
             // 
             this.label12.AutoSize = true;
@@ -932,21 +713,31 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // groupBox3
+            // groupBoxStatus
             // 
-            this.groupBox3.AutoSize = true;
-            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox3.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.Color.Red;
-            this.groupBox3.Location = new System.Drawing.Point(5, 567);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox3.Size = new System.Drawing.Size(202, 99);
-            this.groupBox3.TabIndex = 16;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Status";
+            this.groupBoxStatus.AutoSize = true;
+            this.groupBoxStatus.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxStatus.Controls.Add(this.listBoxErrors);
+            this.groupBoxStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBoxStatus.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxStatus.ForeColor = System.Drawing.Color.Red;
+            this.groupBoxStatus.Location = new System.Drawing.Point(5, 567);
+            this.groupBoxStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBoxStatus.Name = "groupBoxStatus";
+            this.groupBoxStatus.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBoxStatus.Size = new System.Drawing.Size(202, 190);
+            this.groupBoxStatus.TabIndex = 16;
+            this.groupBoxStatus.TabStop = false;
+            this.groupBoxStatus.Text = "Status";
+            // 
+            // listBoxErrors
+            // 
+            this.listBoxErrors.FormattingEnabled = true;
+            this.listBoxErrors.ItemHeight = 19;
+            this.listBoxErrors.Location = new System.Drawing.Point(14, 27);
+            this.listBoxErrors.Name = "listBoxErrors";
+            this.listBoxErrors.Size = new System.Drawing.Size(178, 137);
+            this.listBoxErrors.TabIndex = 0;
             // 
             // Simulation
             // 
@@ -954,21 +745,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
-<<<<<<< HEAD
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(1248, 690);
-=======
-            this.ClientSize = new System.Drawing.Size(1303, 694);
->>>>>>> parent of 744a2f5... middle Meeting Commit
-=======
-            this.ClientSize = new System.Drawing.Size(1027, 690);
->>>>>>> parent of a1cbfad... TO Do List
+            this.ClientSize = new System.Drawing.Size(1248, 737);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.gridGroupBox);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBoxStatus);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Cursor = System.Windows.Forms.Cursors.Cross;
@@ -999,6 +782,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CA)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBoxStatus.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1024,18 +808,12 @@
         public System.Windows.Forms.Panel gridPanel;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox6;
-        public System.Windows.Forms.TextBox textBoxRightlane;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.TextBox textBoxPedestrians;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button buttonCancel;
         public System.Windows.Forms.GroupBox groupBox4;
         public System.Windows.Forms.PictureBox CA;
@@ -1050,16 +828,19 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label14;
         public System.Windows.Forms.Label label6;
-        public System.Windows.Forms.TextBox textBoxToplane;
-        private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.TextBox textBoxLeftlane;
-        private System.Windows.Forms.Label label15;
-        public System.Windows.Forms.TextBox textBoxBottomlane;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        public System.Windows.Forms.TextBox textBoxGreenLight;
+        public System.Windows.Forms.TextBox textBoxAmountOfCars;
+        private System.Windows.Forms.Button buttonApplyToAll;
+        public System.Windows.Forms.Button buttonApply;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBoxStatus;
+        public System.Windows.Forms.TextBox textBoxRightPerc;
+        public System.Windows.Forms.TextBox textBoxStraightPerc;
+        public System.Windows.Forms.TextBox textBoxLeftPerc;
+        private System.Windows.Forms.Label label16;
+        public System.Windows.Forms.ComboBox comboBoxLane;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.ListBox listBoxErrors;
 
     }
 }

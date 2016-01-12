@@ -34,10 +34,7 @@ public class Simulator
         int width = nrOfColumns * 200;
         simulation.gridPanel.Size = new Size(width, height);
         simulation.gridGroupBox.Size = new Size(width + 15, height + 30);
-<<<<<<< HEAD
         simulation.groupBox4.Location= new Point(simulation.gridGroupBox.Width + 235,simulation.groupBox4.Location.Y);
-=======
->>>>>>> parent of 744a2f5... middle Meeting Commit
     }
 
     public void DrawGrid()
@@ -161,8 +158,8 @@ public class Simulator
 
     public void LinkCrossingsWithNeighbors()
     {
-        if (grid.CheckGridFull())
-        {
+       
+        
             List<GridCell> gridCells = grid.ReturnGridCells();
             foreach (var item in gridCells)//check if there is are emtpy spots
             {
@@ -186,9 +183,8 @@ public class Simulator
                     }
                 }
             }
-        }
-        else
-            throw new Exception("Grid is not full");
+        
+       
     }
 
     public bool AddCrossingInCell(DragEventArgs e)
@@ -1041,10 +1037,7 @@ public class Simulator
 
     public void frm_Resize(object sender, EventArgs e)
     {
-<<<<<<< HEAD
         
-=======
->>>>>>> parent of 744a2f5... middle Meeting Commit
 
         if (!formationTab)
         {
@@ -1056,9 +1049,9 @@ public class Simulator
         {
             simulation.groupBox4.Visible = false;
             Form.ActiveForm.Width -= 250;
-
             formationTab = !formationTab; ;
         }
+
         //Deselect other crossings
         foreach (Control pb in simulation.gridPanel.Controls)
         {
@@ -1070,54 +1063,192 @@ public class Simulator
         }
     }
 
-    private void DisableTextBoxLanes()
+    private void DisableCarTextBox()
     {
-        simulation.textBoxBottomlane.Enabled = false;
-        simulation.textBoxLeftlane.Enabled = false;
-        simulation.textBoxRightlane.Enabled = false;
-        simulation.textBoxToplane.Enabled = false;
-        simulation.textBoxBottomlane.BackColor = Color.DarkRed;
-        simulation.textBoxLeftlane.BackColor = Color.DarkRed;
-        simulation.textBoxRightlane.BackColor = Color.DarkRed;
-        simulation.textBoxToplane.BackColor = Color.DarkRed;
+        simulation.textBoxAmountOfCars.Enabled = false ;
+        simulation.textBoxAmountOfCars.BackColor = Color.DarkRed;
+    }
+
+    public void CrossingInfoModification()
+    {
+        simulation.buttonApply.Enabled = true;
+        //simulation.textBoxGreenLight.Enabled = true;
+        //simulation.textBoxGreenLight.BackColor = Color.Black;
+        //simulation.textBoxRightPerc.Enabled = true;
+        //simulation.textBoxRightPerc.BackColor = Color.Black;
+        //simulation.textBoxStraightPerc.Enabled = true;
+        //simulation.textBoxStraightPerc.BackColor = Color.Black;
+        //simulation.textBoxLeftPerc.Enabled = true;
+        //simulation.textBoxLeftPerc.BackColor = Color.Black;
+
+        DisableCarTextBox();
+        int gridCellID = -1;
+        foreach (var item in pictureBoxCrossing)
+        {
+            if (item.BorderStyle == BorderStyle.Fixed3D)
+                gridCellID = Convert.ToInt16(item.Name);
+        }
+
+        if (gridCellID == -1)
+            throw new Exception("No crossing selected");
+
+        GridCell gridCellNeeded = grid.ReturnGridCells().Find(x => x.Number == gridCellID);
+
+        Crossing crossing = gridCellNeeded.Crossing;
+
+        String Feeder = simulation.comboBoxLane.SelectedItem.ToString();
+
+        switch (Feeder)
+        {
+            case "Left Lane":
+                if (crossing.neighbors.Left == null)
+                {
+                    simulation.textBoxAmountOfCars.Enabled = true;
+                    simulation.textBoxAmountOfCars.BackColor = Color.Black;
+
+                }
+                break;
+            case "Right Lane":
+                if (crossing.neighbors.Right == null)
+                {
+                    simulation.textBoxAmountOfCars.Enabled = true;
+                    simulation.textBoxAmountOfCars.BackColor = Color.Black;
+                }
+                break;
+            case "Top Lane":
+                if (crossing.neighbors.Top == null)
+                {
+                    simulation.textBoxAmountOfCars.Enabled = true;
+                    simulation.textBoxAmountOfCars.BackColor = Color.Black;
+                }
+                break;
+            case "Bottom Lane":
+                if (crossing.neighbors.Bottom == null)
+                {
+                    simulation.textBoxAmountOfCars.Enabled = true;
+                    simulation.textBoxAmountOfCars.BackColor = Color.Black;
+                }
+                break;
+            case "Choose a lane":
+                simulation.buttonApply.Enabled = false;
+                //simulation.textBoxRightPerc.BackColor = Color.DarkRed;
+                //simulation.textBoxStraightPerc.BackColor = Color.DarkRed;
+                //simulation.textBoxLeftPerc.BackColor = Color.DarkRed;
+                //simulation.textBoxGreenLight.BackColor = Color.DarkRed;
+
+                //simulation.textBoxAmountOfCars.Enabled = false;
+                //simulation.textBoxGreenLight.Enabled = false;
+                //simulation.textBoxLeftPerc.Enabled = false;
+                //simulation.textBoxRightPerc.Enabled = false;
+                //simulation.textBoxStraightPerc.Enabled = false;
+                break;
+        }
+    }
+
+    public void ConnectInfoFeeder()
+    {
+        int gridCellID = -1;
+        foreach (var item in pictureBoxCrossing)
+        {
+            if (item.BorderStyle == BorderStyle.Fixed3D)
+                gridCellID = Convert.ToInt16(item.Name);
+        }
+
+        if (gridCellID == -1)
+            throw new Exception("No crossing selected");
+
+        GridCell gridCellNeeded = grid.ReturnGridCells().Find(x => x.Number == gridCellID);
+
+        Crossing crossing = gridCellNeeded.Crossing;
+
+        String feeder = simulation.comboBoxLane.SelectedItem.ToString();
+
+        
+
+        //string amountOfCars = simulation.textBoxAmountOfCars.Text;
+        //string greenLightTime = simulation.textBoxAmountOfCars.Text;
+        //string pedestriansTime = simulation.textBoxAmountOfCars.Text;
+        //string leftPerc = simulation.textBoxAmountOfCars.Text;
+        //string rightPerc = simulation.textBoxAmountOfCars.Text;
+        //string straightPerc = simulation.textBoxAmountOfCars.Text;
+
+        try
+        {
+            bool exceptionOccurs = false;
+            if (String.IsNullOrEmpty(simulation.textBoxAmountOfCars.Text) && simulation.textBoxAmountOfCars.BackColor != Color.DarkRed)
+            {
+                exceptionOccurs = true;
+                simulation.listBoxErrors.Items.Add("Cars input is empty");
+            }
+            if (String.IsNullOrEmpty(simulation.textBoxGreenLight.Text) && simulation.textBoxGreenLight.BackColor != Color.DarkRed)
+            {   exceptionOccurs = true;
+                simulation.listBoxErrors.Items.Add("Green light time input is empty");
+            }
+            if (String.IsNullOrEmpty(simulation.textBoxPedestrians.Text) && simulation.textBoxPedestrians.BackColor != Color.DarkRed)
+            {
+                exceptionOccurs = true;
+                simulation.listBoxErrors.Items.Add("Pedestrians time input is empty");
+            }
+            if (String.IsNullOrEmpty(simulation.textBoxLeftPerc.Text) && simulation.textBoxLeftPerc.BackColor != Color.DarkRed)
+            {
+                exceptionOccurs = true;
+                simulation.listBoxErrors.Items.Add("Left percentage car flow input is empty");
+            }
+            if (String.IsNullOrEmpty(simulation.textBoxRightPerc.Text) && simulation.textBoxRightPerc.BackColor != Color.DarkRed)
+            {
+                exceptionOccurs = true;
+                simulation.listBoxErrors.Items.Add("Right percentage car flow input is empty");
+            }
+            if (String.IsNullOrEmpty(simulation.textBoxStraightPerc.Text) && simulation.textBoxStraightPerc.BackColor != Color.DarkRed)
+            {
+                exceptionOccurs = true;
+                simulation.listBoxErrors.Items.Add("Straight percentage car flow input is empty");
+            }
+
+            if (!exceptionOccurs)
+                crossing.AddDetailes();//add parameters
+        }
+        catch (Exception ex)
+        {
+
+        }
+        
     }
 
     public void FormExpand(object sender, EventArgs e)
     {
+        //simulation.textBoxGreenLight.Enabled = true;
+        //simulation.textBoxGreenLight.BackColor = Color.DarkRed;
+        //simulation.textBoxRightPerc.Enabled = true;
+        //simulation.textBoxRightPerc.BackColor = Color.DarkRed;
+        //simulation.textBoxStraightPerc.Enabled = true;
+        //simulation.textBoxStraightPerc.BackColor = Color.DarkRed;
+        //simulation.textBoxLeftPerc.Enabled = true;
+        //simulation.textBoxLeftPerc.BackColor = Color.DarkRed;
+
         LinkCrossingsWithNeighbors();
-        DisableTextBoxLanes();
         int gridCellID = Convert.ToInt16(((PictureBox)sender).Name);
 
         GridCell gridCellNeeded = grid.ReturnGridCells().Find(x => x.Number == gridCellID);
 
         Crossing crossing = gridCellNeeded.Crossing;
 
-        if (crossing.neighbors.Left == null)
+        if (crossing is CrossingA)
         {
-            simulation.textBoxLeftlane.Enabled = true;
-            simulation.textBoxLeftlane.BackColor = Color.Black;
+            simulation.textBoxPedestrians.Enabled = true;
+            simulation.textBoxPedestrians.BackColor = Color.Black;
         }
-        if (crossing.neighbors.Top == null)
+        else
         {
-            simulation.textBoxToplane.Enabled = true;
-            simulation.textBoxToplane.BackColor = Color.Black;
-        }
-        if (crossing.neighbors.Right == null)
-        {
-            simulation.textBoxRightlane.Enabled = true;
-            simulation.textBoxRightlane.BackColor = Color.Black;
-        }
-        if (crossing.neighbors.Bottom == null)
-        {
-            simulation.textBoxBottomlane.Enabled = true;
-            simulation.textBoxBottomlane.BackColor = Color.Black;
+            simulation.textBoxPedestrians.Enabled = false;
+            simulation.textBoxPedestrians.BackColor = Color.DarkRed;
         }
 
         formationTab = false;
         frm_Resize(sender, e);
 
         ((PictureBox)sender).BorderStyle = BorderStyle.Fixed3D;
-
+        simulation.comboBoxLane.SelectedIndex = 0;
     }
 
     private void picbox_MouseMove(object sender, MouseEventArgs e)

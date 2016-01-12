@@ -138,5 +138,29 @@ namespace EntryInformation
             imageInBox.Tag = "CrossingA";
             CA.DoDragDrop(imageInBox, DragDropEffects.Copy);
         }
+
+        private void comboBoxLane_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            simulator.CrossingInfoModification();//disable or enable textboxinput depending on crossing
+        }
+
+        private void buttonApply_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                simulator.ConnectInfoFeeder();
+            }
+            catch (Exception ex)
+            {
+                listBoxErrors.Items.Add(ex.Message);
+            }
+        }
+
+        private void textBoxAmountOfCars_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //let you input only integer numbers
+            if (!Char.IsDigit(e.KeyChar) && (e.KeyChar != '\b'))
+                e.KeyChar = '\0';
+        }
     }
 }
