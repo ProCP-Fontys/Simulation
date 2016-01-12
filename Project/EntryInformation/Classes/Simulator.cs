@@ -34,7 +34,10 @@ public class Simulator
         int width = nrOfColumns * 200;
         simulation.gridPanel.Size = new Size(width, height);
         simulation.gridGroupBox.Size = new Size(width + 15, height + 30);
+<<<<<<< HEAD
         simulation.groupBox4.Location= new Point(simulation.gridGroupBox.Width + 235,simulation.groupBox4.Location.Y);
+=======
+>>>>>>> parent of 744a2f5... middle Meeting Commit
     }
 
     public void DrawGrid()
@@ -158,8 +161,8 @@ public class Simulator
 
     public void LinkCrossingsWithNeighbors()
     {
-       
-        
+        if (grid.CheckGridFull())
+        {
             List<GridCell> gridCells = grid.ReturnGridCells();
             foreach (var item in gridCells)//check if there is are emtpy spots
             {
@@ -183,8 +186,9 @@ public class Simulator
                     }
                 }
             }
-        
-       
+        }
+        else
+            throw new Exception("Grid is not full");
     }
 
     public bool AddCrossingInCell(DragEventArgs e)
@@ -1037,7 +1041,10 @@ public class Simulator
 
     public void frm_Resize(object sender, EventArgs e)
     {
+<<<<<<< HEAD
         
+=======
+>>>>>>> parent of 744a2f5... middle Meeting Commit
 
         if (!formationTab)
         {
@@ -1049,9 +1056,9 @@ public class Simulator
         {
             simulation.groupBox4.Visible = false;
             Form.ActiveForm.Width -= 250;
+
             formationTab = !formationTab; ;
         }
-
         //Deselect other crossings
         foreach (Control pb in simulation.gridPanel.Controls)
         {
@@ -1065,11 +1072,11 @@ public class Simulator
 
     private void DisableTextBoxLanes()
     {
-        //simulation.textBoxBottomlane.Enabled = false;
+        simulation.textBoxBottomlane.Enabled = false;
         simulation.textBoxLeftlane.Enabled = false;
         simulation.textBoxRightlane.Enabled = false;
         simulation.textBoxToplane.Enabled = false;
-        //simulation.textBoxBottomlane.BackColor = Color.DarkRed;
+        simulation.textBoxBottomlane.BackColor = Color.DarkRed;
         simulation.textBoxLeftlane.BackColor = Color.DarkRed;
         simulation.textBoxRightlane.BackColor = Color.DarkRed;
         simulation.textBoxToplane.BackColor = Color.DarkRed;
@@ -1102,8 +1109,8 @@ public class Simulator
         }
         if (crossing.neighbors.Bottom == null)
         {
-           // simulation.textBoxBottomlane.Enabled = true;
-           // simulation.textBoxBottomlane.BackColor = Color.Black;
+            simulation.textBoxBottomlane.Enabled = true;
+            simulation.textBoxBottomlane.BackColor = Color.Black;
         }
 
         formationTab = false;
