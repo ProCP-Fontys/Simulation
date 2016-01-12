@@ -125,10 +125,14 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 4, 0, 4);
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.menuStrip1.Size = new System.Drawing.Size(1248, 36);
 =======
             this.menuStrip1.Size = new System.Drawing.Size(1303, 31);
 >>>>>>> parent of 744a2f5... middle Meeting Commit
+=======
+            this.menuStrip1.Size = new System.Drawing.Size(1027, 36);
+>>>>>>> parent of a1cbfad... TO Do List
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -951,10 +955,14 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1248, 690);
 =======
             this.ClientSize = new System.Drawing.Size(1303, 694);
 >>>>>>> parent of 744a2f5... middle Meeting Commit
+=======
+            this.ClientSize = new System.Drawing.Size(1027, 690);
+>>>>>>> parent of a1cbfad... TO Do List
             this.ControlBox = false;
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox5);
