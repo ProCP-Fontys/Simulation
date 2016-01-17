@@ -17,7 +17,6 @@ namespace EntryInformation
     {
         private Simulator simulator;
         System.Timers.Timer MoveCarsTimer = new System.Timers.Timer();
-        bool StopPressed;
 
         public Simulation()
         {
@@ -94,30 +93,22 @@ namespace EntryInformation
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
+
             try
             {
                 if (buttonStart.Text == "Start")
                 {
-                    if (!StopPressed)
-                    {
-                        String error = simulator.CheckIfGridIsFullyCompleted();
-                        if (error != "")
-                            throw new Exception(error);
-                        simulator.HideCrossingInput();
-                        simulator.DeselectAllCrossings();
-                        //simulator.LinkCrossingsWithNeighbors();
+                    simulator.LinkCrossingsWithNeighbors();
 
-                        simulator.LinkPaintEventHandlerToCrossing();
+                    simulator.LinkPaintEventHandlerToCrossing();
 
-                        simulator.StartTimerTrafficLight();
-                    }
+                    simulator.StartTimerTrafficLight();
+
                     MoveCarsTimer.Start();
                     buttonStart.Text = "Stop";
-                    StopPressed = false;
                 }
                 else
                 {
-                    StopPressed = true;
                     MoveCarsTimer.Stop();
                     buttonStart.Text = "Start";
                 }
@@ -150,14 +141,14 @@ namespace EntryInformation
 
         private void comboBoxLane_SelectedIndexChanged(object sender, EventArgs e)
         {
-            simulator.ComboBoxLaneChanging();//disable or enable textboxinput depending on crossing
+            simulator.CrossingInfoModification();//disable or enable textboxinput depending on crossing
         }
 
         private void buttonApply_Click(object sender, EventArgs e)
         {
             try
             {
-                simulator.ConnectInfoFeeder(sender);
+                simulator.ConnectInfoFeeder();
             }
             catch (Exception ex)
             {
@@ -170,18 +161,6 @@ namespace EntryInformation
             //let you input only integer numbers
             if (!Char.IsDigit(e.KeyChar) && (e.KeyChar != '\b'))
                 e.KeyChar = '\0';
-        }
-
-        private void buttonApplyToAll_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                simulator.ConnectInfoFeeder(sender);
-            }
-            catch (Exception ex)
-            {
-                listBoxErrors.Items.Add(ex.Message);
-            }
         }
     }
 }

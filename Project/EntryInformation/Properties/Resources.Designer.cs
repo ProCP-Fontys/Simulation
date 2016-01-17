@@ -143,16 +143,6 @@ namespace EntryInformation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CrossingA21 {
-            get {
-                object obj = ResourceManager.GetObject("CrossingA21", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap CrossingA3 {
             get {
                 object obj = ResourceManager.GetObject("CrossingA3", resourceCulture);
@@ -176,16 +166,6 @@ namespace EntryInformation.Properties {
         internal static System.Drawing.Bitmap CrossingB1 {
             get {
                 object obj = ResourceManager.GetObject("CrossingB1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Crossingstop {
-            get {
-                object obj = ResourceManager.GetObject("Crossingstop", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

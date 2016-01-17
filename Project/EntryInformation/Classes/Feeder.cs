@@ -18,13 +18,12 @@ public class Feeder
     public Car[] CarsGoingOut { get; set; }
     public Car[] CarsComingIn { get; set; }
     public Car[] TotalCars; //Total amount of cars specified at the beginning
+    public int totalCarsQuantity;
     private Random random;
     public TrafficLight trafficLight { get; set; }
+    private List<int> Percentages;
     public List<Point> StopPointsComingIn { get; set; }
     public List<Point> StopPointsGoingOut { get; set; }
-    public List<int> RightPercentageList { get; set; }
-    public List<int> LeftPercentageList { get; set; }
-    public List<int> StraightPercentageList { get; set; }
 
     public Feeder(int feederID, Crossing crossing)
     {
@@ -85,6 +84,11 @@ public class Feeder
         }
     }
 
+
+    public Feeder()
+    {
+    }
+
     public Direction ReturnDirection()
     {
         int randomNmr = random.Next(1, 101);
@@ -102,9 +106,46 @@ public class Feeder
         return Direction.Left;
     }
 
+    //public int RightPercentage
+    //{
+    //    get;
+    //    set;
+    //}
+
+    //public int LeftPercentage
+    //{
+    //    get;
+    //    set;
+    //}
+
+    //public int StraightPercentage
+    //{
+    //    get;
+    //    set;
+    //}
+
+	public List<int> RightPercentageList
+	{
+		get;
+		set;
+	}
+
+	public List<int> LeftPercentageList
+	{
+		get;
+		set;
+	}
+
+	public List<int> StraightPercentageList
+	{
+		get;
+		set;
+	}
+
     public virtual void AddDetailes(int greenLight, int rPercentage, int lPercentage, int sPercentage, int carQuantity)
     {
-        List<int> Percentages = new List<int>();
+
+        this.Percentages = new List<int>();
 
         TotalCars = new Car[carQuantity];
 
@@ -136,33 +177,42 @@ public class Feeder
         }
 
         trafficLight = new TrafficLight(this.crossing, greenLight, this.FeederID);
-
         switch (this.FeederID)
         {
             case 1:
+
+
                 for (int i = 0; i < carQuantity; i++)
                 {
                     TotalCars[i] = new Car(new Point(-3, 112));
                 }
+
                 break;
             case 2:
+
+
                 for (int i = 0; i < carQuantity; i++)
                 {
                     TotalCars[i] = new Car(new Point(82, -3));
                 }
+
                 break;
             case 3:
+
                 for (int i = 0; i < carQuantity; i++)
                 {
                     TotalCars[i] = new Car(new Point(199, 82));
                 }
+
                 break;
             case 4:
+
                 for (int i = 0; i < carQuantity; i++)
                 {
                     TotalCars[i] = new Car(new Point(112, 199));
                 }
                 break;
+
         }
     }
 
