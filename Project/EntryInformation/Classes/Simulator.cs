@@ -254,10 +254,12 @@ public class Simulator
         {
             if (item.trafficLight.greenLightTimer.Enabled)
             {
+                item.trafficLight.DrawGreenLight(e);
                 TrafficLightGreenFeeder = item;
                 direction = TrafficLightGreenFeeder.ReturnDirection();
-                break;
             }
+            else
+                item.trafficLight.DrawRedLight(e);
         }
 
         if (TrafficLightGreenFeeder != null)

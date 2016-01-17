@@ -26,6 +26,10 @@ namespace EntryInformation
 
             MoveCarsTimer.Elapsed += new ElapsedEventHandler(PaintCarMoving);
             MoveCarsTimer.Interval = 10;//change speed of the cars
+
+            //setting the selected indexes at 0 in the beginning
+            comboBoxColumns.SelectedIndex = 0;
+            comboBoxRows.SelectedIndex = 0;
         }
 
         /// <summary>this explanation only for one crossing

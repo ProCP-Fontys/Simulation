@@ -6,15 +6,19 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 public class TrafficLight
 {
     public System.Timers.Timer greenLightTimer;
     public System.Timers.Timer yellowLightTimer;
-    int feederID;
-    Crossing crossing;
+    private int feederID;
+    private Crossing crossing;
+    private Point redPOint;
+    private Point greenPOint;
 
     public TrafficLight(Crossing crossing, int greenLight, int feederID)
     {
@@ -24,9 +28,39 @@ public class TrafficLight
         yellowLightTimer = new System.Timers.Timer();
         yellowLightTimer.Interval = (this.GreenLight * 100);
         yellowLightTimer.Elapsed += yellowLightTimer_Elapsed;
-        greenLightTimer.Interval = (this.GreenLight*100);
+        greenLightTimer.Interval = (this.GreenLight*1000);
         greenLightTimer.Elapsed += greenLightTimer_Elapsed;
         this.crossing = crossing;
+
+        switch (this.feederID)
+        {
+            case 1:
+                redPOint = new Point(71,96);
+                greenPOint = new Point(65, 96);
+                break;
+            case 2:
+                redPOint = new Point(96, 71);
+                greenPOint = new Point(96, 65);
+                break;
+            case 3:
+                redPOint = new Point(123, 96);
+                greenPOint = new Point(128, 96);
+                break;
+            case 4:
+                redPOint = new Point(96, 123);
+                greenPOint = new Point(96, 128);
+                break;
+        }
+    }
+
+    public void DrawGreenLight(PaintEventArgs e)
+    {
+        e.Graphics.FillEllipse(Brushes.Green, greenPOint.X, greenPOint.Y, 8, 8);
+    }
+
+    public void DrawRedLight(PaintEventArgs e)
+    {
+        e.Graphics.FillEllipse(Brushes.Red, redPOint.X, redPOint.Y, 8, 8);
     }
 
     void yellowLightTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
