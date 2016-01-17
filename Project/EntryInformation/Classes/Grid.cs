@@ -117,41 +117,25 @@ public class Grid
         return listToBeReturned;
     }
 
-    public int GridRows
-    {
-        get;
-        set;
-    }
-
-    public int GridColumns
-    {
-        get;
-        set;
-    }
-
-    //public IEnumerable<GridCell> GridCell
-    //{
-    //    get;
-    //    set;
-    //}
-
-    public void DrawGrid()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public bool CheckGridFull()
+    public String CheckGridFull()
     {
         int count = 0;
         foreach (var item in this.ReturnGridCells())
         {
             if (item.Crossing != null)
+            {
+                foreach (var item2 in item.Crossing.Feeders)
+                {
+                    if (item2.trafficLight == null)
+                        return "Crossing information need to be filled";
+                }
                 count++;
+            }
         }
 
         if (nrOfColumns * nrOfRows == count)
-            return true;
-        return false;
+            return "";
+        return "Grid is not full";
     }
 
     public void DeleteCrossing(object CellNumber)
