@@ -18,8 +18,76 @@ public class Feeder
     public Car[] CarsGoingOut { get; set; }
     public Car[] CarsComingIn { get; set; }
     public Car[] TotalCars; //Total amount of cars specified at the beginning
+    public int totalCarsQuantity;
     private Random random;
+    public TrafficLight trafficLight { get; set; }
     private List<int> Percentages;
+    public List<Point> StopPointsComingIn { get; set; }
+    public List<Point> StopPointsGoingOut { get; set; }
+
+    public Feeder(int feederID, Crossing crossing)
+    {
+        this.FeederID = feederID;
+        this.crossing = crossing;
+        random = new Random();
+
+        CarsComingIn = new Car[5];
+        CarsGoingOut = new Car[5];
+
+        StopPointsComingIn = new List<Point>();
+        StopPointsGoingOut = new List<Point>();
+
+        switch (this.FeederID)
+        {
+            case 1:
+                for (int i = 4; i > -1; i--)
+                {
+                    this.StopPointsGoingOut.Add(new Point(Convert.ToInt16(i + "7"), 112));
+                }
+
+                for (int i = 12; i < 53; i += 10)
+                {
+                    this.StopPointsComingIn.Add(new Point(i, 82));
+                }
+                break;
+            case 2:
+                for (int i = 4; i > -1; i--)
+                {
+                    this.StopPointsGoingOut.Add(new Point(82, Convert.ToInt16(i + "7")));
+                }
+                for (int i = 12; i < 53; i += 10)
+                {
+                    this.StopPointsComingIn.Add(new Point(112, Convert.ToInt16(i)));
+                }
+                break;
+            case 3:
+                for (int i = 146; i < 187; i += 10)
+                {
+                    this.StopPointsGoingOut.Add(new Point(i, 82));
+                }
+                for (int i = 186; i > 145; i -= 10)
+                {
+                    this.StopPointsComingIn.Add(new Point(i, 112));
+                }
+                break;
+            case 4:
+                for (int i = 146; i < 187; i += 10)
+                {
+                    this.StopPointsGoingOut.Add(new Point(112, i));
+                }
+
+                for (int i = 192; i > 151; i -= 10)
+                {
+                    this.StopPointsComingIn.Add(new Point(82, i));
+                }
+                break;
+        }
+    }
+
+
+    public Feeder()
+    {
+    }
 
     public Direction ReturnDirection()
     {
@@ -38,23 +106,23 @@ public class Feeder
         return Direction.Left;
     }
 
-    public int RightPercentage
-    {
-        get;
-        set;
-    }
+    //public int RightPercentage
+    //{
+    //    get;
+    //    set;
+    //}
 
-    public int LeftPercentage
-    {
-        get;
-        set;
-    }
+    //public int LeftPercentage
+    //{
+    //    get;
+    //    set;
+    //}
 
-    public int StraightPercentage
-    {
-        get;
-        set;
-    }
+    //public int StraightPercentage
+    //{
+    //    get;
+    //    set;
+    //}
 
 	public List<int> RightPercentageList
 	{
@@ -74,37 +142,12 @@ public class Feeder
 		set;
 	}
 
-	public TrafficLight TrafficLight
-	{
-		get;
-		set;
-	}
-
-	public List<Point> StopPointsComingIn
-	{
-		get;
-		set;
-	}
-
-    public List<Point> StopPointsGoingOut
+    public virtual void AddDetailes(int greenLight, int rPercentage, int lPercentage, int sPercentage, int carQuantity)
     {
-        get;
-        set;
-    }
 
-    public Feeder(int feederID, Crossing crossing)
-    {
         this.Percentages = new List<int>();
-        this.random = new Random();
-        this.FeederID = feederID;
-        this.crossing = crossing;
-        TotalCars = new Car[20];
-        CarsComingIn = new Car[5];
-        CarsGoingOut = new Car[5];
 
-        LeftPercentage = 30;
-        StraightPercentage = 40;
-        RightPercentage = 30;
+        TotalCars = new Car[carQuantity];
 
         LeftPercentageList = new List<int>();
         RightPercentageList = new List<int>();
@@ -115,109 +158,63 @@ public class Feeder
             Percentages.Add(i);
         }
 
-        while (StraightPercentageList.Count != StraightPercentage)
+        while (StraightPercentageList.Count != sPercentage)
         {
             StraightPercentageList.Add(Percentages[0]);
             Percentages.RemoveAt(0);
         }
 
-        while (LeftPercentageList.Count != LeftPercentage)
+        while (LeftPercentageList.Count != lPercentage)
         {
             LeftPercentageList.Add(Percentages[0]);
             Percentages.RemoveAt(0);
         }
 
-        while (RightPercentageList.Count != RightPercentage)
+        while (RightPercentageList.Count != rPercentage)
         {
             RightPercentageList.Add(Percentages[0]);
             Percentages.RemoveAt(0);
         }
 
-        
-        StopPointsComingIn = new List<Point>();
-        StopPointsGoingOut = new List<Point>();
-
-        TrafficLight = new TrafficLight(this.crossing, (feederID * 10), this.FeederID);
-
+        trafficLight = new TrafficLight(this.crossing, greenLight, this.FeederID);
         switch (this.FeederID)
         {
             case 1:
-                for (int i = 4; i > -1; i--)
+
+
+                for (int i = 0; i < carQuantity; i++)
                 {
-                    this.StopPointsGoingOut.Add(new Point(Convert.ToInt16(i + "7"), 112));
+                    TotalCars[i] = new Car(new Point(-3, 112));
                 }
 
-                for (int i = 12; i < 53; i += 10)
-                {
-                    this.StopPointsComingIn.Add(new Point(i, 82));
-                }
-                if (crossing.CrossingID == 0 || crossing.CrossingID == 4)
-                {
-                    for (int i = 0; i < 20; i++)
-                    {
-                        TotalCars[i] = new Car(new Point(-3, 112));
-                    }
-                }
                 break;
             case 2:
-                for (int i = 4; i > -1; i--)
+
+
+                for (int i = 0; i < carQuantity; i++)
                 {
-                    this.StopPointsGoingOut.Add(new Point(82, Convert.ToInt16(i + "7")));
+                    TotalCars[i] = new Car(new Point(82, -3));
                 }
-                for (int i = 12; i < 53; i += 10)
-                {
-                    this.StopPointsComingIn.Add(new Point(112, Convert.ToInt16(i)));
-                }
-                if (crossing.CrossingID == 0 || crossing.CrossingID == 1)
-                {
-                    for (int i = 0; i < 10; i++)
-                    {
-                        TotalCars[i] = new Car(new Point(82, -3));
-                    }
-                }
+
                 break;
             case 3:
-                for (int i = 146; i < 187; i += 10)
+
+                for (int i = 0; i < carQuantity; i++)
                 {
-                    this.StopPointsGoingOut.Add(new Point(i, 82));
+                    TotalCars[i] = new Car(new Point(199, 82));
                 }
-                for (int i = 186; i > 145; i -= 10)
-                {
-                    this.StopPointsComingIn.Add(new Point(i, 112));
-                }
-                if (crossing.CrossingID == 1 || crossing.CrossingID == 5)
-                {
-                    for (int i = 0; i < 10; i++)
-                    {
-                        TotalCars[i] = new Car(new Point(199, 82));
-                    }
-                }
+
                 break;
             case 4:
-                for (int i = 146; i < 187; i += 10)
-                {
-                    this.StopPointsGoingOut.Add(new Point(112, i));
-                }
 
-                for (int i = 192; i > 151; i -= 10)
+                for (int i = 0; i < carQuantity; i++)
                 {
-                    this.StopPointsComingIn.Add(new Point(82, i));
-                }
-                if (crossing.CrossingID == 4 || crossing.CrossingID == 5)
-                {
-                    for (int i = 0; i < 10; i++)
-                    {
-                        TotalCars[i] = new Car(new Point(112, 199));
-                    }
+                    TotalCars[i] = new Car(new Point(112, 199));
                 }
                 break;
+
         }
     }
-
-	public virtual void AddDetailes()
-	{
-		throw new System.NotImplementedException();
-	}
 
 }
 

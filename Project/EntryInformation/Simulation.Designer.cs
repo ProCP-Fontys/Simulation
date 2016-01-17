@@ -66,6 +66,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxPedestrians = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.listBoxErrors = new System.Windows.Forms.ListBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.comboBoxRows = new System.Windows.Forms.ComboBox();
@@ -77,10 +78,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.CB = new System.Windows.Forms.PictureBox();
             this.CA = new System.Windows.Forms.PictureBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.groupBoxStatus = new System.Windows.Forms.GroupBox();
-            this.listBoxErrors = new System.Windows.Forms.ListBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.gridGroupBox.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -91,7 +90,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CA)).BeginInit();
             this.groupBox5.SuspendLayout();
-            this.groupBoxStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -105,7 +103,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 4, 0, 4);
-            this.menuStrip1.Size = new System.Drawing.Size(1248, 31);
+            this.menuStrip1.Size = new System.Drawing.Size(1224, 36);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -119,37 +117,37 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.Tomato;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(40, 23);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(45, 28);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(138, 28);
             this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(138, 28);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(138, 28);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveASToolStripMenuItem
             // 
             this.saveASToolStripMenuItem.Name = "saveASToolStripMenuItem";
-            this.saveASToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.saveASToolStripMenuItem.Size = new System.Drawing.Size(138, 28);
             this.saveASToolStripMenuItem.Text = "Save AS";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(138, 28);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -157,7 +155,7 @@
             // 
             this.editToolStripMenuItem.ForeColor = System.Drawing.Color.Tomato;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(52, 28);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // helpToolStripMenuItem
@@ -167,19 +165,19 @@
             this.helpToolStripMenuItem1});
             this.helpToolStripMenuItem.ForeColor = System.Drawing.Color.Tomato;
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(46, 23);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 28);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // usersManualToolStripMenuItem
             // 
             this.usersManualToolStripMenuItem.Name = "usersManualToolStripMenuItem";
-            this.usersManualToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+            this.usersManualToolStripMenuItem.Size = new System.Drawing.Size(177, 28);
             this.usersManualToolStripMenuItem.Text = "User\'s Manual";
             // 
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(155, 24);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(177, 28);
             this.helpToolStripMenuItem1.Text = "Help!";
             // 
             // gridGroupBox
@@ -217,7 +215,7 @@
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(5, 73);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(139, 19);
+            this.label13.Size = new System.Drawing.Size(178, 24);
             this.label13.TabIndex = 2;
             this.label13.Text = "Time  08:00 O\' Clock.  ";
             // 
@@ -228,7 +226,7 @@
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(-1, 49);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(157, 19);
+            this.label10.Size = new System.Drawing.Size(203, 24);
             this.label10.TabIndex = 1;
             this.label10.Text = "Street : Eindhoven, station";
             // 
@@ -240,7 +238,7 @@
             this.buttonStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tomato;
             this.buttonStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStart.ForeColor = System.Drawing.Color.Brown;
-            this.buttonStart.Location = new System.Drawing.Point(37, 123);
+            this.buttonStart.Location = new System.Drawing.Point(37, 133);
             this.buttonStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(122, 42);
@@ -275,7 +273,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(13, 35);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 19);
+            this.label7.Size = new System.Drawing.Size(48, 24);
             this.label7.TabIndex = 6;
             this.label7.Text = "%Left";
             // 
@@ -286,7 +284,7 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(152, 35);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 19);
+            this.label9.Size = new System.Drawing.Size(58, 24);
             this.label9.TabIndex = 8;
             this.label9.Text = "%Right";
             // 
@@ -297,7 +295,7 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(69, 36);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 19);
+            this.label8.Size = new System.Drawing.Size(75, 24);
             this.label8.TabIndex = 7;
             this.label8.Text = "%Straght";
             // 
@@ -309,7 +307,7 @@
             this.textBoxRightPerc.Location = new System.Drawing.Point(163, 61);
             this.textBoxRightPerc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxRightPerc.Name = "textBoxRightPerc";
-            this.textBoxRightPerc.Size = new System.Drawing.Size(42, 26);
+            this.textBoxRightPerc.Size = new System.Drawing.Size(42, 31);
             this.textBoxRightPerc.TabIndex = 44;
             this.textBoxRightPerc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
             // 
@@ -321,7 +319,7 @@
             this.textBoxLeftPerc.Location = new System.Drawing.Point(19, 64);
             this.textBoxLeftPerc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxLeftPerc.Name = "textBoxLeftPerc";
-            this.textBoxLeftPerc.Size = new System.Drawing.Size(42, 26);
+            this.textBoxLeftPerc.Size = new System.Drawing.Size(42, 31);
             this.textBoxLeftPerc.TabIndex = 36;
             this.textBoxLeftPerc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
             // 
@@ -333,7 +331,7 @@
             this.textBoxStraightPerc.Location = new System.Drawing.Point(91, 64);
             this.textBoxStraightPerc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxStraightPerc.Name = "textBoxStraightPerc";
-            this.textBoxStraightPerc.Size = new System.Drawing.Size(42, 26);
+            this.textBoxStraightPerc.Size = new System.Drawing.Size(42, 31);
             this.textBoxStraightPerc.TabIndex = 40;
             this.textBoxStraightPerc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
             // 
@@ -369,7 +367,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(10, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 19);
+            this.label1.Size = new System.Drawing.Size(94, 24);
             this.label1.TabIndex = 35;
             this.label1.Text = "Select Lane:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -387,7 +385,7 @@
             "Bottom Lane"});
             this.comboBoxLane.Location = new System.Drawing.Point(127, 36);
             this.comboBoxLane.Name = "comboBoxLane";
-            this.comboBoxLane.Size = new System.Drawing.Size(102, 27);
+            this.comboBoxLane.Size = new System.Drawing.Size(102, 31);
             this.comboBoxLane.TabIndex = 34;
             this.comboBoxLane.SelectedIndexChanged += new System.EventHandler(this.comboBoxLane_SelectedIndexChanged);
             // 
@@ -447,7 +445,7 @@
             this.label16.ForeColor = System.Drawing.Color.White;
             this.label16.Location = new System.Drawing.Point(14, 86);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(34, 19);
+            this.label16.Size = new System.Drawing.Size(41, 24);
             this.label16.TabIndex = 33;
             this.label16.Text = "Cars";
             this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -459,7 +457,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(10, 118);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 19);
+            this.label5.Size = new System.Drawing.Size(94, 24);
             this.label5.TabIndex = 4;
             this.label5.Text = "Green Light";
             // 
@@ -471,7 +469,7 @@
             this.textBoxGreenLight.Location = new System.Drawing.Point(150, 115);
             this.textBoxGreenLight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxGreenLight.Name = "textBoxGreenLight";
-            this.textBoxGreenLight.Size = new System.Drawing.Size(79, 26);
+            this.textBoxGreenLight.Size = new System.Drawing.Size(79, 31);
             this.textBoxGreenLight.TabIndex = 23;
             this.textBoxGreenLight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
             // 
@@ -484,7 +482,7 @@
             this.textBoxAmountOfCars.Location = new System.Drawing.Point(150, 83);
             this.textBoxAmountOfCars.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxAmountOfCars.Name = "textBoxAmountOfCars";
-            this.textBoxAmountOfCars.Size = new System.Drawing.Size(79, 26);
+            this.textBoxAmountOfCars.Size = new System.Drawing.Size(79, 31);
             this.textBoxAmountOfCars.TabIndex = 21;
             this.textBoxAmountOfCars.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
             // 
@@ -495,7 +493,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(14, 149);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 19);
+            this.label4.Size = new System.Drawing.Size(104, 24);
             this.label4.TabIndex = 3;
             this.label4.Text = "Pedestraians ";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -509,7 +507,7 @@
             this.textBoxPedestrians.Location = new System.Drawing.Point(150, 146);
             this.textBoxPedestrians.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxPedestrians.Name = "textBoxPedestrians";
-            this.textBoxPedestrians.Size = new System.Drawing.Size(79, 26);
+            this.textBoxPedestrians.Size = new System.Drawing.Size(79, 31);
             this.textBoxPedestrians.TabIndex = 11;
             this.textBoxPedestrians.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
             // 
@@ -518,26 +516,36 @@
             this.groupBox4.AutoSize = true;
             this.groupBox4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox4.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox4.Controls.Add(this.listBoxErrors);
             this.groupBox4.Controls.Add(this.groupBox6);
             this.groupBox4.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.White;
-            this.groupBox4.Location = new System.Drawing.Point(1030, 125);
+            this.groupBox4.Location = new System.Drawing.Point(1030, 40);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Size = new System.Drawing.Size(265, 473);
+            this.groupBox4.Size = new System.Drawing.Size(265, 631);
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Crossing Control";
             this.groupBox4.Visible = false;
             // 
+            // listBoxErrors
+            // 
+            this.listBoxErrors.FormattingEnabled = true;
+            this.listBoxErrors.ItemHeight = 23;
+            this.listBoxErrors.Location = new System.Drawing.Point(6, 458);
+            this.listBoxErrors.Name = "listBoxErrors";
+            this.listBoxErrors.Size = new System.Drawing.Size(253, 142);
+            this.listBoxErrors.TabIndex = 0;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe Print", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(79, 46);
+            this.label12.Location = new System.Drawing.Point(55, 53);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(34, 47);
+            this.label12.Size = new System.Drawing.Size(44, 61);
             this.label12.TabIndex = 3;
             this.label12.Text = "*";
             // 
@@ -546,11 +554,11 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(16, 29);
+            this.label11.Location = new System.Drawing.Point(22, 28);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(137, 19);
+            this.label11.Size = new System.Drawing.Size(113, 24);
             this.label11.TabIndex = 0;
-            this.label11.Text = "Row * Column            ";
+            this.label11.Text = "Row * Column";
             // 
             // comboBoxRows
             // 
@@ -563,10 +571,10 @@
             "1",
             "2",
             "3"});
-            this.comboBoxRows.Location = new System.Drawing.Point(26, 56);
+            this.comboBoxRows.Location = new System.Drawing.Point(9, 56);
             this.comboBoxRows.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxRows.Name = "comboBoxRows";
-            this.comboBoxRows.Size = new System.Drawing.Size(55, 27);
+            this.comboBoxRows.Size = new System.Drawing.Size(55, 31);
             this.comboBoxRows.TabIndex = 1;
             this.comboBoxRows.Text = "1";
             // 
@@ -582,10 +590,10 @@
             "2",
             "3",
             "4"});
-            this.comboBoxColumns.Location = new System.Drawing.Point(116, 56);
+            this.comboBoxColumns.Location = new System.Drawing.Point(95, 56);
             this.comboBoxColumns.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxColumns.Name = "comboBoxColumns";
-            this.comboBoxColumns.Size = new System.Drawing.Size(55, 27);
+            this.comboBoxColumns.Size = new System.Drawing.Size(55, 31);
             this.comboBoxColumns.TabIndex = 2;
             this.comboBoxColumns.Text = "1";
             // 
@@ -596,7 +604,7 @@
             this.BtnCreateGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCreateGrid.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCreateGrid.ForeColor = System.Drawing.Color.White;
-            this.BtnCreateGrid.Location = new System.Drawing.Point(64, 92);
+            this.BtnCreateGrid.Location = new System.Drawing.Point(37, 95);
             this.BtnCreateGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BtnCreateGrid.Name = "BtnCreateGrid";
             this.BtnCreateGrid.Size = new System.Drawing.Size(86, 34);
@@ -613,11 +621,11 @@
             this.groupBox2.Controls.Add(this.buttonStart);
             this.groupBox2.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(5, 371);
+            this.groupBox2.Location = new System.Drawing.Point(5, 465);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(202, 189);
+            this.groupBox2.Size = new System.Drawing.Size(202, 206);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Simulation Control";
@@ -631,11 +639,11 @@
             this.groupBox1.Controls.Add(this.CA);
             this.groupBox1.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(5, 185);
+            this.groupBox1.Location = new System.Drawing.Point(5, 209);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(202, 178);
+            this.groupBox1.Size = new System.Drawing.Size(202, 248);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tool Box";
@@ -645,9 +653,9 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(10, 149);
+            this.label14.Location = new System.Drawing.Point(9, 213);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(49, 19);
+            this.label14.Size = new System.Drawing.Size(61, 24);
             this.label14.TabIndex = 22;
             this.label14.Text = "label14";
             // 
@@ -656,9 +664,9 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(6, 121);
+            this.label6.Location = new System.Drawing.Point(5, 185);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 19);
+            this.label6.Size = new System.Drawing.Size(51, 24);
             this.label6.TabIndex = 21;
             this.label6.Text = "label6";
             // 
@@ -686,6 +694,12 @@
             this.CA.TabStop = false;
             this.CA.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CA_MouseDown);
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // groupBox5
             // 
             this.groupBox5.AutoSize = true;
@@ -698,60 +712,27 @@
             this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.Color.White;
-            this.groupBox5.Location = new System.Drawing.Point(5, 33);
+            this.groupBox5.Location = new System.Drawing.Point(5, 40);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox5.Size = new System.Drawing.Size(177, 153);
+            this.groupBox5.Size = new System.Drawing.Size(156, 161);
             this.groupBox5.TabIndex = 19;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Creat Grid";
             // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // groupBoxStatus
-            // 
-            this.groupBoxStatus.AutoSize = true;
-            this.groupBoxStatus.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxStatus.Controls.Add(this.listBoxErrors);
-            this.groupBoxStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBoxStatus.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxStatus.ForeColor = System.Drawing.Color.Red;
-            this.groupBoxStatus.Location = new System.Drawing.Point(5, 567);
-            this.groupBoxStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBoxStatus.Name = "groupBoxStatus";
-            this.groupBoxStatus.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBoxStatus.Size = new System.Drawing.Size(202, 190);
-            this.groupBoxStatus.TabIndex = 16;
-            this.groupBoxStatus.TabStop = false;
-            this.groupBoxStatus.Text = "Status";
-            // 
-            // listBoxErrors
-            // 
-            this.listBoxErrors.FormattingEnabled = true;
-            this.listBoxErrors.ItemHeight = 19;
-            this.listBoxErrors.Location = new System.Drawing.Point(14, 27);
-            this.listBoxErrors.Name = "listBoxErrors";
-            this.listBoxErrors.Size = new System.Drawing.Size(178, 137);
-            this.listBoxErrors.TabIndex = 0;
-            // 
             // Simulation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1248, 737);
+            this.ClientSize = new System.Drawing.Size(1224, 682);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.gridGroupBox);
-            this.Controls.Add(this.groupBoxStatus);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Cursor = System.Windows.Forms.Cursors.Cross;
@@ -782,7 +763,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CA)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.groupBoxStatus.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -825,7 +805,6 @@
         private System.Windows.Forms.Button BtnCreateGrid;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label14;
         public System.Windows.Forms.Label label6;
         public System.Windows.Forms.TextBox textBoxGreenLight;
@@ -833,7 +812,6 @@
         private System.Windows.Forms.Button buttonApplyToAll;
         public System.Windows.Forms.Button buttonApply;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.GroupBox groupBoxStatus;
         public System.Windows.Forms.TextBox textBoxRightPerc;
         public System.Windows.Forms.TextBox textBoxStraightPerc;
         public System.Windows.Forms.TextBox textBoxLeftPerc;
@@ -841,6 +819,7 @@
         public System.Windows.Forms.ComboBox comboBoxLane;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.ListBox listBoxErrors;
+        private System.Windows.Forms.GroupBox groupBox5;
 
     }
 }

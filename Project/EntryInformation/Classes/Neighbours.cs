@@ -37,7 +37,7 @@ public class Neighbours
 
 	public void MoveBetweenCrossing()
 	{
-		throw new System.NotImplementedException();
+		
 	}
 
 }

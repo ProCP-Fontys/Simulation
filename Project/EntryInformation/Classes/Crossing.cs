@@ -23,7 +23,7 @@ public abstract class Crossing
 
         for (int i = 1; i < 5; i++)
         {
-            Feeders.Add(new Feeder(i, this));
+            Feeders.Add(new Feeder(i,this));
         }
     }
 
@@ -45,9 +45,9 @@ public abstract class Crossing
 		set;
 	}
 
-	public virtual void AddDetailes()
+    public virtual void AddDetailes(int feederID, Crossing crossing, int rPercentage, int lPercentage, int sPercentage, int carQuantity, int pedTimer)
 	{
-		throw new System.NotImplementedException();
+		
 	}
 
 }

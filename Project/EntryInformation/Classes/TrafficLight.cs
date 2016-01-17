@@ -32,7 +32,7 @@ public class TrafficLight
     void yellowLightTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
     {
         yellowLightTimer.Stop();
-        crossing.Feeders[(feederID % 4)].TrafficLight.greenLightTimer.Start();
+        crossing.Feeders[(feederID % 4)].trafficLight.greenLightTimer.Start();
     }
 
     void greenLightTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)

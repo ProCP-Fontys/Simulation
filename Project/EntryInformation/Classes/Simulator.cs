@@ -232,7 +232,7 @@ public class Simulator
     {
         foreach (var item in grid.ReturnGridCells())
         {
-            item.Crossing.Feeders[0].TrafficLight.greenLightTimer.Start();
+            item.Crossing.Feeders[0].trafficLight.greenLightTimer.Start();
         }
     }
 
@@ -248,7 +248,7 @@ public class Simulator
 
         foreach (var item in CurrentCrossing.Feeders)
         {
-            if (item.TrafficLight.greenLightTimer.Enabled)
+            if (item.trafficLight.greenLightTimer.Enabled)
             {
                 TrafficLightGreenFeeder = item;
                 direction = TrafficLightGreenFeeder.ReturnDirection();
@@ -1161,7 +1161,7 @@ public class Simulator
 
         Crossing crossing = gridCellNeeded.Crossing;
 
-        String feeder = simulation.comboBoxLane.SelectedItem.ToString();
+        //String feeder = simulation.comboBoxLane.SelectedItem.ToString();
 
         
 
@@ -1181,7 +1181,8 @@ public class Simulator
                 simulation.listBoxErrors.Items.Add("Cars input is empty");
             }
             if (String.IsNullOrEmpty(simulation.textBoxGreenLight.Text) && simulation.textBoxGreenLight.BackColor != Color.DarkRed)
-            {   exceptionOccurs = true;
+            {
+                exceptionOccurs = true;
                 simulation.listBoxErrors.Items.Add("Green light time input is empty");
             }
             if (String.IsNullOrEmpty(simulation.textBoxPedestrians.Text) && simulation.textBoxPedestrians.BackColor != Color.DarkRed)
@@ -1206,10 +1207,28 @@ public class Simulator
             }
 
             if (!exceptionOccurs)
-                crossing.AddDetailes();//add parameters
+            {
+                if (String.IsNullOrEmpty(simulation.textBoxPedestrians.Text))
+                {
+                    simulation.textBoxPedestrians.Text = "0";
+                }
+                if (String.IsNullOrEmpty(simulation.textBoxAmountOfCars.Text))
+                {
+                    simulation.textBoxAmountOfCars.Text = "0";
+                }
+                crossing.Feeders[simulation.comboBoxLane.SelectedIndex-1].AddDetailes(
+                    Convert.ToInt16(simulation.textBoxGreenLight.Text),
+                    Convert.ToInt16(simulation.textBoxRightPerc.Text),
+                    Convert.ToInt16(simulation.textBoxLeftPerc.Text),
+                    Convert.ToInt16(simulation.textBoxStraightPerc.Text),
+                    Convert.ToInt16(simulation.textBoxAmountOfCars.Text)
+                    //Convert.ToInt16(simulation.textBoxPedestrians.Text));
+                    );
+            }
         }
         catch (Exception ex)
         {
+
 
         }
         
