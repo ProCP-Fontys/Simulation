@@ -6,8 +6,10 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 public class TrafficLight
 {
@@ -15,6 +17,8 @@ public class TrafficLight
     public System.Timers.Timer yellowLightTimer;
     int feederID;
     Crossing crossing;
+    private Point redPoint;
+    private Point greenPoint;
 
     public TrafficLight(Crossing crossing, int greenLight, int feederID)
     {
@@ -24,9 +28,39 @@ public class TrafficLight
         yellowLightTimer = new System.Timers.Timer();
         yellowLightTimer.Interval = (this.GreenLight * 100);
         yellowLightTimer.Elapsed += yellowLightTimer_Elapsed;
-        greenLightTimer.Interval = (this.GreenLight*100);
+        greenLightTimer.Interval = (this.GreenLight*1000);
         greenLightTimer.Elapsed += greenLightTimer_Elapsed;
         this.crossing = crossing;
+
+        switch (this.feederID)
+        {
+            case 1:
+                greenPoint = new Point(65, 96);
+                redPoint = new Point(71, 96);
+                break;
+            case 2:
+                greenPoint = new Point(96, 65);
+                redPoint = new Point(96, 71);
+                break;
+            case 3:
+                greenPoint = new Point(128, 95);
+                redPoint = new Point(123, 95);
+                break;
+            case 4:
+                greenPoint = new Point(95, 128);
+                redPoint = new Point(95, 123);
+                break;
+        }
+    }
+
+    public void DrawGreenPoint(PaintEventArgs e)
+    {
+        e.Graphics.FillEllipse(Brushes.Green, greenPoint.X, greenPoint.Y, 8, 8);
+    }
+
+    public void DrawRedPoint(PaintEventArgs e)
+    {
+        e.Graphics.FillEllipse(Brushes.Red, redPoint.X, redPoint.Y, 8, 8);
     }
 
     void yellowLightTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
