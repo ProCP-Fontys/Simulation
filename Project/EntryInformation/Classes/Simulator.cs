@@ -19,7 +19,6 @@ public class Simulator
     private Grid grid;
     private Simulation simulation;
     private List<PictureBox> pictureBoxCrossing;
-    bool formationTab = false;
 
     public Simulator(Simulation simulation)
     {
@@ -226,6 +225,11 @@ public class Simulator
         {
             item.Paint += toDrawOn_Paint;
         }
+    }
+
+    public String CheckIfGridIsFullyCompleted()
+    {
+        return grid.CheckGridFull();
     }
 
     public void StartTimerTrafficLight()
@@ -1205,12 +1209,24 @@ public class Simulator
                 {
                     foreach (var item in crossing.Feeders)
                     {
-                        item.AddDetailes(
-                        Convert.ToInt16(simulation.textBoxGreenLight.Text),
-                        Convert.ToInt16(simulation.textBoxRightPerc.Text),
-                        Convert.ToInt16(simulation.textBoxLeftPerc.Text),
-                        Convert.ToInt16(simulation.textBoxStraightPerc.Text),
-                        Convert.ToInt16(simulation.textBoxAmountOfCars.Text));
+                        if (item.FeederID == simulation.comboBoxLane.SelectedIndex)
+                        {
+                            item.AddDetailes(
+                            Convert.ToInt16(simulation.textBoxGreenLight.Text),
+                            Convert.ToInt16(simulation.textBoxRightPerc.Text),
+                            Convert.ToInt16(simulation.textBoxLeftPerc.Text),
+                            Convert.ToInt16(simulation.textBoxStraightPerc.Text),
+                            Convert.ToInt16(simulation.textBoxAmountOfCars.Text));
+                        }
+                        else
+                        {
+                            item.AddDetailes(
+                            Convert.ToInt16(simulation.textBoxGreenLight.Text),
+                            Convert.ToInt16(simulation.textBoxRightPerc.Text),
+                            Convert.ToInt16(simulation.textBoxLeftPerc.Text),
+                            Convert.ToInt16(simulation.textBoxStraightPerc.Text),
+                            0);
+                        }
                     }
                 }
             }
@@ -1220,6 +1236,18 @@ public class Simulator
             throw new Exception(ex.Message);
         }
         
+    }
+
+    public void DeselectAllCrossings()
+    {
+        foreach (Control pb in simulation.gridPanel.Controls)
+        {
+            if (pb is PictureBox)
+            {
+                (pb as PictureBox).BorderStyle = BorderStyle.None;
+            }
+
+        }
     }
 
     public void FormExpand(object sender, EventArgs e)
@@ -1262,6 +1290,13 @@ public class Simulator
         }
 
         simulation.comboBoxLane.SelectedIndex = 0;
+    }
+
+    public void HideCrossingInput()
+    {
+
+        simulation.groupBoxCrossingControl.Visible = false;
+        simulation.Width = simulation.gridGroupBox.Width - 230;
     }
 
     private void DisableAllInputs()

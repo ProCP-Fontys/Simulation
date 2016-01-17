@@ -17,6 +17,7 @@ namespace EntryInformation
     {
         private Simulator simulator;
         System.Timers.Timer MoveCarsTimer = new System.Timers.Timer();
+        bool StopPressed;
 
         public Simulation()
         {
@@ -93,22 +94,30 @@ namespace EntryInformation
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
-
             try
             {
                 if (buttonStart.Text == "Start")
                 {
-                    simulator.LinkCrossingsWithNeighbors();
+                    if (!StopPressed)
+                    {
+                        String error = simulator.CheckIfGridIsFullyCompleted();
+                        if (error != "")
+                            throw new Exception(error);
+                        simulator.HideCrossingInput();
+                        simulator.DeselectAllCrossings();
+                        //simulator.LinkCrossingsWithNeighbors();
 
-                    simulator.LinkPaintEventHandlerToCrossing();
+                        simulator.LinkPaintEventHandlerToCrossing();
 
-                    simulator.StartTimerTrafficLight();
-
+                        simulator.StartTimerTrafficLight();
+                    }
                     MoveCarsTimer.Start();
                     buttonStart.Text = "Stop";
+                    StopPressed = false;
                 }
                 else
                 {
+                    StopPressed = true;
                     MoveCarsTimer.Stop();
                     buttonStart.Text = "Start";
                 }

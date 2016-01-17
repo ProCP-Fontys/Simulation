@@ -191,7 +191,7 @@
             this.gridGroupBox.Name = "gridGroupBox";
             this.gridGroupBox.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridGroupBox.Size = new System.Drawing.Size(813, 638);
-            this.gridGroupBox.TabIndex = 20;
+            this.gridGroupBox.TabIndex = 13;
             this.gridGroupBox.TabStop = false;
             this.gridGroupBox.Text = "Grid";
             // 
@@ -203,7 +203,7 @@
             this.gridPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridPanel.Name = "gridPanel";
             this.gridPanel.Size = new System.Drawing.Size(801, 600);
-            this.gridPanel.TabIndex = 0;
+            this.gridPanel.TabIndex = 14;
             this.gridPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.gridPanel_DragDrop);
             this.gridPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.gridPanel_DragEnter);
             this.gridPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gridPanel_MouseMove);
@@ -216,7 +216,7 @@
             this.label13.Location = new System.Drawing.Point(5, 73);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(139, 19);
-            this.label13.TabIndex = 2;
+            this.label13.TabIndex = 11;
             this.label13.Text = "Time  08:00 O\' Clock.  ";
             // 
             // label10
@@ -227,7 +227,7 @@
             this.label10.Location = new System.Drawing.Point(-1, 49);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(157, 19);
-            this.label10.TabIndex = 1;
+            this.label10.TabIndex = 10;
             this.label10.Text = "Street : Eindhoven, station";
             // 
             // buttonStart
@@ -242,7 +242,7 @@
             this.buttonStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(122, 42);
-            this.buttonStart.TabIndex = 0;
+            this.buttonStart.TabIndex = 12;
             this.buttonStart.Text = "Start";
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
@@ -262,7 +262,7 @@
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox7.Size = new System.Drawing.Size(230, 106);
-            this.groupBox7.TabIndex = 19;
+            this.groupBox7.TabIndex = 69;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Car Direction Flow\'s ";
             // 
@@ -274,7 +274,7 @@
             this.label7.Location = new System.Drawing.Point(13, 35);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(39, 19);
-            this.label7.TabIndex = 6;
+            this.label7.TabIndex = 66;
             this.label7.Text = "%Left";
             // 
             // label9
@@ -285,7 +285,7 @@
             this.label9.Location = new System.Drawing.Point(152, 35);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(46, 19);
-            this.label9.TabIndex = 8;
+            this.label9.TabIndex = 89;
             this.label9.Text = "%Right";
             // 
             // label8
@@ -296,7 +296,7 @@
             this.label8.Location = new System.Drawing.Point(69, 36);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 19);
-            this.label8.TabIndex = 7;
+            this.label8.TabIndex = 75;
             this.label8.Text = "%Straght";
             // 
             // textBoxRightPerc
@@ -308,7 +308,7 @@
             this.textBoxRightPerc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxRightPerc.Name = "textBoxRightPerc";
             this.textBoxRightPerc.Size = new System.Drawing.Size(42, 26);
-            this.textBoxRightPerc.TabIndex = 44;
+            this.textBoxRightPerc.TabIndex = 24;
             this.textBoxRightPerc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
             // 
             // textBoxLeftPerc
@@ -320,7 +320,7 @@
             this.textBoxLeftPerc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxLeftPerc.Name = "textBoxLeftPerc";
             this.textBoxLeftPerc.Size = new System.Drawing.Size(42, 26);
-            this.textBoxLeftPerc.TabIndex = 36;
+            this.textBoxLeftPerc.TabIndex = 22;
             this.textBoxLeftPerc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
             // 
             // textBoxStraightPerc
@@ -332,7 +332,7 @@
             this.textBoxStraightPerc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxStraightPerc.Name = "textBoxStraightPerc";
             this.textBoxStraightPerc.Size = new System.Drawing.Size(42, 26);
-            this.textBoxStraightPerc.TabIndex = 40;
+            this.textBoxStraightPerc.TabIndex = 23;
             this.textBoxStraightPerc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
             // 
             // groupBox6
@@ -356,7 +356,7 @@
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox6.Size = new System.Drawing.Size(253, 408);
-            this.groupBox6.TabIndex = 18;
+            this.groupBox6.TabIndex = 16;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Crossing Information";
             // 
@@ -387,7 +387,7 @@
             this.comboBoxLane.Location = new System.Drawing.Point(131, 65);
             this.comboBoxLane.Name = "comboBoxLane";
             this.comboBoxLane.Size = new System.Drawing.Size(102, 27);
-            this.comboBoxLane.TabIndex = 34;
+            this.comboBoxLane.TabIndex = 369;
             this.comboBoxLane.SelectedIndexChanged += new System.EventHandler(this.comboBoxLane_SelectedIndexChanged);
             // 
             // buttonApply
@@ -402,7 +402,7 @@
             this.buttonApply.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Size = new System.Drawing.Size(108, 38);
-            this.buttonApply.TabIndex = 22;
+            this.buttonApply.TabIndex = 443;
             this.buttonApply.Text = "Apply";
             this.buttonApply.UseVisualStyleBackColor = true;
             this.buttonApply.Click += new System.EventHandler(this.buttonApply_Click);
@@ -419,7 +419,7 @@
             this.buttonApplyToAll.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonApplyToAll.Name = "buttonApplyToAll";
             this.buttonApplyToAll.Size = new System.Drawing.Size(196, 38);
-            this.buttonApplyToAll.TabIndex = 21;
+            this.buttonApplyToAll.TabIndex = 234;
             this.buttonApplyToAll.Text = "Apply To All";
             this.buttonApplyToAll.UseVisualStyleBackColor = true;
             this.buttonApplyToAll.Click += new System.EventHandler(this.buttonApplyToAll_Click);
@@ -436,7 +436,7 @@
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(108, 38);
-            this.buttonCancel.TabIndex = 20;
+            this.buttonCancel.TabIndex = 332;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
@@ -472,7 +472,7 @@
             this.textBoxGreenLight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxGreenLight.Name = "textBoxGreenLight";
             this.textBoxGreenLight.Size = new System.Drawing.Size(79, 26);
-            this.textBoxGreenLight.TabIndex = 23;
+            this.textBoxGreenLight.TabIndex = 21;
             this.textBoxGreenLight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
             // 
             // textBoxAmountOfCars
@@ -485,7 +485,7 @@
             this.textBoxAmountOfCars.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxAmountOfCars.Name = "textBoxAmountOfCars";
             this.textBoxAmountOfCars.Size = new System.Drawing.Size(79, 26);
-            this.textBoxAmountOfCars.TabIndex = 21;
+            this.textBoxAmountOfCars.TabIndex = 20;
             this.textBoxAmountOfCars.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
             // 
             // groupBoxCrossingControl
@@ -502,7 +502,7 @@
             this.groupBoxCrossingControl.Name = "groupBoxCrossingControl";
             this.groupBoxCrossingControl.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBoxCrossingControl.Size = new System.Drawing.Size(265, 621);
-            this.groupBoxCrossingControl.TabIndex = 17;
+            this.groupBoxCrossingControl.TabIndex = 15;
             this.groupBoxCrossingControl.TabStop = false;
             this.groupBoxCrossingControl.Text = "Crossing Control";
             this.groupBoxCrossingControl.Visible = false;
@@ -514,7 +514,7 @@
             this.listBoxErrors.Location = new System.Drawing.Point(6, 458);
             this.listBoxErrors.Name = "listBoxErrors";
             this.listBoxErrors.Size = new System.Drawing.Size(253, 137);
-            this.listBoxErrors.TabIndex = 0;
+            this.listBoxErrors.TabIndex = 17;
             // 
             // label12
             // 
@@ -540,6 +540,7 @@
             // comboBoxRows
             // 
             this.comboBoxRows.BackColor = System.Drawing.Color.Black;
+            this.comboBoxRows.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRows.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxRows.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxRows.ForeColor = System.Drawing.Color.White;
@@ -553,11 +554,11 @@
             this.comboBoxRows.Name = "comboBoxRows";
             this.comboBoxRows.Size = new System.Drawing.Size(55, 27);
             this.comboBoxRows.TabIndex = 1;
-            this.comboBoxRows.Text = "1";
             // 
             // comboBoxColumns
             // 
             this.comboBoxColumns.BackColor = System.Drawing.Color.Black;
+            this.comboBoxColumns.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxColumns.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxColumns.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxColumns.ForeColor = System.Drawing.Color.White;
@@ -572,7 +573,6 @@
             this.comboBoxColumns.Name = "comboBoxColumns";
             this.comboBoxColumns.Size = new System.Drawing.Size(55, 27);
             this.comboBoxColumns.TabIndex = 2;
-            this.comboBoxColumns.Text = "1";
             // 
             // BtnCreateGrid
             // 
@@ -603,7 +603,7 @@
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Size = new System.Drawing.Size(202, 206);
-            this.groupBox2.TabIndex = 15;
+            this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Simulation Control";
             // 
@@ -621,7 +621,7 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Size = new System.Drawing.Size(202, 248);
-            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tool Box";
             // 
@@ -633,7 +633,7 @@
             this.label14.Location = new System.Drawing.Point(9, 213);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(49, 19);
-            this.label14.TabIndex = 22;
+            this.label14.TabIndex = 8;
             this.label14.Text = "label14";
             // 
             // label6
@@ -644,7 +644,7 @@
             this.label6.Location = new System.Drawing.Point(5, 185);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 19);
-            this.label6.TabIndex = 21;
+            this.label6.TabIndex = 7;
             this.label6.Text = "label6";
             // 
             // imageList1
@@ -670,7 +670,7 @@
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox5.Size = new System.Drawing.Size(156, 156);
-            this.groupBox5.TabIndex = 19;
+            this.groupBox5.TabIndex = 5;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Creat Grid";
             // 
@@ -683,7 +683,7 @@
             this.textBoxPedestrians.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxPedestrians.Name = "textBoxPedestrians";
             this.textBoxPedestrians.Size = new System.Drawing.Size(79, 26);
-            this.textBoxPedestrians.TabIndex = 11;
+            this.textBoxPedestrians.TabIndex = 19;
             this.textBoxPedestrians.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
             // 
             // label4
@@ -694,7 +694,7 @@
             this.label4.Location = new System.Drawing.Point(14, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 19);
-            this.label4.TabIndex = 3;
+            this.label4.TabIndex = 18;
             this.label4.Text = "Pedestraians ";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
