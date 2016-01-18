@@ -1040,7 +1040,6 @@ public class Simulator
 
     public void Start()
     {
-        started = true;
         String error = CheckIfGridIsFullyCompleted();
         if (error != "")
             throw new Exception(error);
@@ -1048,6 +1047,7 @@ public class Simulator
         DeselectAllCrossings();
         LinkPaintEventHandlerToCrossing();
         StartTimerTrafficLight();
+        started = true;
     }
 
     private void DisableCarTextBox()
