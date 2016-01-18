@@ -19,15 +19,16 @@ public class Simulator
     private Grid grid;
     private Simulation simulation;
     private List<PictureBox> pictureBoxCrossing;
+    private bool started;
 
     public Simulator(Simulation simulation)
     {
         this.simulation = simulation;
-        simulation.gridGroupBox.Enabled = false;
+        simulation.gridGroupBox.Enabled = false;//disable so you cannot drag crossing until creating the grid
         pictureBoxCrossing = new List<PictureBox>();
     }
 
-    public void calculatePanelSize(int nrOfRows, int nrOfColumns)
+    private void calculatePanelSize(int nrOfRows, int nrOfColumns)
     {
         int height = nrOfRows * 200;
         int width = nrOfColumns * 200;
@@ -38,15 +39,11 @@ public class Simulator
 
     public void DrawGrid()
     {
-        
         //remember to resize the form depending on rows and columns
         simulation.groupBoxCrossingControl.Visible = false;
-        grid = new Grid();
+        grid = new Grid(Convert.ToInt16(simulation.comboBoxRows.SelectedItem), Convert.ToInt16(simulation.comboBoxColumns.SelectedItem));
         simulation.gridPanel.Controls.Clear();
         simulation.gridGroupBox.Enabled = true;
-
-        grid.nrOfRows = Convert.ToInt16(simulation.comboBoxRows.SelectedItem);
-        grid.nrOfColumns = Convert.ToInt16(simulation.comboBoxColumns.SelectedItem);
 
         calculatePanelSize(grid.nrOfRows, grid.nrOfColumns);
         simulation.Width = simulation.gridGroupBox.Width + 230;
@@ -65,7 +62,7 @@ public class Simulator
         myPen.Dispose();
         formGraphics.Dispose();
        
-    }
+    }//if window is moved beyond edge from screen part of grid is removed cause it does not repaint//to be done
 
     private GridCell determinePicboxLocation(Point droppedCoordinates)
     {
@@ -119,7 +116,7 @@ public class Simulator
                 }
             }
 
-            foreach (var item in gridCells)//check if there is are emtpy spots
+            foreach (var item in gridCells)//check if there are emtpy spots
             {
                 if (((cellOccupied.ReturnLocation().X + 200) == item.ReturnLocation().X && cellOccupied.ReturnLocation().Y == item.ReturnLocation().Y) && item.Crossing == null)
                 {
@@ -155,10 +152,10 @@ public class Simulator
         return null;
     }
 
-    public void LinkCrossingsWithNeighbors()
+    private void LinkCrossingsWithNeighbors()
     {
             List<GridCell> gridCells = grid.ReturnGridCells();
-            foreach (var item in gridCells)//check if there is are emtpy spots
+            foreach (var item in gridCells)
             {
                 foreach (var item2 in gridCells)
                 {
@@ -192,7 +189,7 @@ public class Simulator
         if (OnGridCellDropped != null)
         {
             PictureBox picbox = new PictureBox();
-            picbox.Click += new EventHandler(FormExpand);
+            picbox.Click += FormExpand;//connect click eventhandler to event
             picbox.MouseMove += picbox_MouseMove;
             picbox.Size = new Size(200, 200);
             picbox.BorderStyle = BorderStyle.None;
@@ -219,7 +216,7 @@ public class Simulator
         }
     }
 
-    public void LinkPaintEventHandlerToCrossing()
+    private void LinkPaintEventHandlerToCrossing()
     {
         foreach (var item in pictureBoxCrossing)
         {
@@ -232,15 +229,15 @@ public class Simulator
         return grid.CheckGridFull();
     }
 
-    public void StartTimerTrafficLight()
+    private void StartTimerTrafficLight()
     {
         foreach (var item in grid.ReturnGridCells())
         {
-            item.Crossing.Feeders[0].trafficLight.greenLightTimer.Start();
+            item.Crossing.Feeders[0].trafficLight.greenLightTimer.Start();//start the left lane's green trafficlight of every crossing on grid
         }
     }
 
-    void toDrawOn_Paint(object sender, PaintEventArgs e)
+    private void toDrawOn_Paint(object sender, PaintEventArgs e)
     {
         Crossing CurrentCrossing = (grid.ReturnGridCells().Find(x => x.Number == Convert.ToInt16(((PictureBox)sender).Name))).Crossing;
 
@@ -1039,6 +1036,18 @@ public class Simulator
                 }
             }
         }
+    }//if time left fix the stopping by cars when leaving crossing or when being passed to another crossing
+
+    public void Start()
+    {
+        started = true;
+        String error = CheckIfGridIsFullyCompleted();
+        if (error != "")
+            throw new Exception(error);
+        HideCrossingInput();
+        DeselectAllCrossings();
+        LinkPaintEventHandlerToCrossing();
+        StartTimerTrafficLight();
     }
 
     private void DisableCarTextBox()
@@ -1066,6 +1075,23 @@ public class Simulator
         simulation.textBoxLeftPerc.BackColor = Color.Black;
         simulation.textBoxGreenLight.BackColor = Color.Black;
         simulation.buttonApply.Enabled = true;
+        simulation.buttonApplyToAll.Enabled = true;
+    }
+
+    private void DisableAllInputs()
+    {
+        simulation.textBoxAmountOfCars.Enabled = false;
+        simulation.textBoxGreenLight.Enabled = false;
+        simulation.textBoxLeftPerc.Enabled = false;
+        simulation.textBoxRightPerc.Enabled = false;
+        simulation.textBoxStraightPerc.Enabled = false;
+        simulation.textBoxStraightPerc.BackColor = Color.DarkRed;
+        simulation.textBoxRightPerc.BackColor = Color.DarkRed;
+        simulation.textBoxLeftPerc.BackColor = Color.DarkRed;
+        simulation.textBoxGreenLight.BackColor = Color.DarkRed;
+        simulation.textBoxAmountOfCars.BackColor = Color.DarkRed;
+        simulation.buttonApply.Enabled = false;
+        simulation.buttonApplyToAll.Enabled = false;
     }
 
     public void ComboBoxLaneChanging()
@@ -1122,19 +1148,6 @@ public class Simulator
                 {
                     EnableCarTextBox();
                 }
-                break;
-            case "Choose a lane":
-                simulation.buttonApply.Enabled = false;
-                //simulation.textBoxRightPerc.BackColor = Color.DarkRed;
-                //simulation.textBoxStraightPerc.BackColor = Color.DarkRed;
-                //simulation.textBoxLeftPerc.BackColor = Color.DarkRed;
-                //simulation.textBoxGreenLight.BackColor = Color.DarkRed;
-
-                //simulation.textBoxAmountOfCars.Enabled = false;
-                //simulation.textBoxGreenLight.Enabled = false;
-                //simulation.textBoxLeftPerc.Enabled = false;
-                //simulation.textBoxRightPerc.Enabled = false;
-                //simulation.textBoxStraightPerc.Enabled = false;
                 break;
         }
     }
@@ -1198,7 +1211,7 @@ public class Simulator
 
             if (!exceptionOccurs)
             {
-                if ((sender as Button).Name == "Apply")
+                if ((sender as Button).Text == "Apply")
                 {
                     crossing.Feeders[simulation.comboBoxLane.SelectedIndex - 1].AddDetailes(
                         Convert.ToInt16(simulation.textBoxGreenLight.Text),
@@ -1209,28 +1222,32 @@ public class Simulator
                 }
                 else
                 {
-                    foreach (var item in crossing.Feeders)
+                    List<Crossing> neighbors = crossing.neighbors.RetrieveListOfNeighbors();//in order of left, top, right, bottom
                     {
-                        if (item.FeederID == simulation.comboBoxLane.SelectedIndex)
+                        for (int i = 0; i < crossing.Feeders.Count; i++)//i is suitable for both list here(left lane with left neighbor, etc)
                         {
-                            item.AddDetailes(
-                            Convert.ToInt16(simulation.textBoxGreenLight.Text),
-                            Convert.ToInt16(simulation.textBoxRightPerc.Text),
-                            Convert.ToInt16(simulation.textBoxLeftPerc.Text),
-                            Convert.ToInt16(simulation.textBoxStraightPerc.Text),
-                            Convert.ToInt16(simulation.textBoxAmountOfCars.Text));
-                        }
-                        else
-                        {
-                            item.AddDetailes(
-                            Convert.ToInt16(simulation.textBoxGreenLight.Text),
-                            Convert.ToInt16(simulation.textBoxRightPerc.Text),
-                            Convert.ToInt16(simulation.textBoxLeftPerc.Text),
-                            Convert.ToInt16(simulation.textBoxStraightPerc.Text),
-                            0);
+                            if (neighbors[i] == null)
+                            {
+                                crossing.Feeders[i].AddDetailes(
+                                    Convert.ToInt16(simulation.textBoxGreenLight.Text),
+                                    Convert.ToInt16(simulation.textBoxRightPerc.Text),
+                                    Convert.ToInt16(simulation.textBoxLeftPerc.Text),
+                                    Convert.ToInt16(simulation.textBoxStraightPerc.Text),
+                                    Convert.ToInt16(simulation.textBoxAmountOfCars.Text));
+                            }
+                            else
+                            {
+                                crossing.Feeders[i].AddDetailes(
+                                    Convert.ToInt16(simulation.textBoxGreenLight.Text),
+                                    Convert.ToInt16(simulation.textBoxRightPerc.Text),
+                                    Convert.ToInt16(simulation.textBoxLeftPerc.Text),
+                                    Convert.ToInt16(simulation.textBoxStraightPerc.Text),
+                                    0);
+                            }
                         }
                     }
                 }
+                simulation.listBoxErrors.Items.Add("Applied");
             }
         }
         catch (Exception ex)
@@ -1240,7 +1257,7 @@ public class Simulator
         
     }
 
-    public void DeselectAllCrossings()
+    private void DeselectAllCrossings()
     {
         foreach (Control pb in simulation.gridPanel.Controls)
         {
@@ -1252,68 +1269,50 @@ public class Simulator
         }
     }
 
-    public void FormExpand(object sender, EventArgs e)
+    private void FormExpand(object sender, EventArgs e)
     {
-        LinkCrossingsWithNeighbors();
-        int gridCellID = Convert.ToInt16((sender as PictureBox).Name);
-
-        GridCell gridCellNeeded = grid.ReturnGridCells().Find(x => x.Number == gridCellID);
-
-        Crossing crossing = gridCellNeeded.Crossing;
-
-        if (crossing is CrossingA)
+        if (!started)
         {
-            simulation.label4.Visible = true;
-            simulation.textBoxPedestrians.Visible = true;
-            simulation.textBoxPedestrians.Text = "";
-        }
-        else
-        {
-            simulation.label4.Visible = false;
-            simulation.textBoxPedestrians.Visible = false;
-            simulation.textBoxPedestrians.Text = "0";
-        }
+            LinkCrossingsWithNeighbors();
+            int gridCellID = Convert.ToInt16((sender as PictureBox).Name);
 
-        //Deselect other crossings
-        foreach (Control pb in simulation.gridPanel.Controls)
-        {
-            if (pb is PictureBox)
+            GridCell gridCellNeeded = grid.ReturnGridCells().Find(x => x.Number == gridCellID);
+
+            Crossing crossing = gridCellNeeded.Crossing;
+
+            if (crossing is CrossingA)
             {
-                (pb as PictureBox).BorderStyle = BorderStyle.None;
+                simulation.label4.Visible = true;
+                simulation.textBoxPedestrians.Visible = true;
+                simulation.textBoxPedestrians.Text = "";
+            }
+            else
+            {
+                simulation.label4.Visible = false;
+                simulation.textBoxPedestrians.Visible = false;
+                simulation.textBoxPedestrians.Text = "0";
             }
 
+            //Deselect other crossings
+
+            DeselectAllCrossings();
+
+
+            (sender as PictureBox).BorderStyle = BorderStyle.Fixed3D;//select crossing
+
+            if (!simulation.groupBoxCrossingControl.Visible)//make side input window visible
+            {
+                simulation.groupBoxCrossingControl.Visible = true;
+            }
+
+            simulation.comboBoxLane.SelectedIndex = 0;
         }
-
-        (sender as PictureBox).BorderStyle = BorderStyle.Fixed3D;//select crossing
-
-        if (!simulation.groupBoxCrossingControl.Visible)//make near input window visible
-        {
-            simulation.groupBoxCrossingControl.Visible = true;
-        }
-
-        simulation.comboBoxLane.SelectedIndex = 0;
     }
 
-    public void HideCrossingInput()
+    private void HideCrossingInput()
     {
-
         simulation.groupBoxCrossingControl.Visible = false;
         simulation.Width = simulation.gridGroupBox.Width - 230;
-    }
-
-    private void DisableAllInputs()
-    {
-        simulation.textBoxAmountOfCars.Enabled = false;
-        simulation.textBoxGreenLight.Enabled = false;
-        simulation.textBoxLeftPerc.Enabled = false;
-        simulation.textBoxRightPerc.Enabled = false;
-        simulation.textBoxStraightPerc.Enabled = false;
-        simulation.textBoxStraightPerc.BackColor = Color.DarkRed;
-        simulation.textBoxRightPerc.BackColor = Color.DarkRed;
-        simulation.textBoxLeftPerc.BackColor = Color.DarkRed;
-        simulation.textBoxGreenLight.BackColor = Color.DarkRed;
-        simulation.textBoxAmountOfCars.BackColor = Color.DarkRed;
-        simulation.buttonApply.Enabled = false;
     }
 
     private void picbox_MouseMove(object sender, MouseEventArgs e)

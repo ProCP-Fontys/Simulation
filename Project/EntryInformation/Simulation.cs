@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Timers;
 using EntryInformation.Classes;
 using System.Reflection;
 
@@ -16,16 +15,18 @@ namespace EntryInformation
     public partial class Simulation : Form
     {
         private Simulator simulator;
-        System.Timers.Timer MoveCarsTimer = new System.Timers.Timer();
-        bool StopPressed;
+        private Timer MoveCarsTimer;
+        private bool StopPressed;
 
         public Simulation()
         {
             InitializeComponent();
             simulator = new Simulator(this);
 
-            MoveCarsTimer.Elapsed += new ElapsedEventHandler(PaintCarMoving);
-            MoveCarsTimer.Interval = 10;//change speed of the cars
+            MoveCarsTimer = new Timer();
+
+            MoveCarsTimer.Tick += new EventHandler(PaintCarMoving);
+            MoveCarsTimer.Interval = 1;//change speed of the cars moving
 
             //setting the selected indexes at 0 in the beginning
             comboBoxColumns.SelectedIndex = 0;
@@ -41,7 +42,7 @@ namespace EntryInformation
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void PaintCarMoving(object sender, ElapsedEventArgs e)
+        private void PaintCarMoving(object sender, EventArgs e)
         {
             MoveCarsTimer.Stop();
 
@@ -49,8 +50,6 @@ namespace EntryInformation
 
             MoveCarsTimer.Start();  
         }
-
-        
 
         private void gridPanel_DragEnter(object sender, DragEventArgs e)
         {
@@ -62,34 +61,6 @@ namespace EntryInformation
             if(!simulator.AddCrossingInCell(e))
                 MessageBox.Show("Space not available");
         }
-
-        private void gridPanel_MouseMove(object sender, MouseEventArgs e)
-        {
-            label14.Text = "X = " + e.X + " and Y = " + e.Y;
-        }
-
-        private void Simulation_MouseMove(object sender, MouseEventArgs e)
-        {
-            //label6.Text = "X = " + e.X + " and Y = " + e.Y;
-        }
-
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    if (!formationTab)
-        //    {
-
-        //        groupBox4.Visible = true;
-        //        formationTab = !formationTab; ;
-        //    }
-        //    else
-        //    {
-        //        groupBox4.Visible = false;
-        //        Form.ActiveForm.Width -= 250;
-
-        //        formationTab = !formationTab; ;
-        //    }
-
-        //}
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -104,16 +75,7 @@ namespace EntryInformation
                 {
                     if (!StopPressed)
                     {
-                        String error = simulator.CheckIfGridIsFullyCompleted();
-                        if (error != "")
-                            throw new Exception(error);
-                        simulator.HideCrossingInput();
-                        simulator.DeselectAllCrossings();
-                        //simulator.LinkCrossingsWithNeighbors();
-
-                        simulator.LinkPaintEventHandlerToCrossing();
-
-                        simulator.StartTimerTrafficLight();
+                        simulator.Start();
                     }
                     MoveCarsTimer.Start();
                     buttonStart.Text = "Stop";

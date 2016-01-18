@@ -63,6 +63,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxGreenLight = new System.Windows.Forms.TextBox();
             this.textBoxAmountOfCars = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxPedestrians = new System.Windows.Forms.TextBox();
             this.groupBoxCrossingControl = new System.Windows.Forms.GroupBox();
             this.listBoxErrors = new System.Windows.Forms.ListBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -72,14 +74,11 @@
             this.BtnCreateGrid = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.textBoxPedestrians = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.CB = new System.Windows.Forms.PictureBox();
             this.CA = new System.Windows.Forms.PictureBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.gridGroupBox.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -87,9 +86,9 @@
             this.groupBoxCrossingControl.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CA)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -206,7 +205,6 @@
             this.gridPanel.TabIndex = 14;
             this.gridPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.gridPanel_DragDrop);
             this.gridPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.gridPanel_DragEnter);
-            this.gridPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gridPanel_MouseMove);
             // 
             // label13
             // 
@@ -488,6 +486,30 @@
             this.textBoxAmountOfCars.TabIndex = 20;
             this.textBoxAmountOfCars.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(14, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 19);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Pedestraians ";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // textBoxPedestrians
+            // 
+            this.textBoxPedestrians.BackColor = System.Drawing.Color.Black;
+            this.textBoxPedestrians.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPedestrians.ForeColor = System.Drawing.Color.White;
+            this.textBoxPedestrians.Location = new System.Drawing.Point(150, 23);
+            this.textBoxPedestrians.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxPedestrians.Name = "textBoxPedestrians";
+            this.textBoxPedestrians.Size = new System.Drawing.Size(79, 26);
+            this.textBoxPedestrians.TabIndex = 19;
+            this.textBoxPedestrians.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
+            // 
             // groupBoxCrossingControl
             // 
             this.groupBoxCrossingControl.AutoSize = true;
@@ -610,7 +632,6 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.CB);
             this.groupBox1.Controls.Add(this.CA);
@@ -625,17 +646,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tool Box";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(9, 213);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(49, 19);
-            this.label14.TabIndex = 8;
-            this.label14.Text = "label14";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -646,6 +656,30 @@
             this.label6.Size = new System.Drawing.Size(41, 19);
             this.label6.TabIndex = 7;
             this.label6.Text = "label6";
+            // 
+            // CB
+            // 
+            this.CB.Image = global::EntryInformation.Properties.Resources.Crossingstop;
+            this.CB.Location = new System.Drawing.Point(106, 33);
+            this.CB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CB.Name = "CB";
+            this.CB.Size = new System.Drawing.Size(86, 84);
+            this.CB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.CB.TabIndex = 2;
+            this.CB.TabStop = false;
+            this.CB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CB_MouseDown);
+            // 
+            // CA
+            // 
+            this.CA.Image = global::EntryInformation.Properties.Resources.CrossingA21;
+            this.CA.Location = new System.Drawing.Point(6, 33);
+            this.CA.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CA.Name = "CA";
+            this.CA.Size = new System.Drawing.Size(93, 84);
+            this.CA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.CA.TabIndex = 1;
+            this.CA.TabStop = false;
+            this.CA.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CA_MouseDown);
             // 
             // imageList1
             // 
@@ -674,54 +708,6 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Creat Grid";
             // 
-            // textBoxPedestrians
-            // 
-            this.textBoxPedestrians.BackColor = System.Drawing.Color.Black;
-            this.textBoxPedestrians.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPedestrians.ForeColor = System.Drawing.Color.White;
-            this.textBoxPedestrians.Location = new System.Drawing.Point(150, 23);
-            this.textBoxPedestrians.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxPedestrians.Name = "textBoxPedestrians";
-            this.textBoxPedestrians.Size = new System.Drawing.Size(79, 26);
-            this.textBoxPedestrians.TabIndex = 19;
-            this.textBoxPedestrians.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe Print", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(14, 26);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 19);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Pedestraians ";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // CB
-            // 
-            this.CB.Image = global::EntryInformation.Properties.Resources.Crossingstop;
-            this.CB.Location = new System.Drawing.Point(106, 33);
-            this.CB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.CB.Name = "CB";
-            this.CB.Size = new System.Drawing.Size(86, 84);
-            this.CB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.CB.TabIndex = 2;
-            this.CB.TabStop = false;
-            this.CB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CB_MouseDown);
-            // 
-            // CA
-            // 
-            this.CA.Image = global::EntryInformation.Properties.Resources.CrossingA21;
-            this.CA.Location = new System.Drawing.Point(6, 33);
-            this.CA.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.CA.Name = "CA";
-            this.CA.Size = new System.Drawing.Size(93, 84);
-            this.CA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.CA.TabIndex = 1;
-            this.CA.TabStop = false;
-            this.CA.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CA_MouseDown);
-            // 
             // Simulation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
@@ -747,7 +733,6 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "-";
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Simulation_MouseMove);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.gridGroupBox.ResumeLayout(false);
@@ -760,10 +745,10 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CA)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -804,11 +789,10 @@
         private System.Windows.Forms.Button BtnCreateGrid;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label14;
         public System.Windows.Forms.Label label6;
         public System.Windows.Forms.TextBox textBoxGreenLight;
         public System.Windows.Forms.TextBox textBoxAmountOfCars;
-        private System.Windows.Forms.Button buttonApplyToAll;
+        public System.Windows.Forms.Button buttonApplyToAll;
         public System.Windows.Forms.Button buttonApply;
         private System.Windows.Forms.ImageList imageList1;
         public System.Windows.Forms.TextBox textBoxRightPerc;

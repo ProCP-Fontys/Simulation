@@ -14,7 +14,7 @@ using EntryInformation.Classes;
 public class Feeder
 {
     public int FeederID { get; set; }
-    public Crossing crossing { get; set; }
+    private Crossing crossing;// { get; set; }
     public Car[] CarsGoingOut { get; set; }
     public Car[] CarsComingIn { get; set; }
     public Car[] TotalCars; //Total amount of cars specified at the beginning
@@ -22,9 +22,9 @@ public class Feeder
     public TrafficLight trafficLight { get; set; }
     public List<Point> StopPointsComingIn { get; set; }
     public List<Point> StopPointsGoingOut { get; set; }
-    public List<int> RightPercentageList { get; set; }
-    public List<int> LeftPercentageList { get; set; }
-    public List<int> StraightPercentageList { get; set; }
+    private List<int> RightPercentageList;
+    private List<int> LeftPercentageList;
+    private List<int> StraightPercentageList;
 
     public Feeder(int feederID, Crossing crossing)
     {
@@ -102,7 +102,7 @@ public class Feeder
         return Direction.Left;
     }
 
-    public virtual void AddDetailes(int greenLight, int rPercentage, int lPercentage, int sPercentage, int carQuantity)
+    public void AddDetailes(int greenLight, int rPercentage, int lPercentage, int sPercentage, int carQuantity)
     {
         List<int> Percentages = new List<int>();
 

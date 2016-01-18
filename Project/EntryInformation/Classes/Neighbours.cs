@@ -35,9 +35,9 @@ public class Neighbours
 		set;
 	}
 
-	public void MoveBetweenCrossing()
+	public List<Crossing> RetrieveListOfNeighbors()
 	{
-		
+        return new List<Crossing>() { Left, Top, Right, Bottom };
 	}
 
 }

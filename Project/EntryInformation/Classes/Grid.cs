@@ -16,9 +16,11 @@ public class Grid
     public int nrOfRows { get; set; }
     public int nrOfColumns { get; set; }
 
-    public Grid()
+    public Grid(int nrOfRows, int nrOfColumns)
     {
         gridCells = new List<GridCell>();
+        this.nrOfRows = nrOfRows;
+        this.nrOfColumns = nrOfColumns;
         CreateGridCells();
     }
 

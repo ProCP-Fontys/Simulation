@@ -13,8 +13,8 @@ using System.Windows.Forms;
 
 public class TrafficLight
 {
-    public System.Timers.Timer greenLightTimer;
-    public System.Timers.Timer yellowLightTimer;
+    public System.Timers.Timer greenLightTimer { get; set; }
+    private System.Timers.Timer yellowLightTimer;
     private int feederID;
     private Crossing crossing;
     private Point redPOint;
@@ -24,13 +24,16 @@ public class TrafficLight
     {
         this.feederID = feederID;
         this.GreenLight = greenLight;
+        this.crossing = crossing;
+
         greenLightTimer = new System.Timers.Timer();
         yellowLightTimer = new System.Timers.Timer();
+
         yellowLightTimer.Interval = (this.GreenLight * 100);
         yellowLightTimer.Elapsed += yellowLightTimer_Elapsed;
+
         greenLightTimer.Interval = (this.GreenLight*1000);
         greenLightTimer.Elapsed += greenLightTimer_Elapsed;
-        this.crossing = crossing;
 
         switch (this.feederID)
         {
@@ -73,10 +76,7 @@ public class TrafficLight
     {
         greenLightTimer.Stop();
         
-
-
         yellowLightTimer.Start();
-
     }
 	public int GreenLight
 	{
