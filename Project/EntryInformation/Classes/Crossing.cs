@@ -14,6 +14,7 @@ public abstract class Crossing
     public int CrossingID { get; set; }
     public List<Feeder> Feeders { get; set; }
     public Neighbours neighbors { get; set; }
+    
 
     public Crossing(int crossingID)
     {

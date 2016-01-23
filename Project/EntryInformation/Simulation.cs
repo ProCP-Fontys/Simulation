@@ -18,11 +18,13 @@ namespace EntryInformation
         private Timer MoveCarsTimer;
         private bool StopPressed;
 
-        public Simulation()
+        public Simulation(string StreetName, string Time,string date)
         {
             InitializeComponent();
             simulator = new Simulator(this);
-
+            label1Time.Text = Time;
+            labelStreetName.Text = StreetName;
+            labelDate.Text = date;
             MoveCarsTimer = new Timer();
 
             MoveCarsTimer.Tick += new EventHandler(PaintCarMoving);
@@ -147,6 +149,20 @@ namespace EntryInformation
             catch (Exception ex)
             {
                 listBoxErrors.Items.Add(ex.Message);
+            }
+        }
+
+        private void pictureBoxDelete_Click(object sender, EventArgs e)
+        {
+            listBoxErrors.Items.Clear();
+            try
+            {
+                simulator.DeleteCrossing();
+            }
+            catch (NullReferenceException)
+            {
+                simulator.PopErrorWindow();
+                listBoxErrors.Items.Add("No crossing selected");
             }
         }
     }

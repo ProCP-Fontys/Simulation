@@ -26,7 +26,10 @@ public class GridCell
     {
         Crossing = c;
     }
-
+    public void RemoveCrossing()
+    {
+        Crossing = null;
+    }
     public Point ReturnLocation()
     {
         return location;

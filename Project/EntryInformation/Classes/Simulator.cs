@@ -36,17 +36,8 @@ public class Simulator
         simulation.gridGroupBox.Size = new Size(width + 15, height + 30);
         simulation.groupBoxCrossingControl.Location= new Point(simulation.gridGroupBox.Width + 235,simulation.groupBoxCrossingControl.Location.Y);
     }
-
-    public void DrawGrid()
+    public void DrawGridDelete()
     {
-        //remember to resize the form depending on rows and columns
-        simulation.groupBoxCrossingControl.Visible = false;
-        grid = new Grid(Convert.ToInt16(simulation.comboBoxRows.SelectedItem), Convert.ToInt16(simulation.comboBoxColumns.SelectedItem));
-        simulation.gridPanel.Controls.Clear();
-        simulation.gridGroupBox.Enabled = true;
-
-        calculatePanelSize(grid.nrOfRows, grid.nrOfColumns);
-        simulation.Width = simulation.gridGroupBox.Width + 230;
         Pen myPen;
         myPen = new Pen(Color.White);
         Graphics formGraphics = simulation.gridPanel.CreateGraphics();
@@ -61,8 +52,52 @@ public class Simulator
         }
         myPen.Dispose();
         formGraphics.Dispose();
+    }
+    public void DrawGrid()
+    {
+        //remember to resize the form depending on rows and columns
+        simulation.groupBoxCrossingControl.Visible = false;
+        grid = new Grid(Convert.ToInt16(simulation.comboBoxRows.SelectedItem), Convert.ToInt16(simulation.comboBoxColumns.SelectedItem));
+        simulation.gridPanel.Controls.Clear();
+        simulation.gridGroupBox.Enabled = true;
+
+        calculatePanelSize(grid.nrOfRows, grid.nrOfColumns);
+        simulation.Width = simulation.gridGroupBox.Width + 230;
+        this.DrawGridDelete();
        
     }//if window is moved beyond edge from screen part of grid is removed cause it does not repaint//to be done
+
+    public void PopErrorWindow()
+    {
+        simulation.groupBoxCrossingControl.Visible = true;
+    }
+
+    //delete crossing
+    public void DeleteCrossing()
+    {
+        PictureBox found = pictureBoxCrossing.Find(x => x.BorderStyle == BorderStyle.Fixed3D);
+        pictureBoxCrossing.Remove(found);
+        simulation.gridPanel.Controls.Remove(found);
+        GridCell gc = grid.ReturnGridCells().Find(x => x.Number == Convert.ToInt32(found.Name));
+        gc.RemoveCrossing();
+        this.DrawGridDelete();
+        //for (int i = 0; i < simulation.gridPanel.Controls.Count; i++)
+        //{
+        //    if (pictureBoxCrossing[i].BorderStyle == BorderStyle.Fixed3D)
+        //    {
+        //        pictureBoxCrossing.RemoveAt(i);
+        //        simulation.gridPanel.Controls.RemoveAt(i);
+                
+        //        GridCell gc= grid.ReturnGridCells().Find(x => x.Number == Convert.ToInt32(pictureBoxCrossing[i].Name));
+        //        gc.RemoveCrossing();
+        //        this.DrawGridDelete();
+        //       // simulation.Refresh();
+
+                
+        //    }
+
+        //}
+    }
 
     private GridCell determinePicboxLocation(Point droppedCoordinates)
     {
@@ -190,6 +225,7 @@ public class Simulator
         {
             PictureBox picbox = new PictureBox();
             picbox.Click += FormExpand;//connect click eventhandler to event
+            picbox.MouseUp += picbox_MouseUp;
             picbox.MouseMove += picbox_MouseMove;
             picbox.Size = new Size(200, 200);
             picbox.BorderStyle = BorderStyle.None;
@@ -206,6 +242,35 @@ public class Simulator
         }
         else
             return false;
+    }
+
+    void picbox_MouseUp(object sender, MouseEventArgs e)
+    {
+        if (started)
+        {
+            int gridCellID = Convert.ToInt16((sender as PictureBox).Name);
+
+            GridCell gridCellNeeded = grid.ReturnGridCells().Find(x => x.Number == gridCellID);
+
+            Crossing crossing = gridCellNeeded.Crossing;
+
+            if (!(crossing as CrossingA).SensorTimer.Enabled)
+            {
+                if ((e.X >= 135 && e.X <= 175) && (e.Y >= 30 && e.Y <= 66))
+                {
+                    Feeder Feeder;
+                    if (crossing is CrossingA)
+                    {
+                        Feeder = crossing.Feeders.Find(x => x.trafficLight.greenLightTimer.Enabled);
+                        if (Feeder == null)
+                            Feeder = crossing.Feeders.Find(x => x.trafficLight.yellowLightTimer.Enabled);
+                        (crossing as CrossingA).LGI = Feeder.FeederID;
+                        Feeder.trafficLight.SensorClicked = true;
+                        simulation.listBoxErrors.Items.Add("Sensor was set");
+                    }
+                }
+            }
+        }
     }
 
     public void InvalidateCrossings()
@@ -236,11 +301,41 @@ public class Simulator
             item.Crossing.Feeders[0].trafficLight.greenLightTimer.Start();//start the left lane's green trafficlight of every crossing on grid
         }
     }
+    Point test = new Point(56,56);
 
     private void toDrawOn_Paint(object sender, PaintEventArgs e)
     {
         Crossing CurrentCrossing = (grid.ReturnGridCells().Find(x => x.Number == Convert.ToInt16(((PictureBox)sender).Name))).Crossing;
+        if (CurrentCrossing is CrossingA)
+        {
+            foreach (var item in (CurrentCrossing as CrossingA).peopleTL)
+            {
+                e.Graphics.FillEllipse(Brushes.Yellow, item.X, item.Y, 5, 5);
+                
+            }
+            
+            foreach (var item in (CurrentCrossing as CrossingA).peopleTR)
+            {
+                e.Graphics.FillEllipse(Brushes.Yellow, item.X, item.Y, 5, 5);
+            }
+            foreach (var item in (CurrentCrossing as CrossingA).peopleBL)
+            {
+                e.Graphics.FillEllipse(Brushes.Yellow, item.X, item.Y, 5, 5);
+            }
+            foreach (var item in (CurrentCrossing as CrossingA).peopleBR)
+            {
+                e.Graphics.FillEllipse(Brushes.Yellow, item.X, item.Y, 5, 5);
+            }
+            
+            if ((CurrentCrossing as CrossingA).SensorTimer.Enabled)
+            {
+                (CurrentCrossing as CrossingA).movePeople();
+                
+                //e.Graphics.FillEllipse(Brushes.Blue, X, Y, 5, 5);
 
+            }
+        }
+        
         Feeder TrafficLightGreenFeeder = null;
 
         int freeSpotLaneIndex = -1;
@@ -1043,10 +1138,18 @@ public class Simulator
         String error = CheckIfGridIsFullyCompleted();
         if (error != "")
             throw new Exception(error);
+        
+        simulation.Refresh();
         HideCrossingInput();
         DeselectAllCrossings();
         LinkPaintEventHandlerToCrossing();
         StartTimerTrafficLight();
+        simulation.groupBoxCreatGrid.Visible = false;
+        simulation.groupBoxToolBoz.Visible = false;
+        simulation.groupBoxSimulationControl.Size = new Size(202, 617);
+        simulation.groupBoxSimulationControl.Location = new Point(5, 30);
+        simulation.Height = 500;
+        //simulation.buttonStart.Location = new Point(35, 20);
         started = true;
     }
 
@@ -1246,6 +1349,11 @@ public class Simulator
                             }
                         }
                     }
+                }
+                
+                if (crossing is CrossingA)
+                {
+                    (crossing as CrossingA).SetSensorTime(Convert.ToInt16(simulation.textBoxPedestrians.Text));
                 }
                 simulation.listBoxErrors.Items.Add("Applied");
             }

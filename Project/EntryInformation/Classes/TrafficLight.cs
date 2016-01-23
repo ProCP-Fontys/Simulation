@@ -14,11 +14,12 @@ using System.Windows.Forms;
 public class TrafficLight
 {
     public System.Timers.Timer greenLightTimer { get; set; }
-    private System.Timers.Timer yellowLightTimer;
+    public System.Timers.Timer yellowLightTimer { get; set; }
     private int feederID;
     private Crossing crossing;
     private Point redPOint;
     private Point greenPOint;
+    public bool SensorClicked { get; set; }
 
     public TrafficLight(Crossing crossing, int greenLight, int feederID)
     {
@@ -69,7 +70,13 @@ public class TrafficLight
     void yellowLightTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
     {
         yellowLightTimer.Stop();
-        crossing.Feeders[(feederID % 4)].trafficLight.greenLightTimer.Start();
+        if (!SensorClicked)
+            crossing.Feeders[(feederID % 4)].trafficLight.greenLightTimer.Start();
+        else
+        {
+            (crossing as CrossingA).SensorTimer.Start();
+            SensorClicked = false;
+        }
     }
 
     void greenLightTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
