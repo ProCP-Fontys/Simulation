@@ -20,6 +20,7 @@ public class TrafficLight
     private Point redPOint;
     private Point greenPOint;
     public bool SensorClicked { get; set; }
+    public bool Stop { get; set; }//for pauze and stop
 
     public TrafficLight(Crossing crossing, int greenLight, int feederID)
     {
@@ -70,9 +71,9 @@ public class TrafficLight
     void yellowLightTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
     {
         yellowLightTimer.Stop();
-        if (!SensorClicked)
+        if (!SensorClicked || !Stop)
             crossing.Feeders[(feederID % 4)].trafficLight.greenLightTimer.Start();
-        else
+        else if (SensorClicked)
         {
             (crossing as CrossingA).SensorTimer.Start();
             SensorClicked = false;

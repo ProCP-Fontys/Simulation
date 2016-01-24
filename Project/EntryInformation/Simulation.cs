@@ -15,7 +15,7 @@ namespace EntryInformation
     public partial class Simulation : Form
     {
         private Simulator simulator;
-        private Timer MoveCarsTimer;
+        public Timer MoveCarsTimer;
         private bool StopPressed;
 
         public Simulation(string StreetName, string Time,string date)
@@ -69,7 +69,7 @@ namespace EntryInformation
             Application.Exit();
         }
 
-        private void buttonStart_Click(object sender, EventArgs e)
+        public void buttonStart_Click(object sender, EventArgs e)//when stop is pressed also show the groupBoxes again
         {
             try
             {
@@ -98,7 +98,7 @@ namespace EntryInformation
 
         private void BtnCreateGrid_Click(object sender, EventArgs e)
         {
-            simulator.DrawGrid();
+            simulator.CreateGrid();
             buttonStart.Enabled = true;
         }
 
