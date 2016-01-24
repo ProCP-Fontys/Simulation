@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using EntryInformation.Classes;
+using EntryInformation;
 
 public class Feeder
 {
@@ -25,9 +26,11 @@ public class Feeder
     private List<int> RightPercentageList;
     private List<int> LeftPercentageList;
     private List<int> StraightPercentageList;
+    private Simulation simulation;
 
-    public Feeder(int feederID, Crossing crossing)
+    public Feeder(int feederID, Crossing crossing, Simulation simulation)
     {
+        this.simulation = simulation;
         this.FeederID = feederID;
         this.crossing = crossing;
         random = new Random();
@@ -135,7 +138,7 @@ public class Feeder
             Percentages.RemoveAt(0);
         }
 
-        trafficLight = new TrafficLight(this.crossing, greenLight, this.FeederID);
+        trafficLight = new TrafficLight(this.crossing, greenLight, this.FeederID, simulation);
 
         switch (this.FeederID)
         {

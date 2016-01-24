@@ -32,9 +32,83 @@ public class Simulator
         pictureBoxCrossing = new List<PictureBox>();
     }
 
+    private void ResetPauzeCountDown()
+    {
+        simulation.PauzeCountDown = grid.nrOfRows * grid.nrOfColumns;
+    }
+
+    private void ResetGrid()
+    {
+        foreach (var item in grid.ReturnGridCells())
+        {
+            pictureBoxCrossing = new List<PictureBox>();
+            simulation.gridPanel.Controls.Clear();
+            item.RemoveCrossing();
+        }
+        simulation.gridGroupBox.Enabled = false;
+    }
+
+    public void ReStart()
+    {
+        ResetPauzeCountDown();
+        foreach (var item in grid.ReturnGridCells())
+        {
+            item.Crossing.Feeders[item.Crossing.FeederIDIndexToRestart].trafficLight.greenLightTimer.Start();
+        }
+        simulation.MoveCarsTimer.Start();
+    }
+
     public void Stop()
     {
+        started = false;
+        simulation.buttonStop.Enabled = false;
+        simulation.MoveCarsTimer.Stop();
+        InvalidateCrossings();
+        simulation.buttonStart.Enabled = false;
+        simulation.buttonStart.Text = "Start";
+        FormAfterStop();
+        Feeder feeder;
+        foreach (var item in grid.ReturnGridCells())
+        {
+            feeder = item.Crossing.Feeders.Find(x => x.trafficLight.greenLightTimer.Enabled);
+            if (feeder == null)
+                feeder = item.Crossing.Feeders.Find(x => x.trafficLight.yellowLightTimer.Enabled);
+            if (feeder == null)
+            {
+                if(item.Crossing is CrossingA)
+                    (item.Crossing as CrossingA).SensorTimer.Stop();
+            }
+            else
+            {
+                feeder.trafficLight.greenLightTimer.Stop();
+                feeder.trafficLight.yellowLightTimer.Stop();
+                simulation.listBoxErrors.Items.Add("Simulation was stopped");
+            }
+        }
+        ResetGrid();
+    }
 
+    public void Pauze()
+    {
+        Feeder feeder;
+        foreach (var item in grid.ReturnGridCells())
+        {
+            feeder = item.Crossing.Feeders.Find(x => x.trafficLight.greenLightTimer.Enabled);
+            if (feeder == null)
+                feeder = item.Crossing.Feeders.Find(x => x.trafficLight.yellowLightTimer.Enabled);
+            if (feeder == null)
+            {
+                (item.Crossing as CrossingA).Pauze = true;
+                item.Crossing.FeederIDIndexToRestart = ((item.Crossing as CrossingA).LGI) % 4;
+            }
+            else
+            {
+                feeder.trafficLight.Pauze = true;
+                item.Crossing.FeederIDIndexToRestart = (feeder.FeederID) % 4;
+                simulation.listBoxErrors.Items.Add("Simulation was pauzed");
+            }
+        }
+        simulation.buttonStart.Enabled = false;
     }
 
     private void SetTotalAmountOfCars()
@@ -1179,19 +1253,34 @@ public class Simulator
         simulation.Height = 500;
     }
 
+    public void FormAfterStop()//Hide the Unneeded groupBoxes
+    {
+        simulation.groupBoxCreatGrid.Visible = true;
+        simulation.groupBoxToolBoz.Visible = true;
+        simulation.groupBoxSimulationControl.Size = new Size(202, 206);
+        simulation.groupBoxSimulationControl.Location = new Point(5, 465);
+    }
+
+    private void EnableStopButton()
+    {
+        simulation.buttonStop.Enabled = true;
+    }
+
     public void Start()
     {
         String error = CheckIfGridIsFullyCompleted();
         if (error != "")
             throw new Exception(error);
-        
-        //simulation.Refresh();
+
         HideCrossingInput();
         DeselectAllCrossings();
         LinkPaintEventHandlerToCrossing();
         FormAfterStart();
         SetTotalAmountOfCars();
         StartTimerTrafficLight();
+        EnableStopButton();
+        ResetPauzeCountDown();
+        simulation.MoveCarsTimer.Start();
         started = true;
     }
 
@@ -1260,40 +1349,45 @@ public class Simulator
         }
 
         if (gridCellID == -1)
-            throw new Exception("No crossing selected");
-
-        GridCell gridCellNeeded = grid.ReturnGridCells().Find(x => x.Number == gridCellID);
-
-        Crossing crossing = gridCellNeeded.Crossing;
-
-        String Feeder = simulation.comboBoxLane.SelectedItem.ToString();
-
-        switch (Feeder)
         {
-            case "Left Lane":
-                if (crossing.neighbors.Left == null)
-                {
-                    EnableCarTextBox();
-                }
-                break;
-            case "Right Lane":
-                if (crossing.neighbors.Right == null)
-                {
-                    EnableCarTextBox();
-                }
-                break;
-            case "Top Lane":
-                if (crossing.neighbors.Top == null)
-                {
-                    EnableCarTextBox();
-                }
-                break;
-            case "Bottom Lane":
-                if (crossing.neighbors.Bottom == null)
-                {
-                    EnableCarTextBox();
-                }
-                break;
+            simulation.listBoxErrors.Items.Clear();
+            simulation.listBoxErrors.Items.Add("No crossing selected");
+        }
+        else
+        {
+            GridCell gridCellNeeded = grid.ReturnGridCells().Find(x => x.Number == gridCellID);
+
+            Crossing crossing = gridCellNeeded.Crossing;
+
+            String Feeder = simulation.comboBoxLane.SelectedItem.ToString();
+
+            switch (Feeder)
+            {
+                case "Left Lane":
+                    if (crossing.neighbors.Left == null)
+                    {
+                        EnableCarTextBox();
+                    }
+                    break;
+                case "Right Lane":
+                    if (crossing.neighbors.Right == null)
+                    {
+                        EnableCarTextBox();
+                    }
+                    break;
+                case "Top Lane":
+                    if (crossing.neighbors.Top == null)
+                    {
+                        EnableCarTextBox();
+                    }
+                    break;
+                case "Bottom Lane":
+                    if (crossing.neighbors.Bottom == null)
+                    {
+                        EnableCarTextBox();
+                    }
+                    break;
+            }
         }
     }
 
@@ -1474,11 +1568,11 @@ public class Simulator
     {
         if (image.Tag.ToString() == "CrossingB")
         {
-            gridCell.AddCrossing(new CrossingB(gridCell.Number));
+            gridCell.AddCrossing(new CrossingB(gridCell.Number,this.simulation));
         }
         else
         {
-            gridCell.AddCrossing(new CrossingA(gridCell.Number));
+            gridCell.AddCrossing(new CrossingA(gridCell.Number,this.simulation));
         }
     }
 

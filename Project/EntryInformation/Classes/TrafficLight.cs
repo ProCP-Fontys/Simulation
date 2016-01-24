@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using EntryInformation;
 
 public class TrafficLight
 {
@@ -20,9 +21,12 @@ public class TrafficLight
     private Point redPOint;
     private Point greenPOint;
     public bool SensorClicked { get; set; }
+    public bool Pauze { get; set; }//for pauze and stop
+    private Simulation simulation;//needed to stop the simulation timer
 
-    public TrafficLight(Crossing crossing, int greenLight, int feederID)
+    public TrafficLight(Crossing crossing, int greenLight, int feederID, Simulation simulation)
     {
+        this.simulation = simulation;
         this.feederID = feederID;
         this.GreenLight = greenLight;
         this.crossing = crossing;
@@ -70,12 +74,25 @@ public class TrafficLight
     void yellowLightTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
     {
         yellowLightTimer.Stop();
-        if (!SensorClicked)
+        if (!SensorClicked && !Pauze)
             crossing.Feeders[(feederID % 4)].trafficLight.greenLightTimer.Start();
-        else
+        else if (SensorClicked)
         {
             (crossing as CrossingA).SensorTimer.Start();
             SensorClicked = false;
+        }
+        else if (Pauze)
+        {
+            simulation.PauzeCountDown--;
+            if (simulation.PauzeCountDown == 0)
+            {
+                simulation.MoveCarsTimer.Stop();
+                simulation.BeginInvoke(new MethodInvoker(delegate
+                {
+                    simulation.buttonStart.Enabled = true;
+                }));
+            }
+            Pauze = false;
         }
     }
 
