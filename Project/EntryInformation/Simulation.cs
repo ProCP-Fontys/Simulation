@@ -15,8 +15,10 @@ namespace EntryInformation
     public partial class Simulation : Form
     {
         private Simulator simulator;
-        private Timer MoveCarsTimer;
-        private bool StopPressed;
+        public Timer MoveCarsTimer;
+        private bool PauzePressed;
+        private bool stopPressed;
+        public int PauzeCountDown { get; set; }
 
         public Simulation(string StreetName, string Time,string date)
         {
@@ -69,24 +71,30 @@ namespace EntryInformation
             Application.Exit();
         }
 
-        private void buttonStart_Click(object sender, EventArgs e)
+        public void buttonStart_Click(object sender, EventArgs e)//when stop is pressed also show the groupBoxes again
         {
             try
             {
                 if (buttonStart.Text == "Start")
                 {
-                    if (!StopPressed)
+                    if (!stopPressed)
                     {
-                        simulator.Start();
+                        if (!PauzePressed)
+                        {
+                            simulator.Start();
+                        }
+                        else
+                        {
+                            simulator.ReStart();
+                        }
+                        buttonStart.Text = "Pauze";
+                        PauzePressed = false;
                     }
-                    MoveCarsTimer.Start();
-                    buttonStart.Text = "Stop";
-                    StopPressed = false;
                 }
                 else
                 {
-                    StopPressed = true;
-                    MoveCarsTimer.Stop();
+                    PauzePressed = true;
+                    simulator.Pauze();
                     buttonStart.Text = "Start";
                 }
             }
@@ -98,7 +106,9 @@ namespace EntryInformation
 
         private void BtnCreateGrid_Click(object sender, EventArgs e)
         {
-            simulator.DrawGrid();
+            stopPressed = false;
+            PauzePressed = false;
+            simulator.CreateGrid();
             buttonStart.Enabled = true;
         }
 
@@ -164,6 +174,12 @@ namespace EntryInformation
                 simulator.PopErrorWindow();
                 listBoxErrors.Items.Add("No crossing selected");
             }
+        }
+
+        private void buttonStop_Click(object sender, EventArgs e)
+        {
+            stopPressed = true;
+            simulator.Stop();
         }
     }
 }

@@ -70,3 +70,6 @@ C:\Users\mervi_000\Documents\GitHub\Simulation\Project\EntryInformation\obj\Debu
 C:\Users\mervi_000\Documents\GitHub\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.exe
 C:\Users\mervi_000\Documents\GitHub\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.pdb
 C:\Users\mervi_000\Documents\GitHub\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.csprojResolveAssemblyReference.cache
+F:\New folder (2)\Project\EntryInformation\bin\Debug\EntryInformation.exe.config
+F:\New folder (2)\Project\EntryInformation\obj\Debug\EntryInformation.exe
+F:\New folder (2)\Project\EntryInformation\obj\Debug\EntryInformation.pdb
