@@ -43,7 +43,6 @@
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.gridGroupBox = new System.Windows.Forms.GroupBox();
             this.gridPanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.label1Time = new System.Windows.Forms.Label();
             this.labelStreetName = new System.Windows.Forms.Label();
             this.buttonStart = new System.Windows.Forms.Button();
@@ -82,10 +81,8 @@
             this.CA = new System.Windows.Forms.PictureBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBoxCreatGrid = new System.Windows.Forms.GroupBox();
-            this.buttonStop = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.gridGroupBox.SuspendLayout();
-            this.gridPanel.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBoxCrossingControl.SuspendLayout();
@@ -108,7 +105,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 4, 0, 4);
-            this.menuStrip1.Size = new System.Drawing.Size(1354, 31);
+            this.menuStrip1.Size = new System.Drawing.Size(1354, 36);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -122,37 +119,37 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.Tomato;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(40, 23);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(45, 28);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(138, 28);
             this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(138, 28);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(138, 28);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveASToolStripMenuItem
             // 
             this.saveASToolStripMenuItem.Name = "saveASToolStripMenuItem";
-            this.saveASToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.saveASToolStripMenuItem.Size = new System.Drawing.Size(138, 28);
             this.saveASToolStripMenuItem.Text = "Save AS";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(138, 28);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -160,7 +157,7 @@
             // 
             this.editToolStripMenuItem.ForeColor = System.Drawing.Color.Tomato;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(52, 28);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // helpToolStripMenuItem
@@ -170,19 +167,19 @@
             this.helpToolStripMenuItem1});
             this.helpToolStripMenuItem.ForeColor = System.Drawing.Color.Tomato;
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(46, 23);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 28);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // usersManualToolStripMenuItem
             // 
             this.usersManualToolStripMenuItem.Name = "usersManualToolStripMenuItem";
-            this.usersManualToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+            this.usersManualToolStripMenuItem.Size = new System.Drawing.Size(177, 28);
             this.usersManualToolStripMenuItem.Text = "User\'s Manual";
             // 
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(155, 24);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(177, 28);
             this.helpToolStripMenuItem1.Text = "Help!";
             // 
             // gridGroupBox
@@ -204,7 +201,6 @@
             // 
             this.gridPanel.AllowDrop = true;
             this.gridPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.gridPanel.Controls.Add(this.button1);
             this.gridPanel.Location = new System.Drawing.Point(6, 21);
             this.gridPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridPanel.Name = "gridPanel";
@@ -213,22 +209,6 @@
             this.gridPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.gridPanel_DragDrop);
             this.gridPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.gridPanel_DragEnter);
             // 
-            // button1
-            // 
-            this.button1.Enabled = false;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.OrangeRed;
-            this.button1.FlatAppearance.BorderSize = 5;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tomato;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Brown;
-            this.button1.Location = new System.Drawing.Point(-72, 443);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(52, 42);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Stop";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // label1Time
             // 
             this.label1Time.AutoSize = true;
@@ -236,7 +216,7 @@
             this.label1Time.ForeColor = System.Drawing.Color.White;
             this.label1Time.Location = new System.Drawing.Point(6, 147);
             this.label1Time.Name = "label1Time";
-            this.label1Time.Size = new System.Drawing.Size(139, 19);
+            this.label1Time.Size = new System.Drawing.Size(178, 24);
             this.label1Time.TabIndex = 11;
             this.label1Time.Text = "Time  08:00 O\' Clock.  ";
             // 
@@ -247,7 +227,7 @@
             this.labelStreetName.ForeColor = System.Drawing.Color.White;
             this.labelStreetName.Location = new System.Drawing.Point(5, 87);
             this.labelStreetName.Name = "labelStreetName";
-            this.labelStreetName.Size = new System.Drawing.Size(157, 19);
+            this.labelStreetName.Size = new System.Drawing.Size(203, 24);
             this.labelStreetName.TabIndex = 10;
             this.labelStreetName.Text = "Street : Eindhoven, station";
             // 
@@ -294,7 +274,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(13, 35);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 19);
+            this.label7.Size = new System.Drawing.Size(48, 24);
             this.label7.TabIndex = 66;
             this.label7.Text = "%Left";
             // 
@@ -305,7 +285,7 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(152, 35);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 19);
+            this.label9.Size = new System.Drawing.Size(58, 24);
             this.label9.TabIndex = 89;
             this.label9.Text = "%Right";
             // 
@@ -316,7 +296,7 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(69, 36);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 19);
+            this.label8.Size = new System.Drawing.Size(75, 24);
             this.label8.TabIndex = 75;
             this.label8.Text = "%Straght";
             // 
@@ -328,7 +308,7 @@
             this.textBoxRightPerc.Location = new System.Drawing.Point(163, 61);
             this.textBoxRightPerc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxRightPerc.Name = "textBoxRightPerc";
-            this.textBoxRightPerc.Size = new System.Drawing.Size(42, 26);
+            this.textBoxRightPerc.Size = new System.Drawing.Size(42, 31);
             this.textBoxRightPerc.TabIndex = 24;
             this.textBoxRightPerc.Text = "98";
             this.textBoxRightPerc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
@@ -341,7 +321,7 @@
             this.textBoxLeftPerc.Location = new System.Drawing.Point(19, 64);
             this.textBoxLeftPerc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxLeftPerc.Name = "textBoxLeftPerc";
-            this.textBoxLeftPerc.Size = new System.Drawing.Size(42, 26);
+            this.textBoxLeftPerc.Size = new System.Drawing.Size(42, 31);
             this.textBoxLeftPerc.TabIndex = 22;
             this.textBoxLeftPerc.Text = "1";
             this.textBoxLeftPerc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
@@ -354,7 +334,7 @@
             this.textBoxStraightPerc.Location = new System.Drawing.Point(91, 64);
             this.textBoxStraightPerc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxStraightPerc.Name = "textBoxStraightPerc";
-            this.textBoxStraightPerc.Size = new System.Drawing.Size(42, 26);
+            this.textBoxStraightPerc.Size = new System.Drawing.Size(42, 31);
             this.textBoxStraightPerc.TabIndex = 23;
             this.textBoxStraightPerc.Text = "1";
             this.textBoxStraightPerc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
@@ -391,7 +371,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(14, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 19);
+            this.label1.Size = new System.Drawing.Size(94, 24);
             this.label1.TabIndex = 35;
             this.label1.Text = "Select Lane:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -410,7 +390,7 @@
             "Bottom Lane"});
             this.comboBoxLane.Location = new System.Drawing.Point(131, 65);
             this.comboBoxLane.Name = "comboBoxLane";
-            this.comboBoxLane.Size = new System.Drawing.Size(102, 27);
+            this.comboBoxLane.Size = new System.Drawing.Size(102, 31);
             this.comboBoxLane.TabIndex = 369;
             this.comboBoxLane.SelectedIndexChanged += new System.EventHandler(this.comboBoxLane_SelectedIndexChanged);
             // 
@@ -471,7 +451,7 @@
             this.label16.ForeColor = System.Drawing.Color.White;
             this.label16.Location = new System.Drawing.Point(18, 115);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(34, 19);
+            this.label16.Size = new System.Drawing.Size(41, 24);
             this.label16.TabIndex = 33;
             this.label16.Text = "Cars";
             this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -483,7 +463,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(14, 147);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 19);
+            this.label5.Size = new System.Drawing.Size(94, 24);
             this.label5.TabIndex = 4;
             this.label5.Text = "Green Light";
             // 
@@ -495,7 +475,7 @@
             this.textBoxGreenLight.Location = new System.Drawing.Point(154, 144);
             this.textBoxGreenLight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxGreenLight.Name = "textBoxGreenLight";
-            this.textBoxGreenLight.Size = new System.Drawing.Size(79, 26);
+            this.textBoxGreenLight.Size = new System.Drawing.Size(79, 31);
             this.textBoxGreenLight.TabIndex = 21;
             this.textBoxGreenLight.Text = "5";
             this.textBoxGreenLight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
@@ -509,7 +489,7 @@
             this.textBoxAmountOfCars.Location = new System.Drawing.Point(154, 112);
             this.textBoxAmountOfCars.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxAmountOfCars.Name = "textBoxAmountOfCars";
-            this.textBoxAmountOfCars.Size = new System.Drawing.Size(79, 26);
+            this.textBoxAmountOfCars.Size = new System.Drawing.Size(79, 31);
             this.textBoxAmountOfCars.TabIndex = 20;
             this.textBoxAmountOfCars.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
             // 
@@ -520,7 +500,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(14, 26);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 19);
+            this.label4.Size = new System.Drawing.Size(104, 24);
             this.label4.TabIndex = 18;
             this.label4.Text = "Pedestraians ";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -533,7 +513,7 @@
             this.textBoxPedestrians.Location = new System.Drawing.Point(150, 23);
             this.textBoxPedestrians.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxPedestrians.Name = "textBoxPedestrians";
-            this.textBoxPedestrians.Size = new System.Drawing.Size(79, 26);
+            this.textBoxPedestrians.Size = new System.Drawing.Size(79, 31);
             this.textBoxPedestrians.TabIndex = 19;
             this.textBoxPedestrians.Text = "5";
             this.textBoxPedestrians.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmountOfCars_KeyPress);
@@ -551,7 +531,7 @@
             this.groupBoxCrossingControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBoxCrossingControl.Name = "groupBoxCrossingControl";
             this.groupBoxCrossingControl.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBoxCrossingControl.Size = new System.Drawing.Size(265, 602);
+            this.groupBoxCrossingControl.Size = new System.Drawing.Size(265, 608);
             this.groupBoxCrossingControl.TabIndex = 15;
             this.groupBoxCrossingControl.TabStop = false;
             this.groupBoxCrossingControl.Text = "Crossing Control";
@@ -560,10 +540,10 @@
             // listBoxErrors
             // 
             this.listBoxErrors.FormattingEnabled = true;
-            this.listBoxErrors.ItemHeight = 19;
+            this.listBoxErrors.ItemHeight = 23;
             this.listBoxErrors.Location = new System.Drawing.Point(6, 458);
             this.listBoxErrors.Name = "listBoxErrors";
-            this.listBoxErrors.Size = new System.Drawing.Size(253, 118);
+            this.listBoxErrors.Size = new System.Drawing.Size(253, 119);
             this.listBoxErrors.TabIndex = 17;
             // 
             // label12
@@ -572,7 +552,7 @@
             this.label12.Font = new System.Drawing.Font("Segoe Print", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(55, 53);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(34, 47);
+            this.label12.Size = new System.Drawing.Size(44, 61);
             this.label12.TabIndex = 3;
             this.label12.Text = "*";
             // 
@@ -583,7 +563,7 @@
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(22, 28);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(89, 19);
+            this.label11.Size = new System.Drawing.Size(113, 24);
             this.label11.TabIndex = 0;
             this.label11.Text = "Row * Column";
             // 
@@ -602,7 +582,7 @@
             this.comboBoxRows.Location = new System.Drawing.Point(9, 56);
             this.comboBoxRows.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxRows.Name = "comboBoxRows";
-            this.comboBoxRows.Size = new System.Drawing.Size(55, 27);
+            this.comboBoxRows.Size = new System.Drawing.Size(55, 31);
             this.comboBoxRows.TabIndex = 1;
             // 
             // comboBoxColumns
@@ -621,7 +601,7 @@
             this.comboBoxColumns.Location = new System.Drawing.Point(95, 56);
             this.comboBoxColumns.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxColumns.Name = "comboBoxColumns";
-            this.comboBoxColumns.Size = new System.Drawing.Size(55, 27);
+            this.comboBoxColumns.Size = new System.Drawing.Size(55, 31);
             this.comboBoxColumns.TabIndex = 2;
             // 
             // BtnCreateGrid
@@ -643,7 +623,6 @@
             // groupBoxSimulationControl
             // 
             this.groupBoxSimulationControl.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxSimulationControl.Controls.Add(this.buttonStop);
             this.groupBoxSimulationControl.Controls.Add(this.buttonStart);
             this.groupBoxSimulationControl.Controls.Add(this.labelDate);
             this.groupBoxSimulationControl.Controls.Add(this.label6);
@@ -667,7 +646,7 @@
             this.labelDate.ForeColor = System.Drawing.Color.White;
             this.labelDate.Location = new System.Drawing.Point(5, 118);
             this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(139, 19);
+            this.labelDate.Size = new System.Drawing.Size(178, 24);
             this.labelDate.TabIndex = 13;
             this.labelDate.Text = "Time  08:00 O\' Clock.  ";
             // 
@@ -678,7 +657,7 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(6, 175);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 19);
+            this.label6.Size = new System.Drawing.Size(51, 24);
             this.label6.TabIndex = 7;
             this.label6.Text = "label6";
             // 
@@ -756,31 +735,14 @@
             this.groupBoxCreatGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBoxCreatGrid.Name = "groupBoxCreatGrid";
             this.groupBoxCreatGrid.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBoxCreatGrid.Size = new System.Drawing.Size(156, 156);
+            this.groupBoxCreatGrid.Size = new System.Drawing.Size(156, 161);
             this.groupBoxCreatGrid.TabIndex = 5;
             this.groupBoxCreatGrid.TabStop = false;
             this.groupBoxCreatGrid.Text = "Creat Grid";
             // 
-            // buttonStop
-            // 
-            this.buttonStop.Enabled = false;
-            this.buttonStop.FlatAppearance.BorderColor = System.Drawing.Color.OrangeRed;
-            this.buttonStop.FlatAppearance.BorderSize = 5;
-            this.buttonStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tomato;
-            this.buttonStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonStop.ForeColor = System.Drawing.Color.Brown;
-            this.buttonStop.Location = new System.Drawing.Point(140, 32);
-            this.buttonStop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonStop.Name = "buttonStop";
-            this.buttonStop.Size = new System.Drawing.Size(56, 42);
-            this.buttonStop.TabIndex = 14;
-            this.buttonStop.Text = "Stop";
-            this.buttonStop.UseVisualStyleBackColor = true;
-            this.buttonStop.Click += new System.EventHandler(this.buttonStop_Click);
-            // 
             // Simulation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
@@ -806,7 +768,6 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.gridGroupBox.ResumeLayout(false);
-            this.gridPanel.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -878,8 +839,6 @@
         public System.Windows.Forms.TextBox textBoxPedestrians;
         private System.Windows.Forms.PictureBox pictureBoxDelete;
         private System.Windows.Forms.Label labelDate;
-        public System.Windows.Forms.Button button1;
-        public System.Windows.Forms.Button buttonStop;
 
     }
 }

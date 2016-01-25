@@ -16,9 +16,7 @@ namespace EntryInformation
     {
         private Simulator simulator;
         public Timer MoveCarsTimer;
-        private bool PauzePressed;
-        private bool stopPressed;
-        public int PauzeCountDown { get; set; }
+        private bool StopPressed;
 
         public Simulation(string StreetName, string Time,string date)
         {
@@ -77,24 +75,18 @@ namespace EntryInformation
             {
                 if (buttonStart.Text == "Start")
                 {
-                    if (!stopPressed)
+                    if (!StopPressed)
                     {
-                        if (!PauzePressed)
-                        {
-                            simulator.Start();
-                        }
-                        else
-                        {
-                            simulator.ReStart();
-                        }
-                        buttonStart.Text = "Pauze";
-                        PauzePressed = false;
+                        simulator.Start();
                     }
+                    MoveCarsTimer.Start();
+                    buttonStart.Text = "Stop";
+                    StopPressed = false;
                 }
                 else
                 {
-                    PauzePressed = true;
-                    simulator.Pauze();
+                    StopPressed = true;
+                    MoveCarsTimer.Stop();
                     buttonStart.Text = "Start";
                 }
             }
@@ -106,8 +98,6 @@ namespace EntryInformation
 
         private void BtnCreateGrid_Click(object sender, EventArgs e)
         {
-            stopPressed = false;
-            PauzePressed = false;
             simulator.CreateGrid();
             buttonStart.Enabled = true;
         }
@@ -174,12 +164,6 @@ namespace EntryInformation
                 simulator.PopErrorWindow();
                 listBoxErrors.Items.Add("No crossing selected");
             }
-        }
-
-        private void buttonStop_Click(object sender, EventArgs e)
-        {
-            stopPressed = true;
-            simulator.Stop();
         }
     }
 }

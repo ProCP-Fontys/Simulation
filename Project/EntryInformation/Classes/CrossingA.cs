@@ -3,17 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
-using EntryInformation;
-using System.Windows.Forms;
 
 public class CrossingA : Crossing
 {
-    private Simulation simulation;
-    public CrossingA(int crossingID, Simulation simulation)
-        : base(crossingID, simulation) 
-    {
-        this.simulation = simulation;
-    }
+
+    public CrossingA(int crossingID) : base(crossingID) { }
     public System.Timers.Timer SensorTimer { get; set; }
     public int LGI { get; set; }
     public List<Point> peopleTL = new List<Point> { new Point(30, 30), new Point(32, 32), new Point(34, 34), new Point(36, 36) };
@@ -21,7 +15,7 @@ public class CrossingA : Crossing
     public List<Point> peopleBL = new List<Point> { new Point(30, 160), new Point(32, 162), new Point(34, 164), new Point(36, 166) };
     public List<Point> peopleBR = new List<Point> { new Point(160, 160), new Point(162, 162), new Point(164, 164), new Point(166, 166) };
 
-    public bool Pauze { get; set; }
+
    
     public void movePeople()
     {
@@ -160,8 +154,10 @@ public class CrossingA : Crossing
         }
     }
 
+
     public void SetSensorTime(int sensorTime)//lastGreenTrafficLightIndex
     {
+        
         this.SensorTime = sensorTime;
         SensorTimer = new System.Timers.Timer();
         SensorTimer.Interval = sensorTime*1000;
@@ -181,23 +177,8 @@ public class CrossingA : Crossing
         //peopleTR = new List<Point> { new Point(166, 30), new Point(168, 32), new Point(180, 34), new Point(182, 36) };
         //peopleBL = new List<Point> { new Point(30, 160), new Point(32, 162), new Point(34, 164), new Point(36, 166) };
         //peopleBR = new List<Point> { new Point(160, 160), new Point(162, 162), new Point(164, 164), new Point(166, 166) };
-        if (!Pauze)
-        {
-            this.Feeders.Find(x => x.FeederID == (LGI % 4) + 1).trafficLight.greenLightTimer.Start();
-        }
-        else
-        {
-            simulation.PauzeCountDown--;
-            if (simulation.PauzeCountDown == 0)
-            {
-                simulation.MoveCarsTimer.Stop();
-                simulation.BeginInvoke(new MethodInvoker(delegate
-                {
-                    simulation.buttonStart.Enabled = true;
-                }));
-            }
-            Pauze = false;
-        }
+        this.Feeders.Find(x => x.FeederID == (LGI%4) +1).trafficLight.greenLightTimer.Start();
+        
     }
 
     private int SensorTime;
