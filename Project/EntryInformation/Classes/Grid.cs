@@ -16,9 +16,11 @@ public class Grid
     public int nrOfRows { get; set; }
     public int nrOfColumns { get; set; }
 
-    public Grid()
+    public Grid(int nrOfRows, int nrOfColumns)
     {
         gridCells = new List<GridCell>();
+        this.nrOfRows = nrOfRows;
+        this.nrOfColumns = nrOfColumns;
         CreateGridCells();
     }
 
@@ -127,7 +129,7 @@ public class Grid
                 foreach (var item2 in item.Crossing.Feeders)
                 {
                     if (item2.trafficLight == null)
-                        return "Crossing information need to be filled" + item.Crossing.CrossingID;
+                        return "Crossing information need to be filled";
                 }
                 count++;
             }

@@ -13,34 +13,11 @@ using EntryInformation.Classes;
 
 public class Car
 {
-    private TimeSpan CarStopAtRed;
-    private TimeSpan TotalRedTime = new TimeSpan();
-    private bool WaitingAtRedLight;
-
-    public virtual int RedLightTime
-    {
-        get;
-        set;
-    }
-
-    public void SetTimeRed()
-    {
-        if (!WaitingAtRedLight)
-        {
-            WaitingAtRedLight = true;
-            CarStopAtRed = DateTime.Now.TimeOfDay;
-        }
-    }
-
-    public void CalculateRedTimeSpent()
-    {
-        if (WaitingAtRedLight)
-        {
-            TimeSpan difference = DateTime.Now.TimeOfDay - CarStopAtRed;
-            TotalRedTime += difference;
-            WaitingAtRedLight = false;
-        }
-    }
+	public virtual int RedLightTime
+	{
+		get;
+		set;
+	}
 
     public Car(Point location)
     {
@@ -49,61 +26,62 @@ public class Car
         this.Direction = Direction.Straight;
     }
 
-    public virtual DateTime EndTime
-    {
-        get;
-        set;
-    }
+	public virtual DateTime EndTime
+	{
+		get;
+		set;
+	}
 
-    public virtual int CarNumber
-    {
-        get;
-        set;
-    }
+	public virtual int CarNumber
+	{
+		get;
+		set;
+	}
 
-    public Direction Direction
-    {
-        get;
-        set;
-    }
+	public Direction Direction
+	{
+		get;
+		set;
+	}
 
-    public virtual int RedStopCounter
-    {
-        get;
-        set;
-    }
+	public virtual int RedStopCounter
+	{
+		get;
+		set;
+	}
 
-    public int X
-    {
-        get;
-        set;
-    }
+	public int X
+	{
+		get;
+		set;
+	}
 
-    public int Y
-    {
-        get;
-        set;
-    }
+	public int Y
+	{
+		get;
+		set;
+	}
 
-    public virtual int CrossingID
-    {
-        get;
-        set;
-    }
+	public virtual int CrossingID
+	{
+		get;
+		set;
+	}
 
-    public virtual void DrawCar()
-    {
-        throw new System.NotImplementedException();
-    }
+	public virtual void DrawCar()
+	{
+		throw new System.NotImplementedException();
+	}
 
-    public virtual void MoveToThePoint()
-    {
-        throw new System.NotImplementedException();
-    }
+	public virtual void MoveToThePoint()
+	{
+		throw new System.NotImplementedException();
+	}
 
-    public virtual void CalculateRedlightTime()
-    {
-        throw new System.NotImplementedException();
-    }
+	public virtual void CalculateRedlightTime()
+	{
+		throw new System.NotImplementedException();
+	}
+
 }
 
