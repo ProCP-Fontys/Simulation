@@ -36,9 +36,9 @@
             this.buttonSubmit = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.textBoxTimeTo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxTimeFrom = new System.Windows.Forms.TextBox();
-            this.textBoxTimeTo = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +71,7 @@
             this.textBoxStreetName.Name = "textBoxStreetName";
             this.textBoxStreetName.Size = new System.Drawing.Size(184, 22);
             this.textBoxStreetName.TabIndex = 2;
+            this.textBoxStreetName.Text = "Test";
             // 
             // radioButtonPm
             // 
@@ -81,7 +82,6 @@
             this.radioButtonPm.Name = "radioButtonPm";
             this.radioButtonPm.Size = new System.Drawing.Size(49, 21);
             this.radioButtonPm.TabIndex = 7;
-            this.radioButtonPm.TabStop = true;
             this.radioButtonPm.Text = "PM";
             this.radioButtonPm.UseVisualStyleBackColor = false;
             // 
@@ -89,6 +89,7 @@
             // 
             this.radioButtonAm.AutoSize = true;
             this.radioButtonAm.BackColor = System.Drawing.Color.Transparent;
+            this.radioButtonAm.Checked = true;
             this.radioButtonAm.Location = new System.Drawing.Point(212, 157);
             this.radioButtonAm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioButtonAm.Name = "radioButtonAm";
@@ -138,6 +139,16 @@
             this.dateTimePicker.Size = new System.Drawing.Size(245, 22);
             this.dateTimePicker.TabIndex = 11;
             // 
+            // textBoxTimeTo
+            // 
+            this.textBoxTimeTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTimeTo.Location = new System.Drawing.Point(212, 125);
+            this.textBoxTimeTo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxTimeTo.Name = "textBoxTimeTo";
+            this.textBoxTimeTo.Size = new System.Drawing.Size(68, 28);
+            this.textBoxTimeTo.TabIndex = 6;
+            this.textBoxTimeTo.Text = "09:00";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -158,16 +169,6 @@
             this.textBoxTimeFrom.Size = new System.Drawing.Size(69, 28);
             this.textBoxTimeFrom.TabIndex = 3;
             this.textBoxTimeFrom.Text = "08:00";
-            // 
-            // textBoxTimeTo
-            // 
-            this.textBoxTimeTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTimeTo.Location = new System.Drawing.Point(212, 125);
-            this.textBoxTimeTo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxTimeTo.Name = "textBoxTimeTo";
-            this.textBoxTimeTo.Size = new System.Drawing.Size(68, 28);
-            this.textBoxTimeTo.TabIndex = 6;
-            this.textBoxTimeTo.Text = "09:00";
             // 
             // First
             // 

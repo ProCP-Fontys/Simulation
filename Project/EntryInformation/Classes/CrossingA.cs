@@ -6,15 +6,18 @@ using System.Drawing;
 using EntryInformation;
 using System.Windows.Forms;
 
+[Serializable]
 public class CrossingA : Crossing
 {
+    [NonSerialized]
     private Simulation simulation;
     public CrossingA(int crossingID, Simulation simulation)
         : base(crossingID, simulation) 
     {
         this.simulation = simulation;
     }
-    public System.Timers.Timer SensorTimer { get; set; }
+    [NonSerialized]
+    public System.Timers.Timer SensorTimer;
     public int LGI { get; set; }
     public List<Point> peopleTL = new List<Point> { new Point(30, 30), new Point(32, 32), new Point(34, 34), new Point(36, 36) };
     public List<Point> peopleTR= new List<Point> { new Point(166, 30), new Point(168, 32), new Point(180, 34), new Point(182, 36) };

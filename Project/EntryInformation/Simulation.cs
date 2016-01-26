@@ -12,6 +12,7 @@ using System.Reflection;
 
 namespace EntryInformation
 {
+    
     public partial class Simulation : Form
     {
         private Simulator simulator;
@@ -20,9 +21,15 @@ namespace EntryInformation
         private bool stopPressed;
         public int PauzeCountDown { get; set; }
 
+        //menue attribute test
+        bool isSaved = false;
+        Simulation simulation;
+        public String filePath;
+
         public Simulation(string StreetName, string Time,string date)
         {
             InitializeComponent();
+            this.Text = "Simulation Magic!   Street:" + StreetName+"."+ filePath;
             simulator = new Simulator(this);
             label1Time.Text = Time;
             labelStreetName.Text = StreetName;
@@ -35,6 +42,9 @@ namespace EntryInformation
             //setting the selected indexes at 0 in the beginning
             comboBoxColumns.SelectedIndex = 0;
             comboBoxRows.SelectedIndex = 0;
+            //menu
+            filePath = "Miki.bin";
+            simulation = this;
         }
 
         /// <summary>this explanation only for one crossing
@@ -77,6 +87,8 @@ namespace EntryInformation
             {
                 if (buttonStart.Text == "Start")
                 {
+                    //saveToolStripMenuItem_Click(sender,e);
+                    timerSImulationOn.Start();
                     if (!stopPressed)
                     {
                         if (!PauzePressed)
@@ -93,6 +105,7 @@ namespace EntryInformation
                 }
                 else
                 {
+                    timerSImulationOn.Stop();
                     PauzePressed = true;
                     simulator.Pauze();
                     buttonStart.Text = "Start";
@@ -179,7 +192,115 @@ namespace EntryInformation
         private void buttonStop_Click(object sender, EventArgs e)
         {
             stopPressed = true;
+            labelGreenLPed.Visible = false;
             simulator.Stop();
+            //openToolStripMenuItem_Click(sender, e);
+        }
+
+        private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form help = new Help(this);
+            help.Show();
+
+        }
+
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFile();
+        }
+        void saveFile()
+        {
+            simulator.saveGridOutput();
+
+
+            //    if (outputStream != null)
+            //    {
+            //        BinaryFormatter bf = new BinaryFormatter();
+
+            //        bf.Serialize(outputStream, simulation.gri);
+
+            //        isSaved = true;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error: 1save file: " + ex.Message);
+            //}
+            //finally
+            //{
+            //    outputStream.Close();
+            //}
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!isSaved)
+            {
+                DialogResult msgResult = MessageBox.Show("You have unsaved changes open, do you want to save these?", "", MessageBoxButtons.YesNoCancel);
+
+                if (msgResult == System.Windows.Forms.DialogResult.Yes)
+                {
+                    if (filePath != null)
+                    {
+                        saveFile();
+                        simulator.openGridInput();
+                    }
+                    else
+                    {
+                        saveASToolStripMenuItem_Click(sender, e);
+                        simulator.openGridInput();
+                    }
+                }
+                else if (msgResult == System.Windows.Forms.DialogResult.Cancel)
+                    return;
+                else if (msgResult == System.Windows.Forms.DialogResult.No)
+                    simulator.openGridInput();
+            }
+
+       
+        }
+
+        private void saveASToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            simulator.saveAsGridOutput();
+        }
+
+        private void timerSImulationOn_Tick(object sender, EventArgs e)
+        {
+            labelTotallCars.Text = "Total cars:"+simulator.totalAmountOfCars.ToString();
+            
+            
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!isSaved)
+            {
+                DialogResult msgResult = MessageBox.Show("You have unsaved changes open, do you want to save these?", "", MessageBoxButtons.YesNoCancel);
+
+                if (msgResult == System.Windows.Forms.DialogResult.Yes)
+                {
+                    if (filePath != null)
+                    {
+                        saveFile();
+                        simulator.OpenNewFile();
+                    }
+                    else
+                    {
+                        saveASToolStripMenuItem_Click(sender, e);
+                        simulator.openGridInput();
+                    }
+                }
+                else if (msgResult == System.Windows.Forms.DialogResult.Cancel)
+                    return;
+                else if (msgResult == System.Windows.Forms.DialogResult.No)
+                    simulator.OpenNewFile();
+            }
+
+
+            
         }
     }
 }

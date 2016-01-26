@@ -48,12 +48,6 @@ E:\University\Fontys\lessons\ProCp\Simulation\Project\EntryInformation\obj\Debug
 E:\University\Fontys\lessons\ProCp\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.pdb
 E:\University\Fontys\lessons\ProCp\Simulation\Project\EntryInformation\bin\Debug\EntryInformation.exe
 E:\University\Fontys\lessons\ProCp\Simulation\Project\EntryInformation\bin\Debug\EntryInformation.pdb
-E:\University\Fontys\lessons\ProCp\Simulation\Project\EntryInformation\bin\Debug\mscorlib.dll
-E:\University\Fontys\lessons\ProCp\Simulation\Project\EntryInformation\bin\Debug\normidna.nlp
-E:\University\Fontys\lessons\ProCp\Simulation\Project\EntryInformation\bin\Debug\normnfc.nlp
-E:\University\Fontys\lessons\ProCp\Simulation\Project\EntryInformation\bin\Debug\normnfd.nlp
-E:\University\Fontys\lessons\ProCp\Simulation\Project\EntryInformation\bin\Debug\normnfkc.nlp
-E:\University\Fontys\lessons\ProCp\Simulation\Project\EntryInformation\bin\Debug\normnfkd.nlp
 E:\University\Fontys\lessons\ProCp\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.First.resources
 E:\University\Fontys\lessons\ProCp\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.Properties.Resources.resources
 E:\University\Fontys\lessons\ProCp\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.Simulation.resources
@@ -73,3 +67,5 @@ C:\Users\mervi_000\Documents\GitHub\Simulation\Project\EntryInformation\obj\Debu
 F:\New folder (2)\Project\EntryInformation\bin\Debug\EntryInformation.exe.config
 F:\New folder (2)\Project\EntryInformation\obj\Debug\EntryInformation.exe
 F:\New folder (2)\Project\EntryInformation\obj\Debug\EntryInformation.pdb
+E:\University\Fontys\lessons\ProCp\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.csprojResolveAssemblyReference.cache
+E:\University\Fontys\lessons\ProCp\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.Help.resources
