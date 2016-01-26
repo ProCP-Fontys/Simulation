@@ -70,3 +70,15 @@ E:\University\Fontys\lessons\ProCp\Simulation\Project\EntryInformation\obj\Debug
 E:\University\Fontys\lessons\ProCp\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.Help.resources
 C:\Users\mervi_000\Documents\GitHub\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.Help.resources
 C:\Users\mervi_000\Documents\GitHub\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.csprojResolveAssemblyReference.cache
+E:\University\Fontys\lessons\ProCp\Simulation\Simulation\Project\EntryInformation\bin\Debug\EntryInformation.exe.config
+E:\University\Fontys\lessons\ProCp\Simulation\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.exe
+E:\University\Fontys\lessons\ProCp\Simulation\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.pdb
+E:\University\Fontys\lessons\ProCp\Simulation\Simulation\Project\EntryInformation\bin\Debug\EntryInformation.exe
+E:\University\Fontys\lessons\ProCp\Simulation\Simulation\Project\EntryInformation\bin\Debug\EntryInformation.pdb
+E:\University\Fontys\lessons\ProCp\Simulation\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.csprojResolveAssemblyReference.cache
+E:\University\Fontys\lessons\ProCp\Simulation\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.First.resources
+E:\University\Fontys\lessons\ProCp\Simulation\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.Help.resources
+E:\University\Fontys\lessons\ProCp\Simulation\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.Properties.Resources.resources
+E:\University\Fontys\lessons\ProCp\Simulation\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.Simulation.resources
+E:\University\Fontys\lessons\ProCp\Simulation\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.TestSimulation.resources
+E:\University\Fontys\lessons\ProCp\Simulation\Simulation\Project\EntryInformation\obj\Debug\EntryInformation.csproj.GenerateResource.Cache
