@@ -551,8 +551,14 @@ public class Simulator
     {
         if (cars.Count == totalAmountOfCars)//more details later
         {
-            simulation.buttonStart_Click(sender, new EventArgs());
-            simulation.MoveCarsTimer.Stop();
+            try
+            {
+                simulation.buttonStop_Click(sender, new EventArgs());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something went wrong showing the results");
+            }
             return;
         }
         else
@@ -695,6 +701,7 @@ public class Simulator
                 {
                     if (TrafficLightGreenFeeder.CarsGoingOut[i] != null)
                     {
+                        TrafficLightGreenFeeder.CarsGoingOut[i].CalculateRedTimeSpent();
                         int pointToCheck = -1000;
                         int pointToCompare = -1000;
 
@@ -883,6 +890,7 @@ public class Simulator
                                                 {
                                                     if (item.CarsComingIn[i].X == -2)
                                                     {
+                                                        cars.Add(item.CarsComingIn[i]);
                                                         e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
                                                         item.CarsComingIn[i].X--;
                                                         item.CarsComingIn[i] = item.CarsComingIn[i + 1];
@@ -988,6 +996,7 @@ public class Simulator
                                                 {
                                                     if (item.CarsComingIn[i].Y == -2)
                                                     {
+                                                        cars.Add(item.CarsComingIn[i]);
                                                         e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
                                                         item.CarsComingIn[i].Y--;
                                                         item.CarsComingIn[i] = item.CarsComingIn[i + 1];
@@ -1093,6 +1102,7 @@ public class Simulator
                                                 {
                                                     if (item.CarsComingIn[i].X == 199)
                                                     {
+                                                        cars.Add(item.CarsComingIn[i]);
                                                         e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
                                                         item.CarsComingIn[i].X++;
                                                         item.CarsComingIn[i] = item.CarsComingIn[i + 1];
@@ -1198,6 +1208,7 @@ public class Simulator
                                                 {
                                                     if (item.CarsComingIn[i].Y == 199)
                                                     {
+                                                        cars.Add(item.CarsComingIn[i]);
                                                         e.Graphics.FillEllipse(Brushes.Blue, item.CarsComingIn[i].X, item.CarsComingIn[i].Y, 5, 5);
                                                         item.CarsComingIn[i].Y++;
                                                         item.CarsComingIn[i] = item.CarsComingIn[i + 1];
@@ -1274,6 +1285,7 @@ public class Simulator
                     {
                         if (item.CarsGoingOut[i] != null)
                         {
+                            item.CarsGoingOut[i].SetTimeRed();
                             int pointToCheck = -1000;
                             int pointToCompare = -1000;
 

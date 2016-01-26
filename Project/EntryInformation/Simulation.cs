@@ -37,7 +37,7 @@ namespace EntryInformation
             MoveCarsTimer = new Timer();
 
             MoveCarsTimer.Tick += new EventHandler(PaintCarMoving);
-            MoveCarsTimer.Interval = 1;//change speed of the cars moving
+            MoveCarsTimer.Interval = 50;//change speed of the cars moving
 
             //setting the selected indexes at 0 in the beginning
             comboBoxColumns.SelectedIndex = 0;
@@ -189,7 +189,7 @@ namespace EntryInformation
             }
         }
 
-        private void buttonStop_Click(object sender, EventArgs e)
+        public void buttonStop_Click(object sender, EventArgs e)
         {
             stopPressed = true;
             labelGreenLPed.Visible = false;
@@ -270,8 +270,6 @@ namespace EntryInformation
         private void timerSImulationOn_Tick(object sender, EventArgs e)
         {
             labelTotallCars.Text = "Total cars:"+simulator.totalAmountOfCars.ToString();
-            
-            
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -301,6 +299,21 @@ namespace EntryInformation
 
 
             
+        }
+
+        private void trackBarChangeSpeed_MouseEnter(object sender, EventArgs e)
+        {
+            simulation.Cursor = Cursors.Hand;
+        }
+
+        private void trackBarChangeSpeed_MouseLeave(object sender, EventArgs e)
+        {
+            simulation.Cursor = Cursors.Cross;
+        }
+
+        private void trackBarChangeSpeed_Scroll(object sender, EventArgs e)
+        {
+            MoveCarsTimer.Interval = trackBarChangeSpeed.Value;
         }
     }
 }

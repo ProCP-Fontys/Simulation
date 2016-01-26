@@ -186,6 +186,11 @@ public class CrossingA : Crossing
         //peopleBR = new List<Point> { new Point(160, 160), new Point(162, 162), new Point(164, 164), new Point(166, 166) };
         if (!Pauze)
         {
+            simulation.BeginInvoke(new MethodInvoker(delegate
+            {
+                simulation.labelGreenLPed.Text = "";
+            }));
+            
             this.Feeders.Find(x => x.FeederID == (LGI % 4) + 1).trafficLight.greenLightTimer.Start();
         }
         else
